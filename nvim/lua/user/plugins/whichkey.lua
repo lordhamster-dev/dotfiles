@@ -100,10 +100,7 @@ local mappings = {
 	f = {
 		name = "File",
 		t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
-		f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{winblend = 10})<cr>",
-			"Find file",
-		},
+		f = { "<cmd>Telescope find_files<cr>", "Find file" },
 		g = { "<cmd>Telescope live_grep<cr>", "Find text" }, -- find string in current working directory as you type
 		r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
 		q = { "<cmd>copen<cr>", "Quickfix" },

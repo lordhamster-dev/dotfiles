@@ -106,6 +106,11 @@ local mappings = {
 		q = { "<cmd>copen<cr>", "Quickfix" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
 	},
+	n = {
+		name = "NPM",
+		b = { "<cmd>NPMRunBuild<cr>", "npm run build" },
+		d = { "<cmd>NPMRunDeploy<cr>", "npm run deploy" },
+	},
 	p = {
 		name = "Packer",
 		i = { "<cmd>PackerInstall<cr>", "Install" },

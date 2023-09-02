@@ -8,7 +8,6 @@
 brew install fish
 ```
 
-
 ## Add to /etc/shells
 
 ```shell
@@ -19,4 +18,16 @@ brew install fish
 
 ```shell
 chsh -s /usr/local/bin/fish
+```
+
+## Install fisher
+
+```shell
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+## Install nvm
+
+```shell
+fisher install jorgebucaran/nvm.fish
 ```

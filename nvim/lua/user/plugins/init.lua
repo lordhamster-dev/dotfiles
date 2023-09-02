@@ -15,6 +15,7 @@ require("user.plugins.gitsigns")
 require("user.plugins.colorizer")
 require("user.plugins.indent-blankline")
 require("user.plugins.leap")
+require("user.plugins.fterm")
 
 -- put this at the end
 require("user.plugins.whichkey")

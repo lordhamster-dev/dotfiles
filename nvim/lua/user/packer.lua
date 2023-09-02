@@ -36,7 +36,7 @@ return packer.startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- essential plugins
-    use("moll/vim-bbye")  -- Bdelete
+	use("moll/vim-bbye") -- Bdelete
 	use("folke/which-key.nvim")
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 	use("goolord/alpha-nvim") -- home
@@ -108,6 +108,8 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 
 	use("github/copilot.vim")
+
+	use("numToStr/FTerm.nvim")
 
 	-- 使用代码
 

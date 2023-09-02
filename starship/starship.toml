@@ -14,9 +14,7 @@ disabled = false
 
 [directory]
 truncation_length = 8       # 最长显示路径级别
-truncate_to_repo = false    # 在 git 目录下不截断路径
-style = "bold cyan"
-read_only = " "
+truncate_to_repo = true
 
 [kubernetes]
 format = "[$context:$namespace](blue) "
@@ -27,9 +25,11 @@ success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
 [cmd_duration]
-min_time = 4_000              # 4000ms
-show_milliseconds = true
+disabled = false
+min_time = 4
+show_milliseconds = false
 style = "yellow"
 
+# git
 [git_branch]
 symbol = " "

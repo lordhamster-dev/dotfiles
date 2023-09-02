@@ -5,3 +5,4 @@ ln -sv ~/dotfiles/nvim ~/.config/
 ln -sv ~/dotfiles/zellij/ ~/.config/
 
 ln -sv ~/dotfiles/fish/  ~/.config/
+ln -sv ~/dotfiles/starship/starship.toml ~/.config

@@ -1,0 +1,35 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+command_timeout = 500
+
+[username]
+disabled = true
+[hostname]
+disabled = true
+[container]
+disabled = true
+
+[line_break]
+disabled = false
+
+[directory]
+truncation_length = 8       # 最长显示路径级别
+truncate_to_repo = false    # 在 git 目录下不截断路径
+style = "bold cyan"
+read_only = " "
+
+[kubernetes]
+format = "[$context:$namespace](blue) "
+disabled = false
+
+[character]
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+
+[cmd_duration]
+min_time = 4_000              # 4000ms
+show_milliseconds = true
+style = "yellow"
+
+[git_branch]
+symbol = " "

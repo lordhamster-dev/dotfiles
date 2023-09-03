@@ -94,21 +94,19 @@ return {
 			["t"] = { "<cmd>Lspsaga term_toggle<CR>", "Term Toggle" },
 			["x"] = { "<cmd>:Bdelete!<CR>", "Close Buffer" },
 
-			m = {
-				name = "Harpoon",
+			f = {
+				name = "File Manage",
 				l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon quick menu" },
 				a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon add" },
 				n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Harpoon next" },
-				p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },
-			},
-			f = {
-				name = "File",
-				t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
+				N = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },
 				f = { "<cmd>Telescope find_files<cr>", "Find file" },
 				g = { "<cmd>Telescope live_grep<cr>", "Find text" }, -- find string in current working directory as you type
 				r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
 				q = { "<cmd>copen<cr>", "Quickfix" },
 				h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
+				m = { "<cmd>Telescope marks<cr>", "Marks" },
+				t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
 			},
 			l = {
 				name = "LSP",

@@ -1,4 +1,7 @@
--- https://github.com/norcalli/nvim-colorizer.lua
+return {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+        -- https://github.com/norcalli/nvim-colorizer.lua
 -- http://neovimcraft.com/plugin/NvChad/nvim-colorizer.lua/index.html
 local setup, colorizer = pcall(require, "colorizer")
 if not setup then
@@ -21,3 +24,6 @@ colorizer.setup({
 		virtualtext = "■",
 	},
 })
+
+    end,
+}

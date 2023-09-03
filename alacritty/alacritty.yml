@@ -3,9 +3,6 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
-shell:
-  program: /usr/local/bin/fish
-
 window:
   option_as_alt: Both
   opacity: 0.9

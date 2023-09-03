@@ -1,3 +1,5 @@
+export SHELL="/bin/zsh"
+
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="ys"
 plugins=(
@@ -11,6 +13,8 @@ source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # JAVA
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -25,8 +29,6 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
 
-# Poetry
-export PATH="/Users/jacob/.local/bin:$PATH"
 # Python
 alias pmr='python manage.py runserver'
 function nvimvenv {
@@ -43,7 +45,7 @@ alias vim="nvim"
 
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
-# alias ll="exa -l --header"
+alias ll="exa -l --header"
 
 # NVM(node version manager)
 export NVM_DIR=~/.nvm
@@ -55,4 +57,3 @@ eval "$(zoxide init zsh)"
 # Starship
 eval "$(starship init zsh)"
 
-export PATH="$PATH:$HOME/.cargo/bin"

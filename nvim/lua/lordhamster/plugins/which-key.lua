@@ -117,6 +117,7 @@ return {
 				i = { "<cmd>LspInfo<cr>", "Info" },
 				d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
 				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+				z = { "<cmd>Lazy<cr>", "Lazy" },
 			},
 			n = {
 				name = "NPM",

@@ -16,6 +16,7 @@ require("user.plugins.colorizer")
 require("user.plugins.indent-blankline")
 require("user.plugins.leap")
 require("user.plugins.fterm")
+require("user.plugins.dadbod")
 
 -- put this at the end
 require("user.plugins.whichkey")

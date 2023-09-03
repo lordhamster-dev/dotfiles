@@ -91,6 +91,12 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/nvim-treesitter-context") -- sticky header
 	use("HiPhish/nvim-ts-rainbow2")
+	use("lukas-reineke/indent-blankline.nvim")
+
+	-- database
+	use("tpope/vim-dadbod")
+	use("kristijanhusak/vim-dadbod-ui")
+	use("kristijanhusak/vim-dadbod-completion")
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -104,8 +110,6 @@ return packer.startup(function(use)
 
 	-- For CSS color
 	use("NvChad/nvim-colorizer.lua")
-
-	use("lukas-reineke/indent-blankline.nvim")
 
 	use("github/copilot.vim")
 

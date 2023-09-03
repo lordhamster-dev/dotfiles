@@ -62,6 +62,7 @@ cmp.setup({
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
+				vim_dadbod_completion = "[DB]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -71,6 +72,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "vim-dadbod-completion" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

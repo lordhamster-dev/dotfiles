@@ -1,7 +1,6 @@
 export SHELL="/bin/zsh"
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="ys"
 plugins=(
     poetry
 	git
@@ -12,7 +11,13 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Starship
+eval "$(starship init zsh)"
+
+# brew
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# PATH
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -30,7 +35,6 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
 
 # Python
-alias pmr='python manage.py runserver'
 function nvimvenv {
   if [[ -e ".venv/bin/activate" ]]; then
     source ".venv/bin/activate"
@@ -39,10 +43,11 @@ function nvimvenv {
     command nvim $@
   fi
 }
+
+# alias
+alias pmr='python manage.py runserver'
 alias nvim=nvimvenv
-alias vim="nvim"
-
-
+alias vim=nvimvenv
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
 alias ll="exa -l --header"
@@ -54,6 +59,3 @@ source $(brew --prefix nvm)/nvm.sh
 source <(ng completion script)
 # zoxide
 eval "$(zoxide init zsh)"
-# Starship
-eval "$(starship init zsh)"
-

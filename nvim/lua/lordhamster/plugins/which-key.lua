@@ -94,6 +94,13 @@ return {
 			["t"] = { "<cmd>Lspsaga term_toggle<CR>", "Term Toggle" },
 			["x"] = { "<cmd>:Bdelete!<CR>", "Close Buffer" },
 
+			m = {
+				name = "Harpoon",
+				l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon quick menu" },
+				a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon add" },
+				n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Harpoon next" },
+				p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },
+			},
 			f = {
 				name = "File",
 				t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
@@ -102,6 +109,16 @@ return {
 				r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
 				q = { "<cmd>copen<cr>", "Quickfix" },
 				h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
+			},
+			l = {
+				name = "LSP",
+				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
+				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+				a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+				r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+				i = { "<cmd>LspInfo<cr>", "Info" },
+				d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
+				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
 			},
 			n = {
 				name = "NPM",
@@ -116,16 +133,6 @@ return {
 				k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 				p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 				R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-			},
-			l = {
-				name = "LSP",
-				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
-				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-				a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-				r = { "<cmd>Lspsaga rename<cr>", "Rename" },
-				i = { "<cmd>LspInfo<cr>", "Info" },
-				d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
-				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
 			},
 		}
 		wk.setup(setup)

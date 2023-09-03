@@ -58,6 +58,7 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
+    "sqlls",
 	"astro",
 }
 require("mason-lspconfig").setup({

@@ -120,13 +120,12 @@ return {
 			l = {
 				name = "LSP",
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
+				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
 				a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
+				r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+				i = { "<cmd>LspInfo<cr>", "Info" },
 				d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
 				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-				i = { "<cmd>LspInfo<cr>", "Info" },
-				l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-				r = { "<cmd>Lspsaga rename<cr>", "Rename" },
 			},
 		}
 		wk.setup(setup)

@@ -11,17 +11,7 @@ return {
 		},
 		config = function()
 			-- import nvim-treesitter plugin safely
-			local status, treesitter = pcall(require, "nvim-treesitter.configs")
-			if not status then
-				print("nvim-treesitter not installed!")
-				return
-			end
-
-			local rainbow_status, _ = pcall(require, "ts-rainbow")
-			if not rainbow_status then
-				print("ts-rainbow not installed!")
-				return
-			end
+			local treesitter = require("nvim-treesitter.configs")
 
 			-- configure treesitter
 			treesitter.setup({
@@ -72,10 +62,7 @@ return {
 			end
 
 			-- https://github.com/lukas-reineke/indent-blankline.nvim
-			local setup, indent_blankline = pcall(require, "indent_blankline")
-			if not setup then
-				return
-			end
+			local indent_blankline = require("indent_blankline")
 
 			indent_blankline.setup({
 				show_end_of_line = true,

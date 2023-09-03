@@ -3,10 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		-- import nvim-tree plugin safely
-		local status, nvimtree = pcall(require, "nvim-tree")
-		if not status then
-			return
-		end
+		local nvimtree = require("nvim-tree")
 
 		-- remove winbar from nvim tree
 		local api = require("nvim-tree.api")

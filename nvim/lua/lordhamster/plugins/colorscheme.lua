@@ -4,10 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		-- https://github.com/catppuccin/nvim
-		local catppuccin_status, catppuccin = pcall(require, "catppuccin")
-		if not catppuccin_status then
-			print("Them catppuccin not installed!")
-		end
+		local catppuccin = require("catppuccin")
 
 		catppuccin.setup({
 			flavour = "mocha", -- latte, frappe, macchiato, mocha

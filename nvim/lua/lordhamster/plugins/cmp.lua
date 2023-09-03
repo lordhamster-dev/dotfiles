@@ -11,10 +11,7 @@ return {
 	},
 	config = function()
 		-- import nvim-cmp plugin safely
-		local cmp_status, cmp = pcall(require, "cmp")
-		if not cmp_status then
-			return
-		end
+		local cmp = require("cmp")
 
 		local kind_icons = {
 			Text = "󰊄",
@@ -74,7 +71,6 @@ return {
 						luasnip = "[Snippet]",
 						buffer = "[Buffer]",
 						path = "[Path]",
-						vim_dadbod_completion = "[DB]",
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -84,7 +80,6 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
-				{ name = "vim-dadbod-completion" },
 			},
 			confirm_opts = {
 				behavior = cmp.ConfirmBehavior.Replace,

@@ -3,10 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		-- import lualine plugin safely
-		local status, lualine = pcall(require, "lualine")
-		if not status then
-			return
-		end
+		local lualine = require("lualine")
 
 		local hide_in_width = function()
 			return vim.fn.winwidth(0) > 80

@@ -8,10 +8,7 @@ return {
 	},
 	config = function()
 		-- import telescope plugin safely
-		local telescope_setup, telescope = pcall(require, "telescope")
-		if not telescope_setup then
-			return
-		end
+		local telescope = require("telescope")
 
 		-- import telescope actions safely
 		local actions_setup, actions = pcall(require, "telescope.actions")

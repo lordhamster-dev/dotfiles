@@ -5,35 +5,13 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"RRethy/vim-illuminate",
 		"williamboman/mason-lspconfig.nvim",
-		"jose-elias-alvarez/typescript.nvim",
 	},
 	config = function()
-		local lsp_handler_status, lsp_handler = pcall(require, "lordhamster.plugins.lsp.conf.lsp_handler")
-		if not lsp_handler_status then
-			return
-		end
+		local lsp_handler = require("lordhamster.plugins.lsp.conf.lsp_handler")
 
-		local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-		if not lspconfig_status then
-			return
-		end
+		local lspconfig = require("lspconfig")
 
-		local mason_status, _ = pcall(require, "mason")
-		if not mason_status then
-			return
-		end
-
-		local mason_lspconfig_status, _ = pcall(require, "mason-lspconfig")
-		if not mason_lspconfig_status then
-			return
-		end
-
-		local typescript_status, typescript = pcall(require, "typescript")
-		if not typescript_status then
-			return
-		end
-
-		local settings = {
+		require("mason").setup({
 			ui = {
 				border = "none",
 				icons = {
@@ -44,8 +22,7 @@ return {
 			},
 			log_level = vim.log.levels.INFO,
 			max_concurrent_installers = 4,
-		}
-		require("mason").setup(settings)
+		})
 
 		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 		local servers = {
@@ -92,14 +69,6 @@ return {
 
 			lspconfig[server].setup(opts)
 		end
-
-		-- configure typescript server with plugin
-		typescript.setup({
-			server = {
-				on_attach = lsp_handler.on_attach,
-				capabilities = lsp_handler.capabilities,
-			},
-		})
 
 		lsp_handler.setup()
 	end,

@@ -27,8 +27,6 @@ return {
 				formatting.stylua,
 				-- javascript、typescript
 				diagnostics.eslint,
-				-- typescript import order and organize
-				require("typescript.extensions.null-ls.code-actions"),
 			},
 		})
 

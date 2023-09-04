@@ -4,9 +4,8 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl a" { SwitchToMode "Pane"; }
+        bind "Ctrl s" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
-        bind "Ctrl s" { SwitchToMode "Session"; }
         bind "Ctrl f" { SwitchToMode "Scroll"; }
         bind "Ctrl q" { Quit; }
 
@@ -23,9 +22,8 @@ keybinds {
 
     locked clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "Normal"; }
-        bind "Ctrl a" { SwitchToMode "Pane"; }
+        bind "Ctrl s" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
-        bind "Ctrl s" { SwitchToMode "Session"; }
         bind "Ctrl f" { SwitchToMode "Scroll"; }
 
         bind "Alt n" { NewPane; }
@@ -59,8 +57,17 @@ keybinds {
 
         bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 
-        bind "s" { SwitchToMode "Resize"; }
+        bind "c" { SwitchToMode "Resize"; }
         bind "m" { SwitchToMode "Move"; }
+
+        bind "d" { Detach; }
+        bind "s" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
     resize clear-defaults=true {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }

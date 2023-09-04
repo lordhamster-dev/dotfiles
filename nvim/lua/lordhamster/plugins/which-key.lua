@@ -119,11 +119,6 @@ return {
 				w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
 				z = { "<cmd>Lazy<cr>", "Lazy" },
 			},
-			n = {
-				name = "NPM",
-				b = { "<cmd>NPMRunBuild<cr>", "npm run build" },
-				d = { "<cmd>NPMRunDeploy<cr>", "npm run deploy" },
-			},
 			g = {
 				name = "Git",
 				b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },

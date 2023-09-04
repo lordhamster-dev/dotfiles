@@ -31,12 +31,12 @@ return {
 			lazygit:toggle()
 		end)
 
-		vim.api.nvim_create_user_command("NPMRunBuild", function()
-			require("FTerm").scratch({ cmd = { "npm", "run", "build" } })
-		end, { bang = true })
-
-		vim.api.nvim_create_user_command("NPMRunDeploy", function()
-			require("FTerm").scratch({ cmd = { "npm", "run", "deploy" } })
-		end, { bang = true })
+		-- vim.api.nvim_create_user_command("NPMRunBuild", function()
+		-- 	require("FTerm").scratch({ cmd = { "npm", "run", "build" } })
+		-- end, { bang = true })
+		--
+		-- vim.api.nvim_create_user_command("NPMRunDeploy", function()
+		-- 	require("FTerm").scratch({ cmd = { "npm", "run", "deploy" } })
+		-- end, { bang = true })
 	end,
 }

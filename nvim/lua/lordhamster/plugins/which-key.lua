@@ -86,7 +86,7 @@ return {
 
 		local mappings = {
 			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-			["e"] = { "<cmd>NvimTreeFocus<cr>", "Explorer" },
+			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 			["w"] = { "<cmd>w!<CR>", "Save" },
 			["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
 			["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -107,7 +107,6 @@ return {
 				h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
 				m = { "<cmd>Telescope marks<cr>", "Marks" },
 				b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-				t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
 			},
 			l = {
 				name = "LSP",

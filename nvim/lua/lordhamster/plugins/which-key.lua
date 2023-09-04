@@ -106,6 +106,7 @@ return {
 				q = { "<cmd>copen<cr>", "Quickfix" },
 				h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
 				m = { "<cmd>Telescope marks<cr>", "Marks" },
+				b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 				t = { "<cmd>NvimTreeToggle<cr>", "Toggle Explorer" },
 			},
 			l = {

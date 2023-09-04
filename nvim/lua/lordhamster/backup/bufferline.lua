@@ -25,9 +25,4 @@ return {
 			sort_by = "insert_at_end",
 		},
 	},
-	config = function()
-		local keymap = vim.keymap -- for conciseness
-		keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
-		keymap.set("n", "L", ":BufferLineCycleNext<CR>")
-	end,
 }

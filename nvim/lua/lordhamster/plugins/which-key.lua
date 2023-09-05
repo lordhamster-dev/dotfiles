@@ -19,7 +19,6 @@ return {
 
 		local mappings = {
 			["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-			["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 			["w"] = { "<cmd>w!<CR>", "Save" },
 			["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
 			["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -27,6 +26,13 @@ return {
 			["t"] = { "<cmd>Lspsaga term_toggle<CR>", "Term Toggle" },
 			["x"] = { "<cmd>:Bdelete!<CR>", "Close Buffer" },
 
+			e = {
+				name = "NvimTree",
+				e = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
+				f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
+				c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
+				r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
+			},
 			f = {
 				name = "File Manage",
 				l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon quick menu" },

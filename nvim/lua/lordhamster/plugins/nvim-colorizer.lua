@@ -19,6 +19,7 @@ return {
 				css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 				mode = "background", -- Set the display mode.Available modes for `mode`: foreground,background,virtualtext
 				virtualtext = "■",
+				tailwind = true,
 			},
 		})
 	end,

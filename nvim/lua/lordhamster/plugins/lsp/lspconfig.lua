@@ -36,18 +36,10 @@ return {
 
 		local opts = { noremap = true, silent = true }
 
-		local disableFormattingServers = {
-			["tsserver"] = true,
-			["lua_ls"] = true,
-			["html"] = true,
-			["cssls"] = true,
-			["jsonls"] = true,
-		}
-
 		local on_attach = function(client, bufnr)
-			if disableFormattingServers[client.name] then
-				client.server_capabilities.documentFormattingProvider = false -- use null-ls formatting instead
-			end
+			-- if disableFormattingServers[client.name] then
+			-- 	client.server_capabilities.documentFormattingProvider = false -- use null-ls formatting instead
+			-- end
 
 			opts.buffer = bufnr
 
@@ -146,12 +138,35 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			lint = {
+				cssConflict = "warning",
+				invalidApply = "error",
+				invalidConfigPath = "error",
+				invalidScreen = "error",
+				invalidTailwindDirective = "error",
+				invalidVariant = "error",
+				recommendedVariantOrder = "warning",
+			},
+			validate = true,
 		})
 
 		-- configure typescript server
+		local function organize_imports()
+			local params = {
+				command = "_typescript.organizeImports",
+				arguments = { vim.api.nvim_buf_get_name(0) },
+			}
+			vim.lsp.buf.execute_command(params)
+		end
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			commands = {
+				OrganizeImports = {
+					organize_imports,
+					description = "Organize Imports",
+				},
+			},
 		})
 
 		-- configure angular server

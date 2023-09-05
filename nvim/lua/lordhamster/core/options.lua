@@ -68,11 +68,11 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 opt.winbar = "%=%t"
 
 -- Auto save
-vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-	pattern = { "*" },
-	command = "silent! wall",
-	nested = true,
-})
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+-- 	pattern = { "*" },
+-- 	command = "silent! wall",
+-- 	nested = true,
+-- })
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {

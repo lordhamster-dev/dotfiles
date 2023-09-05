@@ -21,21 +21,14 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"clangd",
-				-- python
 				"pyright",
-				-- lua
 				"lua_ls",
-				-- html
 				"html",
 				"emmet_ls",
-				-- css
 				"cssls",
 				"tailwindcss",
-				-- typescript
 				"tsserver",
-				-- angular
 				"angularls",
-				-- other
 				"bashls",
 				"jsonls",
 				"yamlls",

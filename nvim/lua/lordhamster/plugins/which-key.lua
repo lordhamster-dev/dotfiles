@@ -111,7 +111,7 @@ return {
 			l = {
 				name = "LSP",
 				R = { "<cmd>LspRestart<CR>", "Restart LSP" },
-				f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+				-- f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
 				a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
 				r = { "<cmd>Lspsaga rename<cr>", "Rename" },
 				i = { "<cmd>LspInfo<cr>", "Info" },

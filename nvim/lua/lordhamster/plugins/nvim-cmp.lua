@@ -8,6 +8,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"L3MON4D3/LuaSnip", -- snippet engine
 		"rafamadriz/friendly-snippets", -- useful snippets
+		{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
 	},
 	config = function()
 		-- import nvim-cmp plugin safely
@@ -72,7 +73,7 @@ return {
 						buffer = "[Buffer]",
 						path = "[Path]",
 					})[entry.source.name]
-					return vim_item
+					return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
 				end,
 			},
 			sources = {

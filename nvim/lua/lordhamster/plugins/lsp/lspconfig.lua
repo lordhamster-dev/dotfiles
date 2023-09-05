@@ -138,16 +138,6 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			lint = {
-				cssConflict = "warning",
-				invalidApply = "error",
-				invalidConfigPath = "error",
-				invalidScreen = "error",
-				invalidTailwindDirective = "error",
-				invalidVariant = "error",
-				recommendedVariantOrder = "warning",
-			},
-			validate = true,
 		})
 
 		-- configure typescript server

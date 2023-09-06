@@ -160,6 +160,7 @@ return {
 		})
 
 		-- configure angular server
+		-- npm install -D @angular/language-service
 		lspconfig["angularls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,

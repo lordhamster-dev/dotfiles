@@ -16,7 +16,7 @@ return {
 			-- configure treesitter
 			treesitter.setup({
 				-- enable syntax highlighting
-				highlight = { enable = true },
+				highlight = { enable = true, additional_vim_regex_highlighting = { "markdown" } },
 				-- enable indentation
 				indent = { enable = true },
 				-- enable autotagging (w/ nvim-ts-autotag plugin)

@@ -22,6 +22,9 @@ return {
 		return {
 			dir = "/Users/jacob/Library/Mobile Documents/iCloud~md~obsidian/Documents/LordHamster", -- no need to call 'vim.fn.expand' here
 
+			-- Optional, set to true if you don't want obsidian.nvim to manage frontmatter.
+			disable_frontmatter = true,
+
 			mappings = {
 				-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
 				-- ["gf"] = require("obsidian.mapping").gf_passthrough(),

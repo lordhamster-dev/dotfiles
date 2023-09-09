@@ -8,7 +8,7 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 -- Use jk to exit insert mode
--- keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "jk", "<ESC>")
 
 -- Without copying into register
 keymap.set("n", "x", '"_x')

@@ -1,8 +1,8 @@
 {
-  "title": "Caps Lock to Left Control",
+  "title": "Change caps_lock to Esc and Control",
   "rules": [
     {
-      "description": "Caps Lock to Left Control",
+      "description": "Post Esc if Caps is tapped, Control if held.",
       "manipulators": [
         {
           "type": "basic",
@@ -14,7 +14,13 @@
           },
           "to": [
             {
-              "key_code": "left_control"
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
             }
           ]
         }

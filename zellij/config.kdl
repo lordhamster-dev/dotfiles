@@ -1,6 +1,6 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
-    normal clear-defaults=true {
+keybinds clear-defaults=true {
+    normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         bind "Ctrl g" { SwitchToMode "Locked"; }
@@ -20,7 +20,7 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
     }
 
-    locked clear-defaults=true {
+    locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "Pane"; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
@@ -37,7 +37,7 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
     }
 
-    pane clear-defaults=true {
+    pane {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
 
         bind "h" "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
@@ -69,7 +69,7 @@ keybinds {
             SwitchToMode "Normal"
         }
     }
-    resize clear-defaults=true {
+    resize {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
@@ -82,7 +82,7 @@ keybinds {
         bind "=" "+" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
     }
-    move clear-defaults=true {
+    move {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "b" { MovePaneBackwards; }
@@ -91,7 +91,7 @@ keybinds {
         bind "k" "Up" { MovePane "Up"; }
         bind "l" "Right" { MovePane "Right"; }
     }
-    renamepane clear-defaults=true {
+    renamepane {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "Ctrl c" { UndoRenameTab; SwitchToMode "Pane"; }
         bind "Alt h" { MoveFocus "Left"; }
@@ -100,7 +100,7 @@ keybinds {
         bind "Alt k" { MoveFocus "Up"; }
     }
 
-    tab clear-defaults=true {
+    tab {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
@@ -122,12 +122,12 @@ keybinds {
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
         bind "Tab" { ToggleTab; }
     }
-    renametab clear-defaults=true {
+    renametab {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "Ctrl c" { UndoRenameTab; SwitchToMode "tab"; }
     }
 
-    session clear-defaults=true {
+    session  {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "d" { Detach; }
         bind "s" {
@@ -144,7 +144,7 @@ keybinds {
         // }
     }
 
-    scroll clear-defaults=true {
+    scroll {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
@@ -156,11 +156,11 @@ keybinds {
         bind "Ctrl d" { HalfPageScrollDown; }
         bind "Ctrl u" { HalfPageScrollUp; }
     }
-    entersearch clear-defaults=true {
+    entersearch {
         bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
         bind "Enter" { SwitchToMode "Search"; }
     }
-    search clear-defaults=true {
+    search {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }

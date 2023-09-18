@@ -8,6 +8,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-context", -- sticky header
 			"HiPhish/nvim-ts-rainbow2",
 			"lukas-reineke/indent-blankline.nvim",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		config = function()
 			-- import nvim-treesitter plugin safely
@@ -52,6 +53,23 @@ return {
 					query = "rainbow-parens",
 					-- Highlight the entire buffer all at once
 					strategy = require("ts-rainbow").strategy.global,
+				},
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+						keymaps = {
+							-- You can use the capture groups defined in textobjects.scm
+							["aa"] = "@parameter.outer",
+							["ia"] = "@parameter.inner",
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
+							["al"] = "@loop.outer",
+							["il"] = "@loop.inner",
+						},
+					},
 				},
 			})
 

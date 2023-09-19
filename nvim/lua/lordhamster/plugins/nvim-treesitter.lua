@@ -6,9 +6,9 @@ return {
 		dependencies = {
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-context", -- sticky header
-			"HiPhish/nvim-ts-rainbow2",
-			"lukas-reineke/indent-blankline.nvim",
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			"lukas-reineke/indent-blankline.nvim",
+			"HiPhish/nvim-ts-rainbow2",
 		},
 		config = function()
 			-- import nvim-treesitter plugin safely
@@ -80,9 +80,7 @@ return {
 			end
 
 			-- https://github.com/lukas-reineke/indent-blankline.nvim
-			local indent_blankline = require("indent_blankline")
-
-			indent_blankline.setup({
+			require("indent_blankline").setup({
 				show_end_of_line = true,
 				space_char_blankline = " ",
 			})

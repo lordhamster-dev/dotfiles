@@ -61,10 +61,10 @@ return {
 			return
 		end
 
-		local highlight_linenumber, _ = pcall(vim.cmd, "hi LineNr guifg=#fff")
-		if not highlight_linenumber then
-			print("Set linenumber highlight wrong!")
-			return
-		end
+		-- local highlight_linenumber, _ = pcall(vim.cmd, "hi LineNr guifg=#fff")
+		-- if not highlight_linenumber then
+		-- 	print("Set linenumber highlight wrong!")
+		-- 	return
+		-- end
 	end,
 }

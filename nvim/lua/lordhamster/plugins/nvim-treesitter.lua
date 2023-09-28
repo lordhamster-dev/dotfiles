@@ -7,7 +7,7 @@ return {
 			"windwp/nvim-ts-autotag",
 			-- "nvim-treesitter/nvim-treesitter-context", -- sticky header
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			"lukas-reineke/indent-blankline.nvim",
+			{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opt = {} },
 			"HiPhish/nvim-ts-rainbow2",
 		},
 		config = function()
@@ -80,10 +80,7 @@ return {
 			end
 
 			-- https://github.com/lukas-reineke/indent-blankline.nvim
-			require("indent_blankline").setup({
-				show_end_of_line = true,
-				space_char_blankline = " ",
-			})
+			require("ibl").setup()
 		end,
 	},
 }

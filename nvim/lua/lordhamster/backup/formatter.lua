@@ -17,6 +17,13 @@ return {
 				python = {
 					function()
 						return {
+							exe = "reorder-python-imports",
+							args = { "-", "--exit-zero-even-if-changed" },
+							stdin = true,
+						}
+					end,
+					function()
+						return {
 							exe = "black",
 							args = {
 								"--stdin-filename",
@@ -26,13 +33,6 @@ return {
 								"--skip-string-normalization",
 								"-",
 							},
-							stdin = true,
-						}
-					end,
-					function()
-						return {
-							exe = "reorder-python-imports",
-							args = { "-", "--exit-zero-even-if-changed" },
 							stdin = true,
 						}
 					end,

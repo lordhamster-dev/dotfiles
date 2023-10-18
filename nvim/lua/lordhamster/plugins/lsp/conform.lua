@@ -40,7 +40,6 @@ return {
 						"--stdin-filename",
 						"$FILENAME",
 						"--quiet",
-						"--fast",
 						"--skip-string-normalization",
 						"-",
 					},

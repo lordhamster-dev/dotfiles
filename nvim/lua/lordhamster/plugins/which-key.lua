@@ -26,12 +26,18 @@ return {
 			["t"] = { "<cmd>Lspsaga term_toggle<CR>", "Term Toggle" },
 			["x"] = { "<cmd>:Bdelete!<CR>", "Close Buffer" },
 
-			n = {
-				name = "Neorg",
-				f = { "<cmd>Telescope neorg find_norg_files<cr>", "Neorg find files" },
-				s = { "<cmd>Telescope neorg search_headings<cr>", "Neorg search headings" },
-				i = { "<cmd>Telescope neorg insert_file_link<cr>", "Neorg insert file link" },
-				l = { "<cmd>Telescope neorg insert_link<cr>", "Neorg insert link" },
+			-- n = {
+			-- 	name = "Neorg",
+			-- 	f = { "<cmd>Telescope neorg find_norg_files<cr>", "Neorg find files" },
+			-- 	s = { "<cmd>Telescope neorg search_headings<cr>", "Neorg search headings" },
+			-- 	i = { "<cmd>Telescope neorg insert_file_link<cr>", "Neorg insert file link" },
+			-- 	l = { "<cmd>Telescope neorg insert_link<cr>", "Neorg insert link" },
+			-- },
+			s = {
+				name = "Obsidian",
+				f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
+				s = { "<cmd>ObsidianSearch<cr>", "Obsidian search" },
+				o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
 			},
 			e = {
 				name = "NvimTree",

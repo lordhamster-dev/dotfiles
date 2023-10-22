@@ -1,5 +1,7 @@
 local opt = vim.opt -- for conciseness
 
+vim.g.maplocalleader = ";"
+
 -- utf8
 opt.encoding = "UTF-8"
 opt.fileencoding = "utf-8"

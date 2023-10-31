@@ -44,11 +44,12 @@ return {
 				cmp = true,
 				gitsigns = true,
 				nvimtree = true,
-				telescope = true,
 				treesitter = true,
 				treesitter_context = true,
+				ts_rainbow2 = true,
 				which_key = true,
-				leap = true,
+				harpoon = true,
+				flash = true,
 				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
 		})

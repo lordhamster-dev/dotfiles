@@ -7,7 +7,7 @@ return {
 			"windwp/nvim-ts-autotag",
 			-- "nvim-treesitter/nvim-treesitter-context", -- sticky header
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opt = {} },
+			{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 			"HiPhish/nvim-ts-rainbow2",
 		},
 		config = function()

@@ -2,8 +2,8 @@
 
 ## Font
 
-[GitHub](https://github.com/ryanoasis/nerd-fonts)
-[Nerd Font Web](https://www.nerdfonts.com/cheat-sheet)
+- [GitHub](https://github.com/ryanoasis/nerd-fonts)
+- [Nerd Font Web](https://www.nerdfonts.com/cheat-sheet)
 
 ### install
 

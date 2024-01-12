@@ -137,11 +137,6 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "Normal"
         }
-        // bind "g" {
-        //   Run "zellij" "run" "-f" "-c" "--" "lazygit" {
-        //     close_on_exit true
-        //   }
-        // }
     }
 
     scroll {

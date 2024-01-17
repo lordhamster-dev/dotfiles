@@ -4,9 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		-- https://github.com/catppuccin/nvim
-		local catppuccin = require("catppuccin")
-
-		catppuccin.setup({
+		require("catppuccin").setup({
 			flavour = "mocha", -- latte, frappe, macchiato, mocha
 			background = {
 				-- :h background
@@ -54,18 +52,7 @@ return {
 			},
 		})
 
-		-- set colorscheme with protected call
-		-- in case it isn't installed
-		local status, _ = pcall(vim.cmd, "colorscheme catppuccin")
-		if not status then
-			print("Colorscheme not found!") -- print error if colorscheme not installed
-			return
-		end
-
-		-- local highlight_linenumber, _ = pcall(vim.cmd, "hi LineNr guifg=#fff")
-		-- if not highlight_linenumber then
-		-- 	print("Set linenumber highlight wrong!")
-		-- 	return
-		-- end
+		vim.cmd("colorscheme catppuccin")
+		-- vim.cmd("hi LineNr guifg=#fff")
 	end,
 }

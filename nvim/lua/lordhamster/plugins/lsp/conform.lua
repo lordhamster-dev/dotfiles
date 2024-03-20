@@ -7,7 +7,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				python = { "reorder_python_imports", "my_black" },
+				python = { "reorder_python_imports", "black" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
 				lua = { "stylua" },

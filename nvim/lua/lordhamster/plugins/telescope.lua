@@ -13,6 +13,7 @@ return {
 		-- configure telescope
 		telescope.setup({
 			defaults = {
+				path_display = { "smart" },
 				mappings = {
 					-- insert mode
 					i = {

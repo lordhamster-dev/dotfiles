@@ -39,19 +39,5 @@ return {
     })
 
     telescope.load_extension("fzf")
-
-    -- set keymaps
-    vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
-
-    vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy Find files" })
-    vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find text" })
-    vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recently used files" })
-
-    vim.keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>", { desc = "Marks" })
-    vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-
-    vim.keymap.set("n", "<leader>fq", "<cmd>copen<cr>", { desc = "Quickfix" })
-
-    vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
   end,
 }

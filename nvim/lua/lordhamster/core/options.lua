@@ -78,13 +78,13 @@ opt.winbar = "%=%t"
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
-	pattern = "*",
-	callback = function()
-		if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
-			vim.fn.setpos(".", vim.fn.getpos("'\""))
-			vim.cmd("silent! foldopen")
-		end
-	end,
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.fn.setpos(".", vim.fn.getpos("'\""))
+      vim.cmd("silent! foldopen")
+    end
+  end,
 })
 
 -- 进入 normal 模式时切换为英文输入法
@@ -96,6 +96,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- ]])
 
 vim.api.nvim_create_user_command("Rfinder", function()
-	local path = vim.api.nvim_buf_get_name(0)
-	os.execute("open -R " .. path)
+  local path = vim.api.nvim_buf_get_name(0)
+  os.execute("open -R " .. path)
 end, {})

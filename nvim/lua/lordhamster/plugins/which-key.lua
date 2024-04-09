@@ -42,7 +42,7 @@ return {
       e = {
         name = "NvimTree",
         e = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
-        f = { "<cmd>NvimTreeFindFileToggle<cr>", "Find current file on file explorer" },
+        f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
         c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
         r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
       },

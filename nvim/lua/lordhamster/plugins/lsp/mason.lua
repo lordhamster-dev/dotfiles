@@ -39,6 +39,7 @@ return {
 
     require("mason-tool-installer").setup({
       ensure_installed = {
+        "clang-format",
         "black", -- python formatter
         -- "clang-format", -- c,cpp formatter
         "prettier", -- prettier formatter

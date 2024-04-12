@@ -33,12 +33,12 @@ return {
       -- 	i = { "<cmd>Telescope neorg insert_file_link<cr>", "Neorg insert file link" },
       -- 	l = { "<cmd>Telescope neorg insert_link<cr>", "Neorg insert link" },
       -- },
-      -- s = {
-      -- 	name = "Obsidian",
-      -- 	f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
-      -- 	s = { "<cmd>ObsidianSearch<cr>", "Obsidian search" },
-      -- 	o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
-      -- },
+      s = {
+        name = "Obsidian",
+        f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
+        s = { "<cmd>ObsidianSearch<cr>", "Obsidian search" },
+        o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
+      },
       e = {
         name = "NvimTree",
         e = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },

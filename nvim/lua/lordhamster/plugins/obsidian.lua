@@ -16,6 +16,21 @@ return {
       dir = "/Users/jacob/Library/Mobile Documents/iCloud~md~obsidian/Documents/LordHamster", -- no need to call 'vim.fn.expand' here
       notes_subdir = "3-Permanent",
       new_notes_location = "notes_subdir",
+      -- Optional, customize how note IDs are generated given an optional title.
+      ---@param title string|?
+      ---@return string
+      note_id_func = function(title)
+        if title ~= nil then
+          return title
+        else
+          -- If title is nil, just add 4 random uppercase letters to the suffix.
+          local suffix = ""
+          for _ = 1, 4 do
+            suffix = suffix .. string.char(math.random(65, 90))
+          end
+          return tostring(os.time()) .. "-" .. suffix
+        end
+      end,
       completion = {
         -- If using nvim-cmp, otherwise set to false
         nvim_cmp = true,

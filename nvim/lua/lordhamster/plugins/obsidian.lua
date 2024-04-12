@@ -35,6 +35,18 @@ return {
         -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
         -- ["gf"] = require("obsidian.mapping").gf_passthrough(),
       },
+      ui = {
+        checkboxes = {
+          -- [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+          -- ["x"] = { char = "", hl_group = "ObsidianDone" },
+          -- [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+          -- ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+          -- Replace the above with this if you don't have a patched font:
+          [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+          -- You can also add more custom ones...
+        },
+      },
       follow_url_func = function(url)
         -- Open the URL in the default web browser.
         vim.fn.jobstart({ "open", url }) -- Mac OS

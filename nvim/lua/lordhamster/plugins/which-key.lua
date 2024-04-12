@@ -33,6 +33,7 @@ return {
       -- },
       o = {
         name = "Obsidian",
+        b = { "<cmd>ObsidianBacklinks<cr>", "Obsidian backlinks" },
         c = { "<cmd>ObsidianToggleCheckbox<cr>", "Obsidian toggle checkbox" },
         f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
         n = { "<cmd>ObsidianNew<cr>", "Obsidian new" },

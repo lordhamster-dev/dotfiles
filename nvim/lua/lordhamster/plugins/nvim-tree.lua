@@ -24,8 +24,8 @@ return {
     -- float window position
     local gwidth = vim.api.nvim_list_uis()[1].width
     local gheight = vim.api.nvim_list_uis()[1].height
-    local width = 100
-    local height = 50
+    local width = math.ceil(gwidth / 2)
+    local height = math.ceil(gheight / 2)
 
     local function on_attach(bufnr)
       local api = require("nvim-tree.api")

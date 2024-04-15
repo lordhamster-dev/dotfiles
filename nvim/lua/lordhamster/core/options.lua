@@ -17,6 +17,9 @@ opt.list = true
 -- opt.listchars:append("space:⋅")
 -- opt.listchars:append("eol:↴")
 
+-- Save undo history
+opt.undofile = true
+
 -- 禁止创建备份文件
 opt.backup = false
 opt.writebackup = false

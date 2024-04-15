@@ -2,6 +2,10 @@ local opt = vim.opt -- for conciseness
 
 vim.g.maplocalleader = ";"
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- utf8
 opt.encoding = "UTF-8"
 opt.fileencoding = "utf-8"

@@ -44,7 +44,7 @@ data.location=/Users/jacob/.task
 report.today.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.today.context=1
 report.today.description=Today tasks
-report.today.filter=scheduled.before:tomorrow or due.before:tomorrow
+report.today.filter=status:pending scheduled.before:tomorrow or due.before:tomorrow
 report.today.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.today.sort=urgency-
 
@@ -53,4 +53,3 @@ news.version=2.6.0
 context.work.read=project:work
 context.work.write=project:work
 context.home.read=project.not:work
-context.home.write=project.not:work

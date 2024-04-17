@@ -58,7 +58,9 @@ alias ll="exa -l --header"
 ## alias for taskwarrior
 alias t="task"
 alias work="task context work"
+alias home="task context home"
 alias none="task context none"
+alias today="task today"
 
 
 # NVM(node version manager)

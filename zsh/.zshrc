@@ -37,6 +37,8 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
 
+# neovim
+export EDITOR=nvim
 # neovim with python, auto activate env (need poetry)
 function nvimvenv {
   if [[ -e ".venv/bin/activate" ]]; then
@@ -46,12 +48,11 @@ function nvimvenv {
     command nvim $@
   fi
 }
-export EDITOR=nvimvenv
+alias nvim=nvimvenv
+alias vim=nvimvenv
 
 # alias
 alias pmr='python manage.py runserver'
-alias nvim=nvimvenv
-alias vim=nvimvenv
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
 alias ll="exa -l --header"

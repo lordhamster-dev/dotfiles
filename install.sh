@@ -11,4 +11,4 @@ ln -sv ~/dotfiles/karabiner/complex_modifications/* ~/.config/karabiner/assets/c
 
 # Taskwarrior
 ln -sv ~/dotfiles/taskwarrior/.taskrc ~
-ln -sv ~/dotfiles/vit/*  ~/.vit
+ln -sv ~/dotfiles/taskwarrior/vit/*  ~/.vit

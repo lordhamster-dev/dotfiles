@@ -52,3 +52,5 @@ report.today.sort=urgency-
 news.version=2.6.0
 context.work.read=project:work
 context.work.write=project:work
+context.home.read=project.not:work
+context.home.write=project.not:work

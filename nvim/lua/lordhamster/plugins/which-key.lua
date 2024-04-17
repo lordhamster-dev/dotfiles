@@ -53,6 +53,7 @@ return {
         N = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },
         a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon add" },
         b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+        c = { "<cmd>cexpr []<cr>", "Clear Quickfix" },
         f = { "<cmd>Telescope find_files<cr>", "Find file" },
         g = { "<cmd>Telescope live_grep<cr>", "Find text" }, -- find string in current working directory as you type
         h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags

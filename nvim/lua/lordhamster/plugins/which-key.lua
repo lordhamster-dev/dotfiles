@@ -36,6 +36,7 @@ return {
         T = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },
         b = { "<cmd>ObsidianBacklinks<cr>", "Obsidian backlinks" },
         c = { "<cmd>ObsidianToggleCheckbox<cr>", "Obsidian toggle checkbox" },
+        d = { "<cmd>ObsidianDailies<cr>", "Obsidian dailies" },
         f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
         g = { "<cmd>ObsidianSearch<cr>", "Obsidian find text" },
         n = { "<cmd>ObsidianNew<cr>", "Obsidian new" },

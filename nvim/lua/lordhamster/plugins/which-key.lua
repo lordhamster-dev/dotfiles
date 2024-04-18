@@ -33,13 +33,14 @@ return {
       -- },
       o = {
         name = "Obsidian",
+        T = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },
         b = { "<cmd>ObsidianBacklinks<cr>", "Obsidian backlinks" },
         c = { "<cmd>ObsidianToggleCheckbox<cr>", "Obsidian toggle checkbox" },
         f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
         g = { "<cmd>ObsidianSearch<cr>", "Obsidian find text" },
         n = { "<cmd>ObsidianNew<cr>", "Obsidian new" },
         o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
-        t = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },
+        t = { "<cmd>ObsidianTemplate<cr>", "Obsidian template" },
       },
       e = {
         name = "NvimTree",

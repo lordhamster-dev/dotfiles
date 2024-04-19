@@ -49,6 +49,13 @@ report.today.filter=status:pending scheduled.before:tomorrow or due.before:tomor
 report.today.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.today.sort=urgency-
 
+report.anytime.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.anytime.context=1
+report.anytime.description=Anytime tasks
+report.anytime.filter=status:pending scheduled.none:
+report.anytime.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.anytime.sort=urgency-
+
 
 news.version=2.6.0
 

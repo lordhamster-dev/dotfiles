@@ -39,6 +39,7 @@ data.location=/Users/jacob/Library/Mobile Documents/com~apple~CloudDocs/Taskwarr
 #include solarized-light-256.theme
 #include no-color.theme
 
+weekstart=monday
 
 # Reports
 report.today.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency

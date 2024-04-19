@@ -24,9 +24,9 @@ color.blocking=black on bright white
 # color.project.none=red
 
 # Priority
-color.uda.priority.H=bold white
-color.uda.priority.M=white
-color.uda.priority.L=
+color.uda.priority.H=bold red
+color.uda.priority.M=bold yellow
+color.uda.priority.L=gray
 
 # Tags
 color.tag.next=bold green
@@ -42,28 +42,18 @@ color.overdue=bold red
 #color.uda.X=
 
 # Report: burndown
-color.burndown.done=on green
-color.burndown.pending=on magenta
-color.burndown.started=on blue
+# color.burndown.done=on green
+# color.burndown.pending=on magenta
+# color.burndown.started=on blue
 
 # Report: history
 color.history.add=black on blue
 color.history.delete=black on red
-color.history.done=black on green
+# color.history.done=black on green
 
 # Report: summary
 color.summary.background=
 color.summary.bar=black on green
-
-# Command: calendar
-color.calendar.due=red
-color.calendar.due.today=underline bold red
-color.calendar.holiday=black on bright yellow
-color.calendar.overdue=bold white on bright red
-color.calendar.scheduled=green
-color.calendar.today=white on green
-color.calendar.weekend=white on blue
-color.calendar.weeknumber=bold blue
 
 # Command: undo
 color.undo.after=green

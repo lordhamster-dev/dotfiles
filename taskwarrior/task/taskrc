@@ -52,6 +52,7 @@ report.today.sort=urgency-
 
 news.version=2.6.0
 
+# Context
 alias.@=context
 
 context.work.read=+work

@@ -12,13 +12,13 @@ color.debug=blue
 
 # Task state
 color.completed=bold green
-color.deleted=red
+color.deleted=bold red
 color.active=bold yellow
-color.recurring=blue
-color.scheduled=white on blue
-color.until=yellow
-color.blocked=black on white
-color.blocking=black on bright white
+#color.recurring=blue
+#color.scheduled=white on blue
+#color.until=yellow
+#color.blocked=black on white
+#color.blocking=black on bright white
 
 # Project
 # color.project.none=red
@@ -28,11 +28,6 @@ color.uda.priority.H=bold red
 color.uda.priority.M=bold yellow
 color.uda.priority.L=gray
 
-# Tags
-color.tag.next=bold green
-color.tag.none=
-color.tagged=bold green
-
 # Due
 color.due=red
 color.due.today=red
@@ -40,11 +35,6 @@ color.overdue=bold red
 
 # UDA
 #color.uda.X=
-
-# Report: burndown
-# color.burndown.done=on green
-# color.burndown.pending=on magenta
-# color.burndown.started=on blue
 
 # Report: history
 color.history.add=black on blue

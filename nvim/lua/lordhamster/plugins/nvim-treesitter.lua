@@ -5,7 +5,7 @@ return {
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
-      "nvim-treesitter/nvim-treesitter-context", -- sticky header
+      -- "nvim-treesitter/nvim-treesitter-context", -- sticky header
       "nvim-treesitter/nvim-treesitter-textobjects",
       { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
       "HiPhish/nvim-ts-rainbow2",

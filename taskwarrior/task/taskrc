@@ -56,6 +56,9 @@ report.anytime.filter=status:pending scheduled.none:
 report.anytime.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.anytime.sort=urgency-
 
+# Urgency
+urgency.annotations.coefficient=0.0
+urgency.uda.priority.L.coefficient=-2
 
 news.version=2.6.0
 

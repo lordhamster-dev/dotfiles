@@ -22,7 +22,7 @@ return {
       ["w"] = { "<cmd>w!<CR>", "Save" },
       ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      ["x"] = { "<cmd>:Bdelete!<CR>", "Close Buffer" },
+      ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
 
       -- n = {
       -- 	name = "Neorg",

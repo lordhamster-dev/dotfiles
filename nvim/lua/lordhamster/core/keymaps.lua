@@ -65,5 +65,5 @@ end, { desc = "Go to next markdown header" })
 ----------------------
 
 -- Buffer Switch
-keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
-keymap.set("n", "L", ":BufferLineCycleNext<CR>")
+keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
+keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>")

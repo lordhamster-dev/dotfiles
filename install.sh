@@ -1,3 +1,5 @@
+ln -sv ~/dotfiles/clash/lordhamster.yaml ~/.config/clash
+
 ln -sv ~/dotfiles/.gitconfig ~
 
 ln -sv ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty

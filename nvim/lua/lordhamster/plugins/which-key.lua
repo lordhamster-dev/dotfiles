@@ -74,7 +74,7 @@ return {
         a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
         d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
         i = { "<cmd>LspInfo<cr>", "Info" },
-        o = { "<cmd>Lspsaga outline<CR>", "Outline" },
+        o = { "<cmd>Outline<CR>", "Outline" },
         r = { "<cmd>Lspsaga rename<cr>", "Rename" },
         w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
         z = { "<cmd>Lazy<cr>", "Lazy" },

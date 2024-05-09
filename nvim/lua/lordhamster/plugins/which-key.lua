@@ -31,6 +31,13 @@ return {
       -- 	i = { "<cmd>Telescope neorg insert_file_link<cr>", "Neorg insert file link" },
       -- 	l = { "<cmd>Telescope neorg insert_link<cr>", "Neorg insert link" },
       -- },
+      b = {
+        name = "Bufferline",
+        h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },
+        l = { "<cmd>BufferLineMoveNext<cr>", "Bufferline move next" },
+        o = { "<cmd>BufferLineCloseOthers<cr>", "Bufferline close others" },
+        p = { "<cmd>BufferLinePick<cr>", "Bufferline pick" },
+      },
       o = {
         name = "Obsidian",
         T = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },

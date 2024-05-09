@@ -46,9 +46,10 @@ return {
       e = {
         name = "NvimTree",
         c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
-        e = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
+        e = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" },
         f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
         r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
+        t = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
       },
       f = {
         name = "File Manage",

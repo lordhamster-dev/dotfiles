@@ -73,36 +73,36 @@ return {
       },
       diagnostics = { enable = false },
       view = {
-        width = gwidth,
-        adaptive_size = false,
+        -- width = gwidth,
+        adaptive_size = true,
         centralize_selection = true,
         preserve_window_proportions = true,
         -- number=true,
         -- relativenumber=true,
-        float = {
-          enable = true,
-          -- quit_on_focus_loss = true,
-          open_win_config = {
-            relative = "editor",
-            border = "rounded",
-            width = gwidth,
-            height = gheight,
-            -- row = (gheight - height) * 0.5,
-            -- col = (gwidth - width) * 0.5,
-          },
-        },
+        -- float = {
+        --   enable = true,
+        --   -- quit_on_focus_loss = true,
+        --   open_win_config = {
+        --     relative = "editor",
+        --     border = "rounded",
+        --     width = gwidth,
+        --     height = gheight,
+        --     -- row = (gheight - height) * 0.5,
+        --     -- col = (gwidth - width) * 0.5,
+        --   },
+        -- },
       },
       -- disable window_picker for
       -- explorer to work well with
       -- window splits
-      actions = {
-        open_file = {
-          quit_on_open = true,
-          window_picker = {
-            enable = false,
-          },
-        },
-      },
+      -- actions = {
+      --   open_file = {
+      --     quit_on_open = true,
+      --     window_picker = {
+      --       enable = false,
+      --     },
+      --   },
+      -- },
     })
   end,
 }

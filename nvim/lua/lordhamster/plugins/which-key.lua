@@ -19,10 +19,11 @@ return {
 
     local mappings = {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-      ["w"] = { "<cmd>w!<CR>", "Save" },
-      ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+      ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
+      ["w"] = { "<cmd>w!<CR>", "Save" },
       ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
+      ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
       -- n = {
       -- 	name = "Neorg",

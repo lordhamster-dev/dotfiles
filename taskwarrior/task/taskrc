@@ -45,20 +45,21 @@ weekstart=monday
 report.today.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.today.context=1
 report.today.description=Today tasks
-report.today.filter=status:pending and (scheduled.before:tomorrow or due.before:tomorrow)
+report.today.filter=status:pending (scheduled.before:tomorrow or due.before:tomorrow)
 report.today.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.today.sort=urgency-
 
 report.anytime.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
 report.anytime.context=1
 report.anytime.description=Anytime tasks
-report.anytime.filter=status:pending scheduled.none:
+report.anytime.filter=status:pending scheduled.none: due.none:
 report.anytime.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg
 report.anytime.sort=urgency-
 
 # Urgency
 urgency.annotations.coefficient=0.0
 urgency.uda.priority.L.coefficient=-2
+urgency.user.tag.night.coefficient=-5
 
 news.version=2.6.0
 

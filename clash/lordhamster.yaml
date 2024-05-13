@@ -86,6 +86,7 @@ rules:
   - "DOMAIN-SUFFIX,formulae.brew.sh,🚀 节点选择"
   - "DOMAIN-SUFFIX,boot.dev,🚀 节点选择"
   - "DOMAIN-SUFFIX,jsdelivr.net,🚀 节点选择"
+  - "DOMAIN-SUFFIX,pyga.me,🚀 节点选择"
   - "DOMAIN,apple.comscoreresearch.com,🍎 苹果服务"
   - "DOMAIN-SUFFIX,aaplimg.com,🍎 苹果服务"
   - "DOMAIN-SUFFIX,akadns.net,🍎 苹果服务"

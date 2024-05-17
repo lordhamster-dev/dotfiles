@@ -25,13 +25,6 @@ return {
       ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
       ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
-      -- n = {
-      -- 	name = "Neorg",
-      -- 	f = { "<cmd>Telescope neorg find_norg_files<cr>", "Neorg find files" },
-      -- 	s = { "<cmd>Telescope neorg search_headings<cr>", "Neorg search headings" },
-      -- 	i = { "<cmd>Telescope neorg insert_file_link<cr>", "Neorg insert file link" },
-      -- 	l = { "<cmd>Telescope neorg insert_link<cr>", "Neorg insert link" },
-      -- },
       b = {
         name = "Bufferline",
         h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },

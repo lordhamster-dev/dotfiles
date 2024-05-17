@@ -11,7 +11,6 @@ return {
       "HiPhish/nvim-ts-rainbow2",
     },
     config = function()
-      -- import nvim-treesitter plugin safely
       local treesitter = require("nvim-treesitter.configs")
 
       -- configure treesitter

@@ -14,10 +14,6 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "x", '"_x')
 keymap.set("n", "c", '"_c')
 
--- Scroll
-keymap.set("n", "<C-u>", "9kzz")
-keymap.set("n", "<C-d>", "9jzz")
-
 -- Window
 keymap.set("n", "<C-w>\\", ":vsp<CR>")
 keymap.set("n", "<C-w>-", ":sp<CR>")

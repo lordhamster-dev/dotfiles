@@ -8,7 +8,7 @@ return {
       -- "nvim-treesitter/nvim-treesitter-context", -- sticky header
       "nvim-treesitter/nvim-treesitter-textobjects",
       { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-      "HiPhish/nvim-ts-rainbow2",
+      -- "HiPhish/nvim-ts-rainbow2",
     },
     config = function()
       local treesitter = require("nvim-treesitter.configs")
@@ -44,15 +44,15 @@ return {
         auto_install = true,
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = true,
-        rainbow = {
-          enable = true,
-          -- list of languages you want to disable the plugin for
-          disable = { "jsx", "cpp", "html" },
-          -- Which query to use for finding delimiters
-          query = "rainbow-parens",
-          -- Highlight the entire buffer all at once
-          strategy = require("ts-rainbow").strategy.global,
-        },
+        -- rainbow = {
+        --   enable = true,
+        --   -- list of languages you want to disable the plugin for
+        --   disable = { "jsx", "cpp", "html" },
+        --   -- Which query to use for finding delimiters
+        --   query = "rainbow-parens",
+        --   -- Highlight the entire buffer all at once
+        --   strategy = require("ts-rainbow").strategy.global,
+        -- },
         textobjects = {
           select = {
             enable = true,

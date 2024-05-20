@@ -44,7 +44,7 @@ return {
         nvimtree = true,
         treesitter = true,
         treesitter_context = true,
-        ts_rainbow2 = true,
+        -- ts_rainbow2 = true,
         which_key = true,
         harpoon = true,
         flash = true,

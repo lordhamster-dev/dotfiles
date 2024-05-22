@@ -59,6 +59,7 @@ keymap.set("n", "<C-w>-", ":sp<CR>")
 ----------------------
 -- Plugin Keybinds
 ----------------------
+keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Buffer Switch
 keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")

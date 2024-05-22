@@ -9,8 +9,6 @@ return {
       ["<C-s>"] = false,
       ["<C-h>"] = false,
       ["<C-\\>"] = "actions.select_vsplit",
-      ["_"] = false,
-      ["<Tab>"] = "actions.open_cwd",
     },
     view_options = {
       show_hidden = true,

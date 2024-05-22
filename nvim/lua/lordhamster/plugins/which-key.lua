@@ -21,6 +21,7 @@ return {
 
     local mappings = {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+      ["e"] = { "<cmd>Oil<cr>", "Oil" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
@@ -47,14 +48,14 @@ return {
         o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
         t = { "<cmd>ObsidianTemplate<cr>", "Obsidian template" },
       },
-      e = {
-        name = "NvimTree",
-        c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
-        e = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" },
-        f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
-        r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
-        t = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
-      },
+      -- e = {
+      --   name = "NvimTree",
+      --   c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
+      --   e = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" },
+      --   f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
+      --   r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
+      --   t = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
+      -- },
       f = {
         name = "File Manage",
         N = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },

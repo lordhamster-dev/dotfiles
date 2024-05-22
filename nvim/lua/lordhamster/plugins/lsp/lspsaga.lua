@@ -1,4 +1,6 @@
+-- improve neovim lsp experience
 return {
+  -- https://github.com/nvimdev/lspsaga.nvim
   "glepnir/lspsaga.nvim",
   config = function()
     -- import lspsaga safely

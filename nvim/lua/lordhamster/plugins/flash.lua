@@ -1,4 +1,6 @@
+-- Navigate your code with search labels, enhanced character motions and Treesitter integration
 return {
+  -- https://github.com/folke/flash.nvim
   "folke/flash.nvim",
   event = "VeryLazy",
   opts = {

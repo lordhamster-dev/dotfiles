@@ -1,4 +1,6 @@
+-- The fastest Neovim colorizer.
 return {
+  -- https://github.com/norcalli/nvim-colorizer.lua
   "NvChad/nvim-colorizer.lua",
   config = function()
     -- https://github.com/norcalli/nvim-colorizer.lua

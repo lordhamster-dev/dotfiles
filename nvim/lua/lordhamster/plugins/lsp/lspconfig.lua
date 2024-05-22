@@ -1,4 +1,6 @@
+-- Quickstart configs for Nvim LSP
 return {
+  -- https://github.com/neovim/nvim-lspconfig
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {

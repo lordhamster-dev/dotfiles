@@ -1,4 +1,6 @@
+-- 🧘 Distraction-free coding for Neovim
 return {
+  -- https://github.com/folke/zen-mode.nvim
   "folke/zen-mode.nvim",
   opts = {
     -- your configuration comes here

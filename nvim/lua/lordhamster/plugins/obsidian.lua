@@ -1,4 +1,6 @@
+-- Obsidian 🤝 Neovim
 return {
+  -- https://github.com/epwalsh/obsidian.nvim
   "epwalsh/obsidian.nvim",
   event = "VeryLazy",
   dependencies = {

@@ -1,4 +1,6 @@
+-- a lua powered greeter like vim-startify / dashboard-nvim
 return {
+  -- https://github.com/goolord/alpha-nvim
   "goolord/alpha-nvim",
   event = "VimEnter",
   dependencies = { "nvim-tree/nvim-web-devicons" },

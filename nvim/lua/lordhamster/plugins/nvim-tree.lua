@@ -1,4 +1,6 @@
+-- A file explorer tree for neovim written in lua
 return {
+  -- https://github.com/nvim-tree/nvim-tree.lua
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()

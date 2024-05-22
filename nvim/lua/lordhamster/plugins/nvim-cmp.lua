@@ -1,4 +1,6 @@
+-- A completion plugin for neovim coded in Lua.
 return {
+  -- https://github.com/hrsh7th/nvim-cmp
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {

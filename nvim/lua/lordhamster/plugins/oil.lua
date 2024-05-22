@@ -14,7 +14,7 @@ return {
       show_hidden = true,
       is_always_hidden = function(name, _)
         local always_hidden_names = {
-          "..",
+          -- "..",
           ".git",
           "__pycache__",
           ".venv",

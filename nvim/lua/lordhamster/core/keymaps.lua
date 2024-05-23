@@ -22,6 +22,9 @@ keymap.set("n", "<C-w>-", ":sp<CR>")
 -- keymap.set("n", "<C-h>", "<C-w>h")
 -- keymap.set("n", "<C-l>", "<C-w>l")
 
+--  Markdown
+keymap.set("i", "<C-t>", "- [ ] ")
+
 -- -- Search UP for a markdown header
 -- -- Make sure to follow proper markdown convention, and you have a single H1
 -- -- heading at the very top of the file

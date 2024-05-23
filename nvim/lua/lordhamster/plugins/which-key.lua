@@ -28,6 +28,13 @@ return {
       ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
       ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
+      t = {
+        name = "m_taskwarrior_d",
+        e = { "<cmd>TWEditTask<cr>", "Taskwarrior edit" },
+        q = { "<cmd>TWBufQueryTasks<cr>", "Taskwarrior query task in buffer" },
+        s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
+        v = { "<cmd>TWView<cr>", "Taskwarrior view" },
+      },
       b = {
         name = "Bufferline",
         h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },

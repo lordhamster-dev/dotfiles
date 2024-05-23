@@ -9,6 +9,7 @@ return {
       ["<C-s>"] = false,
       ["<C-h>"] = false,
       ["<C-\\>"] = "actions.select_vsplit",
+      ["<Esc>"] = "actions.close",
     },
     view_options = {
       show_hidden = true,

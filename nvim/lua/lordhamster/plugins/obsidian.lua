@@ -76,8 +76,8 @@ return {
           -- [">"] = { char = "", hl_group = "ObsidianRightArrow" },
           -- ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
           -- Replace the above with this if you don't have a patched font:
-          [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-          ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+          [" "] = { char = "", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "󰸞", hl_group = "ObsidianDone" },
           -- You can also add more custom ones...
         },
       },

@@ -32,6 +32,7 @@ brew "zlib"
 brew "zoxide"
 brew "jesseduffield/lazygit/lazygit"
 
+cask "hammerspoon"
 cask "alacritty"
 cask "font-caskaydia-cove-nerd-font"
 cask "tomatobar"

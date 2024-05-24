@@ -69,6 +69,7 @@ rules:
   - "DOMAIN-SUFFIX,ssl.gstatic.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,www.google-analytics.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,angular.io,🚀 节点选择"
+  - "DOMAIN-SUFFIX,angular.dev,🚀 节点选择"
   - "DOMAIN-SUFFIX,www.nerdfonts.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,app.pinecone.io,🚀 节点选择"
   - "DOMAIN-SUFFIX,habitica.com,🚀 节点选择"

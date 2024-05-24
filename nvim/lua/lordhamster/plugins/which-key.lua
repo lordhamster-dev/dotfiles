@@ -35,14 +35,14 @@ return {
         s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
         v = { "<cmd>TWView<cr>", "Taskwarrior view" },
       },
-      b = {
-        name = "Bufferline",
-        h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },
-        l = { "<cmd>BufferLineMoveNext<cr>", "Bufferline move next" },
-        o = { "<cmd>BufferLineCloseOthers<cr>", "Bufferline close others" },
-        p = { "<cmd>BufferLinePick<cr>", "Bufferline pick" },
-        t = { "<cmd>BufferLineTogglePin<cr>", "Bufferline toggle pin" },
-      },
+      -- b = {
+      --   name = "Bufferline",
+      --   h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },
+      --   l = { "<cmd>BufferLineMoveNext<cr>", "Bufferline move next" },
+      --   o = { "<cmd>BufferLineCloseOthers<cr>", "Bufferline close others" },
+      --   p = { "<cmd>BufferLinePick<cr>", "Bufferline pick" },
+      --   t = { "<cmd>BufferLineTogglePin<cr>", "Bufferline toggle pin" },
+      -- },
       o = {
         name = "Obsidian",
         T = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },

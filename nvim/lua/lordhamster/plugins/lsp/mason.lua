@@ -35,6 +35,7 @@ return {
         "bashls",
         "jsonls",
         "yamlls",
+        "astro",
       },
       automatic_installation = true,
     })

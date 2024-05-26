@@ -70,13 +70,14 @@ return {
         b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         c = { "<cmd>cexpr []<cr>", "Clear Quickfix" },
         f = { "<cmd>Telescope find_files<cr>", "Find file" },
-        g = { "<cmd>Telescope live_grep<cr>", "Find text" }, -- find string in current working directory as you type
+        g = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
         h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
         l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon quick menu" },
         m = { "<cmd>Telescope marks<cr>", "Marks" },
         n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Harpoon next" },
         q = { "<cmd>copen<cr>", "Quickfix" },
         r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
+        s = { "<cmd>Telescope live_grep<cr>", "Search text" }, -- find string in current working directory as you type
         t = { "<cmd>TodoTelescope<cr>", "Find todos" },
       },
       l = {

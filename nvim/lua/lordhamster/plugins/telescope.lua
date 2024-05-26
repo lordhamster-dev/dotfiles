@@ -34,8 +34,74 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-q>"] = actions.smart_send_to_qflist,
-            ["dd"] = actions.delete_buffer,
           },
+        },
+      },
+      pickers = {
+        find_files = {
+          previewer = false,
+          -- path_display = formattedName,
+          layout_config = {
+            height = 0.4,
+            width = 0.6,
+            prompt_position = "bottom",
+            preview_cutoff = 120,
+          },
+        },
+        git_files = {
+          previewer = false,
+          -- path_display = formattedName,
+          layout_config = {
+            height = 0.4,
+            width = 0.6,
+            prompt_position = "bottom",
+            preview_cutoff = 120,
+          },
+        },
+        buffers = {
+          mappings = {
+            i = {
+              ["<c-d>"] = actions.delete_buffer,
+            },
+            n = {
+              ["<c-d>"] = actions.delete_buffer,
+            },
+          },
+          previewer = false,
+          initial_mode = "normal",
+          -- theme = "dropdown",
+          layout_config = {
+            height = 0.4,
+            width = 0.6,
+            prompt_position = "bottom",
+            preview_cutoff = 120,
+          },
+        },
+        current_buffer_fuzzy_find = {
+          previewer = true,
+          layout_config = {
+            prompt_position = "bottom",
+            preview_cutoff = 120,
+          },
+        },
+        live_grep = {
+          only_sort_text = true,
+          previewer = true,
+        },
+        grep_string = {
+          only_sort_text = true,
+          previewer = true,
+        },
+        lsp_references = {
+          show_line = false,
+          previewer = true,
+        },
+        treesitter = {
+          show_line = false,
+          previewer = true,
+        },
+        colorscheme = {
+          enable_preview = true,
         },
       },
     })

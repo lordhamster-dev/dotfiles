@@ -50,9 +50,9 @@ return {
         c = { "<cmd>ObsidianToggleCheckbox<cr>", "Obsidian toggle checkbox" },
         d = { "<cmd>ObsidianDailies<cr>", "Obsidian dailies" },
         f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
-        g = { "<cmd>ObsidianSearch<cr>", "Obsidian find text" },
         n = { "<cmd>ObsidianNew<cr>", "Obsidian new" },
         o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
+        s = { "<cmd>ObsidianSearch<cr>", "Obsidian find text" },
         t = { "<cmd>ObsidianTemplate<cr>", "Obsidian template" },
       },
       -- e = {

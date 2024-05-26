@@ -36,7 +36,7 @@ return {
       templates = {
         subdir = "Z-Templates",
         date_format = "%Y-%m-%d",
-        time_format = "%H:%M",
+        time_format = "%H:%M:%S",
         -- A map for custom variables, the key should be the variable and the value a function
         substitutions = {},
       },

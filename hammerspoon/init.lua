@@ -1,6 +1,6 @@
 -- -- 自动重新加载config
 function reloadConfig(files)
-	doReload = false
+	local doReload = false
 	for _, file in pairs(files) do
 		if file:sub(-4) == ".lua" then
 			doReload = true
@@ -10,7 +10,7 @@ function reloadConfig(files)
 		hs.reload()
 	end
 end
-myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 -- 定义一个函数从剪贴板获取内容并在谷歌中搜索
 function searchGoogleFromClipboard()

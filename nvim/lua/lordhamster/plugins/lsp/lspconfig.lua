@@ -96,7 +96,7 @@ return {
             Lua = {
               -- make the language server recognize "vim" global
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "hs", "spoon" },
               },
               completion = {
                 callSnippet = "Replace",

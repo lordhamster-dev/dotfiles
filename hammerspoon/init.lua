@@ -44,16 +44,16 @@ hs.hotkey.bind({ "cmd", "ctrl" }, "v", function()
 	hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
 
--- 加载 Caffeine.spoon
-hs.loadSpoon("Caffeine")
-
--- 在菜单栏添加一个图标来控制 Caffeine.spoon
-spoon.Caffeine:bindHotkeys({
-	toggle = { { "cmd", "ctrl" }, "C" },
-})
-
--- 启动 Caffeine.spoon 并设置默认状态
-spoon.Caffeine:start()
+-- -- 加载 Caffeine.spoon
+-- hs.loadSpoon("Caffeine")
+--
+-- -- 在菜单栏添加一个图标来控制 Caffeine.spoon
+-- spoon.Caffeine:bindHotkeys({
+-- 	toggle = { { "cmd", "ctrl" }, "C" },
+-- })
+--
+-- -- 启动 Caffeine.spoon 并设置默认状态
+-- spoon.Caffeine:start()
 
 -- 显示通知以确认配置已加载
 hs.notify.new({ title = "Hammerspoon", informativeText = "Configuration Loaded" }):send()

@@ -12,24 +12,32 @@ function reloadConfig(files)
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
--- 定义一个函数从剪贴板获取内容并在谷歌中搜索
-function searchGoogleFromClipboard()
+function searchFromClipboard(url)
 	-- 获取剪贴板内容
 	local clipboardContent = hs.pasteboard.getContents()
 	if clipboardContent then
 		-- 对剪贴板内容进行 URL 编码
 		local encodedContent = hs.http.encodeForQuery(clipboardContent)
 		-- 构造谷歌搜索 URL
-		local googleSearchURL = "https://www.google.com/search?q=" .. encodedContent
+		local searchURL = url .. encodedContent
 		-- 在默认浏览器中打开 URL
-		hs.urlevent.openURL(googleSearchURL)
+		hs.urlevent.openURL(searchURL)
 	else
 		-- 如果剪贴板为空，则显示通知
 		hs.notify.new({ title = "Hammerspoon", informativeText = "Clipboard is empty" }):send()
 	end
 end
 
+function searchGoogleFromClipboard()
+	searchFromClipboard("https://www.google.com/search?q=")
+end
+
+function searchYoutubeFromClipboard()
+	searchFromClipboard("https://www.youtube.com/results?search_query=")
+end
+
 hs.hotkey.bind({ "cmd", "ctrl" }, "g", searchGoogleFromClipboard)
+hs.hotkey.bind({ "cmd", "ctrl" }, "y", searchYoutubeFromClipboard)
 
 -- 从剪贴板获取内容并模仿打字出来
 hs.hotkey.bind({ "cmd", "ctrl" }, "v", function()

@@ -20,6 +20,7 @@ return {
     }
 
     local mappings = {
+      ["<space>"] = { "<cmd>ToggleTerm<CR>", "ToggleTerm" },
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["e"] = { "<cmd>Oil<cr>", "Oil" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },

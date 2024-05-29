@@ -20,7 +20,6 @@ return {
     }
 
     local mappings = {
-      ["<space>"] = { "<cmd>ToggleTerm<CR>", "ToggleTerm" },
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["e"] = { "<cmd>Oil<cr>", "Oil" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -34,6 +33,7 @@ return {
         e = { "<cmd>TWEditTask<cr>", "Taskwarrior edit" },
         q = { "<cmd>TWBufQueryTasks<cr>", "Taskwarrior query task in buffer" },
         s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
+        t = { "<cmd>ToggleTerm direction=float<CR>", "ToggleTerm" },
         v = { "<cmd>TWView<cr>", "Taskwarrior view" },
       },
       -- b = {

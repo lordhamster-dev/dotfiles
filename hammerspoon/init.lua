@@ -81,7 +81,7 @@ end)
 
 -- 这里指定中文和英文输入法的 ID
 function Chinese()
-	hs.keycodes.currentSourceID("com.sogou.inputmethod.sogou.pinyin")
+	hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Hans")
 end
 function English()
 	hs.keycodes.currentSourceID("com.apple.keylayout.ABC")

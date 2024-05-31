@@ -21,6 +21,8 @@ return {
 
     local mappings = {
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+      ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      ["c"] = { "<cmd>Telescope commands<cr>", "Commands" },
       ["e"] = { "<cmd>Oil<cr>", "Oil" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },

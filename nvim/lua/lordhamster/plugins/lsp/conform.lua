@@ -13,7 +13,6 @@ return {
         c = { "clang_format" },
         cpp = { "clang_format" },
         python = { "reorder-python-imports", "black" },
-        astro = { "prettier" },
         typescript = { "prettier" },
         javascript = { "prettier" },
         html = { "prettier" },

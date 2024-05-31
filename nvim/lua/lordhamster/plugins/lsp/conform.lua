@@ -9,14 +9,16 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        python = { "reorder_python_imports", "black" },
+        lua = { "stylua" },
         c = { "clang_format" },
         cpp = { "clang_format" },
-        lua = { "stylua" },
+        python = { "reorder-python-imports", "black" },
+        astro = { "prettier" },
+        typescript = { "prettier" },
+        javascript = { "prettier" },
         html = { "prettier" },
         css = { "prettier" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
+        scss = { "prettier" },
         json = { "prettier" },
         markdown = { "prettier" },
         yaml = { "prettier" },
@@ -28,10 +30,6 @@ return {
         timeout_ms = 1000,
       },
       formatters = {
-        reorder_python_imports = {
-          command = "reorder-python-imports",
-          args = { "-", "--exit-zero-even-if-changed" },
-        },
         my_black = {
           meta = {
             url = "https://github.com/psf/black",

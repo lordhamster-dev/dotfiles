@@ -75,7 +75,6 @@ return {
         lualine_a = { mode },
         lualine_b = { branch, diagnostics },
         lualine_c = {
-          filename,
           {
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,
@@ -89,12 +88,35 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { filename },
+        lualine_c = {},
         lualine_x = { location },
         lualine_y = {},
         lualine_z = {},
       },
-      tabline = {},
+      tabline = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "tabs" },
+      },
+      winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { filename },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { filename },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
       extensions = {},
     })
   end,

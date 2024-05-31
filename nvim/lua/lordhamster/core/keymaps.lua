@@ -65,8 +65,8 @@ keymap.set("i", "<C-t>", "- [ ] ")
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Buffer Switch
-keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
-keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>")
+-- keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
+-- keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>")
 
 -- toggle term
 function _G.set_terminal_keymaps()

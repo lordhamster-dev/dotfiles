@@ -67,6 +67,7 @@ return {
             },
             n = {
               ["<c-d>"] = actions.delete_buffer,
+              ["dd"] = actions.delete_buffer,
             },
           },
           previewer = false,

@@ -54,7 +54,32 @@ return {
 
     local filename = {
       "filename",
+      -- 0: Just the filename
+      -- 1: Relative path
+      -- 2: Absolute path
+      -- 3: Absolute path, with tilde as the home directory
+      -- 4: Filename and parent dir, with tilde as the home directory
       path = 4,
+      symbols = {
+        modified = "", -- Text to show when the file is modified.
+        readonly = "[Read Only]", -- Text to show when the file is non-modifiable or readonly.
+        unnamed = "[No Name]", -- Text to show for unnamed buffers.
+        newfile = "[New]", -- Text to show for newly created file before first write
+      },
+    }
+
+    local tabs = {
+      "tabs",
+      -- 0: Shows tab_nr
+      -- 1: Shows tab_name
+      -- 2: Shows tab_nr + tab_name
+      mode = 2,
+      -- 0: just shows the filename
+      -- 1: shows the relative path and shorten $HOME to ~
+      -- 2: shows the full path
+      -- 3: shows the full path and shorten $HOME to ~
+      path = 0,
+      show_modified_status = false,
     }
 
     local spaces = function()
@@ -94,12 +119,12 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = {},
+        lualine_a = { tabs },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { "tabs" },
+        lualine_z = {},
       },
       winbar = {
         lualine_a = {},

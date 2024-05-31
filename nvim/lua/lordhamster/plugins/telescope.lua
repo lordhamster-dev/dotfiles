@@ -17,6 +17,27 @@ return {
     -- configure telescope
     telescope.setup({
       defaults = {
+        preview = {
+          timeout = 500,
+        },
+        prompt_prefix = "❯ ",
+        selection_caret = "❯ ",
+        multi_icon = " ",
+        sorting_strategy = "ascending",
+        color_devicons = true,
+        layout_config = {
+          prompt_position = "top",
+          horizontal = {
+            width_padding = 0.04,
+            height_padding = 0.1,
+            preview_width = 0.5,
+          },
+          vertical = {
+            width_padding = 0.05,
+            height_padding = 1,
+            preview_height = 0.5,
+          },
+        },
         -- path_display = { "smart" },
         mappings = {
           -- insert mode
@@ -39,26 +60,6 @@ return {
         },
       },
       pickers = {
-        find_files = {
-          previewer = false,
-          -- path_display = formattedName,
-          layout_config = {
-            height = 0.4,
-            width = 0.6,
-            prompt_position = "bottom",
-            preview_cutoff = 120,
-          },
-        },
-        git_files = {
-          previewer = false,
-          -- path_display = formattedName,
-          layout_config = {
-            height = 0.4,
-            width = 0.6,
-            prompt_position = "bottom",
-            preview_cutoff = 120,
-          },
-        },
         buffers = {
           mappings = {
             i = {
@@ -70,39 +71,10 @@ return {
           },
           previewer = false,
           initial_mode = "normal",
-          -- theme = "dropdown",
           layout_config = {
             height = 0.4,
             width = 0.6,
-            prompt_position = "bottom",
-            preview_cutoff = 120,
           },
-        },
-        current_buffer_fuzzy_find = {
-          previewer = true,
-          layout_config = {
-            prompt_position = "bottom",
-            preview_cutoff = 120,
-          },
-        },
-        live_grep = {
-          only_sort_text = true,
-          previewer = true,
-        },
-        grep_string = {
-          only_sort_text = true,
-          previewer = true,
-        },
-        lsp_references = {
-          show_line = false,
-          previewer = true,
-        },
-        treesitter = {
-          show_line = false,
-          previewer = true,
-        },
-        colorscheme = {
-          enable_preview = true,
         },
       },
       extensions = {

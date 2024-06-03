@@ -2,7 +2,8 @@
 return {
   -- https://github.com/epwalsh/obsidian.nvim
   "epwalsh/obsidian.nvim",
-  event = "VeryLazy",
+  lazy = true,
+  cmd = { "ObsidianDailies", "ObsidianQuickSwitch", "ObsidianNew", "ObsidianSearch" },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

@@ -87,13 +87,20 @@ function English()
 	hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
 end
 
+local appInputMethod = {
+	Alacritty = English,
+	["Google Chrome"] = English,
+	["WeChat"] = Chinese,
+	["QQ"] = Chinese,
+}
+
 -- activated 时切换到指定的输入法，deactivated 时恢复之前的状态
 function applicationWatcher(appName, eventType, _)
 	if eventType == hs.application.watcher.activated then
-		if appName == "Alacritty" then
-			English()
-		else
-			Chinese()
+		for app, fn in pairs(appInputMethod) do
+			if app == appName then
+				fn()
+			end
 		end
 	end
 end

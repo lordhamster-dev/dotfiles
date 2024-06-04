@@ -30,6 +30,7 @@ brew "wget"
 brew "zlib"
 brew "zoxide"
 brew "jesseduffield/lazygit/lazygit"
+brew "ranger"
 
 cask "hammerspoon"
 cask "alacritty"

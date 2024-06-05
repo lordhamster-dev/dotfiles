@@ -6,9 +6,11 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     keymaps = {
-      ["<Esc>"] = "actions.close",
       ["<C-s>"] = false,
       ["<C-h>"] = false,
+      ["<Esc>"] = "actions.close",
+      ["h"] = "actions.parent",
+      ["l"] = "actions.select",
     },
     view_options = {
       show_hidden = true,

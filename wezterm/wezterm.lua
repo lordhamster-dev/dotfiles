@@ -1,4 +1,3 @@
--- 显示快捷键：wezterm show-keys
 local wezterm = require("wezterm")
 local config = {
   font_size = 11,

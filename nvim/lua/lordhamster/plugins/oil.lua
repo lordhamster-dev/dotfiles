@@ -11,6 +11,7 @@ return {
       ["<Esc>"] = "actions.close",
       ["h"] = "actions.parent",
       ["l"] = "actions.select",
+      ["H"] = "actions.open_cwd",
     },
     view_options = {
       show_hidden = true,

@@ -20,7 +20,7 @@ return {
         preview = {
           timeout = 500,
         },
-        prompt_prefix = "🔭 ",
+        prompt_prefix = " ",
         selection_caret = "❯ ",
         sorting_strategy = "ascending",
         color_devicons = true,

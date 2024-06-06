@@ -101,9 +101,7 @@ return {
           capabilities = capabilities,
           settings = {
             python = {
-              analysis = {
-                typeCheckingMode = "off",
-              },
+              analysis = {},
             },
           },
         })

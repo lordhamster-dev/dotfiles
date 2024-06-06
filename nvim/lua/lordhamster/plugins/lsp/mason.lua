@@ -48,7 +48,7 @@ return {
         "reorder-python-imports", -- python formatter
         "stylua", -- lua formatter
         "eslint_d", -- js linter
-        -- "ruff", -- python linter
+        "ruff", -- python linter
       },
     })
   end,

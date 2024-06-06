@@ -3,6 +3,7 @@ ln -sv ~/dotfiles/clash/lordhamster.yaml ~/.config/clash
 ln -sv ~/dotfiles/.gitconfig ~
 
 ln -sv ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty
+ln -sv ~/dotfiles/wezterm  ~/.config
 ln -sv ~/dotfiles/nvim ~/.config
 
 ln -sv ~/dotfiles/zsh/.zshrc  ~

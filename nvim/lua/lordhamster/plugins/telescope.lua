@@ -41,20 +41,24 @@ return {
         mappings = {
           -- insert mode
           i = {
+            ["<C-\\>"] = actions.file_vsplit,
+            ["<C-a>"] = actions.select_all,
+            ["<C-h>"] = actions.drop_all,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
-            ["<C-\\>"] = actions.file_vsplit,
+            ["<C-l>"] = actions.toggle_selection,
           },
           -- normal mode
           n = {
-            ["l"] = actions.toggle_selection,
-            ["L"] = actions.select_all,
-            ["H"] = actions.drop_all,
             ["-"] = actions.file_split,
-            ["\\"] = actions.file_vsplit,
+            ["<C-a>"] = actions.select_all,
+            ["<C-h>"] = actions.drop_all,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<C-l>"] = actions.toggle_selection,
             ["<C-q>"] = actions.smart_send_to_qflist,
+            ["\\"] = actions.file_vsplit,
+            ["l"] = actions.select_default,
           },
         },
       },

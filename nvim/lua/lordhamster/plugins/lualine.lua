@@ -78,7 +78,7 @@ return {
       -- 1: shows the relative path and shorten $HOME to ~
       -- 2: shows the full path
       -- 3: shows the full path and shorten $HOME to ~
-      path = 0,
+      path = 1,
       show_modified_status = false,
     }
 

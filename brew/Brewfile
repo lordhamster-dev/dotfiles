@@ -37,7 +37,7 @@ brew "jq"
 brew "poppler"
 
 cask "hammerspoon"
-cask "wezterm"
+cask "alacritty"
 cask "font-caskaydia-cove-nerd-font"
 cask "tomatobar"
 cask "squirrel"

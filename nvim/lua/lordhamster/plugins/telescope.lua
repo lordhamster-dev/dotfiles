@@ -47,6 +47,7 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-l>"] = actions.toggle_selection,
+            ["<C-q>"] = actions.smart_send_to_qflist,
           },
           -- normal mode
           n = {

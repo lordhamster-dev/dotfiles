@@ -20,6 +20,7 @@ return {
     }
 
     local mappings = {
+      ["<Space>"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
       ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
       ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
       ["c"] = { "<cmd>Telescope commands<cr>", "Commands" },

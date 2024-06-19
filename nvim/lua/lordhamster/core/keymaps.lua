@@ -63,6 +63,7 @@ keymap.set("i", "<C-t>", "- [ ] ")
 -- Plugin Keybinds
 ----------------------
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap.set("n", "<C-e>", "<cmd>ToggleHarpoonList<cr>", { desc = "Harpoon quick menu" })
 
 -- Buffer Switch
 -- keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")

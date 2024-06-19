@@ -20,15 +20,21 @@ return {
     }
 
     local mappings = {
+      ["1"] = { "<cmd>lua require('harpoon'):list():select(1)<cr>", "Harpoon select 1" },
+      ["2"] = { "<cmd>lua require('harpoon'):list():select(2)<cr>", "Harpoon select 2" },
+      ["3"] = { "<cmd>lua require('harpoon'):list():select(3)<cr>", "Harpoon select 3" },
+      ["4"] = { "<cmd>lua require('harpoon'):list():select(4)<cr>", "Harpoon select 4" },
       ["<Space>"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
-      ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+      ["a"] = { "<cmd>lua require('harpoon'):list():add()<cr>", "Harpoon add" },
       ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
       ["c"] = { "<cmd>Telescope commands<cr>", "Commands" },
       ["e"] = { "<cmd>Oil<cr>", "Oil" },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+      ["p"] = { '"ap', "Paste from 'a' register" },
       ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
       ["w"] = { "<cmd>w!<CR>", "Save" },
       ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
+      ["y"] = { "<cmd>let @a = @+<CR>", "Let 'a' register copy from '+' register" },
       ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
       t = {
@@ -69,16 +75,11 @@ return {
       -- },
       f = {
         name = "File Manage",
-        N = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Harpoon prev" },
-        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Harpoon add" },
-        b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         c = { "<cmd>cexpr []<cr>", "Clear Quickfix" },
         f = { "<cmd>Telescope find_files<cr>", "Find file" },
         g = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
         h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
-        l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon quick menu" },
         m = { "<cmd>Telescope marks<cr>", "Marks" },
-        n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Harpoon next" },
         q = { "<cmd>copen<cr>", "Quickfix" },
         r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
         s = { "<cmd>Telescope live_grep<cr>", "Search text" }, -- find string in current working directory as you type

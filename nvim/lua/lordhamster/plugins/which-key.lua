@@ -20,6 +20,7 @@ return {
     }
 
     local mappings = {
+      ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer fuzzy find" },
       ["1"] = { "<cmd>lua require('harpoon'):list():select(1)<cr>", "Harpoon select 1" },
       ["2"] = { "<cmd>lua require('harpoon'):list():select(2)<cr>", "Harpoon select 2" },
       ["3"] = { "<cmd>lua require('harpoon'):list():select(3)<cr>", "Harpoon select 3" },
@@ -85,6 +86,7 @@ return {
         r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
         s = { "<cmd>Telescope live_grep<cr>", "Search text" }, -- find string in current working directory as you type
         t = { "<cmd>TodoTelescope<cr>", "Find todos" },
+        w = { "<cmd>Telescope grep_string<cr>", "Find word under cursor" },
       },
       l = {
         name = "LSP",

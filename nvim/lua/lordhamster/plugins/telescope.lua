@@ -11,8 +11,31 @@ return {
     "folke/todo-comments.nvim",
   },
   config = function()
-    local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local telescope = require("telescope")
+
+    vim.api.nvim_create_user_command("TelescopeCustomLiveGrep", function()
+      local opts = {}
+      local additional_args = {}
+      local prompt_title = "Live Grep"
+      local flags = tostring(vim.v.count)
+      if flags:find("1") then
+        prompt_title = prompt_title .. " [.*]"
+      else
+        table.insert(additional_args, "--fixed-strings")
+      end
+      if flags:find("2") then
+        prompt_title = prompt_title .. " [w]"
+        table.insert(additional_args, "--word-regexp")
+      end
+      if flags:find("3") then
+        prompt_title = prompt_title .. " [Aa]"
+        table.insert(additional_args, "--case-sensitive")
+      end
+      opts.additional_args = additional_args
+      opts.prompt_title = prompt_title
+      require("telescope.builtin").live_grep(opts)
+    end, { nargs = 0 })
 
     -- configure telescope
     telescope.setup({

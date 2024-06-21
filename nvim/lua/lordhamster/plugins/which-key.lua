@@ -84,7 +84,7 @@ return {
         m = { "<cmd>Telescope marks<cr>", "Marks" },
         q = { "<cmd>copen<cr>", "Quickfix" },
         r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
-        s = { "<cmd>Telescope live_grep<cr>", "Search text" }, -- find string in current working directory as you type
+        s = { "<cmd>TelescopeCustomLiveGrep<cr>", "Search text(1 regex,2 full match,3 case sensitive)" }, -- find string in current working directory as you type
         t = { "<cmd>TodoTelescope<cr>", "Find todos" },
         w = { "<cmd>Telescope grep_string<cr>", "Find word under cursor" },
       },

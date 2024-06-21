@@ -35,7 +35,7 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "06fe07d7523ba8c755fac7c913fceba43b1720ee" },
   "nvim-web-devicons": { "branch": "master", "commit": "c0cfc1738361b5da1cd0a962dd6f774cc444f856" },
   "obsidian.nvim": { "branch": "main", "commit": "7e087da48bd88fb3a6c6229a97713ac35694337a" },
-  "oil.nvim": { "branch": "master", "commit": "4c574cf4a2de736d2662d52ce086d8bdf87c49df" },
+  "oil.nvim": { "branch": "master", "commit": "f6df58ad370f45dbc18c42ffbaefbcf27df14036" },
   "outline.nvim": { "branch": "main", "commit": "028e0bc8ad3d511e9fc1f0678594a608eb908ee5" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86" },

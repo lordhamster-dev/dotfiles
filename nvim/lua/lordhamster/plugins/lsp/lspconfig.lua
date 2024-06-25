@@ -132,5 +132,17 @@ return {
         })
       end,
     })
+
+    -- OrganizeImports before write
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*.ts",
+      callback = function()
+        local params = {
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+        }
+        vim.lsp.buf.execute_command(params)
+      end,
+    })
   end,
 }

@@ -96,6 +96,7 @@ return {
           },
         })
       end,
+      -- TODO: python virtual env auto detection
       ["pyright"] = function()
         lspconfig["pyright"].setup({
           capabilities = capabilities,

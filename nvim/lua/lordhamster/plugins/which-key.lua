@@ -38,14 +38,14 @@ return {
       ["y"] = { "<cmd>let @a = @+<CR>", "Let 'a' register copy from '+' register" },
       ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
-      t = {
-        name = "m_taskwarrior_d",
-        e = { "<cmd>TWEditTask<cr>", "Taskwarrior edit" },
-        q = { "<cmd>TWBufQueryTasks<cr>", "Taskwarrior query task in buffer" },
-        s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
-        t = { "<cmd>ToggleTerm direction=float<CR>", "ToggleTerm" },
-        v = { "<cmd>TWView<cr>", "Taskwarrior view" },
-      },
+      -- t = {
+      --   name = "m_taskwarrior_d",
+      --   e = { "<cmd>TWEditTask<cr>", "Taskwarrior edit" },
+      --   q = { "<cmd>TWBufQueryTasks<cr>", "Taskwarrior query task in buffer" },
+      --   s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
+      --   t = { "<cmd>ToggleTerm direction=float<CR>", "ToggleTerm" },
+      --   v = { "<cmd>TWView<cr>", "Taskwarrior view" },
+      -- },
       -- b = {
       --   name = "Bufferline",
       --   h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },

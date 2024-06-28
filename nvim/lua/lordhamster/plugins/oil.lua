@@ -13,6 +13,10 @@ return {
       ["l"] = "actions.select",
       ["H"] = "actions.open_cwd",
     },
+    -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
+    delete_to_trash = true,
+    -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
+    skip_confirm_for_simple_edits = true,
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name, _)
@@ -34,6 +38,10 @@ return {
         end
         return false
       end,
+    },
+    -- Window-local options to use for oil buffers
+    win_options = {
+      wrap = true,
     },
   },
 }

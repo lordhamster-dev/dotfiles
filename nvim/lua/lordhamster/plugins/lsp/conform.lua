@@ -18,7 +18,7 @@ return {
         html = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },
-        json = { "prettier" },
+        json = { "biome" },
         markdown = { "prettier" },
         yaml = { "prettier" },
         ["_"] = { "trim_whitespace" },

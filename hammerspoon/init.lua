@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------------------------
 
 -- -- 自动重新加载config
-function reloadConfig(files)
+function ReloadConfig(files)
   local doReload = false
   for _, file in pairs(files) do
     if file:sub(-4) == ".lua" then
@@ -15,10 +15,10 @@ function reloadConfig(files)
   end
 end
 
-hsConfigWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig)
-hsConfigWatcher:start()
+ConfigWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", ReloadConfig)
+ConfigWatcher:start()
 
-function searchFromClipboard(url)
+function SearchFromClipboard(url)
   -- 获取剪贴板内容
   local clipboardContent = hs.pasteboard.getContents()
   if clipboardContent then
@@ -34,16 +34,16 @@ function searchFromClipboard(url)
   end
 end
 
-function searchGoogleFromClipboard()
-  searchFromClipboard("https://www.google.com/search?q=")
+function SearchGoogleFromClipboard()
+  SearchFromClipboard("https://www.google.com/search?q=")
 end
 
-function searchYoutubeFromClipboard()
-  searchFromClipboard("https://www.youtube.com/results?search_query=")
+function SearchYoutubeFromClipboard()
+  SearchFromClipboard("https://www.youtube.com/results?search_query=")
 end
 
-hs.hotkey.bind({ "cmd", "ctrl" }, "g", searchGoogleFromClipboard)
-hs.hotkey.bind({ "cmd", "ctrl" }, "y", searchYoutubeFromClipboard)
+hs.hotkey.bind({ "cmd", "ctrl" }, "g", SearchGoogleFromClipboard)
+hs.hotkey.bind({ "cmd", "ctrl" }, "y", SearchYoutubeFromClipboard)
 
 -- 从剪贴板获取内容并模仿打字出来
 hs.hotkey.bind({ "cmd", "ctrl" }, "v", function()
@@ -96,7 +96,7 @@ local appInputMethod = {
 }
 
 -- activated 时切换到指定的输入法，deactivated 时恢复之前的状态
-function applicationWatcher(appName, eventType, _)
+function ApplicationWatcher(appName, eventType, _)
   if eventType == hs.application.watcher.activated then
     for app, fn in pairs(appInputMethod) do
       if app == appName then
@@ -106,8 +106,8 @@ function applicationWatcher(appName, eventType, _)
   end
 end
 
-appWatcher = hs.application.watcher.new(applicationWatcher)
-appWatcher:start()
+AppWatcher = hs.application.watcher.new(ApplicationWatcher)
+AppWatcher:start()
 
 -- 显示通知以确认配置已加载
 hs.notify.new({ title = "Hammerspoon", informativeText = "Configuration Loaded" }):send()

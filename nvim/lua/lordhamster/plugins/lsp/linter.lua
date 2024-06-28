@@ -5,8 +5,8 @@ return {
   event = "VeryLazy",
   config = function()
     require("lint").linters_by_ft = {
-      javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
+      -- javascript = { "eslint_d" },  -- Use conform biome instead
+      -- typescript = { "eslint_d" },  -- Use conform biome instead
       python = { "ruff" },
     }
 

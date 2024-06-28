@@ -47,7 +47,8 @@ return {
         "prettier", -- prettier formatter
         "reorder-python-imports", -- python formatter
         "stylua", -- lua formatter
-        "eslint_d", -- js linter
+        -- "eslint_d", -- js linter
+        "biome", -- js linter
         "ruff", -- python linter
       },
     })

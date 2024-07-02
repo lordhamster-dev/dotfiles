@@ -5,6 +5,7 @@ ln -sv ~/dotfiles/tmux/.tmux.conf ~
 ln -sv ~/dotfiles/.gitconfig ~
 
 ln -sv ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty
+ln -sv ~/dotfiles/kitty   ~/.config
 ln -sv ~/dotfiles/nvim ~/.config
 
 ln -sv ~/dotfiles/karabiner/complex_modifications/* ~/.config/karabiner/assets/complex_modifications

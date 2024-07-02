@@ -35,6 +35,7 @@ brew "poppler"
 
 cask "hammerspoon"
 cask "alacritty"
+cask "kitty"
 cask "font-caskaydia-cove-nerd-font"
 cask "tomatobar"
 cask "squirrel"

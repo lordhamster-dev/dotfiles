@@ -81,7 +81,7 @@ return {
           "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
           "Find file",
         },
-        g = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
+        g = { "<cmd>Telescope git_status<cr>", "Telescope git files" },
         h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
         l = { "<cmd>ToggleHarpoonList<cr>", "Harpoon quick menu" },
         m = { "<cmd>Telescope marks<cr>", "Marks" },

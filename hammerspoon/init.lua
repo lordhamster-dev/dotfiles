@@ -89,6 +89,7 @@ end
 
 local appInputMethod = {
   ["Alacritty"] = English,
+  ["kitty"] = English,
   ["WezTerm"] = English,
   ["Google Chrome"] = English,
   ["WeChat"] = Chinese,

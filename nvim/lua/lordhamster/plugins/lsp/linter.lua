@@ -7,7 +7,7 @@ return {
     require("lint").linters_by_ft = {
       -- javascript = { "eslint_d" },  -- Use conform biome instead
       -- typescript = { "eslint_d" },  -- Use conform biome instead
-      python = { "ruff" },
+      -- python = { "ruff" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {

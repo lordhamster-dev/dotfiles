@@ -8,6 +8,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = function()
+    vim.opt.conceallevel = 1
     vim.keymap.set("n", "gd", function()
       if require("obsidian").util.cursor_on_markdown_link() then
         return "<cmd>ObsidianFollowLink<CR>"

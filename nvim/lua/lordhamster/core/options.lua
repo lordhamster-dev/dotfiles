@@ -12,8 +12,8 @@ opt.encoding = "UTF-8"
 opt.fileencoding = "utf-8"
 
 -- jk移动时光标下上方保留8行
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+-- opt.scrolloff = 8
+-- opt.sidescrolloff = 8
 
 -- Mouse stuf
 opt.mousemoveevent = true
@@ -110,6 +110,3 @@ vim.api.nvim_create_user_command("Rfinder", function()
   local path = vim.api.nvim_buf_get_name(0)
   os.execute("open -R " .. path)
 end, {})
-
--- for obsidian.nvim
-vim.opt.conceallevel = 1

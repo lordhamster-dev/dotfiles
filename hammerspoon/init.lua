@@ -45,11 +45,6 @@ end
 hs.hotkey.bind({ "cmd", "ctrl" }, "g", SearchGoogleFromClipboard)
 hs.hotkey.bind({ "cmd", "ctrl" }, "y", SearchYoutubeFromClipboard)
 
--- 从剪贴板获取内容并模仿打字出来
-hs.hotkey.bind({ "cmd", "ctrl" }, "v", function()
-  hs.eventtap.keyStrokes(hs.pasteboard.getContents())
-end)
-
 -- 加载 Caffeine.spoon
 hs.loadSpoon("Caffeine")
 

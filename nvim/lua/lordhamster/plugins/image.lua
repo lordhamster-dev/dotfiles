@@ -1,15 +1,10 @@
 return {
   "3rd/image.nvim",
   dependencies = {
-    "leafo/magick",
-    "nvim-treesitter/nvim-treesitter",
-    {
-      "vhyrro/luarocks.nvim",
-      opts = {
-        rocks = {
-          hererocks = true,
-        },
-      },
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
     },
   },
   config = function()
@@ -19,8 +14,8 @@ return {
         markdown = {
           enabled = true,
           clear_in_insert_mode = false,
-          download_remote_images = false,
-          only_render_image_at_cursor = false,
+          download_remote_images = true,
+          only_render_image_at_cursor = true,
           filetypes = { "markdown" }, -- markdown extensions (ie. quarto) can go here
         },
         neorg = {

@@ -1,5 +1,6 @@
 return {
   "3rd/image.nvim",
+  cmd = { "ObsidianDailies", "ObsidianQuickSwitch", "ObsidianNew", "ObsidianSearch" },
   dependencies = {
     "vhyrro/luarocks.nvim",
     priority = 1001, -- this plugin needs to run before anything else

@@ -2,6 +2,7 @@
 return {
   -- https://github.com/norcalli/nvim-colorizer.lua
   "NvChad/nvim-colorizer.lua",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- https://github.com/norcalli/nvim-colorizer.lua
     -- http://neovimcraft.com/plugin/NvChad/nvim-colorizer.lua/index.html

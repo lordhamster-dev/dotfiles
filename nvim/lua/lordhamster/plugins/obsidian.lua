@@ -3,10 +3,8 @@ return {
   -- https://github.com/epwalsh/obsidian.nvim
   "epwalsh/obsidian.nvim",
   lazy = true,
-  cmd = { "ObsidianDailies", "ObsidianQuickSwitch", "ObsidianNew", "ObsidianSearch" },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
+  cmd = { "ObsidianToday" },
+  dependencies = { "nvim-lua/plenary.nvim" },
   opts = function()
     vim.opt.conceallevel = 1
     vim.keymap.set("n", "gd", function()

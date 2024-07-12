@@ -1,7 +1,7 @@
 return {
   "3rd/image.nvim",
   lazy = true,
-  cmd = { "ObsidianToday" },
+  ft = "markdown",
   dependencies = {
     "vhyrro/luarocks.nvim",
     priority = 1001, -- this plugin needs to run before anything else

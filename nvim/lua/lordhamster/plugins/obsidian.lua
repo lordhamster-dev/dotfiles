@@ -2,8 +2,9 @@
 return {
   -- https://github.com/epwalsh/obsidian.nvim
   "epwalsh/obsidian.nvim",
+  version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
-  cmd = { "ObsidianToday" },
+  ft = "markdown",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = function()
     vim.opt.conceallevel = 1

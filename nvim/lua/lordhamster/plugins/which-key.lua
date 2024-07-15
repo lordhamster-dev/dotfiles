@@ -3,131 +3,133 @@ return {
   -- https://github.com/folke/which-key.nvim
   "folke/which-key.nvim",
   event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 500
-  end,
-  config = function()
-    local wk = require("which-key")
-
-    local opts = {
-      mode = "n", -- NORMAL mode
-      prefix = "<leader>",
-      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-      silent = true, -- use `silent` when creating keymaps
-      noremap = true, -- use `noremap` when creating keymaps
-      nowait = true, -- use `nowait` when creating keymaps
-    }
-
-    local mappings = {
-      ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current buffer fuzzy find" },
-      ["1"] = { "<cmd>lua require('harpoon'):list():select(1)<cr>", "Harpoon select 1" },
-      ["2"] = { "<cmd>lua require('harpoon'):list():select(2)<cr>", "Harpoon select 2" },
-      ["3"] = { "<cmd>lua require('harpoon'):list():select(3)<cr>", "Harpoon select 3" },
-      ["4"] = { "<cmd>lua require('harpoon'):list():select(4)<cr>", "Harpoon select 4" },
-      ["<Space>"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
-      ["a"] = { "<cmd>lua require('harpoon'):list():add()<cr>", "Harpoon add" },
-      ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
-      ["c"] = { "<cmd>Telescope commands<cr>", "Commands" },
-      ["e"] = { "<cmd>Oil<cr>", "Oil" },
-      ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-      ["p"] = { '"ap', "Paste from 'a' register" },
-      ["q"] = { "<cmd>:qa<CR>", "Quit Nvim" },
-      ["w"] = { "<cmd>w!<CR>", "Save" },
-      ["x"] = { "<cmd>:Bdelete<CR>", "Close Buffer" },
-      ["y"] = { "<cmd>let @a = @+<CR>", "Let 'a' register copy from '+' register" },
-      ["z"] = { "<cmd>ZenMode<CR>", "ZenMode" },
-
-      -- t = {
-      --   name = "m_taskwarrior_d",
-      --   e = { "<cmd>TWEditTask<cr>", "Taskwarrior edit" },
-      --   q = { "<cmd>TWBufQueryTasks<cr>", "Taskwarrior query task in buffer" },
-      --   s = { "<cmd>TWSyncTasks<cr>", "Taskwarrior sync" },
-      --   t = { "<cmd>ToggleTerm direction=float<CR>", "ToggleTerm" },
-      --   v = { "<cmd>TWView<cr>", "Taskwarrior view" },
-      -- },
-      -- b = {
-      --   name = "Bufferline",
-      --   h = { "<cmd>BufferLineMovePrev<cr>", "Bufferline move prev" },
-      --   l = { "<cmd>BufferLineMoveNext<cr>", "Bufferline move next" },
-      --   o = { "<cmd>BufferLineCloseOthers<cr>", "Bufferline close others" },
-      --   p = { "<cmd>BufferLinePick<cr>", "Bufferline pick" },
-      --   t = { "<cmd>BufferLineTogglePin<cr>", "Bufferline toggle pin" },
-      -- },
-      o = {
-        name = "Obsidian",
-        T = { "<cmd>ObsidianTags<cr>", "Obsidian tags" },
-        b = { "<cmd>ObsidianBacklinks<cr>", "Obsidian backlinks" },
-        c = { "<cmd>ObsidianToggleCheckbox<cr>", "Obsidian toggle checkbox" },
-        d = { "<cmd>ObsidianToday<cr>", "Obsidian today" },
-        f = { "<cmd>ObsidianQuickSwitch<cr>", "Obsidian find files" },
-        n = { "<cmd>ObsidianNew<cr>", "Obsidian new" },
-        o = { "<cmd>ObsidianOpen<cr>", "Obsidian open" },
-        s = { "<cmd>ObsidianSearch<cr>", "Obsidian find text" },
-        t = { "<cmd>ObsidianTemplate<cr>", "Obsidian template" },
-      },
-      -- e = {
-      --   name = "NvimTree",
-      --   c = { "<cmd>NvimTreeCollapse<cr>", "Collapse file explorer" },
-      --   e = { "<cmd>NvimTreeFocus<cr>", "Focus file explorer" },
-      --   f = { "<cmd>NvimTreeFindFile<cr>", "Find current file on file explorer" },
-      --   r = { "<cmd>NvimTreeRefresh<cr>", "Refresh file explorer" },
-      --   t = { "<cmd>NvimTreeToggle<cr>", "Toggle file explorer" },
-      -- },
-      f = {
-        name = "File Manage",
-        c = { "<cmd>cexpr []<cr>", "Clear Quickfix" },
-        f = {
-          "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
-          "Find file",
-        },
-        g = { "<cmd>Telescope git_status<cr>", "Telescope git files" },
-        h = { "<cmd>Telescope help_tags<cr>", "Help" }, -- list available help tags
-        l = { "<cmd>ToggleHarpoonList<cr>", "Harpoon quick menu" },
-        m = { "<cmd>Telescope marks<cr>", "Marks" },
-        q = { "<cmd>copen<cr>", "Quickfix" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Recently used files" },
-        s = { "<cmd>TelescopeCustomLiveGrep<cr>", "Search text(1 regex,2 full match,3 case sensitive)" }, -- find string in current working directory as you type
-        t = { "<cmd>TodoTelescope<cr>", "Find todos" },
-        w = { "<cmd>Telescope grep_string<cr>", "Find word under cursor" },
-      },
-      l = {
-        name = "LSP",
-        -- f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
-        R = { "<cmd>LspRestart<CR>", "Restart LSP" },
-        a = { vim.lsp.buf.code_action, "Code Action" },
-        d = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics" },
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        o = { "<cmd>Outline<CR>", "Outline" },
-        r = { vim.lsp.buf.rename, "Rename" },
-        w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-        z = { "<cmd>Lazy<cr>", "Lazy" },
-      },
-      g = {
-        name = "Git",
-        P = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-        n = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-        p = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-      },
-    }
-
-    wk.setup({
-      window = {
-        border = "double", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-        winblend = 0,
-      },
-      layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "center", -- align columns left, center or right
-      },
-    })
-    wk.register(mappings, opts)
-  end,
+  opts = { preset = "modern" },
+  keys = {
+    {
+      "<leader>/",
+      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+      desc = "Current buffer fuzzy find",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>1",
+      "<cmd>lua require('harpoon'):list():select(1)<cr>",
+      desc = "Harpoon select 1",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>2",
+      "<cmd>lua require('harpoon'):list():select(2)<cr>",
+      desc = "Harpoon select 2",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>3",
+      "<cmd>lua require('harpoon'):list():select(3)<cr>",
+      desc = "Harpoon select 3",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>4",
+      "<cmd>lua require('harpoon'):list():select(4)<cr>",
+      desc = "Harpoon select 4",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader><Space>", "<cmd>e #<CR>", desc = "Switch to Other Buffer", nowait = true, remap = false },
+    { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add", nowait = true, remap = false },
+    { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers", nowait = true, remap = false },
+    { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+    { "<leader>e", "<cmd>Oil<cr>", desc = "Oil", nowait = true, remap = false },
+    { "<leader>f", group = "File Manage", nowait = true, remap = false },
+    { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix", nowait = true, remap = false },
+    {
+      "<leader>ff",
+      "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+      desc = "Find file",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>fg", "<cmd>Telescope git_status<cr>", desc = "Telescope git files", nowait = true, remap = false },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", nowait = true, remap = false },
+    { "<leader>fl", "<cmd>ToggleHarpoonList<cr>", desc = "Harpoon quick menu", nowait = true, remap = false },
+    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks", nowait = true, remap = false },
+    { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix", nowait = true, remap = false },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files", nowait = true, remap = false },
+    {
+      "<leader>fs",
+      "<cmd>TelescopeCustomLiveGrep<cr>",
+      desc = "Search text(1 regex,2 full match,3 case sensitive)",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos", nowait = true, remap = false },
+    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find word under cursor", nowait = true, remap = false },
+    { "<leader>g", group = "Git", nowait = true, remap = false },
+    {
+      "<leader>gP",
+      "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",
+      desc = "Preview Hunk",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>gR",
+      "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",
+      desc = "Reset Buffer",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk", nowait = true, remap = false },
+    { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk", nowait = true, remap = false },
+    { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk", nowait = true, remap = false },
+    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
+    { "<leader>l", group = "LSP", nowait = true, remap = false },
+    { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP", nowait = true, remap = false },
+    { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", nowait = true, remap = false },
+    {
+      "<leader>ld",
+      "<cmd>Telescope diagnostics bufnr=0<cr>",
+      desc = "Document Diagnostics",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
+    { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline", nowait = true, remap = false },
+    { "<leader>lr", vim.lsp.buf.rename, desc = "Rename", nowait = true, remap = false },
+    { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
+    { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy", nowait = true, remap = false },
+    { "<leader>o", group = "Obsidian", nowait = true, remap = false },
+    { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags", nowait = true, remap = false },
+    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks", nowait = true, remap = false },
+    {
+      "<leader>oc",
+      "<cmd>ObsidianToggleCheckbox<cr>",
+      desc = "Obsidian toggle checkbox",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Obsidian today", nowait = true, remap = false },
+    { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files", nowait = true, remap = false },
+    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new", nowait = true, remap = false },
+    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open", nowait = true, remap = false },
+    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text", nowait = true, remap = false },
+    { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template", nowait = true, remap = false },
+    { "<leader>p", '"ap', desc = "Paste from 'a' register", nowait = true, remap = false },
+    { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim", nowait = true, remap = false },
+    { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+    { "<leader>x", "<cmd>:Bdelete<CR>", desc = "Close Buffer", nowait = true, remap = false },
+    {
+      "<leader>y",
+      "<cmd>let @a = @+<CR>",
+      desc = "Let 'a' register copy from '+' register",
+      nowait = true,
+      remap = false,
+    },
+    { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode", nowait = true, remap = false },
+  },
 }

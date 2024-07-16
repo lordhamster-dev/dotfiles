@@ -10,6 +10,10 @@ local keymap = vim.keymap -- for conciseness
 -- Use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
+-- Move stuff up and down in visual mode
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Without copying into register
 keymap.set("n", "x", '"_x')
 keymap.set("n", "c", '"_c')

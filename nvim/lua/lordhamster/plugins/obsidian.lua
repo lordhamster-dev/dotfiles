@@ -90,6 +90,19 @@ return {
         vim.fn.jobstart({ "open", url }) -- Mac OS
         -- vim.fn.jobstart({"xdg-open", url})  -- linux
       end,
+      attachments = {
+        -- The default folder to place images in via `:ObsidianPasteImg`.
+        -- If this is a relative path it will be interpreted as relative to the vault root.
+        -- You can always override this per image by passing a full path to the command instead of just a filename.
+        img_folder = "Z-Attachments",
+        -- A function that determines the text to insert in the note when pasting an image.
+        -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
+        -- This is the default implementation.
+        img_text_func = function(client, path)
+          path = client:vault_relative_path(path) or path
+          return string.format("![[%s]]", path.name)
+        end,
+      },
     }
   end,
 }

@@ -12,6 +12,7 @@ return {
   config = function()
     require("image").setup({
       backend = "kitty",
+      kitty_method = "normal",
       integrations = {
         markdown = {
           enabled = true,
@@ -20,15 +21,9 @@ return {
           only_render_image_at_cursor = true,
           filetypes = { "markdown" }, -- markdown extensions (ie. quarto) can go here
         },
-        neorg = {
-          enabled = false,
-        },
-        html = {
-          enabled = false,
-        },
-        css = {
-          enabled = false,
-        },
+        neorg = { enabled = false },
+        html = { enabled = false },
+        css = { enabled = false },
       },
       max_width = nil,
       max_height = nil,

@@ -2,14 +2,13 @@ return {
   "3rd/image.nvim",
   lazy = true,
   ft = "markdown",
-  dependencies = {
-    "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { "magick" },
-    },
-  },
   config = function()
+    -- You have to install the luarock manually.
+    -- install luarocks on your system via your system package manager
+    -- run luarocks --local --lua-version=5.1 install magick
+    -- Example for configuring Neovim to load user-installed installed Lua rocks:
+    package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
+    package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
     require("image").setup({
       backend = "kitty",
       kitty_method = "normal",

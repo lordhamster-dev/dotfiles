@@ -92,6 +92,7 @@ rules:
   - "DOMAIN-SUFFIX,te4.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,oaiusercontent.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,npmjs.com,🚀 节点选择"
+  - "DOMAIN-SUFFIX,klei.com,🚀 节点选择"
   - "DOMAIN,apple.comscoreresearch.com,🍎 苹果服务"
   - "DOMAIN-SUFFIX,aaplimg.com,🍎 苹果服务"
   - "DOMAIN-SUFFIX,akadns.net,🍎 苹果服务"

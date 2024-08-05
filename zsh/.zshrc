@@ -58,14 +58,13 @@ alias vim=nvimvenv
 alias pmr='python manage.py runserver'
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
-alias ll="exa -l --header"
 
 ## alias for taskwarrior
-alias t="task"
-alias work="task context work"
-alias home="task context home"
-alias none="task context none"
-alias today="task today"
+# alias t="task"
+# alias work="task context work"
+# alias home="task context home"
+# alias none="task context none"
+# alias today="task today"
 
 
 # NVM(node version manager)

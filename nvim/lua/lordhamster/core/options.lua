@@ -80,6 +80,8 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 -- status line
 opt.winbar = "%=%t"
 
+opt.conceallevel = 1
+
 -- Auto save
 -- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 -- 	pattern = { "*" },

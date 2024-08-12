@@ -4,6 +4,7 @@ ln -sv ~/dotfiles/starship/starship.toml ~/.config
 ln -sv ~/dotfiles/tmux ~/.config
 ln -sv ~/dotfiles/.gitconfig ~
 ln -sv ~/dotfiles/kitty   ~/.config
+ln -sv ~/dotfiles/aerospace   ~/.config
 ln -sv ~/dotfiles/nvim ~/.config
 ln -sv ~/dotfiles/yazi  ~/.config
 ln -sv ~/dotfiles/hammerspoon  ~/.hammerspoon

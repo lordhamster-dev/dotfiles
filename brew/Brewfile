@@ -32,6 +32,7 @@ brew "unar"
 brew "jq"
 brew "poppler"
 brew "imagemagick"
+brew "sshs"
 
 cask "hammerspoon"
 cask "kitty"

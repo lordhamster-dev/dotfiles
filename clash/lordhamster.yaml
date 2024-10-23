@@ -6,10 +6,10 @@ log-level: info
 external-controller: "127.0.0.1:9090"
 # proxy provider start here
 proxy-providers:
-  xgCloud:
+  Cloud:
     type: file
     # 千万不要暴漏订阅地址,使用本地文件路径代替
-    path: ./xgCloud.yaml
+    path: ./DuangCloud.yaml
     interval: 36000
     health-check:
       enable: true
@@ -19,13 +19,13 @@ proxy-groups:
   - name: "🚀 节点选择"
     type: select
     proxies: ["♻️ 自动选择", "🚀 手动切换", DIRECT]
-    use: [xgCloud]
+    use: [Cloud]
   - name: "🚀 手动切换"
     type: select
-    use: [xgCloud]
+    use: [Cloud]
   - name: "♻️ 自动选择"
     type: url-test
-    use: [xgCloud]
+    use: [Cloud]
     url: "http://www.gstatic.com/generate_204"
     interval: 86400
   - name: "🌍 国外媒体"
@@ -36,10 +36,10 @@ proxy-groups:
     proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]
   - name: "🖥 ChatGPT"
     type: select
-    use: [xgCloud]
+    use: [Cloud]
   - name: "Ⓜ️ 微软服务"
     type: select
-    use: [xgCloud]
+    use: [Cloud]
   - name: "🍎 苹果服务"
     type: select
     proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]

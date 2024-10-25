@@ -9,6 +9,6 @@ wifi=(
 )
 
 sketchybar --add item wifi right \
-           --set wifi "${wifi[@]}"
-
-
+           --set wifi "${wifi[@]}" \
+            update_freq=1800 \
+            --subscribe wifi mouse.clicked

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 front_app=(
-  label.font="$FONT:Bold:12.0"
-  icon.padding_left=$INNER_PADDINGS
+  label.font="$FONT:Bold:14"
+  label.padding_left=$PADDINGS
   label.padding_right=$INNER_PADDINGS
   padding_left=10
   icon.background.drawing=on

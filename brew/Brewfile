@@ -4,6 +4,7 @@ tap "homebrew/services"
 tap "homebrew/cask", "https://mirrors.ustc.edu.cn/homebrew-cask.git"
 tap "homebrew/cask-fonts"
 tap "jesseduffield/lazygit"
+tap FelixKratz/formulae
 
 brew "htop"
 brew "sqlite"
@@ -33,6 +34,7 @@ brew "jq"
 brew "poppler"
 brew "imagemagick"
 brew "sshs"
+brew "sketchybar"
 
 cask "hammerspoon"
 cask "kitty"

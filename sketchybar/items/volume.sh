@@ -27,8 +27,8 @@ volume_icon=(
 )
 
 status_bracket=(
-  background.color=$BACKGROUND_1
-  background.border_color=$BACKGROUND_2
+  background.color=$BG1
+  background.border_color=$BG2
 )
 
 sketchybar --add slider volume right            \

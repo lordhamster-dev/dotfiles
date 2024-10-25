@@ -3,7 +3,8 @@
 wifi=(
   icon=󰖩
   icon.font="$FONT:Bold:20.0"
-  icon.padding_right=0
+  icon.padding_left=$INNER_PADDINGS
+  label.padding_right=$INNER_PADDINGS
   label.align=right
   script="$PLUGIN_DIR/wifi.sh" 
 )

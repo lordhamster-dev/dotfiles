@@ -3,7 +3,8 @@
 calendar=(
   icon=􀐫
   icon.font="$FONT:Bold:13.0"
-  icon.padding_right=0
+  icon.padding_left=$INNER_PADDINGS
+  label.padding_right=$INNER_PADDINGS
   label.align=right
   update_freq=30
   script="$PLUGIN_DIR/calendar.sh"

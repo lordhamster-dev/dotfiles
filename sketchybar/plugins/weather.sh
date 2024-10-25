@@ -3,23 +3,20 @@ sketchybar --set $NAME \
   icon.color=0xff5edaff
 
 # fetch weather data
-LOCATION="Seoul"
-REGION=""
-LANG="ko"
+API_KEY="641f8ee5b4aee851b2fb5c9a32dbd37f"
+CITY="上海"
 
 # Line below replaces spaces with +
-LOCATION_ESCAPED="${LOCATION// /+}+${REGION// /+}"
-WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?0pq&format=j1&lang=$LANG")
+WEATHER_JSON=$(curl -s "https://api.98dou.cn/api/weather?apiKey=$API_KEY&city=$CITY")
 
 # Fallback if empty
 if [ -z $WEATHER_JSON ]; then
-  sketchybar --set $NAME label="$LOCATION"
+  sketchybar --set $NAME label="$CITY"
   return
 fi
 
-TEMPERATURE=$(echo $WEATHER_JSON | jq '.current_condition[0].temp_C' | tr -d '"')
-#WEATHER_DESCRIPTION=$(echo $WEATHER_JSON | jq '.current_condition[0].weatherDesc[0].value' | tr -d '"' | sed 's/\(.\{16\}\).*/\1.../')
-WEATHER_DESCRIPTION=$(echo $WEATHER_JSON | jq '.current_condition[0].lang_ko[0].value' | tr -d '"' | sed 's/\(.\{16\}\).*/\1.../')
+TEMPERATURE=$(echo $WEATHER_JSON | jq '.English.wendu' | tr -d '"')
+STATE=$(echo $WEATHER_JSON | jq '.English.weatherstate' | tr -d '"')
 
 sketchybar --set $NAME \
-  label="$TEMPERATURE$(echo '°')C • $WEATHER_DESCRIPTION"
+  label="$CITY $TEMPERATURE $STATE"

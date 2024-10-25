@@ -1,8 +1,8 @@
 #!/bin/bash
 
 calendar=(
-  icon=􀐫
-  icon.font="$FONT:Bold:13.0"
+  icon=$CALENDAR
+  icon.font="$FONT:Bold:20"
   icon.padding_left=$INNER_PADDINGS
   label.padding_right=$INNER_PADDINGS
   label.align=right

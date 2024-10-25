@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$CONFIG_DIR/icons.sh"
+
 DAY_OF_WEEK=$(date '+%w')
 
 case $DAY_OF_WEEK in
@@ -12,4 +14,4 @@ case $DAY_OF_WEEK in
   6) DAY_OF_WEEK="六" ;;
 esac
 
-sketchybar --set "$NAME" label="$(date '+%Y/%m/%d') 星期$DAY_OF_WEEK $(date '+%H:%M')"
+sketchybar --set "$NAME" label="$(date '+%Y/%m/%d') 星期$DAY_OF_WEEK $TIME$(date '+%H:%M')"

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
@@ -11,29 +12,29 @@ fi
 
 case ${PERCENTAGE} in
   [8-9][0-9] | 100)
-    ICON="􀛨"
+    ICON=$BATTERY_100
     ICON_COLOR=$BATTERY_1
     ;;
   7[0-9])
-    ICON="􀺸"
+    ICON=$BATTERY_75
     ICON_COLOR=$BATTERY_2
     ;;
   [4-6][0-9])
-    ICON="􀺶"
+    ICON=$BATTERY_50
     ICON_COLOR=$BATTERY_3
     ;;
   [1-3][0-9])
-      ICON="􀛩"
+    ICON=$BATTERY_25
     ICON_COLOR=$BATTERY_4
     ;;
   [0-9])
-    ICON="􀛪"
+    ICON=$BATTERY_0 $PERCENTAGE
     ICON_COLOR=$BATTERY_5
     ;;
 esac
 
 if [[ "$CHARGING" != "" ]]; then
-  ICON="􀢋"
+  ICON=$BATTERY_CHARGING
   ICON_COLOR=$YELLOW
 fi
 

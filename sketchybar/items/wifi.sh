@@ -1,8 +1,7 @@
 #!/bin/sh
 
 wifi=(
-  icon=󰖩
-  icon.font="$FONT:Bold:20.0"
+  icon=$WIFI_CONNECTED
   icon.padding_left=$INNER_PADDINGS
   label.padding_right=$INNER_PADDINGS
   label.align=right

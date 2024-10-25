@@ -34,6 +34,15 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
   done
 done
 
+# sketchybar --add bracket spaces '/space\..*/' \
+#            --set spaces \
+#                  background.color=$BLACK \
+#                  background.corner_radius=15 \
+#                  background.border_width=1 \
+#                  background.border_color=$BLUE \
+#                  blur_radius=2 \
+#                  background.height=30
+
 
 
 space_creator=(

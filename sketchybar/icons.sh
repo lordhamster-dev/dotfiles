@@ -10,6 +10,7 @@ BELL=􀋚
 BELL_DOT=􀝗
 TIME=􀐫
 CALENDAR=
+WEATHER=󰖐
 
 # Git Icons
 GIT_ISSUE=􀍷

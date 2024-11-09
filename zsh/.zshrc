@@ -1,15 +1,25 @@
-export SHELL="/bin/zsh"
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/lordhamster/.zshrc'
 
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(
-    poetry
-	git
-    zsh-autosuggestions
-	zsh-syntax-highlighting
-	web-search
-)
-source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+autoload -Uz compinit
+compinit
+
+# export ZSH="$HOME/.oh-my-zsh"
+# plugins=(
+#     poetry
+# 	git
+#     zsh-autosuggestions
+# 	zsh-syntax-highlighting
+# 	web-search
+# )
+# source $ZSH/oh-my-zsh.sh
+# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Starship
 eval "$(starship init zsh)"
@@ -19,26 +29,6 @@ eval "$(zoxide init zsh)"
 
 # fzf
 eval "$(fzf --zsh)"
-
-# brew
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-
-# PATH
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$HOME/.local/bin:$PATH"
-
-# JAVA
-export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_11_HOME=`/usr/libexec/java_home -v 11`
-alias jdk11="export JAVA_HOME=$JAVA_11_HOME"
-export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`
-alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
-
-# android
-export ANDROID_HOME=/Users/jacob/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
 
 # neovim
 export EDITOR=nvim
@@ -68,8 +58,7 @@ alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP 
 
 
 # NVM(node version manager)
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source /usr/share/nvm/init-nvm.sh
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)

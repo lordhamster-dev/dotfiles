@@ -9,7 +9,7 @@ proxy-providers:
   Cloud:
     type: file
     # 千万不要暴漏订阅地址,使用本地文件路径代替
-    path: ./DuangCloud.yaml
+    path: ./xgCloud.yaml
     interval: 36000
     health-check:
       enable: true

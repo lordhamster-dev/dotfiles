@@ -15,4 +15,5 @@ Thumbs.db
 
 
 .ssh-list-private.sh
+.zshrc_private
 tmux/plugins

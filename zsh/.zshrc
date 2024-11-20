@@ -73,3 +73,5 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+source ~/.zshrc_private

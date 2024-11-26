@@ -6,3 +6,4 @@ ln -sv ~/dotfiles/.gitconfig ~
 ln -sv ~/dotfiles/kitty   ~/.config
 ln -sv ~/dotfiles/nvim ~/.config
 ln -sv ~/dotfiles/yazi  ~/.config
+ln -sv ~/dotfiles/rofi  ~/.config

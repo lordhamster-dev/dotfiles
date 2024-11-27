@@ -20,6 +20,10 @@ configuration {
     modi: "drun";
     show-icons: true;
     display-drun: " ";
+    kb-remove-to-eol: "";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
 }
 
 listview {

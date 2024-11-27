@@ -9,7 +9,7 @@ sudo pacman -S ttf-cascadia-code-nerd
 ## Install packages
 
 ```bash
-sudo pacman -S clash neovim starship task tmux yazi zsh fzf fd ripgrep zoxide
+sudo pacman -S clash neovim starship task tmux yazi zsh fzf fd ripgrep zoxide hyprpaper keyd btop cliphist
 ```
 
 ```bash

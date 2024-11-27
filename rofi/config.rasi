@@ -76,23 +76,23 @@ element {
 }
 
 element normal.normal {
-	background-color: transparent;
-	text-color: @fg-color;
+    background-color: transparent;
+    text-color: @fg-color;
 }
 
 element alternate.normal {
-	background-color: @alt-color;
-	text-color: @fg-color;
+    background-color: @alt-color;
+    text-color: @fg-color;
 }
 
 element selected.active {
-	background-color: @hl-color;
-	text-color: @hlt-color;
+    background-color: @hl-color;
+    text-color: @hlt-color;
 }
 
 element selected.normal {
-	background-color: @hl-color;
-	text-color: @hlt-color;
+    background-color: @hl-color;
+    text-color: @hlt-color;
 }
 
 message {

@@ -1,4 +1,4 @@
-ln -sv ~/dotfiles/clash/lordhamster.yaml ~/.config/clash
+ln -sv ~/dotfiles/clash/config.yaml ~/.config/clash
 ln -sv ~/dotfiles/zsh/.zshrc  ~
 ln -sv ~/dotfiles/starship/starship.toml ~/.config
 ln -sv ~/dotfiles/tmux ~/.config

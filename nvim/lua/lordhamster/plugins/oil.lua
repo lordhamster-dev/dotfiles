@@ -5,12 +5,13 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     keymaps = {
-      ["<C-s>"] = false,
       ["<C-h>"] = false,
+      ["<C-l>"] = false,
+      ["<C-r>"] = "actions.refresh",
+      ["<C-s>"] = false,
       ["<Esc>"] = "actions.close",
       ["h"] = "actions.parent",
       ["l"] = "actions.select",
-      ["H"] = "actions.open_cwd",
     },
     -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
     delete_to_trash = true,

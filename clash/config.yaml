@@ -59,6 +59,7 @@ rules:
   - "DOMAIN,api.duangss.cloud,DIRECT"
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,wallhaven.cc,🚀 节点选择"
   - "DOMAIN-SUFFIX,civitai.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,statsmodels.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,tic80.com,🚀 节点选择"

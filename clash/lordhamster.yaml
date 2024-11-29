@@ -18,22 +18,22 @@ proxy-providers:
 proxy-groups:
   - name: "🚀 节点选择"
     type: select
-    proxies: ["♻️ 自动选择", "🚀 手动切换", DIRECT]
+    proxies: ["🤖 自动选择", "🛠️ 手动切换", DIRECT]
     use: [Cloud]
-  - name: "🚀 手动切换"
-    type: select
-    use: [Cloud]
-  - name: "♻️ 自动选择"
+  - name: "🤖 自动选择"
     type: url-test
     use: [Cloud]
     url: "http://www.gstatic.com/generate_204"
     interval: 86400
+  - name: "🛠️ 手动切换"
+    type: select
+    use: [Cloud]
   - name: "🌍 国外媒体"
     type: select
-    proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]
+    proxies: ["🤖 自动选择"]
   - name: "📲 电报信息"
     type: select
-    proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]
+    proxies: ["🤖 自动选择"]
   - name: "🖥 ChatGPT"
     type: select
     use: [Cloud]
@@ -42,19 +42,19 @@ proxy-groups:
     use: [Cloud]
   - name: "🍎 苹果服务"
     type: select
-    proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]
+    proxies: [DIRECT]
   - name: "🎯 全球直连"
     type: select
-    proxies: ["🚀 节点选择", "♻️ 自动选择", DIRECT]
+    proxies: [DIRECT]
   - name: "🛑 全球拦截"
     type: select
-    proxies: [REJECT, DIRECT]
+    proxies: [REJECT]
   - name: "🍃 应用净化"
     type: select
-    proxies: [REJECT, DIRECT]
+    proxies: [REJECT]
   - name: "🐟 漏网之鱼"
     type: select
-    proxies: ["🚀 节点选择", "🎯 全球直连", "♻️ 自动选择"]
+    proxies: [DIRECT]
 rules:
   - "DOMAIN,api.duangss.cloud,DIRECT"
   - "DOMAIN-SUFFIX,openai.com,🖥 ChatGPT"

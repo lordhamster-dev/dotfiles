@@ -89,6 +89,14 @@ opt.conceallevel = 1
 -- 	nested = true,
 -- })
 
+-- 进入 normal 模式时切换为英文输入法
+vim.cmd([[
+augroup input_method
+  autocmd!
+  autocmd InsertLeave * :lua vim.fn.system("fcitx5-remote -c")
+augroup END
+]])
+
 -- Restore cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*",

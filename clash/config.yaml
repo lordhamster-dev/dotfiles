@@ -30,10 +30,10 @@ proxy-groups:
     use: [Cloud]
   - name: "🌍 国外媒体"
     type: select
-    proxies: ["🤖 自动选择"]
+    proxies: ["🚀 节点选择"]
   - name: "📲 电报信息"
     type: select
-    proxies: ["🤖 自动选择"]
+    proxies: ["🚀 节点选择"]
   - name: "💬 ChatGPT"
     type: select
     use: [Cloud]
@@ -54,7 +54,7 @@ proxy-groups:
     proxies: [REJECT]
   - name: "🐟 漏网之鱼"
     type: select
-    proxies: [DIRECT]
+    proxies: [DIRECT, "🚀 节点选择"]
 rules:
   - "DOMAIN,api.duangss.cloud,DIRECT"
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"

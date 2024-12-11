@@ -57,8 +57,11 @@ proxy-groups:
     proxies: [DIRECT, "🚀 节点选择"]
 rules:
   - "DOMAIN,api.duangss.cloud,DIRECT"
+  - "DOMAIN-SUFFIX,sora.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,astro.build,🚀 节点选择"
+  - "DOMAIN-SUFFIX,docker.io,🚀 节点选择"
   - "DOMAIN-SUFFIX,clash.razord.top,🚀 节点选择"
   - "DOMAIN-SUFFIX,unfoldadmin.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,wallhaven.cc,🚀 节点选择"

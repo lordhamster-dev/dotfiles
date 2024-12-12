@@ -1,5 +1,5 @@
 mixed-port: 7890
-allow-lan: false
+allow-lan: true
 bind-address: "*"
 mode: rule
 log-level: info
@@ -60,6 +60,7 @@ rules:
   - "DOMAIN-SUFFIX,sora.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,python.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,astro.build,🚀 节点选择"
   - "DOMAIN-SUFFIX,docker.io,🚀 节点选择"
   - "DOMAIN-SUFFIX,clash.razord.top,🚀 节点选择"

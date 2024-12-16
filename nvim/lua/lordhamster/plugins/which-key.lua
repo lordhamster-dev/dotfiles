@@ -132,5 +132,33 @@ return {
       remap = false,
     },
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode", nowait = true, remap = false },
+    {
+      "<leader>tq",
+      "<cmd>TWBufQueryTasks<cr>",
+      desc = "Taskwarrior query task in buffer",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>ts",
+      "<cmd>TWSyncTasks<cr>",
+      desc = "Taskwarrior sync",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>tt",
+      "<cmd>TWToggle<cr>",
+      desc = "Taskwarrior toggle task",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>tu",
+      "<cmd>TWUpdateCurrent<cr>",
+      desc = "Taskwarrior update task",
+      nowait = true,
+      remap = false,
+    },
   },
 }

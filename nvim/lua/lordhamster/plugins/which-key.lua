@@ -113,6 +113,7 @@ return {
       nowait = true,
       remap = false,
     },
+    { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies", nowait = true, remap = false },
     { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files", nowait = true, remap = false },
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new", nowait = true, remap = false },
     { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open", nowait = true, remap = false },

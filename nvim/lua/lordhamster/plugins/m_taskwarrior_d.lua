@@ -9,6 +9,7 @@ return {
     require("m_taskwarrior_d").setup({
       task_statuses = { " ", "x", "~" },
       status_map = { [" "] = "pending", ["x"] = "completed", ["~"] = "deleted" },
+      display_due_or_scheduled = false,
     })
   end,
 }

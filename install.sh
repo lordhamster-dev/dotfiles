@@ -7,3 +7,4 @@ ln -sv ~/dotfiles/kitty   ~/.config
 ln -sv ~/dotfiles/nvim ~/.config
 ln -sv ~/dotfiles/yazi  ~/.config
 ln -sv ~/dotfiles/rofi  ~/.config
+ln -sv ~/dotfiles/waybar  ~/.config

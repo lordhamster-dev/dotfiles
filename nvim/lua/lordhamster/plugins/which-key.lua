@@ -135,6 +135,13 @@ return {
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode", nowait = true, remap = false },
     {
       "<leader>tq",
+      "<cmd>TWQueryTasks<cr>",
+      desc = "Taskwarrior query task",
+      nowait = true,
+      remap = false,
+    },
+    {
+      "<leader>tQ",
       "<cmd>TWBufQueryTasks<cr>",
       desc = "Taskwarrior query task in buffer",
       nowait = true,

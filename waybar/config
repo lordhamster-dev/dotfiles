@@ -1,11 +1,21 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["custom/power", "custom/lock", "tray"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "backlight", "battery", "clock"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["tray", "pulseaudio", "backlight", "battery", "clock","custom/lock", "custom/power"],
+    "hyprland/window": {
+        "max-length": 30,
+        "ellipsis": true,
+        "format": "{class} {title}",
+        "tooltip": true
+    },
+    "custom/window_icon": {
+        "exec": "~/.config/waybar/scripts/window_icons.sh",
+        "interval": 1,
+        "format": "{output}"
+    },
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -64,7 +74,7 @@
     },
     "custom/power": {
         "tooltip": false,
-        "on-click": "poweroff",
+        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
         "format": ""
     }
 }

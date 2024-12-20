@@ -34,3 +34,10 @@ keymap.set("i", "<C-t>", "- [ ] ")
 ----------------------
 -- keymap.set("t", "<esc>", "<C-\\><C-n>")
 keymap.set("t", "<esc>", "<cmd>Floaterminal<cr>")
+
+----------------------
+--     Run Lua     --
+----------------------
+keymap.set("n", "<space>s", "<cmd>source %<CR>")
+keymap.set("n", "<space>x", ":.lua<CR>")
+keymap.set("v", "<space>x", ":lua<CR>")

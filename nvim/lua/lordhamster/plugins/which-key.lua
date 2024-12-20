@@ -122,7 +122,6 @@ return {
     { "<leader>p", '"ap', desc = "Paste from 'a' register", nowait = true, remap = false },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim", nowait = true, remap = false },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
-    { "<leader>x", "<cmd>:Bdelete<CR>", desc = "Close Buffer", nowait = true, remap = false },
     {
       "<leader>y",
       "<cmd>let @a = @+<CR>",

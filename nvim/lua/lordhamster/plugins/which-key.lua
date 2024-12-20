@@ -121,8 +121,6 @@ return {
     { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags", nowait = true, remap = false },
     { "<leader>p", '"ap', desc = "Paste from 'a' register", nowait = true, remap = false },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim", nowait = true, remap = false },
-    { "<leader>t-", ":sp term://", desc = "Open horizontal terminal split", nowait = true, remap = false },
-    { "<leader>t\\", ":vsp term://", desc = "Open vertical terminal split", nowait = true, remap = false },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
     { "<leader>x", "<cmd>:Bdelete<CR>", desc = "Close Buffer", nowait = true, remap = false },
     {
@@ -133,6 +131,7 @@ return {
       remap = false,
     },
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode", nowait = true, remap = false },
+    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Open floating terminal", nowait = true, remap = false },
     {
       "<leader>tq",
       "<cmd>TWQueryTasks<cr>",
@@ -155,7 +154,7 @@ return {
       remap = false,
     },
     {
-      "<leader>tt",
+      "<leader>td",
       "<cmd>TWToggle<cr>",
       desc = "Taskwarrior toggle task",
       nowait = true,

@@ -2,7 +2,7 @@
 
 * {
   font-family: CaskaydiaCove Nerd Font;
-  font-size: 17px;
+  font-size: 16px;
   min-height: 0;
 }
 
@@ -50,10 +50,23 @@
   border-radius: 1rem;
 }
 
+#custom-power {
+  border-radius: 1rem 0px 0px 1rem;
+  color: @red;
+  margin-left: 1rem;
+}
+
+#custom-lock {
+  border-radius: 0px 1rem 1rem 0px;
+  color: @lavender;
+  margin-right: 1rem;
+}
+
 #custom-music {
   color: @mauve;
   border-radius: 1rem;
   font-size: 13px;
+  margin-right: 1rem;
 }
 
 #pulseaudio {
@@ -86,15 +99,5 @@
 #clock {
   color: @blue;
   border-radius: 0px 1rem 1rem 0px;
-}
-
-#custom-lock {
-  border-radius: 1rem 0px 0px 1rem;
-  color: @lavender;
-}
-
-#custom-power {
   margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
-  color: @red;
 }

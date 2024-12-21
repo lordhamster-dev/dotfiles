@@ -2,9 +2,26 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "custom/window"],
-    "modules-center": ["custom/music"],
-    "modules-right": ["tray", "pulseaudio", "backlight", "battery", "clock","custom/lock", "custom/power"],
+    "modules-left": ["custom/power", "custom/lock", "custom/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/music", "tray", "pulseaudio", "backlight", "battery", "clock"],
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
+        "format": ""
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "hyprlock",
+        "format": "",
+    },
+    "custom/window": {
+        "exec": "~/.config/waybar/scripts/window.sh",
+        "interval": 1,
+        "format": "{}",
+        "max-length": 30,
+        "ellipsis": true
+    },
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -13,17 +30,6 @@
              "default": "",
          },
      },
-    "custom/window": {
-        "exec": "~/.config/waybar/scripts/window.sh",
-        "interval": 1,
-        "format": "{}",
-        "max-length": 30,
-        "ellipsis": true
-    },
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
-    },
     "custom/music": {
         "format": "  {}",
         "escape": true,
@@ -33,11 +39,17 @@
         "on-click": "playerctl play-pause",
         "max-length": 50
     },
-    "clock": {
-        "timezone": "Asia/Shanghai",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%Y-%m-%d}",
-        "format": " {:%H:%M}"
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
     },
     "backlight": {
         "device": "intel_backlight",
@@ -55,22 +67,10 @@
         "format-alt": "{icon}",
         "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
     },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", " "]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/lock": {
-        "tooltip": false,
-        "on-click": "hyprlock",
-        "format": "",
-    },
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
-        "format": ""
+    "clock": {
+        "timezone": "Asia/Shanghai",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%Y-%m-%d}",
+        "format": " {:%H:%M}"
     }
 }

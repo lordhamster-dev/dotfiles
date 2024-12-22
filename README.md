@@ -13,6 +13,10 @@ sudo pacman -S tk pyenv clash neovim starship task tmux yazi zsh fzf fd ripgrep 
 ```
 
 ```bash
+yay -S hyprshot
+```
+
+```bash
 ./install.sh
 ```
 

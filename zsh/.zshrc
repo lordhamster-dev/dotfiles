@@ -75,3 +75,10 @@ source $(brew --prefix nvm)/nvm.sh
 source <(ng completion script)
 
 source ~/.zshrc_private
+
+if [[ -n $TMUX ]]; then
+    __kdwithtmuxpopup() {
+        tmux display-popup "kd $@"
+    }
+    alias kd=__kdwithtmuxpopup
+fi

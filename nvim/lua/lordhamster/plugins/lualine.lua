@@ -101,12 +101,26 @@ return {
         lualine_b = { branch, diagnostics },
         lualine_c = {
           {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
+            require("noice").api.status.command.get,
+            cond = require("noice").api.status.command.has,
+            color = { fg = "#ff9e64" },
+          },
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
             color = { fg = "#ff9e64" },
           },
         },
-        lualine_x = { diff, spaces, "encoding", filetype },
+        lualine_x = {
+          {
+            require("noice").api.status.message.get_hl,
+            cond = require("noice").api.status.message.has,
+          },
+          diff,
+          spaces,
+          "encoding",
+          filetype,
+        },
         lualine_y = { location },
         lualine_z = { "progress" },
       },

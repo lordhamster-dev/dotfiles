@@ -33,10 +33,11 @@ return {
     -- Markdown
     { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },
 
-    -- Buffers
+    -- Buffers & Tabs
     { "<space>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
-    { "L", "<cmd>bnext<CR>", desc = "Buffer next" },
-    { "H", "<cmd>bprevious<CR>", desc = "Buffer previous" },
+    { "<space>n", "<cmd>tabnew<CR>", desc = "New tab" },
+    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
+    { "H", "<cmd>tabprevious<CR>", desc = "Tab previous" },
 
     -- Move stuff up and down in visual mode
     { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },

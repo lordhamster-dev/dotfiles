@@ -68,7 +68,7 @@ return {
       -- 2: Absolute path
       -- 3: Absolute path, with tilde as the home directory
       -- 4: Filename and parent dir, with tilde as the home directory
-      path = 4,
+      path = 1,
       symbols = {
         modified = "", -- Text to show when the file is modified.
         readonly = "[Read Only]", -- Text to show when the file is non-modifiable or readonly.
@@ -79,17 +79,16 @@ return {
 
     local tabs = {
       "tabs",
+      max_length = vim.o.columns,
       -- 0: Shows tab_nr
       -- 1: Shows tab_name
       -- 2: Shows tab_nr + tab_name
-      mode = 0,
+      mode = 2,
       -- 0: just shows the filename
       -- 1: shows the relative path and shorten $HOME to ~
       -- 2: shows the full path
       -- 3: shows the full path and shorten $HOME to ~
       path = 0,
-      show_modified_status = false,
-      separator = { left = "", right = "" },
     }
 
     local buffers = {
@@ -172,12 +171,12 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = { buffers },
+        lualine_a = { tabs },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { tabs },
+        lualine_z = {},
       },
       winbar = {
         lualine_a = {},

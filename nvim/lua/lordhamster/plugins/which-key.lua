@@ -5,138 +5,116 @@ return {
   event = "VeryLazy",
   opts = { preset = "modern" },
   keys = {
-    { "<leader><Space>", "<cmd>e #<CR>", desc = "Switch to Other Buffer", nowait = true, remap = false },
-    { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add", nowait = true, remap = false },
-    { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers", nowait = true, remap = false },
-    { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
-    { "<leader>e", "<cmd>Oil<cr>", desc = "Oil", nowait = true, remap = false },
-    { "<leader>f", group = "File Manage", nowait = true, remap = false },
-    { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix", nowait = true, remap = false },
+    { "<leader><Space>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
+    { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
+    { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+    { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>e", "<cmd>Oil<cr>", desc = "Oil" },
+    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+    { "<leader>p", '"ap', desc = "Paste from 'a' register" },
+    { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
+    { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
+    { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
+    { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode" },
+
+    -- Run lua
+    { "<space>s", "<cmd>source %<CR>", desc = "Run whole file" },
+    { "<space>r", ":.lua<CR>", desc = "Run lua on current cursor" },
+    { "<space>r", ":lua<CR>", mode = "v", desc = "Run lua on select" },
+
+    -- Without copying into register
+    { "x", '"_x', desc = "x without copying into register" },
+    { "c", '"_c', desc = "c without copying into register" },
+
+    -- Window
+    { "<C-w>\\", ":vsp<CR>", desc = "c without copying into register" },
+    { "<C-w>-", ":sp<CR>", desc = "c without copying into register" },
+
+    -- Markdown
+    { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },
+
+    -- Buffers
+    { "<space>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
+    { "L", "<cmd>bnext<CR>", desc = "Buffer next" },
+    { "H", "<cmd>bprevious<CR>", desc = "Buffer previous" },
+
+    -- Move stuff up and down in visual mode
+    { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },
+    { "K", ":m '<-2<CR>gv=gv", mode = "v", desc = "Move stuff up" },
+
+    ----------------------
+    --   Myself Tool   --
+    ----------------------
+    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Open floating terminal" },
+    { "<leader>tt", "<cmd>Floaterminal<cr>", mode = "t", desc = "Close floating terminal" },
+    { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Normal Mode" },
+
+    ----------------------
+    --    Telescope    --
+    ----------------------
+    { "<leader>f", group = "File Manage" },
+    { "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current buffer fuzzy find" },
+    { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix" },
     {
       "<leader>ff",
       "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
       desc = "Find file",
-      nowait = true,
-      remap = false,
     },
-    { "<leader>fg", "<cmd>Telescope git_status<cr>", desc = "Telescope git files", nowait = true, remap = false },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", nowait = true, remap = false },
-    { "<leader>fl", "<cmd>ToggleHarpoonList<cr>", desc = "Harpoon quick menu", nowait = true, remap = false },
-    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks", nowait = true, remap = false },
-    { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix", nowait = true, remap = false },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files", nowait = true, remap = false },
-    {
-      "<leader>fs",
-      "<cmd>TelescopeCustomLiveGrep<cr>",
-      desc = "Search text(1 regex,2 full match,3 case sensitive)",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos", nowait = true, remap = false },
-    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find word under cursor", nowait = true, remap = false },
-    {
-      "<leader>f/",
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      desc = "Current buffer fuzzy find",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>g", group = "Git", nowait = true, remap = false },
-    {
-      "<leader>gP",
-      "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",
-      desc = "Preview Hunk",
-      nowait = true,
-      remap = false,
-    },
-    {
-      "<leader>gR",
-      "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",
-      desc = "Reset Buffer",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk", nowait = true, remap = false },
-    { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk", nowait = true, remap = false },
-    { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk", nowait = true, remap = false },
-    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
-    { "<leader>l", group = "LSP", nowait = true, remap = false },
-    { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP", nowait = true, remap = false },
-    { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", nowait = true, remap = false },
-    {
-      "<leader>ld",
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      desc = "Document Diagnostics",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
-    { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline", nowait = true, remap = false },
-    { "<leader>lr", vim.lsp.buf.rename, desc = "Rename", nowait = true, remap = false },
-    { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", nowait = true, remap = false },
-    { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy", nowait = true, remap = false },
-    { "<leader>o", group = "Obsidian", nowait = true, remap = false },
-    { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template", nowait = true, remap = false },
-    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks", nowait = true, remap = false },
-    {
-      "<leader>oc",
-      "<cmd>ObsidianToggleCheckbox<cr>",
-      desc = "Obsidian toggle checkbox",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies", nowait = true, remap = false },
-    { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files", nowait = true, remap = false },
-    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new", nowait = true, remap = false },
-    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open", nowait = true, remap = false },
-    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text", nowait = true, remap = false },
-    { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags", nowait = true, remap = false },
-    { "<leader>p", '"ap', desc = "Paste from 'a' register", nowait = true, remap = false },
-    { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim", nowait = true, remap = false },
-    { "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
-    {
-      "<leader>y",
-      "<cmd>let @a = @+<CR>",
-      desc = "Let 'a' register copy from '+' register",
-      nowait = true,
-      remap = false,
-    },
-    { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode", nowait = true, remap = false },
-    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Open floating terminal", nowait = true, remap = false },
-    {
-      "<leader>tq",
-      "<cmd>TWQueryTasks<cr>",
-      desc = "Taskwarrior query task",
-      nowait = true,
-      remap = false,
-    },
-    {
-      "<leader>tQ",
-      "<cmd>TWBufQueryTasks<cr>",
-      desc = "Taskwarrior query task in buffer",
-      nowait = true,
-      remap = false,
-    },
-    {
-      "<leader>ts",
-      "<cmd>TWSyncTasks<cr>",
-      desc = "Taskwarrior sync",
-      nowait = true,
-      remap = false,
-    },
-    {
-      "<leader>td",
-      "<cmd>TWToggle<cr>",
-      desc = "Taskwarrior toggle task",
-      nowait = true,
-      remap = false,
-    },
-    {
-      "<leader>tu",
-      "<cmd>TWUpdateCurrent<cr>",
-      desc = "Taskwarrior update task",
-      nowait = true,
-      remap = false,
-    },
+    { "<leader>fg", "<cmd>Telescope git_status<cr>", desc = "Telescope git files" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+    { "<leader>fl", "<cmd>ToggleHarpoonList<cr>", desc = "Harpoon quick menu" },
+    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
+    { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files" },
+    { "<leader>fs", "<cmd>TelescopeCustomLiveGrep<cr>", desc = "Search text(1 regex,2 full match,3 case sensitive)" },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos" },
+    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find word under cursor" },
+
+    ----------------------
+    --       lsp       --
+    ----------------------
+    { "<leader>l", group = "LSP" },
+    { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
+    { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
+    { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+    { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+    { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
+    { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+    { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
+    { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy" },
+
+    ----------------------
+    --       Git       --
+    ----------------------
+    { "<leader>g", group = "Git" },
+    { "<leader>gP", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
+    { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
+    { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
+    { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
+    { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
+
+    ----------------------
+    --     Obsidian    --
+    ----------------------
+    { "<leader>o", group = "Obsidian" },
+    { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
+    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
+    { "<leader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Obsidian toggle checkbox" },
+    { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
+    { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
+    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
+    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
+    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
+    { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
+
+    ----------------------
+    --   Taskwarrior   --
+    ----------------------
+    { "<leader>t", group = "Taskwarrior" },
+    { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
+    { "<leader>tQ", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
+    { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
+    { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
+    { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
   },
 }

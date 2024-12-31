@@ -84,6 +84,20 @@ return {
       scope = {
         enabled = false,
       },
+      exclude = {
+        filetypes = {
+          "lspinfo",
+          "packer",
+          "checkhealth",
+          "help",
+          "man",
+          "gitcommit",
+          "dashboard",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "",
+        },
+      },
     })
   end,
 }

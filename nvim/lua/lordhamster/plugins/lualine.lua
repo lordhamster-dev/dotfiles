@@ -16,9 +16,10 @@ return {
       sources = { "nvim_diagnostic" },
       sections = { "error", "warn" },
       symbols = { error = " ", warn = " " },
-      colored = false,
+      colored = true,
       update_in_insert = false,
       always_visible = true,
+      separator = { left = "", right = "" },
     }
 
     local diff = {
@@ -33,6 +34,7 @@ return {
       -- fmt = function(str)
       -- 	return "-- " .. str .. " --"
       -- end,
+      separator = { left = "", right = "" },
     }
 
     local filetype = {
@@ -49,7 +51,14 @@ return {
 
     local location = {
       "location",
-      padding = 0,
+      padding = { left = 0, right = 1 },
+      separator = { left = "", right = "" },
+    }
+
+    local progress = {
+      "progress",
+      padding = { left = 1, right = 0 },
+      separator = { left = "", right = "" },
     }
 
     local filename = {
@@ -73,13 +82,43 @@ return {
       -- 0: Shows tab_nr
       -- 1: Shows tab_name
       -- 2: Shows tab_nr + tab_name
-      mode = 2,
+      mode = 0,
       -- 0: just shows the filename
       -- 1: shows the relative path and shorten $HOME to ~
       -- 2: shows the full path
       -- 3: shows the full path and shorten $HOME to ~
-      path = 1,
+      path = 0,
       show_modified_status = false,
+      separator = { left = "", right = "" },
+    }
+
+    local buffers = {
+      "buffers",
+      -- 0: Shows buffer name
+      -- 1: Shows buffer index
+      -- 2: Shows buffer name + buffer index
+      -- 3: Shows buffer number
+      -- 4: Shows buffer name + buffer number
+      mode = 2,
+      separator = { left = "", right = "" },
+      right_padding = 2,
+      symbols = { alternate_file = "" },
+      max_length = vim.o.columns * 0.75,
+      filetype_names = {
+        TelescopePrompt = " Telescope",
+        dashboard = " Dashboard",
+        packer = " Packer",
+        fzf = "FZF",
+        alpha = " Alpha",
+        oil = "󰏇  Oil",
+        checkhealth = "󰥱 Checkhealth",
+        harpoon = "󰈺 Harpoon",
+        fugitive = "Fugitive",
+      },
+      buffers_color = {
+        active = "lualine_a_normal",
+        inactive = "lualine_b_normal",
+      },
     }
 
     local spaces = function()
@@ -122,7 +161,7 @@ return {
           filetype,
         },
         lualine_y = { location },
-        lualine_z = { "progress" },
+        lualine_z = { progress },
       },
       inactive_sections = {
         lualine_a = {},
@@ -133,12 +172,12 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = { tabs },
+        lualine_a = { buffers },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {},
+        lualine_z = { tabs },
       },
       winbar = {
         lualine_a = {},

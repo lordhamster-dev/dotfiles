@@ -34,10 +34,11 @@ return {
     { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },
 
     -- Buffers & Tabs
-    { "<space>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
+    { "<leader>tm", ":tabmove ", desc = "Move tab" },
     { "<space>n", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
+    { "<space>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
     { "H", "<cmd>tabprevious<CR>", desc = "Tab previous" },
+    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
 
     -- Move stuff up and down in visual mode
     { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },
@@ -46,9 +47,9 @@ return {
     ----------------------
     --   Myself Tool   --
     ----------------------
-    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Open floating terminal" },
-    { "<leader>tt", "<cmd>Floaterminal<cr>", mode = "t", desc = "Close floating terminal" },
-    { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Normal Mode" },
+    { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Terminal mode to normal mode" },
+    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Toggle floating terminal" },
+    { "<leader>tt", "<cmd>Floaterminal<cr>", mode = "t", desc = "Toggle floating terminal" },
 
     ----------------------
     --    Telescope    --
@@ -98,7 +99,7 @@ return {
     --     Obsidian    --
     ----------------------
     { "<leader>o", group = "Obsidian" },
-    { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
+    { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
     { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
     { "<leader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Obsidian toggle checkbox" },
     { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
@@ -106,16 +107,16 @@ return {
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
     { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
     { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
-    { "<leader>oT", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
+    { "<leader>ot", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
 
     ----------------------
     --   Taskwarrior   --
     ----------------------
     { "<leader>t", group = "Taskwarrior" },
-    { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
     { "<leader>tQ", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
-    { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
     { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
+    { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
+    { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
     { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
   },
 }

@@ -8,7 +8,7 @@ return {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
     { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>e", "<cmd>Oil<cr>", desc = "Oil" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
@@ -20,9 +20,9 @@ return {
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode" },
 
     -- Run lua
-    { "<leader>s", "<cmd>source %<CR>", desc = "Run whole file" },
-    { "<leader>r", ":.lua<CR>", desc = "Run lua on current cursor" },
-    { "<leader>r", ":lua<CR>", mode = "v", desc = "Run lua on select" },
+    { "<leader>s", "<cmd>source %<CR>", desc = "Excute whole file" },
+    { "<leader>x", ":.lua<CR>", desc = "Excute lua on current cursor" },
+    { "<leader>x", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
 
     -- Without copying into register
     { "x", '"_x', desc = "x without copying into register" },
@@ -39,7 +39,6 @@ return {
     { "<leader>tc", "<cmd>tabclose<CR>", desc = "Close tab" },
     { "<leader>tm", ":tabmove ", desc = "Move tab" },
     { "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "<leader>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
     { "H", "<cmd>tabprevious<CR>", desc = "Tab previous" },
     { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
 
@@ -50,13 +49,14 @@ return {
     ----------------------
     --   Myself Tool   --
     ----------------------
+    { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Terminal mode to normal mode" },
     {
       "<leader>tt",
       "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
       desc = "Toggle floating terminal",
     },
     {
-      "<esc>",
+      "<C-q>",
       "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
       mode = "t",
       desc = "Toggle floating terminal",
@@ -76,7 +76,7 @@ return {
     { "<leader>fg", "<cmd>Telescope git_status<cr>", desc = "Telescope git files" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
     { "<leader>fl", "<cmd>ToggleHarpoonList<cr>", desc = "Harpoon quick menu" },
-    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
+    { "<leader>fm", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files" },
     { "<leader>fs", "<cmd>lua require 'lordhamster.util.multigrep'.live_multigrep()<cr>", desc = "Search text" },

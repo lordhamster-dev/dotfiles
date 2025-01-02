@@ -35,7 +35,7 @@ opt.swapfile = false
 -- opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 99
 opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.require'lordhamster.util'.foldexpr()"
+opt.foldexpr = "v:lua.require'lordhamster.util.foldmethod'.foldexpr()"
 
 -- 补全增强
 -- vim.o.wildmenu = true

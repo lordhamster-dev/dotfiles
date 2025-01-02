@@ -71,7 +71,7 @@ return {
     { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
     { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files" },
-    { "<leader>fs", "<cmd>TelescopeCustomLiveGrep<cr>", desc = "Search text(1 regex,2 full match,3 case sensitive)" },
+    { "<leader>fs", "<cmd>lua require 'lordhamster.util.multigrep'.live_multigrep()<cr>", desc = "Search text" },
     { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos" },
     { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find word under cursor" },
 

@@ -5,7 +5,7 @@ return {
   event = "VeryLazy",
   opts = { preset = "modern" },
   keys = {
-    { "<leader><Space>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
+    { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
     { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>c", "<cmd>Telescope commands<cr>", desc = "Commands" },
@@ -18,9 +18,9 @@ return {
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode" },
 
     -- Run lua
-    { "<space>s", "<cmd>source %<CR>", desc = "Run whole file" },
-    { "<space>r", ":.lua<CR>", desc = "Run lua on current cursor" },
-    { "<space>r", ":lua<CR>", mode = "v", desc = "Run lua on select" },
+    { "<leader>s", "<cmd>source %<CR>", desc = "Run whole file" },
+    { "<leader>r", ":.lua<CR>", desc = "Run lua on current cursor" },
+    { "<leader>r", ":lua<CR>", mode = "v", desc = "Run lua on select" },
 
     -- Without copying into register
     { "x", '"_x', desc = "x without copying into register" },
@@ -34,9 +34,10 @@ return {
     { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },
 
     -- Buffers & Tabs
+    { "<leader>tc", "<cmd>tabclose<CR>", desc = "Close tab" },
     { "<leader>tm", ":tabmove ", desc = "Move tab" },
-    { "<space>n", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "<space>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
+    { "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
+    { "<leader>x", "<cmd>bdelete!<CR>", desc = "Delete buffer" },
     { "H", "<cmd>tabprevious<CR>", desc = "Tab previous" },
     { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
 

@@ -29,8 +29,8 @@ return {
     { "c", '"_c', desc = "c without copying into register" },
 
     -- Window
-    { "<C-w>\\", ":vsp<CR>", desc = "c without copying into register" },
-    { "<C-w>-", ":sp<CR>", desc = "c without copying into register" },
+    { "<C-w>\\", ":vsp<CR>", desc = "Split windown vertically" },
+    { "<C-w>-", ":sp<CR>", desc = "Split windown horizontally" },
 
     -- Markdown
     { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },

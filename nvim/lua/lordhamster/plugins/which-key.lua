@@ -12,9 +12,11 @@ return {
     { "<leader>e", "<cmd>Oil<cr>", desc = "Oil" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
+    { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
+    { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
     { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode" },
 
     -- Run lua

@@ -1,3 +1,5 @@
+local M = {}
+
 local state = {
   floating = {
     buf = -1,
@@ -39,7 +41,7 @@ local function create_floating_window(opts)
   return { buf = buf, win = win }
 end
 
-local toggle_terminal = function()
+function M.toggle_terminal()
   if not vim.api.nvim_win_is_valid(state.floating.win) then
     state.floating = create_floating_window({ buf = state.floating.buf })
     if vim.bo[state.floating.buf].buftype ~= "terminal" then
@@ -51,6 +53,4 @@ local toggle_terminal = function()
   end
 end
 
--- Example usage:
--- Create a floating window with default dimensions
-vim.api.nvim_create_user_command("Floaterminal", toggle_terminal, {})
+return M

@@ -51,8 +51,17 @@ return {
     --   Myself Tool   --
     ----------------------
     { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Terminal mode to normal mode" },
-    { "<leader>tt", "<cmd>Floaterminal<cr>", desc = "Toggle floating terminal" },
-    { "<leader>tt", "<cmd>Floaterminal<cr>", mode = "t", desc = "Toggle floating terminal" },
+    {
+      "<leader>tt",
+      "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
+      desc = "Toggle floating terminal",
+    },
+    {
+      "<leader>tt",
+      "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
+      mode = "t",
+      desc = "Toggle floating terminal",
+    },
 
     ----------------------
     --    Telescope    --

@@ -149,16 +149,7 @@ return {
             color = { fg = "#ff9e64" },
           },
         },
-        lualine_x = {
-          {
-            require("noice").api.status.message.get_hl,
-            cond = require("noice").api.status.message.has,
-          },
-          diff,
-          spaces,
-          "encoding",
-          filetype,
-        },
+        lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
         lualine_z = { progress },
       },

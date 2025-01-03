@@ -52,12 +52,12 @@ return {
     { "<esc>", "<C-\\><C-n>", mode = "t", desc = "Terminal mode to normal mode" },
     {
       "<leader>tt",
-      "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
+      "<cmd>lua require 'lordhamster.util.terminal'.toggle_terminal()<cr>",
       desc = "Toggle floating terminal",
     },
     {
       "<C-q>",
-      "<cmd>lua require 'lordhamster.util.floaterminal'.toggle_terminal()<cr>",
+      "<cmd>lua require 'lordhamster.util.terminal'.toggle_terminal()<cr>",
       mode = "t",
       desc = "Toggle floating terminal",
     },

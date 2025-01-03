@@ -75,6 +75,13 @@ return {
         unnamed = "[No Name]", -- Text to show for unnamed buffers.
         newfile = "[New]", -- Text to show for newly created file before first write
       },
+      fmt = function(str)
+        -- 如果是终端缓冲区，返回空字符串
+        if vim.bo.buftype == "terminal" then
+          return ""
+        end
+        return str -- 否则返回原始文件名
+      end,
     }
 
     local tabs = {
@@ -131,7 +138,7 @@ return {
         theme = "catppuccin",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "oil" },
         always_divide_middle = true,
       },
       sections = {
@@ -157,7 +164,7 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {},
-        lualine_x = { location },
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
       },

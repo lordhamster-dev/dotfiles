@@ -1,25 +1,38 @@
 # dotfiles
 
-## Font
+## Mac
 
-- [GitHub](https://github.com/ryanoasis/nerd-fonts)
-- [Nerd Font Web](https://www.nerdfonts.com/cheat-sheet)
-
-### install
-
-#### Mac
+### Install Font
 
 ```bash
 brew tap homebrew/cask-fonts
 brew install --cask font-caskaydia-cove-nerd-font
 ```
 
-#### Linux
+## Archlinux
 
-```shell
-git clone git@github.com:ryanoasis/nerd-fonts.git --depth=1
+### Install Font
+
+```bash
+sudo pacman -S ttf-cascadia-code-nerd
 ```
 
-```shell
-cd nerd-fonts && ./install.sh
+### Install packages
+
+```bash
+sudo pacman -S tk pyenv clash neovim starship task tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol
+```
+
+```bash
+yay -S hyprshot
+```
+
+```bash
+./install.sh
+```
+
+### Change shell
+
+```bash
+chsh -s $(which zsh)
 ```

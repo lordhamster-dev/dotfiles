@@ -17,7 +17,7 @@ return {
       end
     end, { noremap = false, expr = true })
     return {
-      dir = "/Users/jacob/Sync/Obsidian/LordHamster", -- no need to call 'vim.fn.expand' here
+      dir = "~/Sync/Obsidian/LordHamster", -- no need to call 'vim.fn.expand' here
       notes_subdir = "3-Permanent",
       new_notes_location = "notes_subdir",
       -- Optional, customize how note IDs are generated given an optional title.

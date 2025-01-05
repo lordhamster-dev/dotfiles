@@ -19,7 +19,7 @@
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
 
-data.location=/Users/jacob/Sync/Taskwarrior
+data.location=~/Sync/Taskwarrior
 hooks.location=~/.config/task/hooks
 
 # Color theme (uncomment one to use)

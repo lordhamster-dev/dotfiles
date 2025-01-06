@@ -90,6 +90,7 @@ return {
     { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
     { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
     { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
     { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
     { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },

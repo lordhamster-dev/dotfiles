@@ -30,10 +30,10 @@ proxy-groups:
     use: [Cloud]
   - name: "🌍 国外媒体"
     type: select
-    proxies: ["🚀 节点选择"]
+    proxies: ["🤖 自动选择"]
   - name: "📲 电报信息"
     type: select
-    proxies: ["🚀 节点选择"]
+    proxies: ["🤖 自动选择"]
   - name: "💬 ChatGPT"
     type: select
     use: [Cloud]
@@ -61,11 +61,13 @@ rules:
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,python.org,🚀 节点选择"
-  - "DOMAIN-SUFFIX,astro.build,🚀 节点选择"
-  - "DOMAIN-SUFFIX,docker.io,🚀 节点选择"
+  - "DOMAIN-SUFFIX,raindrop.io,🚀 节点选择"
+  - "DOMAIN-SUFFIX,brave.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,clash.razord.top,🚀 节点选择"
   - "DOMAIN-SUFFIX,unfoldadmin.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,wallhaven.cc,🚀 节点选择"
+  - "DOMAIN-SUFFIX,docker.io,🚀 节点选择"
+  - "DOMAIN-SUFFIX,astro.build,🚀 节点选择"
   - "DOMAIN-SUFFIX,civitai.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,statsmodels.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,tic80.com,🚀 节点选择"

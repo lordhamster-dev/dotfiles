@@ -6,7 +6,6 @@ return {
   opts = { preset = "modern" },
   keys = {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>a", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
     { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>e", "<cmd>Oil<cr>", desc = "Oil" },
@@ -66,6 +65,7 @@ return {
     --    Telescope    --
     ----------------------
     { "<leader>f", group = "File Manage" },
+    { "<leader>fa", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
     { "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current buffer fuzzy find" },
     { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix" },
     {

@@ -15,6 +15,12 @@ return {
       max_tokens = 4096,
       ["local"] = false,
     },
+    mappings = {
+      submit = {
+        normal = "<CR>",
+        insert = "<CR>",
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",

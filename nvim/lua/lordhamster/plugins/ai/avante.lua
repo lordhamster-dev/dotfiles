@@ -10,10 +10,8 @@ return {
     openai = {
       endpoint = "https://api.deepseek.com/v1",
       model = "deepseek-chat",
-      timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
       max_tokens = 4096,
-      ["local"] = false,
     },
     mappings = {
       submit = {

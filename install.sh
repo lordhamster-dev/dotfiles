@@ -32,6 +32,8 @@ common_links() {
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
+    create_symlink ~/dotfiles/taskwarrior/task ~/.config/task
+    create_symlink ~/dotfiles/taskwarrior/vit ~/.vit
 }
 
 # Mac specific symlinks

@@ -14,21 +14,20 @@ return {
           accept = "<C-l>",
           accept_word = false,
           accept_line = false,
-          next = "<C-2>", -- 保持优化后的上下导航
-          prev = "<C-1>",
+          next = "<C-]>", -- 保持优化后的上下导航
+          prev = "<C-[]>",
           dismiss = "<C-m>",
         },
       },
       filetypes = {
         ["*"] = false, -- 默认禁用所有文件类型
-        python = true,
         lua = true,
-        javascript = true,
+        python = true,
         typescript = true,
-        go = true,
+        javascript = true,
         rust = true,
-        java = true,
         cpp = true,
+        c = true,
       },
       panel = {
         enabled = false, -- 禁用面板模式

@@ -1,3 +1,15 @@
+-- 多条件实时搜索工具
+-- 使用 ripgrep (rg) 实现快速文件内容搜索
+-- 支持两种搜索模式：
+-- 1. 单条件搜索: "keyword"
+--    在所有文件中搜索包含 keyword 的内容
+-- 2. 双条件搜索: "keyword  *.ext"
+--    在指定扩展名文件中搜索包含 keyword 的内容
+-- 示例：
+--   app          -> 搜索所有文件中包含 "app" 的内容
+--   app  *.lua   -> 搜索所有 .lua 文件中包含 "app" 的内容
+-- 注意：两个条件之间需要用两个空格分隔
+
 local M = {}
 
 local pickers = require("telescope.pickers")

@@ -1,3 +1,21 @@
+-- 基于 Treesitter 的代码折叠实现
+-- 主要功能：
+-- 1. 为支持 Treesitter 的文件类型提供智能代码折叠
+-- 2. 自动处理不支持 Treesitter 的情况
+-- 3. 优化性能，避免不必要的 Treesitter 解析
+--
+-- 特性：
+-- - 跳过特殊缓冲区（help, terminal 等）
+-- - 未设置文件类型时自动禁用
+-- - 当 Treesitter 解析器不可用时自动降级
+-- - 使用 UV 定时器优化性能，避免重复检查
+--
+-- 实现原理：
+-- 1. 通过 foldexpr() 函数提供折叠逻辑
+-- 2. 使用 skip_foldexpr 表缓存不需要 Treesitter 的缓冲区
+-- 3. 使用 skip_buftype 表过滤特殊缓冲区类型
+-- 4. 通过 UV 定时器定期重置 skip_foldexpr 缓存
+
 local M = {}
 
 M.skip_foldexpr = {} ---@type table<number,boolean>

@@ -26,6 +26,7 @@ create_symlink() {
 }
 
 common_links() {
+    create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
     create_symlink ~/dotfiles/clash/config.yaml ~/.config/clash/config.yaml
     create_symlink ~/dotfiles/starship/starship.toml ~/.config/starship.toml
     create_symlink ~/dotfiles/tmux ~/.config/tmux
@@ -38,7 +39,6 @@ common_links() {
 
 # Mac specific symlinks
 mac_links() {
-    create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
     create_symlink ~/dotfiles/kitty ~/.config/kitty
     create_symlink ~/dotfiles/aerospace ~/.config/aerospace
     create_symlink ~/dotfiles/karabiner/complex_modifications ~/.config/karabiner/assets/complex_modifications
@@ -46,7 +46,6 @@ mac_links() {
 
 # Linux specific symlinks
 linux_links() {
-    create_symlink ~/dotfiles/zsh/.archlinux_zshrc ~/.zshrc
     mkdir -p ~/.config/kitty
     create_symlink ~/dotfiles/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
     create_symlink ~/dotfiles/kitty/archlinux-kitty.conf ~/.config/kitty/kitty.conf

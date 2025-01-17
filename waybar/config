@@ -4,7 +4,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/power", "custom/lock", "custom/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/music", "tray", "pulseaudio", "backlight", "battery", "clock"],
+    "modules-right": ["custom/music", "tray", "network", "pulseaudio", "backlight", "battery", "clock"],
     "custom/power": {
         "tooltip": false,
         "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
@@ -42,6 +42,13 @@
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰖪 Disconnected",
+        "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
+        "interval": 5
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",

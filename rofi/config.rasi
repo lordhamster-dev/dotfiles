@@ -2,17 +2,17 @@
     font: "CaskaydiaCove Nerd Font Mono 13";
     g-spacing: 10px;
     g-margin: 0;
-    b-color: #000000FF;
-    fg-color: #FFFFFFFF;
-    fgp-color: #888888FF;
+    b-color: #1E1E2EFF;
+    fg-color: #CDD6F4FF;
+    fgp-color: #6C7086FF;
+    hl-color: #CBA6F7FF;
+    hlt-color: #1E1E2EFF;
+    alt-color: #313244FF;
+    wbg-color: #1E1E2ECC;
+    w-border-color: #89B4FAFF;
     b-radius: 8px;
     g-padding: 8px;
-    hl-color: #FFFFFFFF;
-    hlt-color: #000000FF;
-    alt-color: #111111FF;
-    wbg-color: #000000CC;
     w-border: 2px solid;
-    w-border-color: #FFFFFFFF;
     w-padding: 12px;
 }
 

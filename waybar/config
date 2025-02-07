@@ -77,7 +77,7 @@
     "clock": {
         "timezone": "Asia/Shanghai",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%Y-%m-%d}",
-        "format": " {:%H:%M}"
+        "format-alt": " {:%H:%M}",
+        "format": " {:%Y-%m-%d %H:%M}"
     }
 }

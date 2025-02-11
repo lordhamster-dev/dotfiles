@@ -7,19 +7,19 @@ OS="$(uname -s)"
 create_symlink() {
     local src=$1
     local dest=$2
-    
+
     # 检查目标是否已经是正确的符号链接
     if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
         echo "Symlink already exists: $dest -> $src"
         return 0
     fi
-    
+
     # 如果目标存在但不是符号链接，或者指向不同的位置
     if [ -e "$dest" ]; then
         echo "Removing existing file/directory: $dest"
         rm -rf "$dest"
     fi
-    
+
     # 创建新的符号链接
     echo "Creating symlink: $dest -> $src"
     ln -sf "$src" "$dest"
@@ -33,8 +33,8 @@ common_links() {
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
-    create_symlink ~/dotfiles/taskwarrior/task ~/.config/task
-    create_symlink ~/dotfiles/taskwarrior/vit ~/.vit
+    # create_symlink ~/dotfiles/taskwarrior/task ~/.config/task
+    # create_symlink ~/dotfiles/taskwarrior/vit ~/.vit
 }
 
 # Mac specific symlinks

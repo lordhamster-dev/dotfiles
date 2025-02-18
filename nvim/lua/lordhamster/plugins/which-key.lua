@@ -30,6 +30,9 @@ return {
     -- Window
     { "<C-w>\\", ":vsp<CR>", desc = "Split windown vertically" },
     { "<C-w>-", ":sp<CR>", desc = "Split windown horizontally" },
+    { "<C-d>", "<C-d>zz", desc = "Scroll down and center" },
+    { "<C-u>", "<C-u>zz", desc = "Scroll up and center" },
+    { "G", "Gzz", desc = "Scroll to bottom and center" },
 
     -- Markdown
     { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },

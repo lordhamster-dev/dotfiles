@@ -5,20 +5,11 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "RRethy/vim-illuminate", -- Neovim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
-
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
-
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
@@ -69,8 +60,12 @@ return {
       end,
     })
 
+    -- import mason_lspconfig plugin
+    local mason_lspconfig = require("mason-lspconfig")
+    -- import lspconfig plugin
+    local lspconfig = require("lspconfig")
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
@@ -110,24 +105,6 @@ return {
                 -- Ignore all files for analysis to exclusively use Ruff for linting
                 ignore = { "*" },
               },
-            },
-          },
-        })
-      end,
-      ["ts_ls"] = function()
-        local function organize_imports()
-          local params = {
-            command = "_typescript.organizeImports",
-            arguments = { vim.api.nvim_buf_get_name(0) },
-          }
-          vim.lsp.buf.execute_command(params)
-        end
-        lspconfig["ts_ls"].setup({
-          capabilities = capabilities,
-          commands = {
-            OrganizeImports = {
-              organize_imports,
-              description = "Organize Imports",
             },
           },
         })

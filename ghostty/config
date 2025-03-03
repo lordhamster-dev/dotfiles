@@ -24,3 +24,6 @@ custom-shader = shaders/bloom025.glsl
 foreground = f8f8f2
 background = 282a36
 background-opacity = 0.9
+
+quick-terminal-position = bottom
+keybind = cmd+s=toggle_quick_terminal

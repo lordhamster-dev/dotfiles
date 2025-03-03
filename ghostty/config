@@ -17,7 +17,9 @@ window-decoration = none
 window-padding-x = 10
 window-padding-y = 10
 macos-titlebar-style = hidden
-cursor-opacity = 0.7
+cursor-opacity = 1
+# custom-shader = shaders/bettercrt.glsl
+custom-shader = shaders/bloom025.glsl
 
 foreground = f8f8f2
 background = 282a36

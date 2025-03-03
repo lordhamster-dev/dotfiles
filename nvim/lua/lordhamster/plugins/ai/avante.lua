@@ -8,10 +8,19 @@ return {
     provider = "openai",
     auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
     openai = {
-      endpoint = "https://api.siliconflow.cn/v1",
-      model = "Pro/deepseek-ai/DeepSeek-V3",
+      endpoint = "https://openrouter.ai/api/v1",
+      model = "anthropic/claude-3.7-sonnet",
+      timeout = 30000,
       temperature = 0,
       max_tokens = 4096,
+    },
+    vendors = {
+      openrouter = {
+        __inherited_from = "openai",
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key_name = "OPENROUTER_API_KEY",
+        model = "deepseek/deepseek-chat",
+      },
     },
     mappings = {
       submit = {

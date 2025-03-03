@@ -1,0 +1,79 @@
+{
+	"with_open": {
+		"prefix": "with",
+		"body": [
+			"with open('${1:file.txt}', '${2|r,w,a,r+,w+,a+,rb,wb,ab|}') as ${3:f}:",
+			"    ${4:data} = ${3}.read()",
+			"    ${0:# Processing code}"
+		],
+		"description": "File handling context manager"
+	},
+	"main": {
+		"prefix": "main",
+		"body": ["if __name__ == '__main__':", "    ${0:main()}"],
+		"description": "Main guard clause"
+	},
+	"test": {
+		"prefix": "test",
+		"body": [
+			"import unittest",
+			"",
+			"class Test${1:Feature}(unittest.TestCase):",
+			"    def setUp(self):",
+			"        ${2:# Setup code}",
+			"    ",
+			"    def test_${3:case}(self):",
+			"        ${0:# Test code}",
+			"    ",
+			"    def tearDown(self):",
+			"        ${4:# Teardown code}"
+		],
+		"description": "Unit test template"
+	},
+	"decorator": {
+		"prefix": "dec",
+		"body": [
+			"def ${1:decorator_name}(func):",
+			"    def wrapper(*args, **kwargs):",
+			"        ${2:# Pre-call logic}",
+			"        result = func(*args, **kwargs)",
+			"        ${3:# Post-call logic}",
+			"        return result",
+			"    return wrapper"
+		],
+		"description": "Decorator function template"
+	},
+	"try": {
+		"prefix": "try",
+		"body": [
+			"try:",
+			"    ${1:code}",
+			"except ${2:Exception} as ${3:e}:",
+			"    ${4:handle_error}",
+			"else:",
+			"    ${5:no_exception}",
+			"finally:",
+			"    ${6:cleanup}"
+		],
+		"description": "Try-except block"
+	},
+	"import_common": {
+		"prefix": "imp",
+		"body": [
+			"import os",
+			"import sys",
+			"from pathlib import Path",
+			"import json",
+			"import logging",
+			"${0:# Other imports}"
+		],
+		"description": "Common Python imports"
+	},
+	"generator": {
+		"prefix": "gen",
+		"body": [
+			"(${1:expression} for ${2:item} in ${3:iterable} if ${4:condition})"
+		],
+		"description": "Generator expression"
+	}
+}

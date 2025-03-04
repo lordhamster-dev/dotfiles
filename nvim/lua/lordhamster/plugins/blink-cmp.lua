@@ -2,15 +2,16 @@ return {
   -- https://github.com/Saghen/blink.cmp
   "saghen/blink.cmp",
   -- optional: provides snippets for the snippet source
-  dependencies = "rafamadriz/friendly-snippets",
-
+  dependencies = {
+    "saghen/blink.compat",
+    "rafamadriz/friendly-snippets",
+  },
   -- use a release tag to download pre-built binaries
   version = "*",
   -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
   -- build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
-
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -52,9 +53,24 @@ return {
 
     -- 已定义启用的提供程序的默认列表，以便您可以扩展它
     sources = {
-      default = { "buffer", "lsp", "path", "snippets" },
+      default = { "obsidian", "obsidian_new", "obsidian_tags", "buffer", "lsp", "path", "snippets" },
       providers = {
         -- score_offset设置优先级数字越大优先级越高
+        obsidian = {
+          name = "obsidian",
+          module = "blink.compat.source",
+          score_offset = 7,
+        },
+        obsidian_new = {
+          name = "obsidian_new",
+          module = "blink.compat.source",
+          score_offset = 6,
+        },
+        obsidian_tags = {
+          name = "obsidian_tags",
+          module = "blink.compat.source",
+          score_offset = 5,
+        },
         buffer = { score_offset = 4 },
         path = { score_offset = 3 },
         lsp = { score_offset = 2 },

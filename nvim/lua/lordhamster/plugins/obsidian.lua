@@ -54,7 +54,7 @@ return {
       },
       completion = {
         -- If using nvim-cmp, otherwise set to false
-        nvim_cmp = true,
+        nvim_cmp = false,
         -- Trigger completion at 2 chars
         min_chars = 2,
         -- Where to put new notes created from completion. Valid options are
@@ -102,7 +102,6 @@ return {
           -- Replace the above with this if you don't have a patched font:
           [" "] = { char = "", hl_group = "ObsidianTodo" },
           ["x"] = { char = "󰸞", hl_group = "ObsidianDone" },
-          ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
           -- You can also add more custom ones...
         },
       },
@@ -125,5 +124,14 @@ return {
         end,
       },
     }
+  end,
+  config = function(_, opts)
+    require("obsidian").setup(opts)
+
+    -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+    local cmp = require("cmp")
+    cmp.register_source("obsidian", require("cmp_obsidian").new())
+    cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+    cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
   end,
 }

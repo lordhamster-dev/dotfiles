@@ -6,7 +6,6 @@ return {
   opts = { preset = "modern" },
   keys = {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>e", "<cmd>Yazi<cr>", desc = "Yazi" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
@@ -66,6 +65,7 @@ return {
     ----------------------
     { "<leader>f", group = "File Manage" },
     { "<leader>fa", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current buffer fuzzy find" },
     { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix" },
     {
@@ -111,11 +111,11 @@ return {
     --     Obsidian    --
     ----------------------
     { "<leader>o", group = "Obsidian" },
+    { "<leader>b", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
+    { "<leader>m", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
     { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
-    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
     { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
     { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
-    { "<leader>om", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
     { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
     { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
@@ -126,7 +126,6 @@ return {
     ----------------------
     { "<leader>t", group = "Taskwarrior" },
     { "<leader>tQ", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
-    { "<leader>tS", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync whole file" },
     { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
     { "<leader>tq", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
     { "<leader>ts", "<cmd>TWSyncBulk<cr>", mode = "v", desc = "Taskwarrior sync" },

@@ -35,7 +35,7 @@ return {
       -- 选择补全项目时显示文档(0.5秒延迟)
       documentation = { auto_show = true, auto_show_delay_ms = 500 },
       -- 不预选第一个项目，选中后自动插入该项目文本
-      list = { selection = { preselect = true, auto_insert = true } },
+      list = { selection = { preselect = false, auto_insert = true } },
     },
     -- 指定文件类型启用/禁用
     enabled = function()

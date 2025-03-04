@@ -126,6 +126,7 @@ return {
     ----------------------
     { "<leader>t", group = "Taskwarrior" },
     { "<leader>tQ", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
+    { "<leader>tS", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync whole file" },
     { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
     { "<leader>tq", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
     { "<leader>ts", "<cmd>TWSyncBulk<cr>", mode = "v", desc = "Taskwarrior sync" },

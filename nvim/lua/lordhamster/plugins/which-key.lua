@@ -128,7 +128,8 @@ return {
     { "<leader>tQ", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
     { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
     { "<leader>tq", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
-    { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
+    { "<leader>ts", "<cmd>TWSyncBulk<cr>", mode = "v", desc = "Taskwarrior sync" },
+    { "<leader>ts", "<cmd>TWSyncCurrent<cr>", desc = "Taskwarrior sync" },
     { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
   },
 }

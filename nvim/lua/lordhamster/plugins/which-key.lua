@@ -113,7 +113,6 @@ return {
     { "<leader>o", group = "Obsidian" },
     { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
     { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
-    { "<leader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Obsidian toggle checkbox" },
     { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
     { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
@@ -126,7 +125,7 @@ return {
     ----------------------
     { "<leader>t", group = "Taskwarrior" },
     { "<leader>tQ", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
-    { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
+    { "<leader>tc", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
     { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
     { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
     { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },

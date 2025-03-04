@@ -4,7 +4,13 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
-  cmd = { "ObsidianQuickSwitch", "ObsidianNew", "ObsidianSearch", "ObsidianDailies" },
+  cmd = {
+    "ObsidianNew",
+    "ObsidianQuickSwitch",
+    "ObsidianSearch",
+    "ObsidianDailies",
+    "ObsidianTags",
+  },
   -- lazy = true,
   -- ft = "markdown",
   dependencies = { "nvim-lua/plenary.nvim" },
@@ -65,28 +71,7 @@ return {
       open_app_foreground = true,
 
       -- Optional, set to true if you don't want obsidian.nvim to manage frontmatter.
-      disable_frontmatter = false,
-
-      -- Optional, alternatively you can customize the frontmatter data.
-      ---@return table
-      note_frontmatter_func = function(note)
-        -- Add the title of the note as an alias.
-        if note.title then
-          note:add_alias(note.title)
-        end
-
-        local out = { related = "" }
-
-        -- `note.metadata` contains any manually added fields in the frontmatter.
-        -- So here we just make sure those fields are kept in the frontmatter.
-        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-          for k, v in pairs(note.metadata) do
-            out[k] = v
-          end
-        end
-
-        return out
-      end,
+      disable_frontmatter = true,
 
       mappings = {
         -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.

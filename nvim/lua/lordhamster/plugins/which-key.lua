@@ -115,6 +115,7 @@ return {
     { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
     { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
     { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
+    { "<leader>om", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
     { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
     { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
     { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },

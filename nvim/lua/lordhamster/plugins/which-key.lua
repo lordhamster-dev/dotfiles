@@ -8,7 +8,7 @@ return {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
-    { "<leader>e", "<cmd>Oil<cr>", desc = "Oil" },
+    { "<leader>e", "<cmd>Yazi<cr>", desc = "Yazi" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
@@ -126,7 +126,7 @@ return {
     ----------------------
     { "<leader>t", group = "Taskwarrior" },
     { "<leader>tQ", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
-    { "<leader>tc", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
+    { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
     { "<leader>tq", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
     { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
     { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },

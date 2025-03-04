@@ -53,7 +53,7 @@ return {
 
     -- 已定义启用的提供程序的默认列表，以便您可以扩展它
     sources = {
-      default = { "obsidian", "obsidian_new", "obsidian_tags", "buffer", "lsp", "path", "snippets" },
+      default = { "obsidian", "obsidian_new", "obsidian_tags", "buffer", "lsp", "path", "snippets", "markdown" },
       providers = {
         -- score_offset设置优先级数字越大优先级越高
         obsidian = {
@@ -75,6 +75,11 @@ return {
         path = { score_offset = 3 },
         lsp = { score_offset = 2 },
         snippets = { score_offset = 1 },
+        markdown = {
+          name = "RenderMarkdown",
+          module = "render-markdown.integ.blink",
+          fallbacks = { "lsp" },
+        },
       },
     },
   },

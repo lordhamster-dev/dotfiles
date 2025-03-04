@@ -34,9 +34,6 @@ return {
     { "<C-u>", "<C-u>zz", desc = "Scroll up and center" },
     { "G", "Gzz", desc = "Scroll to bottom and center" },
 
-    -- Markdown
-    { "<C-t>", "- [ ] ", mode = "i", desc = "Create a todo in markdown" },
-
     -- Buffers & Tabs
     { "<leader>tc", "<cmd>tabclose<CR>", desc = "Close tab" },
     { "<leader>tm", ":tabmove ", desc = "Move tab" },

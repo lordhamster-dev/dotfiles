@@ -15,7 +15,13 @@ return {
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
     { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
-    { "<leader>z", "<cmd>ZenMode<CR>", desc = "ZenMode" },
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "ZenMode",
+    },
 
     -- Run lua
     { "<leader>s", "<cmd>source %<CR>", desc = "Excute whole file" },
@@ -90,7 +96,13 @@ return {
     { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
     { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
     { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    {
+      "<leader>lg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "LazyGit",
+    },
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
     { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
     { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },

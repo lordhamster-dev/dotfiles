@@ -9,6 +9,7 @@ return {
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>e", "<cmd>Yazi<cr>", desc = "Yazi" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+    { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },

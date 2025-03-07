@@ -37,6 +37,7 @@ return {
         "jsonls",
         "yamlls",
         "astro",
+        "marksman",
       },
       automatic_installation = true,
     })

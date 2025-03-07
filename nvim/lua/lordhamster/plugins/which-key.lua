@@ -119,22 +119,22 @@ return {
     { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
     { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
 
-    ----------------------
-    --     Obsidian    --
-    ----------------------
-    { "<leader>o", group = "Obsidian" },
-    { "<leader>b", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
-    { "<leader>m", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
-    { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
-    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
-    { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
-    { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
-    { "<leader>om", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
-    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
-    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
-    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
-    { "<leader>ot", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
-    { "<leader>ow", "<cmd>ObsidianTags work<cr>", desc = "Obsidian work" },
+    -- ----------------------
+    -- --     Obsidian    --
+    -- ----------------------
+    -- { "<leader>o", group = "Obsidian" },
+    -- { "<leader>b", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
+    -- { "<leader>m", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
+    -- { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
+    -- { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
+    -- { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
+    -- { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
+    -- { "<leader>om", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
+    -- { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
+    -- { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
+    -- { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
+    -- { "<leader>ot", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
+    -- { "<leader>ow", "<cmd>ObsidianTags work<cr>", desc = "Obsidian work" },
 
     ----------------------
     --   Taskwarrior   --

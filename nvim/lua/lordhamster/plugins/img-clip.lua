@@ -1,4 +1,5 @@
 return {
+  -- https://github.com/HakonHarnes/img-clip.nvim
   "HakonHarnes/img-clip.nvim",
   event = "VeryLazy",
   opts = {

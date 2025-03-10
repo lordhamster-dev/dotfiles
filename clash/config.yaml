@@ -61,6 +61,7 @@ rules:
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,claude.ai,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,tavily.com.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,heygen.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,pika.art,🚀 节点选择"
   - "DOMAIN-SUFFIX,dify.ai,🚀 节点选择"

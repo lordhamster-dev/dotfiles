@@ -74,6 +74,9 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
 
+# UV
+export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple
+
 # neovim
 export EDITOR=nvim
 # neovim with python, auto activate env (need poetry)

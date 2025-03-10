@@ -49,7 +49,7 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S tk clash neovim starship tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol task vit
+   sudo pacman -S tk clash neovim starship tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol task vit imagemagick uv
    yay -S hyprshot taskopen
    ```
 

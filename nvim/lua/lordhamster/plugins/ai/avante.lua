@@ -28,7 +28,7 @@ return {
         __inherited_from = "openai",
         endpoint = "https://ark.cn-beijing.volces.com/api/v3/",
         api_key_name = "VOLCENGINE_API_KEY",
-        model = "ep-20250214132600-sfskb",
+        model = "ep-20250328092654-7d5sh",
         disable_tools = true,
       },
     },

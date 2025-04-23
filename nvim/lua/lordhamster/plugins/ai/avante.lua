@@ -23,6 +23,7 @@ return {
         api_key_name = "VOLCENGINE_API_KEY",
         model = "ep-20250214111558-hp2pp",
         disable_tools = true,
+        max_tokens = 4096,
       },
       deepseek_v3 = {
         __inherited_from = "openai",
@@ -30,6 +31,7 @@ return {
         api_key_name = "VOLCENGINE_API_KEY",
         model = "ep-20250328092654-7d5sh",
         disable_tools = true,
+        max_tokens = 4096,
       },
     },
     mappings = {

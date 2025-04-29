@@ -7,7 +7,24 @@ return {
   keys = {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
-    { "<leader>e", "<cmd>Yazi<cr>", desc = "Yazi" },
+    {
+      "<leader>e",
+      function()
+        local buf_name = vim.api.nvim_buf_get_name(0)
+        local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
+        if vim.fn.filereadable(buf_name) == 1 then
+          -- Pass the full file path to highlight the file
+          require("mini.files").open(buf_name, true)
+        elseif vim.fn.isdirectory(dir_name) == 1 then
+          -- If the directory exists but the file doesn't, open the directory
+          require("mini.files").open(dir_name, true)
+        else
+          -- If neither exists, fallback to the current working directory
+          require("mini.files").open(vim.uv.cwd(), true)
+        end
+      end,
+      desc = "Yazi",
+    },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     { "<leader>o", require("lordhamster.util.obsidian").open_in_obsidian, mode = "n", desc = "Open in Obsidian" },

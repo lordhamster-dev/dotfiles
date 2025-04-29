@@ -8,22 +8,7 @@ return {
     bigfile = { enabled = true },
     dashboard = {},
     explorer = {},
-    lazygit = {
-      -- With this I make lazygit to use the entire screen, because by default there's
-      -- "padding" added around the sides
-      -- I asked in LazyGit, folke didn't like it xD xD xD
-      -- https://github.com/folke/snacks.nvim/issues/719
-      win = {
-        -- -- The first option was to use the "dashboard" style, which uses a
-        -- -- 0 height and width, see the styles documentation
-        -- -- https://github.com/folke/snacks.nvim/blob/main/docs/styles.md
-        -- style = "dashboard",
-        -- But I can also explicitly set them, which also works, what the best
-        -- way is? Who knows, but it works
-        width = 0,
-        height = 0,
-      },
-    },
+    lazygit = {},
     picker = {
       -- In case you want to make sure that the score manipulation above works
       -- or if you want to check the score of each file

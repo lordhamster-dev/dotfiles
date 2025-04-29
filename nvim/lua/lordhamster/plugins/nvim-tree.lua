@@ -19,8 +19,8 @@ return {
     -- float window position
     local gwidth = vim.api.nvim_list_uis()[1].width
     local gheight = vim.api.nvim_list_uis()[1].height
-    local width = math.ceil(gwidth / 2)
-    local height = math.ceil(gheight / 2)
+    local width = math.ceil(gwidth / 1.5)
+    local height = math.ceil(gheight / 1.5)
 
     local function on_attach(bufnr)
       local api = require("nvim-tree.api")
@@ -75,22 +75,20 @@ return {
       },
       diagnostics = { enable = false },
       view = {
-        -- width = gwidth,
+        -- width = width,
         adaptive_size = true,
         centralize_selection = true,
         preserve_window_proportions = true,
-        -- number=true,
-        -- relativenumber=true,
         -- float = {
         --   enable = true,
-        --   -- quit_on_focus_loss = true,
+        --   quit_on_focus_loss = true,
         --   open_win_config = {
         --     relative = "editor",
         --     border = "rounded",
-        --     width = gwidth,
-        --     height = gheight,
-        --     -- row = (gheight - height) * 0.5,
-        --     -- col = (gwidth - width) * 0.5,
+        --     width = width,
+        --     height = height,
+        --     row = (gheight - height) * 0.5,
+        --     col = (gwidth - width) * 0.5,
         --   },
         -- },
       },

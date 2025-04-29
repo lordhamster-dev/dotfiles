@@ -7,6 +7,13 @@ return {
   keys = {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
+    -- {
+    --   "<leader>e",
+    --   function()
+    --     Snacks.explorer({ auto_close = true, layout = "vscode" })
+    --   end,
+    --   desc = "File Explor",
+    -- },
     {
       "<leader>e",
       function()

@@ -7,7 +7,7 @@ return {
   keys = {
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
-    { "<leader>e", "<cmd>NvimTreeFindFile<CR>", desc = "File Explor" },
+    { "<leader>e", "<cmd>Yazi<CR>", desc = "File Explor" },
     -- {
     --   "<leader>e",
     --   function()

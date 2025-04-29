@@ -43,20 +43,29 @@ return {
         local opts = { buffer = ev.buf, silent = true }
 
         -- set keybinds
-        opts.desc = "Show LSP references"
-        -- keymap.set("n", "gr", vim.lsp.buf.references, opts) -- 使用内置 LSP 显示引用
-        keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+        opts.desc = "Show LSP definitions"
+        -- keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- 使用内置 LSP 跳转到定义
+        keymap.set("n", "gd", function()
+          Snacks.picker.lsp_definitions()
+        end, opts)
 
         opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        -- keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        keymap.set("n", "gD", function()
+          Snacks.picker.lsp_declarations()
+        end, opts)
 
-        opts.desc = "Show LSP definitions"
-        keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- 使用内置 LSP 跳转到定义
-        -- keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+        opts.desc = "Show LSP references"
+        -- keymap.set("n", "gr", vim.lsp.buf.references, opts) -- 使用内置 LSP 显示引用
+        keymap.set("n", "gr", function()
+          Snacks.picker.lsp_references()
+        end, opts)
 
         opts.desc = "Show LSP implementations"
-        keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- 使用内置 LSP 跳转到实现
-        -- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        -- keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- 使用内置 LSP 跳转到实现
+        keymap.set("n", "gi", function()
+          Snacks.picker.lsp_implementations()
+        end, opts)
 
         opts.desc = "Float Diagnostic"
         keymap.set("n", "go", vim.diagnostic.open_float, opts)

@@ -69,35 +69,25 @@ return {
     },
 
     ----------------------
-    --    Telescope    --
-    ----------------------
-    { "<leader>f", group = "File Manage" },
-    { "<leader>fa", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Harpoon add" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    { "<leader>f/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current buffer fuzzy find" },
-    { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix" },
-    {
-      "<leader>ff",
-      "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
-      desc = "Find file",
-    },
-    { "<leader>fg", "<cmd>Telescope git_status<cr>", desc = "Telescope git files" },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
-    { "<leader>fl", "<cmd>ToggleHarpoonList<cr>", desc = "Harpoon quick menu" },
-    { "<leader>fm", "<cmd>Telescope commands<cr>", desc = "Commands" },
-    { "<leader>fq", "<cmd>copen<cr>", desc = "Quickfix" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recently used files" },
-    { "<leader>fs", "<cmd>lua require 'lordhamster.util.multigrep'.live_multigrep()<cr>", desc = "Search text" },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find todos" },
-    { "<leader>fw", "<cmd>Telescope grep_string<cr>", desc = "Find word under cursor" },
-
-    ----------------------
     --       lsp       --
     ----------------------
     { "<leader>l", group = "LSP" },
     { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
     { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
-    { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
+    {
+      "<leader>ld",
+      function()
+        Snacks.picker.diagnostics_buffer()
+      end,
+      desc = "Buffer Diagnostics",
+    },
+    {
+      "<leader>lD",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Document Diagnostics",
+    },
     {
       "<leader>lg",
       function()
@@ -108,8 +98,96 @@ return {
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
     { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
     { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
-    { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics" },
     { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy" },
+
+    ----------------------
+    --   File Manager   --
+    ----------------------
+    { "<leader>f", group = "File Manager" },
+    {
+      "<leader>fk",
+      function()
+        Snacks.picker.keymaps({
+          layout = "vertical",
+        })
+      end,
+      desc = "Keymaps",
+    },
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers({ -- I always want my buffers picker to start in normal mode
+          on_show = function()
+            vim.cmd.stopinsert()
+          end,
+          finder = "buffers",
+          format = "buffer",
+          hidden = false,
+          unloaded = true,
+          current = true,
+          sort_lastused = true,
+          win = {
+            input = {
+              keys = {
+                ["d"] = "bufdelete",
+              },
+            },
+            list = { keys = { ["d"] = "bufdelete" } },
+          },
+        })
+      end,
+      desc = "Buffers",
+    },
+    { "<leader>fc", "<cmd>cexpr []<cr>", desc = "Clear Quickfix" },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find files",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = "Find Git Files",
+    },
+    {
+      "<leader>fh",
+      function()
+        Snacks.picker.help()
+      end,
+      desc = "Help",
+    },
+    {
+      "<leader>fq",
+      function()
+        Snacks.picker.qflist()
+      end,
+      desc = "Quickfix",
+    },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recently used files",
+    },
+    {
+      "<leader>fs",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Search text",
+    },
+    {
+      "<leader>ft",
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = "Find todos",
+    },
 
     ----------------------
     --       Git       --
@@ -117,36 +195,21 @@ return {
     { "<leader>g", group = "Git" },
     { "<leader>gP", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
     { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
+    {
+      "<leader>gl",
+      function()
+        Snacks.picker.git_log({
+          finder = "git_log",
+          format = "git_log",
+          preview = "git_show",
+          confirm = "git_checkout",
+          layout = "vertical",
+        })
+      end,
+      desc = "Git Log",
+    },
     { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
     { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
     { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
-
-    -- ----------------------
-    -- --     Obsidian    --
-    -- ----------------------
-    -- { "<leader>o", group = "Obsidian" },
-    -- { "<leader>b", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
-    -- { "<leader>m", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
-    -- { "<leader>oT", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian template" },
-    -- { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian backlinks" },
-    -- { "<leader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian dailies" },
-    -- { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian find files" },
-    -- { "<leader>om", "<cmd>ObsidianTags bookmark<cr>", desc = "Obsidian bookmarks" },
-    -- { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian new" },
-    -- { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Obsidian open" },
-    -- { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Obsidian find text" },
-    -- { "<leader>ot", "<cmd>ObsidianTags<cr>", desc = "Obsidian tags" },
-    -- { "<leader>ow", "<cmd>ObsidianTags work<cr>", desc = "Obsidian work" },
-
-    -- ----------------------
-    -- --   Taskwarrior   --
-    -- ----------------------
-    -- { "<leader>t", group = "Taskwarrior" },
-    -- { "<leader>tQ", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
-    -- { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
-    -- { "<leader>tq", "<cmd>TWBufQueryTasks<cr>", desc = "Taskwarrior query task in buffer" },
-    -- { "<leader>ts", "<cmd>TWSyncBulk<cr>", mode = "v", desc = "Taskwarrior sync" },
-    -- { "<leader>ts", "<cmd>TWSyncCurrent<cr>", desc = "Taskwarrior sync" },
-    -- { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
   },
 }

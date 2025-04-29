@@ -10,16 +10,15 @@ return {
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    -- -- Change the Diagnostic symbols in the sign column (gutter)
+    -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    -- for type, icon in pairs(signs) do
+    --   local hl = "DiagnosticSign" .. type
+    --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    -- end
 
     vim.diagnostic.config({
       virtual_text = true,
-      signs = { active = signs },
       update_in_insert = true,
       underline = true,
       severity_sort = true,

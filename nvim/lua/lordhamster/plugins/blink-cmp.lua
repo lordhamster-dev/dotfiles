@@ -53,9 +53,15 @@ return {
 
     -- 已定义启用的提供程序的默认列表，以便您可以扩展它
     sources = {
-      default = { "buffer", "lsp", "path", "snippets", "markdown" },
+      default = { "lazydev", "buffer", "lsp", "path", "snippets", "markdown" },
       providers = {
         -- score_offset设置优先级数字越大优先级越高
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          -- make lazydev completions top priority (see `:h blink.cmp`)
+          score_offset = 100,
+        },
         buffer = { score_offset = 4 },
         path = { score_offset = 3 },
         lsp = { score_offset = 2 },

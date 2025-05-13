@@ -41,7 +41,7 @@ common_links() {
 # Mac specific symlinks
 mac_links() {
     create_symlink ~/dotfiles/kitty ~/.config/kitty
-    create_symlink ~/dotfiles/aerospace ~/.config/aerospace
+    # create_symlink ~/dotfiles/aerospace ~/.config/aerospace
     create_symlink ~/dotfiles/karabiner/complex_modifications ~/.config/karabiner/assets/complex_modifications
 }
 

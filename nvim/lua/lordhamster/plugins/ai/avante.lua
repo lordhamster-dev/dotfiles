@@ -5,14 +5,14 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "deepseek_v3",
+    provider = "code",
     auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
     vendors = {
       code = {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
-        model = "anthropic/claude-3.7-sonnet",
+        model = "anthropic/claude-sonnet-4",
         timeout = 30000,
         temperature = 0,
         max_tokens = 4096,

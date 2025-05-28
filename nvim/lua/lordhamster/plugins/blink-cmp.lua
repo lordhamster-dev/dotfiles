@@ -53,6 +53,9 @@ return {
 
     -- 已定义启用的提供程序的默认列表，以便您可以扩展它
     sources = {
+      per_filetype = {
+        codecompanion = { "codecompanion" },
+      },
       default = { "lazydev", "buffer", "lsp", "path", "snippets", "markdown" },
       providers = {
         -- score_offset设置优先级数字越大优先级越高

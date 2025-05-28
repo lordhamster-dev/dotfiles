@@ -4,9 +4,9 @@ return {
   "MeanderingProgrammer/render-markdown.nvim",
   opts = {
     sign = { enabled = false },
-    file_types = { "markdown", "Avante" },
+    file_types = { "markdown", "codecompanion" },
     checkbox = { checked = { icon = "󰸞 " } },
   },
-  ft = { "markdown", "Avante" },
+  ft = { "markdown", "codecompanion" },
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 }

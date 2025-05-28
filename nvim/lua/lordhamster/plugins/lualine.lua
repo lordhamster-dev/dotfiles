@@ -138,7 +138,7 @@ return {
         theme = "catppuccin",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "Avante", "NvimTree", "Outline", "oil", "" }, -- "" 表示terminal
+        disabled_filetypes = { "alpha", "dashboard", "Avante", "NvimTree", "Outline", "oil", "", "codecompanion" }, -- "" 表示terminal
         always_divide_middle = true,
       },
       sections = {

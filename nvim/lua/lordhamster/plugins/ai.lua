@@ -41,6 +41,17 @@ return {
     "olimorris/codecompanion.nvim",
     opts = {
       language = "Chinese",
+      strategies = {
+        chat = {
+          adapter = "copilot",
+        },
+        inline = {
+          adapter = "copilot",
+        },
+        cmd = {
+          adapter = "copilot",
+        },
+      },
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
@@ -60,6 +71,55 @@ return {
             },
           })
         end,
+      },
+      prompt_library = {
+        ["Explain Code In Chinese"] = {
+          strategy = "chat",
+          description = "中文代码解释",
+          opts = {
+            is_slash_cmd = false,
+            modes = { "v" },
+            short_name = "explain in chinese",
+            auto_submit = true,
+            user_prompt = false,
+            stop_context_insertion = true,
+          },
+          prompts = {
+            {
+              role = "system",
+              content = [[当被要求解释代码时，请按照以下步骤进行：
+1. 识别编程语言。
+2. 描述代码的目的并引用编程语言的核心概念。
+3. 解释每个函数或重要的代码块，包括参数和返回值。
+4. 突出显示使用的任何特定函数或方法及其作用。
+5. 提供代码如何融入更大应用程序的上下文（如果适用）。]],
+              opts = {
+                visible = false,
+              },
+            },
+            {
+              role = "user",
+              content = function(context)
+                local code = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
+
+                return string.format(
+                  [[请解释buffer %d 中的这段代码：
+
+```%s
+%s
+```
+]],
+                  context.bufnr,
+                  context.filetype,
+                  code
+                )
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
       },
     },
     dependencies = {

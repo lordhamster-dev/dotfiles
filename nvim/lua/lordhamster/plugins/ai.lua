@@ -51,6 +51,15 @@ return {
             },
           })
         end,
+        tavily = function()
+          return require("codecompanion.adapters").extend("tavily", {
+            env = {
+              api_key = function()
+                return os.getenv("TAVILY_API_KEY")
+              end,
+            },
+          })
+        end,
       },
     },
     dependencies = {

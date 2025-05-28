@@ -5,10 +5,13 @@ return {
   event = "VeryLazy",
   opts = { preset = "modern" },
   keys = {
-    { "<leader>a", require("codecompanion").toggle, desc = "Toggle CodeCompanionChat" },
-    { "<leader>a", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
+    { "<leader>c", group = "CodeCompanion" },
+    { "<leader>ca", "<cmd>CodeCompanionAction<CR>", desc = "CodeCompanionAction" },
+    { "<leader>ca", "<cmd>CodeCompanionAction<CR>", mode = "v", desc = "CodeCompanionAction" },
+    { "<leader>cc", require("codecompanion").toggle, desc = "Toggle CodeCompanionChat" },
+    { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
+
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>c", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>e", "<cmd>Yazi<CR>", desc = "File Explor" },
     -- {
     --   "<leader>e",

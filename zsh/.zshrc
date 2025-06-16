@@ -114,3 +114,7 @@ fpath=(/Users/jacob/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

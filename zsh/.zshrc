@@ -79,7 +79,7 @@ export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple
 
 # neovim
 export EDITOR=nvim
-# neovim with python, auto activate env (need poetry)
+# neovim with python, auto activate env
 function nvimvenv {
   if [[ -e ".venv/bin/activate" ]]; then
     source ".venv/bin/activate"
@@ -117,4 +117,4 @@ compinit
 
 . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"

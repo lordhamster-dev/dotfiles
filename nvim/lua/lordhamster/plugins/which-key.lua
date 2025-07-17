@@ -75,6 +75,10 @@ return {
     { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },
     { "K", ":m '<-2<CR>gv=gv", mode = "v", desc = "Move stuff up" },
 
+    -- Better indenting in visual mode
+    { ">", ">gv", mode = "v", desc = "Indent right and reselect" },
+    { "<", "<gv", mode = "v", desc = "Indent left and reselect" },
+
     ----------------------
     --   Myself Tool   --
     ----------------------

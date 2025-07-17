@@ -34,12 +34,12 @@ local function create_float_window(opts)
   opts = opts or {}
 
   -- 计算窗口尺寸
-  local width = math.floor(vim.o.columns * 1) -- 100% 的编辑器宽度
-  local height = math.floor(vim.o.lines * 0.25) -- 25% 的编辑器高度
+  local width = math.floor(vim.o.columns * 0.8)
+  local height = math.floor(vim.o.lines * 0.8)
 
   -- 计算窗口位置
-  local row = vim.o.lines - height - 2 -- 底部位置，留出一些边距
-  local col = math.floor((vim.o.columns - width) / 2) -- 水平居中
+  local row = math.floor((vim.o.lines - height) / 2)
+  local col = math.floor((vim.o.columns - width) / 2)
 
   -- 创建或复用缓冲区
   local buf = nil

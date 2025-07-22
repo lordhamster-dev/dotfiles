@@ -82,15 +82,46 @@ opt.winbar = "%=%t"
 
 opt.conceallevel = 1
 
--- Auto save
--- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
--- 	pattern = { "*" },
--- 	command = "silent! wall",
--- 	nested = true,
--- })
+-- local function get_os()
+--   local uname = vim.loop.os_uname()
+--   local sysname = uname.sysname
+--
+--   if sysname == "Darwin" then
+--     return "mac"
+--   elseif sysname == "Linux" then
+--     return "linux"
+--   else
+--     return "unknown"
+--   end
+-- end
+--
+-- local os = get_os()
+
+-- 进入 normal 模式时切换为英文输入法
+-- if os == "mac" then
+--   vim.cmd([[
+--     augroup input_method
+--       autocmd!
+--       autocmd InsertLeave * :lua vim.fn.system("im-select com.apple.keylayout.ABC")
+--     augroup END
+--   ]])
+-- elseif os == "linux" then
+--   vim.cmd([[
+--     augroup input_method
+--       autocmd!
+--       autocmd InsertLeave * :lua vim.fn.system("fcitx5-remote -c")
+--     augroup END
+--   ]])
+-- else
+--   print("Unknown operating system")
+-- end
+
+-- Basic autocommands
+local augroup = vim.api.nvim_create_augroup("UserConfig", {})
 
 -- Restore cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
+  group = augroup,
   pattern = "*",
   callback = function()
     if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line("$") then
@@ -100,55 +131,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-local function get_os()
-  local uname = vim.loop.os_uname()
-  local sysname = uname.sysname
-
-  if sysname == "Darwin" then
-    return "mac"
-  elseif sysname == "Linux" then
-    return "linux"
-  else
-    return "unknown"
-  end
-end
-
-local os = get_os()
-
--- 进入 normal 模式时切换为英文输入法
-if os == "mac" then
-  vim.cmd([[
-    augroup input_method
-      autocmd!
-      autocmd InsertLeave * :lua vim.fn.system("im-select com.apple.keylayout.ABC")
-    augroup END
-  ]])
-elseif os == "linux" then
-  vim.cmd([[
-    augroup input_method
-      autocmd!
-      autocmd InsertLeave * :lua vim.fn.system("fcitx5-remote -c")
-    augroup END
-  ]])
-else
-  print("Unknown operating system")
-end
-
--- 禁用终端行号
-vim.cmd([[
-  augroup NoLineNumbersInTerminal
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-  augroup END
-]])
-
--- vim.api.nvim_create_user_command("Rfinder", function()
---   local path = vim.api.nvim_buf_get_name(0)
---   os.execute("open -R " .. path)
--- end, {})
-
--- Basic autocommands
-local augroup = vim.api.nvim_create_augroup("UserConfig", {})
+-- Disable line numbers in terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup,
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
 
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -165,3 +156,10 @@ vim.api.nvim_create_autocmd("VimResized", {
     vim.cmd("tabdo wincmd =")
   end,
 })
+
+-- Auto save
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+-- 	pattern = { "*" },
+-- 	command = "silent! wall",
+-- 	nested = true,
+-- })

@@ -83,7 +83,7 @@ return {
       prompt_library = {
         ["Generate a Commit Message"] = {
           strategy = "chat",
-          description = "Generate a commit message",
+          description = "生成提交信息",
           opts = {
             index = 2,
             is_default = true,
@@ -117,7 +117,7 @@ return {
         },
         ["Explain"] = {
           strategy = "chat",
-          description = "Explain how code in a buffer works",
+          description = "用中文解释选中的代码段",
           opts = {
             index = 3,
             is_default = true,
@@ -126,7 +126,7 @@ return {
             modes = { "v" },
             auto_submit = true,
             user_prompt = false,
-            stop_context_insertion = true,
+            stop_context_insertion = false,
             adapter = {
               name = "copilot",
               model = "gpt-4.1",
@@ -148,24 +148,118 @@ return {
             },
             {
               role = constants.USER_ROLE,
-              content = function(context)
-                local code = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
-
-                return fmt(
-                  [[请用中文解释buffer %d 中的这段代码：
-
-```%s
-%s
-```
-]],
-                  context.bufnr,
-                  context.filetype,
-                  code
-                )
-              end,
+              content = [[请用中文解释以下代码段的功能和实现细节。]],
               opts = {
                 contains_code = true,
               },
+            },
+          },
+        },
+        ["Code Review"] = {
+          strategy = "chat",
+          description = "对选中的代码进行详细的代码审查",
+          opts = {
+            index = 4,
+            short_name = "review",
+            is_slash_cmd = false,
+            modes = { "v" },
+            auto_submit = true,
+            user_prompt = false,
+            adapter = {
+              name = "copilot",
+              model = "gpt-4.1",
+            },
+          },
+          prompts = {
+            {
+              role = constants.SYSTEM_ROLE,
+              content = [[你是一个资深的代码审查专家。请从以下方面审查代码：
+1. 代码质量和可读性
+2. 性能优化建议
+3. 潜在的 bug 和安全问题
+4. 最佳实践和设计模式
+5. 重构建议]],
+              opts = { visible = false },
+            },
+            {
+              role = constants.USER_ROLE,
+              content = "请对以下代码进行详细的审查,并用中文回答：",
+              opts = { contains_code = true },
+            },
+          },
+        },
+        ["Add Documentation"] = {
+          strategy = "chat",
+          description = "为代码添加文档注释",
+          opts = {
+            index = 5,
+            short_name = "doc",
+            is_slash_cmd = true,
+            modes = { "v" },
+            auto_submit = true,
+            user_prompt = false,
+            adapter = {
+              name = "copilot",
+              model = "gpt-4.1",
+            },
+          },
+          prompts = {
+            {
+              role = constants.USER_ROLE,
+              content = [[请为以下代码添加详细的文档注释，包括：
+1. 函数/类的用途说明
+2. 参数类型和含义
+3. 返回值说明
+4. 使用示例（如果适用）]],
+              opts = { contains_code = true },
+            },
+          },
+        },
+        ["Quick Question"] = {
+          strategy = "chat",
+          description = "快速编程问题咨询",
+          opts = {
+            index = 6,
+            short_name = "ask",
+            is_slash_cmd = true,
+            auto_submit = false,
+            adapter = {
+              name = "copilot",
+              model = "gpt-4.1",
+            },
+          },
+          prompts = {
+            {
+              role = constants.SYSTEM_ROLE,
+              content = "你是一个经验丰富的程序员助手。请用中文简洁明了地回答用户的编程问题，并在需要时提供代码示例。",
+              opts = { visible = false },
+            },
+            {
+              role = constants.USER_ROLE,
+              content = "请输入你的编程问题：",
+            },
+          },
+        },
+        ["Refactor"] = {
+          strategy = "chat",
+          description = "重构代码以提高代码质量",
+          opts = {
+            index = 10,
+            short_name = "refactor",
+            is_slash_cmd = true,
+            modes = { "v" },
+            auto_submit = true,
+          },
+          prompts = {
+            {
+              role = constants.USER_ROLE,
+              content = [[请重构以下代码，使其更加：
+1. 模块化和可复用
+2. 符合设计模式
+3. 易于测试和维护
+4. 遵循 SOLID 原则
+请提供重构后的代码并解释改进思路。]],
+              opts = { contains_code = true },
             },
           },
         },

@@ -1,3 +1,11 @@
+local fmt = string.format
+
+local constants = {
+  LLM_ROLE = "llm",
+  USER_ROLE = "user",
+  SYSTEM_ROLE = "system",
+}
+
 return {
   {
     -- https://github.com/zbirenbaum/copilot.lua
@@ -73,37 +81,78 @@ return {
         end,
       },
       prompt_library = {
-        ["Explain Code In Chinese"] = {
+        ["Generate a Commit Message"] = {
           strategy = "chat",
-          description = "中文代码解释",
+          description = "Generate a commit message",
           opts = {
-            is_slash_cmd = false,
-            modes = { "v" },
-            short_name = "explain in chinese",
+            index = 2,
+            is_default = true,
+            is_slash_cmd = true,
+            short_name = "commit",
             auto_submit = true,
-            user_prompt = false,
-            stop_context_insertion = true,
+            adapter = {
+              name = "copilot",
+              model = "gpt-4.1",
+            },
           },
           prompts = {
             {
-              role = "system",
-              content = [[当被要求解释代码时，请按照以下步骤进行：
-1. 识别编程语言。
-2. 描述代码的目的并引用编程语言的核心概念。
-3. 解释每个函数或重要的代码块，包括参数和返回值。
-4. 突出显示使用的任何特定函数或方法及其作用。
-5. 提供代码如何融入更大应用程序的上下文（如果适用）。]],
+              role = constants.USER_ROLE,
+              content = function()
+                return fmt(
+                  [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:
+
+```diff
+%s
+```
+]],
+                  vim.fn.system("git diff --no-ext-diff --staged")
+                )
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
+        ["Explain"] = {
+          strategy = "chat",
+          description = "Explain how code in a buffer works",
+          opts = {
+            index = 3,
+            is_default = true,
+            short_name = "explain",
+            is_slash_cmd = false,
+            modes = { "v" },
+            auto_submit = true,
+            user_prompt = false,
+            stop_context_insertion = true,
+            adapter = {
+              name = "copilot",
+              model = "gpt-4.1",
+            },
+          },
+          prompts = {
+            {
+              role = constants.SYSTEM_ROLE,
+              content = [[When asked to explain code, follow these steps:
+
+1. Identify the programming language.
+2. Describe the purpose of the code and reference core concepts from the programming language.
+3. Explain each function or significant block of code, including parameters and return values.
+4. Highlight any specific functions or methods used and their roles.
+5. Provide context on how the code fits into a larger application if applicable.]],
               opts = {
                 visible = false,
               },
             },
             {
-              role = "user",
+              role = constants.USER_ROLE,
               content = function(context)
                 local code = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
 
-                return string.format(
-                  [[请解释buffer %d 中的这段代码：
+                return fmt(
+                  [[请用中文解释buffer %d 中的这段代码：
 
 ```%s
 %s

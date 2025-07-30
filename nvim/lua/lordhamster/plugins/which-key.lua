@@ -37,20 +37,8 @@ return {
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
-    {
-      "<leader>r",
-      function()
-        if vim.bo.filetype == "python" then
-          vim.cmd("w")
-          -- Open terminal in split and run Python
-          vim.cmd("split | terminal python " .. vim.fn.shellescape(vim.fn.expand("%")))
-        else
-          vim.notify("Not a Python file", vim.log.levels.WARN, { title = "Run Python" })
-        end
-      end,
-      desc = "Run current Python file in terminal",
-    },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
+    { "<leader>x", "<cmd>bdelete!<CR>", desc = "Close buffer" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
     { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
     {
@@ -61,10 +49,26 @@ return {
       desc = "ZenMode",
     },
 
-    -- Run lua
-    { "<leader>s", "<cmd>source %<CR>", desc = "Excute whole file" },
-    { "<leader>x", ":.lua<CR>", desc = "Excute lua on current cursor" },
-    { "<leader>x", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
+    -- Run code
+    {
+      "<leader>r",
+      function()
+        if vim.bo.filetype == "python" then
+          vim.cmd("w")
+          -- Open terminal in split and run Python
+          vim.cmd("split | terminal python " .. vim.fn.shellescape(vim.fn.expand("%")))
+        elseif vim.bo.filetype == "lua" then
+          vim.cmd("w")
+          -- Open terminal in split and run Lua
+          vim.cmd("split | terminal lua " .. vim.fn.shellescape(vim.fn.expand("%")))
+        else
+          vim.notify("Not a Python file", vim.log.levels.WARN, { title = "Run Python" })
+        end
+      end,
+      desc = "Run current Python file in terminal",
+    },
+    { "<leader>r", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
+    { "<leader>R", "<cmd>source %<CR>", desc = "Excute whole file" },
 
     -- Without copying into register
     { "x", '"_x', desc = "x without copying into register" },

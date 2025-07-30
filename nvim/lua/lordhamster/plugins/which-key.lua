@@ -37,6 +37,19 @@ return {
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
+    {
+      "<leader>r",
+      function()
+        if vim.bo.filetype == "python" then
+          vim.cmd("w")
+          -- Open terminal in split and run Python
+          vim.cmd("split | terminal python " .. vim.fn.shellescape(vim.fn.expand("%")))
+        else
+          vim.notify("Not a Python file", vim.log.levels.WARN, { title = "Run Python" })
+        end
+      end,
+      desc = "Run current Python file in terminal",
+    },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
     { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },

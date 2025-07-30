@@ -2,10 +2,11 @@
 return {
   -- https://github.com/folke/flash.nvim
   "folke/flash.nvim",
+  event = "VeryLazy",
   opts = {
     modes = {
       search = {
-        enabled = false,
+        enabled = true,
       },
     },
   },

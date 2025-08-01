@@ -1,6 +1,13 @@
 export SHELL="/bin/zsh"
 
 # Lines configured by zsh-newuser-install
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '$HOME/.zshrc'
+autoload -Uz compinit
+compinit
+
 HISTFILE=~/.zsh_history
 # 设置在当前会话（内存）中保留的历史记录条数
 HISTSIZE=1000
@@ -20,19 +27,6 @@ setopt SHARE_HISTORY
 
 # 删除历史记录中的连续重复命令
 setopt HIST_IGNORE_DUPS
-
-#开启tab上下左右选择补全
-zstyle ':completion:*' menu select
-autoload -Uz compinit
-compinit
-
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
-
-autoload -Uz compinit
-compinit
 
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(

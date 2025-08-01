@@ -1,9 +1,31 @@
 export SHELL="/bin/zsh"
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history
+# 设置在当前会话（内存）中保留的历史记录条数
 HISTSIZE=1000
+# 设置在历史文件中永久保存的条数
 SAVEHIST=1000
+
+# 新的命令会追加到文件末尾，而不是覆盖整个文件
+setopt APPEND_HISTORY
+
+# 每执行一条命令后，立即将其写入历史文件
+# 这样即使终端意外关闭，历史也不会丢失
+setopt INC_APPEND_HISTORY
+
+# 在多个打开的终端之间实时共享历史记录
+# 在A终端输入的命令，可以立刻在B终端按“上箭头”找到
+setopt SHARE_HISTORY
+
+# 删除历史记录中的连续重复命令
+setopt HIST_IGNORE_DUPS
+
+#开启tab上下左右选择补全
+zstyle ':completion:*' menu select
+autoload -Uz compinit
+compinit
+
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall

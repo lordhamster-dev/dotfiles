@@ -1,13 +1,22 @@
-export SHELL="/bin/zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# Lines configured by zsh-newuser-install
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
-compinit
+# Start configuration added by Zim install {{{
+#
+# User configuration sourced by interactive shells
+#
 
+# -----------------
+# Zsh configuration
+# -----------------
+
+#
+# History
+#
 HISTFILE=~/.zsh_history
 # 设置在当前会话（内存）中保留的历史记录条数
 HISTSIZE=1000
@@ -25,19 +34,129 @@ setopt INC_APPEND_HISTORY
 # 在A终端输入的命令，可以立刻在B终端按“上箭头”找到
 setopt SHARE_HISTORY
 
-# 删除历史记录中的连续重复命令
-setopt HIST_IGNORE_DUPS
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
 
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(
-    poetry
-    git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    web-search
-)
-source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+# Input/output
+#
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -e
+
+# Prompt for spelling correction of commands.
+#setopt CORRECT
+
+# Customize spelling correction prompt.
+#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# -----------------
+# Zim configuration
+# -----------------
+
+# Use degit instead of git as the default tool to install and update modules.
+#zstyle ':zim:zmodule' use 'degit'
+
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+#zstyle ':zim:input' double-dot-expand yes
+
+#
+# termtitle
+#
+
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+#zstyle ':zim:termtitle' format '%1~'
+
+#
+# zsh-autosuggestions
+#
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+#
+# zsh-syntax-highlighting
+#
+
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+#typeset -A ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+#
+# zsh-history-substring-search
+#
+
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+# }}} End configuration added by Zim install
+
+export SHELL="/bin/zsh"
+
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '$HOME/.zshrc'
+autoload -Uz compinit
 
 # OS Detection and specific configurations
 case "$(uname -s)" in
@@ -66,18 +185,17 @@ case "$(uname -s)" in
         # Linux specific configurations
         # NVM
         source /usr/share/nvm/init-nvm.sh
-
-        # PYENV
-        export PYENV_ROOT="$HOME/.pyenv"
-        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-        eval "$(pyenv init -)"
         ;;
 esac
 
 # Common configurations for all systems
 
-# Starship
-eval "$(starship init zsh)"
+source ~/.zshrc_private
+
+# Load Angular CLI autocompletion.
+if command -v ng &> /dev/null; then
+    source <(ng completion script)
+fi
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -112,25 +230,8 @@ alias pmr='python manage.py runserver'
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
 
-# Load Angular CLI autocompletion.
-if command -v ng &> /dev/null; then
-    source <(ng completion script)
-fi
+# Starship
+# eval "$(starship init zsh)"
 
-source ~/.zshrc_private
-
-if [[ -n $TMUX ]]; then
-    __kdwithtmuxpopup() {
-        tmux display-popup "kd $@"
-    }
-    alias kd=__kdwithtmuxpopup
-fi
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/jacob/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-
-. "$HOME/.atuin/bin/env"
-
-# eval "$(atuin init zsh)"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

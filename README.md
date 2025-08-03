@@ -49,8 +49,23 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S tk clash neovim starship tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol imagemagick uv
+   sudo pacman -S git vi vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync sdl2_ttf sdl2_image
+   ```
+
+   ```bash
+   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol imagemagick uv
+   ```
+
+   ```bash
+   sudo pacman -S nodejs npm nvm brightnessctl
+   ```
+
+   ```bash
    yay -S hyprshot
+   ```
+
+   ```bash
+   yay -S xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
    ```
 
 3. **Apply Configuration**

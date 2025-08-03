@@ -44,7 +44,7 @@
         "spacing": 10
     },
     "network": {
-        "format-wifi": " {essid}",
+        "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 {ipaddr}",
         "format-disconnected": "󰖪 Disconnected",
         "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
@@ -68,11 +68,12 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
-        "format-alt": "{icon}",
-        "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱧦 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-full": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
     },
     "clock": {
         "timezone": "Asia/Shanghai",

@@ -61,6 +61,7 @@ rules:
   - "DOMAIN-SUFFIX,openai.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,claude.ai,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,icekylin.online,🚀 节点选择"
   - "DOMAIN-SUFFIX,questdb.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,tiddlywiki.com,🚀 节点选择"
   - "DOMAIN-SUFFIX,rsshub.app,🚀 节点选择"

@@ -48,6 +48,7 @@ mac_links() {
 
 # Linux specific symlinks
 linux_links() {
+    create_symlink ~/dotfiles/fontconfig ~/.config/fontconfig
     create_symlink ~/dotfiles/kitty ~/.config/kitty
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/rofi ~/.config/rofi

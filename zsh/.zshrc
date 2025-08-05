@@ -229,6 +229,7 @@ alias vim=nvimvenv
 alias pmr='python manage.py runserver'
 alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
 alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
+alias ff="fastfetch"
 
 # Starship
 # eval "$(starship init zsh)"

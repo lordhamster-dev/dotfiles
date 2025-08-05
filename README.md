@@ -53,7 +53,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist mpv obs-studio hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol imagemagick uv
+   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol imagemagick uv
    ```
 
    ```bash
@@ -61,23 +61,54 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   yay -S hyprshot
+   yay -S hyprshot xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie
    ```
 
    ```bash
-   yay -S xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
+   yay -S fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
    ```
 
-3. **Apply Configuration**
+3. **Install Apps**
+
+   ```bash
+   yay -S google-chrome-stable
+   ```
+
+   ```bash
+   sudo pacman -S mpv obs-studio thunderbird
+
+   ```
+
+4. **Apply Configuration**
 
    ```bash
    ./install.sh
    ```
 
-4. **Change Default Shell**
+5. **Change Default Shell**
+
    ```bash
    chsh -s $(which zsh)
    ```
+
+## Archlinux kvm
+
+```bash
+sudo pacman -S qemu-desktop libvirt virt-manager virt-viewer bridge-utils dmidecode dnsmasq
+```
+
+```bash
+sudo systemctl enable --now libvirtd virtlogd
+```
+
+```bash
+sudo usermod -aG libvirt $(whoami)
+sudo usermod -aG kvm $(whoami)
+```
+
+```bash
+virt-manager
+```
 
 ## Included Configurations
 

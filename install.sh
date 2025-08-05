@@ -30,7 +30,6 @@ common_links() {
     create_symlink ~/dotfiles/zsh/.zimrc ~/.zimrc
     create_symlink ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
     create_symlink ~/dotfiles/clash/config.yaml ~/.config/clash/config.yaml
-    # create_symlink ~/dotfiles/starship/starship.toml ~/.config/starship.toml
     create_symlink ~/dotfiles/tmux ~/.config/tmux
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/nvim ~/.config/nvim

@@ -8,22 +8,32 @@ window_class=$(echo "$window_info" | jq -r '.class')
 case "$window_class" in
   firefox)
     icon=""
+    title=$window_class
     ;;
   kitty)
     icon=""
+    title=$window_class
     ;;
   obsidian)
     icon="󰎚"
+    title=$window_class
     ;;
   wechat)
     icon=""
+    title=$window_class
     ;;
   steam)
     icon=""
+    title=$window_class
+    ;;
+  null)
+    icon=""
+    title=""
     ;;
   *)
     icon="󰣆"
+    title=$window_class
     ;;
 esac
 
-echo "$icon $window_class"
+echo "$icon $title"

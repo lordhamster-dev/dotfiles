@@ -2,18 +2,34 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["custom/power", "custom/lock", "custom/window"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/music", "tray", "network", "pulseaudio", "backlight", "battery", "clock"],
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
-        "format": ""
-    },
-    "custom/lock": {
-        "tooltip": false,
-        "on-click": "hyprlock",
-        "format": "",
+    "modules-left": ["hyprland/workspaces", "custom/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/power"],
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "on-click": "activate",
+         "format": " {icon} ",
+         "format-icons": {
+           "default": "",
+           "1": "1",
+           "2": "2",
+           "3": "3",
+           "4": "4",
+           "5": "5",
+           "6": "6",
+           "7": "7",
+           "8": "8",
+           "9": "9",
+           "active": "󱓻"
+          },
+          "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+          }
     },
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",
@@ -22,33 +38,22 @@
         "max-length": 30,
         "ellipsis": true
     },
-    "hyprland/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "format": " {icon} ",
-         "format-icons": {
-             "default": "",
-         },
-     },
-    "custom/music": {
-        "format": "  {}",
-        "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
-        "on-click": "playerctl play-pause",
-        "max-length": 50
+    "clock": {
+        "timezone": "Asia/Shanghai",
+        "format": " {:%H:%M %A}",
+        "format-alt": " {:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
     },
-    "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconnected": "󰖪 Disconnected",
-        "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
-        "interval": 5
+    "bluetooth": {
+      "format": "",
+      "format-disabled": "󰂲",
+      "format-connected": "",
+      "tooltip-format": "Devices connected: {num_connections}",
+      "on-click": "blueberry"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -70,15 +75,20 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": "󱧦 {capacity}%",
-        "format-plugged": "󰂄 {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-full": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-full": "󱟢 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
-    "clock": {
-        "timezone": "Asia/Shanghai",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%H:%M}",
-        "format": " {:%Y-%m-%d %H:%M}"
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
+        "interval": 5
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
+        "format": ""
     }
 }

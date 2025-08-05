@@ -57,7 +57,11 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S nodejs npm nvm brightnessctl
+   sudo pacman -S blueberry brightnessctl
+   ```
+
+   ```bash
+   sudo pacman -S nodejs npm nvm
    ```
 
    ```bash

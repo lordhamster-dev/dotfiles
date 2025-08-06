@@ -9,7 +9,7 @@
          "disable-scroll": true,
          "sort-by-name": true,
          "on-click": "activate",
-         "format": " {icon} ",
+         "format": "{icon}",
          "format-icons": {
            "default": "",
            "1": "1",

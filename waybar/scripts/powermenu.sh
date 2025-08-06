@@ -2,7 +2,7 @@
 
 # Power menu script using tofi
 
-CHOSEN=$(printf "Lock\nSuspend\nReboot\nShutdown\nLog Out" | rofi -dmenu)
+CHOSEN=$(printf " Lock\n󰤄 Suspend\n󰜉 Reboot\n󰐥 Shutdown" | rofi -dmenu)
 
 case "$CHOSEN" in
 	" Lock") hyprlock ;;

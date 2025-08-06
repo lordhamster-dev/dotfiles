@@ -49,7 +49,7 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S git vi vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync sdl2_ttf sdl2_image
+   sudo pacman -S git vi vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync sdl2_ttf sdl2_image pipewire-pulse
    ```
 
    ```bash
@@ -70,6 +70,12 @@ This repository contains my personal dotfiles and configuration for various tool
 
    ```bash
    yay -S fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
+   ```
+
+   If have bluetooth enable it
+
+   ```bash
+    sudo systemctl enable --now bluetooth
    ```
 
 3. **Install Apps**

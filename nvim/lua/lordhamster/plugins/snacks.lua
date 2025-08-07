@@ -31,6 +31,7 @@ return {
             -- to close the picker on ESC instead of going to normal mode,
             -- add the following keymap to your config
             ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["l"] = { "confirm", mode = { "n" } },
             -- I'm used to scrolling like this in LazyGit
             ["J"] = { "preview_scroll_down", mode = { "i", "n" } },
             ["K"] = { "preview_scroll_up", mode = { "i", "n" } },

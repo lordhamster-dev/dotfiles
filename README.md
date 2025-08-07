@@ -65,7 +65,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   yay -S hyprshot hypridle rose-pine-hyprcursor xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie sshs
+   yay -S hyprshot hypridle catppuccin-cursors-mocha xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie sshs
    ```
 
    ```bash

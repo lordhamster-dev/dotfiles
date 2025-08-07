@@ -44,6 +44,7 @@
 }
 
 #tray,
+#custom-updates,
 #cpu,
 #memory,
 #bluetooth,
@@ -56,6 +57,11 @@
   padding: 0.5rem 10px;
   margin: 5px 0;
   border-radius: 1rem;
+}
+
+#custom-updates {
+  color: @teal;
+  margin-left: 1rem;
 }
 
 #cpu {

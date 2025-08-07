@@ -4,7 +4,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "custom/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "cpu", "memory", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/power"],
+    "modules-right": ["tray", "custom/updates", "cpu", "memory", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/power"],
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -47,6 +47,15 @@
     "tray": {
         "icon-size": 20,
         "spacing": 8
+    },
+    "custom/updates": {
+        "exec": "yay -Qu | wc -l",
+        "interval": 1800,
+        "format": "󰏕 {}",
+        "tooltip": true,
+        "tooltip-format": "有 {} 个包需要更新",
+        "on-click": "kitty --title yay -e yay -Syu",
+        "signal": 8
     },
     "cpu": {
         "interval": 10,

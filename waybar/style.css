@@ -14,7 +14,7 @@
 #workspaces {
   background-color: @base;
   border-radius: 1rem;
-  margin: 5px;
+  margin: 5px 0;
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -44,7 +44,6 @@
 }
 
 #tray,
-#custom-updates,
 #cpu,
 #memory,
 #bluetooth,
@@ -52,6 +51,7 @@
 #backlight,
 #battery,
 #network,
+#custom-updates,
 #custom-power {
   background-color: @base;
   padding: 0.5rem 10px;
@@ -59,20 +59,15 @@
   border-radius: 1rem;
 }
 
-#custom-updates {
-  color: @teal;
-  margin-left: 1rem;
-}
-
 #cpu {
   color: @peach;
   border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
 }
 
 #memory {
   color: @mauve;
   border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
 }
 
 #bluetooth {
@@ -108,8 +103,14 @@
   border-radius: 0;
 }
 
+#custom-updates {
+  color: @teal;
+  border-radius: 0;
+}
+
 #custom-power {
   color: @red;
   margin-right: 1rem;
+  padding: 0.5rem 20px 0.5rem 0.5rem;
   border-radius: 0px 1rem 1rem 0px;
 }

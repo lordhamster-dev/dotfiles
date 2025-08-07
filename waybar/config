@@ -2,9 +2,9 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "custom/window"],
+    "modules-left": ["hyprland/workspaces", "cpu", "memory", "custom/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/updates", "cpu", "memory", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/power"],
+    "modules-right": ["tray", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/updates", "custom/power"],
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -31,6 +31,16 @@
             "5": []
           }
     },
+    "cpu": {
+        "interval": 10,
+        "format": "󰍛 {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 30,
+        "format": "󰾆 {used}G",
+        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
+    },
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",
         "interval": 1,
@@ -56,16 +66,6 @@
         "tooltip-format": "有 {} 个包需要更新",
         "on-click": "kitty --title yay -e yay -Syu",
         "signal": 8
-    },
-    "cpu": {
-        "interval": 10,
-        "format": "󰍛 {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 30,
-        "format": "󰾆 {used}G",
-        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
     },
     "bluetooth": {
       "format": "",
@@ -95,12 +95,12 @@
         "format": "{icon} {capacity}%",
         "format-charging": "󱧦 {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-full": "󱟢 {capacity}%",
+        "format-full": "󱟢",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "network": {
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  {ipaddr}",
+        "format-ethernet": "󰈀",
         "format-disconnected": "󰖪",
         "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
         "interval": 5

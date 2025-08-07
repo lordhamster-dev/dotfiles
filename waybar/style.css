@@ -44,6 +44,8 @@
 }
 
 #tray,
+#cpu,
+#memory,
 #bluetooth,
 #pulseaudio,
 #backlight,
@@ -54,6 +56,17 @@
   padding: 0.5rem 10px;
   margin: 5px 0;
   border-radius: 1rem;
+}
+
+#cpu {
+  color: @peach;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#memory {
+  color: @mauve;
+  border-radius: 0px 1rem 1rem 0px;
 }
 
 #bluetooth {

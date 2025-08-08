@@ -35,8 +35,10 @@
         "exec": "~/.config/waybar/scripts/window.sh",
         "interval": 1,
         "format": "{}",
-        "max-length": 30,
-        "ellipsis": true
+        "tooltip" : true,
+        "max-length": 50,
+        "ellipsis": true,
+        "return-type" : "json"
     },
     "clock": {
         "timezone": "Asia/Shanghai",
@@ -49,12 +51,13 @@
         "spacing": 8
     },
     "custom/updates": {
-        "interval": 1800,
         "exec": "yay -Qu | wc -l",
+        "interval": 1800,
         "format": "󰏕 {}",
         "tooltip": true,
         "tooltip-format": "有 {} 个包需要更新",
-        "on-click": "kitty --title yay -e yay -Syu"
+        "on-click": "kitty --title yay -e yay -Syu",
+        "signal": 8
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",

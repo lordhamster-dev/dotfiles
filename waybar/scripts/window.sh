@@ -41,6 +41,7 @@ declare -A ICONS=(
   [libreoffice]="󰈙"      # LibreOffice
   [nautilus]=""         # Nautilus
   [org.kde.dolphin]=""  # Dolphin
+  [python3]=""          # python
 )
 icon=""
 if [[ -n $window_class ]]; then

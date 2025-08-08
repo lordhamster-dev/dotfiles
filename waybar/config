@@ -58,15 +58,6 @@
         "icon-size": 20,
         "spacing": 8
     },
-    "custom/updates": {
-        "exec": "yay -Qu | wc -l",
-        "interval": 1800,
-        "format": "󰏕 {}",
-        "tooltip": true,
-        "tooltip-format": "有 {} 个包需要更新",
-        "on-click": "kitty --title yay -e yay -Syu",
-        "signal": 8
-    },
     "bluetooth": {
       "format": "",
       "format-disabled": "󰂲",
@@ -88,22 +79,31 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
+        "interval": 5,
         "states": {
             "warning": 30,
             "critical": 15
         },
         "format": "{icon} {capacity}%",
         "format-charging": "󱧦 {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format-alt": "{icon} {time}",
         "format-full": "󱟢",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "network": {
+        "interval": 5,
         "format-wifi": "  {essid}",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰖪",
         "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
-        "interval": 5
+    },
+    "custom/updates": {
+        "interval": 1800,
+        "exec": "yay -Qu | wc -l",
+        "format": "󰏕 {}",
+        "tooltip": true,
+        "tooltip-format": "有 {} 个包需要更新",
+        "on-click": "kitty --title yay -e yay -Syu"
     },
     "custom/power": {
         "tooltip": false,

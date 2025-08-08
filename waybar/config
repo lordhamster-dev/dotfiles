@@ -42,8 +42,8 @@
     },
     "clock": {
         "timezone": "Asia/Shanghai",
-        "format": "  {:%H:%M %A}",
-        "format-alt": "  {:%Y-%m-%d %H:%M}",
+        "format": " {:%H:%M %A}",
+        "format-alt": " {:%Y-%m-%d %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "tray": {
@@ -93,7 +93,7 @@
     },
     "network": {
         "interval": 5,
-        "format-wifi": "  {essid}",
+        "format-wifi": " {essid}",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰖪",
         "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",

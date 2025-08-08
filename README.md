@@ -53,11 +53,11 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop cliphist hyprpaper hyprlock hyprland-qtutils rofi rofi-emoji waybar pavucontrol imagemagick uv
+   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop hyprpaper hyprlock hyprland-qtutils imagemagick uv gnome-calculator
    ```
 
    ```bash
-   sudo pacman -S blueberry brightnessctl
+   sudo pacman -S waybar cliphist blueberry brightnessctl rofi rofi-emoji pavucontrol
    ```
 
    ```bash

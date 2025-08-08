@@ -65,7 +65,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-sonnet-4",
+                default = "gpt-4.1",
               },
             },
           })
@@ -129,7 +129,7 @@ return {
             stop_context_insertion = false,
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "gpt-5",
             },
           },
           prompts = {
@@ -167,7 +167,7 @@ return {
             user_prompt = false,
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "gpt-5",
             },
           },
           prompts = {
@@ -249,6 +249,10 @@ return {
             is_slash_cmd = true,
             modes = { "v" },
             auto_submit = true,
+            adapter = {
+              name = "copilot",
+              model = "gpt-5",
+            },
           },
           prompts = {
             {

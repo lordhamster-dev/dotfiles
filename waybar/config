@@ -6,6 +6,7 @@
     "modules-center": ["clock"],
     "modules-right": ["tray", "custom/updates", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
+        "tooltip": false,
         "format": "󰣇"
     },
     "cpu": {

@@ -13,39 +13,53 @@
 
 #workspaces {
   background-color: @base;
-  border-radius: 1rem;
   margin: 5px 0;
   margin-left: 1rem;
   margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 #workspaces button {
   color: @lavender;
   padding: 0.4rem 0.8rem;
-  border-radius: 1rem;
 }
 
 #workspaces button.active {
   color: @sky;
-  border-radius: 1rem;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 1rem;
 }
 
-#clock {
-  color: @sky;
+#custom-logo,
+#cpu,
+#memory {
   background-color: @base;
   margin: 5px 0;
   padding: 0.5rem 10px;
   border-radius: 1rem;
 }
 
+#custom-logo {
+  color: @teal;
+  margin-left: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 20px;
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#cpu {
+  color: @peach;
+  border-radius: 0;
+}
+
+#memory {
+  color: @mauve;
+  border-radius: 0px 1rem 1rem 0px;
+}
+
+#clock,
 #tray,
-#cpu,
-#memory,
 #bluetooth,
 #pulseaudio,
 #backlight,
@@ -54,26 +68,20 @@
 #custom-updates,
 #custom-power {
   background-color: @base;
-  padding: 0.5rem 10px;
   margin: 5px 0;
+  padding: 0.5rem 10px;
   border-radius: 1rem;
 }
 
-#cpu {
-  color: @peach;
-  border-radius: 1rem 0px 0px 1rem;
-}
-
-#memory {
-  color: @mauve;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+#clock {
+  color: @sky;
+  padding: 0.5rem 20px;
 }
 
 #bluetooth {
   color: @blue;
-  border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
+  border-radius: 1rem 0px 0px 1rem;
 }
 
 #pulseaudio {

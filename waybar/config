@@ -2,9 +2,22 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "cpu", "memory", "custom/window"],
+    "modules-left": ["custom/logo", "cpu", "memory", "hyprland/workspaces", "custom/window"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "bluetooth", "pulseaudio", "backlight", "battery", "network", "custom/updates", "custom/power"],
+    "custom/logo": {
+        "format": "󰣇"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "󰍛 {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 30,
+        "format": "󰾆 {used}G",
+        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
+    },
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -30,16 +43,6 @@
             "4": [],
             "5": []
           }
-    },
-    "cpu": {
-        "interval": 10,
-        "format": "󰍛 {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 30,
-        "format": "󰾆 {used}G",
-        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
     },
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",

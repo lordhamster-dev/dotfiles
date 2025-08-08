@@ -31,7 +31,7 @@ case "$window_class" in
     title=""
     ;;
   *)
-    icon="󰣆"
+    icon=""
     title=$window_class
     ;;
 esac

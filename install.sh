@@ -53,6 +53,7 @@ linux_links() {
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/rofi ~/.config/rofi
     create_symlink ~/dotfiles/waybar ~/.config/waybar
+    create_symlink ~/dotfiles/dunst ~/.config/dunst
 }
 
 # Main installation

@@ -2,7 +2,7 @@
 return {
   -- https://github.com/nvim-lualine/lualine.nvim
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   config = function()
     -- import lualine plugin safely
     local lualine = require("lualine")

@@ -12,7 +12,7 @@ return {
     { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
 
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>e", "<cmd>Yazi<CR>", desc = "File Explor" },
+    { "<leader>e", "<cmd>Oil<CR>", desc = "File Explor" },
     -- {
     --   "<leader>e",
     --   function()

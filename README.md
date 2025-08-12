@@ -86,7 +86,6 @@ This repository contains my personal dotfiles and configuration for various tool
 
    ```bash
    sudo pacman -S mpv obs-studio thunderbird
-
    ```
 
 4. **Apply Configuration**

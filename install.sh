@@ -41,7 +41,6 @@ mac_links() {
     mkdir -p ~/.config/kitty
     create_symlink ~/dotfiles/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
     create_symlink ~/dotfiles/kitty/macos-kitty.conf ~/.config/kitty/kitty.conf
-    create_symlink ~/dotfiles/kitty ~/.config/kitty
     create_symlink ~/dotfiles/ghostty ~/.config/ghostty
     create_symlink ~/dotfiles/karabiner/complex_modifications ~/.config/karabiner/assets/complex_modifications
 }
@@ -50,6 +49,7 @@ mac_links() {
 linux_links() {
     create_symlink ~/dotfiles/fontconfig ~/.config/fontconfig
     create_symlink ~/dotfiles/kitty ~/.config/kitty
+    create_symlink ~/dotfiles/ghostty ~/.config/ghostty
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/rofi ~/.config/rofi
     create_symlink ~/dotfiles/waybar ~/.config/waybar

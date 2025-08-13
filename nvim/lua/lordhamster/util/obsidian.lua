@@ -8,8 +8,8 @@ local M = {}
 
 -- Configuration
 M.config = {
-  vault_name = "LordHamster",
-  vault_path = "~/Sync/Obsidian/LordHamster", -- Default vault path
+  vault_name = "Obsidian",
+  vault_path = "~/Sync/Obsidian", -- Default vault path
 }
 
 -- Setup function for configuration

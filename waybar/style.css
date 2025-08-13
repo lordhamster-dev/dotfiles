@@ -2,7 +2,7 @@
 
 * {
   font-family: CaskaydiaCove Nerd Font Propo;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   min-height: 0;
 }
@@ -61,7 +61,7 @@
 }
 
 #custom-window {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 #clock,

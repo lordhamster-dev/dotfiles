@@ -49,27 +49,23 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S git vi vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync sdl2_ttf sdl2_image pipewire-pulse
+   sudo pacman -S git vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync sdl2_ttf sdl2_image
    ```
 
    ```bash
-   sudo pacman -S tk clash neovim tmux yazi zsh fzf fd ripgrep zoxide keyd btop hyprpaper hyprlock hyprland-qtutils imagemagick uv gnome-calculator
+   sudo pacman -S hyprpaper hyprshot hypridle hyprlock hyprland-qtutils waybar cliphist blueberry brightnessctl rofi rofi-emoji pavucontrol xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie pipewire-pulse
    ```
 
    ```bash
-   sudo pacman -S waybar cliphist blueberry brightnessctl rofi rofi-emoji pavucontrol
+   sudo pacman -S fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
    ```
 
    ```bash
-   sudo pacman -S nodejs npm nvm
+   sudo pacman -S clash keyd neovim tmux yazi zsh fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator sshs nodejs npm nvm tk mpv obs-studio thunderbird obsidian
    ```
 
    ```bash
-   yay -S hyprshot hypridle catppuccin-cursors-mocha xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie sshs
-   ```
-
-   ```bash
-   yay -S fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
+   yay -S catppuccin-cursors-mocha google-chrome-stable
    ```
 
    If have bluetooth enable it
@@ -78,23 +74,13 @@ This repository contains my personal dotfiles and configuration for various tool
     sudo systemctl enable --now bluetooth
    ```
 
-3. **Install Apps**
-
-   ```bash
-   yay -S google-chrome-stable
-   ```
-
-   ```bash
-   sudo pacman -S mpv obs-studio thunderbird
-   ```
-
-4. **Apply Configuration**
+3. **Apply Configuration**
 
    ```bash
    ./install.sh
    ```
 
-5. **Change Default Shell**
+4. **Change Default Shell**
 
    ```bash
    chsh -s $(which zsh)

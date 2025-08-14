@@ -65,7 +65,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   yay -S catppuccin-cursors-mocha google-chrome-stable
+   yay -S catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable
    ```
 
    If have bluetooth enable it

@@ -27,6 +27,7 @@
 
 #workspaces button.active {
   color: @sky;
+  background-color: @surface2;
 }
 
 #workspaces button:hover {

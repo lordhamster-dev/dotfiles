@@ -42,8 +42,8 @@
     },
     "clock": {
         "timezone": "Asia/Shanghai",
-        "format": " {:%H:%M %A}",
-        "format-alt": " {:%Y-%m-%d %H:%M}",
+        "format": " {:%m-%d  %H:%M %a}",
+        "format-alt": " {:%Y-%m-%d  %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "tray": {

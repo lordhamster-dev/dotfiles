@@ -89,11 +89,20 @@ This repository contains my personal dotfiles and configuration for various tool
 ## Archlinux kvm
 
 ```bash
-sudo pacman -S qemu-desktop libvirt virt-manager virt-viewer bridge-utils dmidecode dnsmasq
+sudo pacman -S qemu-desktop libvirt virt-manager virt-viewer bridge-utils dmidecode dnsmasq swtpm
 ```
 
 ```bash
 sudo systemctl enable --now libvirtd virtlogd
+```
+
+```bash
+sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
+```
+
+```bash
+sudo virsh net-autostart default
+sudo virsh net-start default
 ```
 
 ```bash

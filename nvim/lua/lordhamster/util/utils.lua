@@ -22,4 +22,18 @@ function M.close_buffer_preserve_window()
   vim.api.nvim_buf_delete(cur_buf, { force = true })
 end
 
+function M.run_python()
+  if vim.bo.filetype == "python" then
+    vim.cmd("w")
+    -- Open terminal in split and run Python
+    vim.cmd("split | terminal python " .. vim.fn.shellescape(vim.fn.expand("%")))
+  elseif vim.bo.filetype == "lua" then
+    vim.cmd("w")
+    -- Open terminal in split and run Lua
+    vim.cmd("split | terminal lua " .. vim.fn.shellescape(vim.fn.expand("%")))
+  else
+    vim.notify("Not a Python file", vim.log.levels.WARN, { title = "Run Python" })
+  end
+end
+
 return M

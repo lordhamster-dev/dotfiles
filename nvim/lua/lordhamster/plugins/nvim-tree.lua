@@ -43,7 +43,17 @@ return {
       git = { ignore = false },
       diagnostics = { enable = false },
       filters = {
-        custom = { ".DS_Store", "__pycache__", ".venv", "env", "node_modules", ".cache", ".idea", ".vscode" },
+        custom = {
+          ".DS_Store",
+          "__pycache__",
+          ".venv",
+          "env",
+          "node_modules",
+          ".angular",
+          ".cache",
+          ".idea",
+          ".vscode",
+        },
       },
       renderer = {
         root_folder_modifier = ":t",

@@ -3,7 +3,6 @@ local codecompanion = require("codecompanion")
 local obsidian = require("lordhamster.util.obsidian")
 local snacks_utils = require("lordhamster.util.snacks_utils")
 local terminal = require("lordhamster.util.terminal")
-local utils = require("lordhamster.util.utils")
 
 return {
   -- https://github.com/folke/which-key.nvim
@@ -28,7 +27,7 @@ return {
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
-    { "<leader>x", utils.close_buffer_preserve_window, desc = "Close buffer" },
+    { "<leader>x", snacks_utils.bufdelete, desc = "Close buffer" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
     { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
     { "<leader>z", snacks_utils.zen, desc = "ZenMode" },

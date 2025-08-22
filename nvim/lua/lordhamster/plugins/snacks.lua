@@ -5,7 +5,7 @@ return {
   lazy = false,
   opts = {
     animate = {},
-    bigfile = { enabled = true },
+    bigfile = {},
     dashboard = {},
     explorer = {},
     lazygit = {},

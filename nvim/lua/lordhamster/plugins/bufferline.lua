@@ -1,4 +1,6 @@
 -- A snazzy bufferline for Neovim
+local snacks_utils = require("lordhamster.util.snacks_utils")
+
 return {
   -- https://github.com/akinsho/bufferline.nvim
   "akinsho/bufferline.nvim",
@@ -9,8 +11,8 @@ return {
       offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center", separator = true } },
       max_name_length = 30,
       max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-      close_command = require("lordhamster.util.utils").close_buffer_preserve_window, -- can be a string | function, see "Mouse actions"
-      right_mouse_command = require("lordhamster.util.utils").close_buffer_preserve_window, -- can be a string | function, see "Mouse actions"
+      close_command = snacks_utils.bufdelete, -- can be a string | function, see "Mouse actions"
+      right_mouse_command = snacks_utils.bufdelete, -- can be a string | function, see "Mouse actions"
       -- numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
       -- tab_size = 21,
       -- diagnostics = false, -- | "nvim_lsp" | "coc",

@@ -1,5 +1,9 @@
 local M = {}
 
+function M.bufdelete()
+  Snacks.bufdelete()
+end
+
 function M.zen()
   Snacks.zen()
 end

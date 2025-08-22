@@ -129,7 +129,7 @@ return {
             stop_context_insertion = false,
             adapter = {
               name = "copilot",
-              model = "gpt-5",
+              model = "claude-sonnet-4",
             },
           },
           prompts = {
@@ -167,7 +167,7 @@ return {
             user_prompt = false,
             adapter = {
               name = "copilot",
-              model = "gpt-5",
+              model = "claude-sonnet-4",
             },
           },
           prompts = {
@@ -251,7 +251,7 @@ return {
             auto_submit = true,
             adapter = {
               name = "copilot",
-              model = "gpt-5",
+              model = "claude-sonnet-4",
             },
           },
           prompts = {

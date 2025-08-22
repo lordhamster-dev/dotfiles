@@ -34,7 +34,7 @@ return {
     { "<leader>z", snacks_utils.zen, desc = "ZenMode" },
 
     -- Run code
-    { "<leader>r", utils.run_python, desc = "Run current Python file in terminal" },
+    { "<leader>r", terminal.run_file, desc = "Run current Python file in terminal" },
     { "<leader>r", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
     { "<leader>R", "<cmd>source %<CR>", desc = "Excute whole file" },
 

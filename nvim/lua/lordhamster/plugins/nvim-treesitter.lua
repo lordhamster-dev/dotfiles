@@ -6,16 +6,13 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
-    -- "nvim-treesitter/nvim-treesitter-context", -- sticky header
     "nvim-treesitter/nvim-treesitter-textobjects",
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    -- "nvim-treesitter/nvim-treesitter-context", -- sticky header
     -- "HiPhish/nvim-ts-rainbow2",
   },
   config = function()
-    local treesitter = require("nvim-treesitter.configs")
-
-    -- configure treesitter
-    treesitter.setup({
+    require("nvim-treesitter.configs").setup({
       -- enable syntax highlighting
       highlight = { enable = true, additional_vim_regex_highlighting = { "markdown" } },
       -- enable indentation
@@ -45,15 +42,8 @@ return {
       auto_install = true,
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = true,
-      -- rainbow = {
-      --   enable = true,
-      --   -- list of languages you want to disable the plugin for
-      --   disable = { "jsx", "cpp", "html" },
-      --   -- Which query to use for finding delimiters
-      --   query = "rainbow-parens",
-      --   -- Highlight the entire buffer all at once
-      --   strategy = require("ts-rainbow").strategy.global,
-      -- },
+      -- List of parsers to ignore installing (for "all")
+      ignore_install = {},
       textobjects = {
         select = {
           enable = true,
@@ -72,12 +62,6 @@ return {
         },
       },
     })
-
-    local s, _ = pcall(vim.cmd, "set nofoldenable")
-    if not s then
-      print("set nofoldenable error")
-      return
-    end
 
     -- https://github.com/lukas-reineke/indent-blankline.nvim
     require("ibl").setup({
@@ -99,5 +83,7 @@ return {
         },
       },
     })
+
+    vim.cmd([[set nofoldenable]])
   end,
 }

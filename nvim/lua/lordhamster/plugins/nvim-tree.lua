@@ -2,7 +2,10 @@
 return {
   -- https://github.com/nvim-tree/nvim-tree.lua
   "nvim-tree/nvim-tree.lua",
+  dependencies = { "echasnovski/mini.icons" },
   config = function()
+    require("mini.icons").mock_nvim_web_devicons()
+
     -- import nvim-tree plugin safely
     local nvimtree = require("nvim-tree")
 
@@ -62,10 +65,10 @@ return {
             },
             git = {
               unstaged = "",
-              staged = "S",
+              staged = "✓",
               unmerged = "",
               renamed = "➜",
-              untracked = "U",
+              untracked = "★",
               deleted = "",
               ignored = "◌",
             },

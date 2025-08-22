@@ -6,17 +6,11 @@ return {
   config = function()
     require("mini.icons").mock_nvim_web_devicons()
 
-    -- import nvim-tree plugin safely
-    local nvimtree = require("nvim-tree")
-
     -- remove winbar from nvim tree
     local api = require("nvim-tree.api")
     api.events.subscribe(api.events.Event.TreeOpen, function()
       vim.opt.winbar = " "
     end)
-
-    -- change color for arrows in tree to light blue
-    vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
     -- float window position
     local gwidth = vim.api.nvim_list_uis()[1].width
@@ -25,8 +19,6 @@ return {
     local height = math.ceil(gheight / 1.5)
 
     local function on_attach(bufnr)
-      local api = require("nvim-tree.api")
-
       local function opts(desc)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
@@ -45,10 +37,18 @@ return {
     end
 
     -- configure nvim-tree
+    local nvimtree = require("nvim-tree")
     nvimtree.setup({
       on_attach = on_attach,
+      git = { ignore = false },
+      diagnostics = { enable = false },
+      filters = {
+        custom = { ".DS_Store", "__pycache__", ".venv", "env", "node_modules", ".cache", ".idea", ".vscode" },
+      },
       renderer = {
         root_folder_modifier = ":t",
+        indent_width = 2,
+        indent_markers = { enable = false },
         icons = {
           glyphs = {
             default = "",
@@ -75,7 +75,6 @@ return {
           },
         },
       },
-      diagnostics = { enable = false },
       view = {
         -- width = width,
         adaptive_size = true,

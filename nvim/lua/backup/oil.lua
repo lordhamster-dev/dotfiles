@@ -2,7 +2,6 @@
 return {
   -- https://github.com/stevearc/oil.nvim
   "stevearc/oil.nvim",
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   opts = {
     keymaps = {
       ["<C-h>"] = false,

@@ -8,5 +8,5 @@ return {
     checkbox = { checked = { icon = "󰸞 " } },
   },
   ft = { "markdown", "codecompanion" },
-  dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
 }

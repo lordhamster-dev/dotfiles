@@ -11,8 +11,13 @@ return {
     { "<leader>cc", require("codecompanion").toggle, desc = "Toggle CodeCompanionChat" },
     { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
 
+    { "<leader>e", group = "Explorer" },
+    { "<leader>ee", "<cmd>NvimTreeFindFile<CR>", desc = "File Explorer Find File" },
+    { "<leader>ec", "<cmd>NvimTreeClose<CR>", desc = "Close File Explorer" },
+    { "<leader>et", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
+    { "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh File Explorer" },
+
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>e", "<cmd>Oil<CR>", desc = "File Explor" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     { "<leader>o", require("lordhamster.util.obsidian").open_in_obsidian, mode = "n", desc = "Open in Obsidian" },
@@ -20,7 +25,7 @@ return {
     { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
     { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
     { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
-    { "<leader>x", "<cmd>bdelete!<CR>", desc = "Close buffer" },
+    { "<leader>x", require("lordhamster.util.buffer").close_buffer_preserve_window, desc = "Close buffer" },
     { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
     { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
     {
@@ -67,8 +72,8 @@ return {
     { "<leader>tc", "<cmd>tabclose<CR>", desc = "Close tab" },
     { "<leader>tm", ":tabmove ", desc = "Move tab" },
     { "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "H", "<cmd>tabprevious<CR>", desc = "Tab previous" },
-    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
+    { "H", "<cmd>BufferLineCyclePrev<CR>", desc = "Tab previous" },
+    { "L", "<cmd>BufferLineCycleNext<CR>", desc = "Tab next" },
 
     -- Move stuff up and down in visual mode
     { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },

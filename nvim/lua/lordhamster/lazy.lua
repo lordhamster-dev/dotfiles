@@ -16,6 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  "nvim-lua/plenary.nvim", -- lua functions that many plugins use
+  "christoomey/vim-tmux-navigator", -- tmux & split window navigation
   { import = "lordhamster.plugins" },
   { import = "lordhamster.plugins.lsp" },
   { import = "lordhamster.plugins.ai" },

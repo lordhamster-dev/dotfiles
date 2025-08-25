@@ -19,6 +19,12 @@ function M.explorer()
     git_untracked = true,
     follow_file = true,
     focus = "list",
+    -- layout = { -- the layout config
+    --   layout = { -- the layout itself
+    --     width = 40,
+    --     height = 0,
+    --   },
+    -- },
     hidden = true,
     ignored = true,
     exclude = {
@@ -33,10 +39,6 @@ function M.explorer()
       ".vscode",
     },
   })
-end
-
-function M.explorer_reveal()
-  Snacks.explorer.reveal()
 end
 
 function M.zen()

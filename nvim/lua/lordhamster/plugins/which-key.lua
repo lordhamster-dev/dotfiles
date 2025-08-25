@@ -1,5 +1,6 @@
 -- 💥 Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 local codecompanion = require("codecompanion")
+local markdown = require("lordhamster.util.markdown")
 local obsidian = require("lordhamster.util.obsidian")
 local snacks_utils = require("lordhamster.util.snacks_utils")
 local terminal = require("lordhamster.util.terminal")
@@ -84,6 +85,17 @@ return {
     { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
     { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
     { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy" },
+
+    ----------------------
+    ---    Markdown     --
+    ----------------------
+    { "<leader>m", group = "Markdown" },
+    { "<leader>mT", "<cmd>LspTomorrow<CR>", desc = "Daily Note Tomorrow" },
+    { "<leader>md", markdown.complete_markdown_task, desc = "Mark task done" },
+    { "<leader>ml", markdown.markdown_task_later, desc = "Mark task later" },
+    { "<leader>mn", markdown.markdown_task_now, desc = "Mark task now" },
+    { "<leader>mt", "<cmd>LspToday<CR>", desc = "Daily Note Today" },
+    { "<leader>my", "<cmd>LspYesterday<CR>", desc = "Daily Note Yesterday" },
 
     ----------------------
     --   File Manager   --

@@ -78,9 +78,9 @@ function M.find_todo()
     -- include files ignored by .gitignore
     args = { "--no-ignore" },
     -- Start in normal mode
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
+    -- on_show = function()
+    --   vim.cmd.stopinsert()
+    -- end,
     finder = "grep",
     format = "file",
     show_empty = true,
@@ -102,9 +102,9 @@ function M.find_complete_tasks()
     -- include files ignored by .gitignore
     args = { "--no-ignore" },
     -- Start in normal mode
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
+    -- on_show = function()
+    --   vim.cmd.stopinsert()
+    -- end,
     finder = "grep",
     format = "file",
     show_empty = true,

@@ -20,14 +20,18 @@ return {
     },
   },
   config = function()
-    -- -- Change the Diagnostic symbols in the sign column (gutter)
-    -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    -- for type, icon in pairs(signs) do
-    --   local hl = "DiagnosticSign" .. type
-    --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    -- end
+    -- Define sign icons for each severity
+    local signs = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰠠 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    }
 
     vim.diagnostic.config({
+      signs = {
+        text = signs, -- Enable signs in the gutter
+      },
       virtual_text = true,
       update_in_insert = true,
       underline = true,

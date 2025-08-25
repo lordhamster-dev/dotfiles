@@ -74,11 +74,11 @@ return {
     --       lsp       --
     ----------------------
     { "<leader>l", group = "LSP" },
+    { "<leader>lD", snacks_utils.find_document_diagnostics, desc = "Document Diagnostics" },
     { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
-    { "<leader>lf", utils.format_and_save, desc = "Restart LSP" },
     { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
     { "<leader>ld", snacks_utils.find_diagnostics, desc = "Buffer Diagnostics" },
-    { "<leader>lD", snacks_utils.find_document_diagnostics, desc = "Document Diagnostics" },
+    { "<leader>lf", utils.format_and_save, desc = "Format and save" },
     { "<leader>lg", snacks_utils.lazygit, desc = "LazyGit" },
     { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
     { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
@@ -89,17 +89,17 @@ return {
     --   File Manager   --
     ----------------------
     { "<leader>f", group = "File Manager" },
-    { "<leader>fk", snacks_utils.find_keymaps, desc = "Keymaps" },
+    { "<leader>fT", snacks_utils.find_todo_comments, desc = "Find todos" },
     { "<leader>fb", snacks_utils.find_buffers, desc = "Buffers" },
+    { "<leader>fc", snacks_utils.find_complete_tasks, desc = "Search complete tasks" },
     { "<leader>ff", snacks_utils.find_files, desc = "Find files" },
     { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },
     { "<leader>fh", snacks_utils.find_help, desc = "Help" },
+    { "<leader>fk", snacks_utils.find_keymaps, desc = "Keymaps" },
     { "<leader>fq", snacks_utils.find_qflist, desc = "Quickfix" },
     { "<leader>fr", snacks_utils.find_recent, desc = "Recently used files" },
     { "<leader>fs", snacks_utils.find_grep, desc = "Grep" },
     { "<leader>ft", snacks_utils.find_todo, desc = "Search incomplete tasks" },
-    { "<leader>fc", snacks_utils.find_complete_tasks, desc = "Search complete tasks" },
-    { "<leader>fT", snacks_utils.find_todo_comments, desc = "Find todos" },
 
     ----------------------
     --       Git       --

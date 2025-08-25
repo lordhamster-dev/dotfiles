@@ -44,6 +44,7 @@ return {
     notifier = { enabled = true, top_down = true },
     picker = {
       enabled = true,
+      exclude = { ".DS_Store", "__pycache__", ".venv", "env", ".env", "node_modules", ".angular", ".cache", ".idea", ".vscode" },
       -- In case you want to make sure that the score manipulation above works
       -- or if you want to check the score of each file
       debug = {

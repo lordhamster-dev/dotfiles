@@ -27,17 +27,6 @@ function M.explorer()
     -- },
     hidden = true,
     ignored = true,
-    exclude = {
-      ".DS_Store",
-      "__pycache__",
-      ".venv",
-      "env",
-      "node_modules",
-      ".angular",
-      ".cache",
-      ".idea",
-      ".vscode",
-    },
   })
 end
 
@@ -46,7 +35,7 @@ function M.zen()
 end
 
 function M.find_files()
-  Snacks.picker.files()
+  Snacks.picker.files({hidden = true, ignored = false})
 end
 
 function M.find_git_files()

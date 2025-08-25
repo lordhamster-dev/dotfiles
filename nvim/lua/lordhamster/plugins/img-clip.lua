@@ -5,13 +5,13 @@ return {
   opts = {
     default = {
       dir_path = "Attachments",
-      extension = "jpg",
+      extension = "png",
       insert_mode_after_paste = false,
     },
     filetypes = {
       markdown = {
         url_encode_path = true,
-        template = "![[Attachments/$FILE_NAME]]",
+        template = "![[$FILE_NAME]]",
         download_images = false,
       },
     },

@@ -7,7 +7,7 @@ return {
   dependencies = {
     "windwp/nvim-ts-autotag",
     "nvim-treesitter/nvim-treesitter-textobjects",
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     -- "nvim-treesitter/nvim-treesitter-context", -- sticky header
     -- "HiPhish/nvim-ts-rainbow2",
   },
@@ -59,27 +59,6 @@ return {
             ["al"] = "@loop.outer",
             ["il"] = "@loop.inner",
           },
-        },
-      },
-    })
-
-    -- https://github.com/lukas-reineke/indent-blankline.nvim
-    require("ibl").setup({
-      scope = {
-        enabled = false,
-      },
-      exclude = {
-        filetypes = {
-          "lspinfo",
-          "packer",
-          "checkhealth",
-          "help",
-          "man",
-          "gitcommit",
-          "dashboard",
-          "TelescopePrompt",
-          "TelescopeResults",
-          "",
         },
       },
     })

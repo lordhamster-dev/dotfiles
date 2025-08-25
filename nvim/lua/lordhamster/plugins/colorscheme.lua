@@ -42,6 +42,10 @@ return {
       color_overrides = {},
       custom_highlights = {},
       integrations = {
+        snacks = {
+          enabled = true,
+          indent_scope_color = "base", -- catppuccin color (eg. `lavender`) Default: text
+        },
         mason = true,
         cmp = false,
         blink_cmp = true,

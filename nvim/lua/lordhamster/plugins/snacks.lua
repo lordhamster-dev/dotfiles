@@ -9,6 +9,14 @@ return {
     dashboard = {},
     explorer = {},
     lazygit = {},
+    indent = {
+      scope = {
+        enabled = false,
+      },
+    },
+    notifier = {
+      top_down = true,
+    },
     picker = {
       -- In case you want to make sure that the score manipulation above works
       -- or if you want to check the score of each file
@@ -33,10 +41,10 @@ return {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["l"] = { "confirm", mode = { "n" } },
             -- I'm used to scrolling like this in LazyGit
-            ["J"] = { "preview_scroll_down", mode = { "i", "n" } },
-            ["K"] = { "preview_scroll_up", mode = { "i", "n" } },
-            ["H"] = { "preview_scroll_left", mode = { "i", "n" } },
-            ["L"] = { "preview_scroll_right", mode = { "i", "n" } },
+            ["J"] = { "preview_scroll_down", mode = { "n" } },
+            ["K"] = { "preview_scroll_up", mode = { "n" } },
+            ["H"] = { "preview_scroll_left", mode = { "n" } },
+            ["L"] = { "preview_scroll_right", mode = { "n" } },
           },
         },
       },
@@ -46,10 +54,6 @@ return {
           truncate = 80,
         },
       },
-    },
-    notifier = {
-      enabled = true,
-      top_down = false, -- place notifications from top to bottom
     },
     -- This keeps the image on the top right corner, basically leaving your
     -- text area free, suggestion found in reddit by user `Redox_ahmii`
@@ -61,7 +65,7 @@ return {
       },
     },
     image = {
-      enabled = true,
+      img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments", "Attachments" },
       doc = {
         -- Personally I set this to false, I don't want to render all the
         -- images in the file, only when I hover over them

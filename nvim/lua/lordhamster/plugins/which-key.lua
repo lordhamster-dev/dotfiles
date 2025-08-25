@@ -3,6 +3,7 @@ local codecompanion = require("codecompanion")
 local obsidian = require("lordhamster.util.obsidian")
 local snacks_utils = require("lordhamster.util.snacks_utils")
 local terminal = require("lordhamster.util.terminal")
+local utils = require("lordhamster.util.utils")
 
 return {
   -- https://github.com/folke/which-key.nvim
@@ -74,6 +75,7 @@ return {
     ----------------------
     { "<leader>l", group = "LSP" },
     { "<leader>lR", "<cmd>LspRestart<CR>", desc = "Restart LSP" },
+    { "<leader>lf", utils.format_and_save, desc = "Restart LSP" },
     { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
     { "<leader>ld", snacks_utils.find_diagnostics, desc = "Buffer Diagnostics" },
     { "<leader>lD", snacks_utils.find_document_diagnostics, desc = "Document Diagnostics" },

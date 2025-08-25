@@ -2,6 +2,7 @@
 return {
   -- https://github.com/nvim-lualine/lualine.nvim
   "nvim-lualine/lualine.nvim",
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   config = function()
     -- import lualine plugin safely
     local lualine = require("lualine")
@@ -71,7 +72,7 @@ return {
       symbols = {
         modified = "", -- Text to show when the file is modified.
         readonly = "[Read Only]", -- Text to show when the file is non-modifiable or readonly.
-        unnamed = "[No Name]", -- Text to show for unnamed buffers.
+        unnamed = " ", -- Text to show for unnamed buffers.
         newfile = "[New]", -- Text to show for newly created file before first write
       },
       fmt = function(str)
@@ -89,7 +90,7 @@ return {
       -- 0: Shows tab_nr
       -- 1: Shows tab_name
       -- 2: Shows tab_nr + tab_name
-      mode = 2,
+      mode = 0,
       -- 0: just shows the filename
       -- 1: shows the relative path and shorten $HOME to ~
       -- 2: shows the full path
@@ -159,27 +160,39 @@ return {
         lualine_y = { location },
         lualine_z = { progress },
       },
-      -- inactive_sections = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = {},
-      --   lualine_x = {},
-      --   lualine_y = {},
-      --   lualine_z = {},
-      -- },
-      -- tabline = {
-      --   lualine_a = { tabs },
-      --   lualine_b = {},
-      --   lualine_c = {},
-      --   lualine_x = {},
-      --   lualine_y = {},
-      --   lualine_z = {},
-      -- },
-      winbar = {
+      inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { filename },
+        lualine_c = {},
         lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      tabline = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+
+        lualine_y = {},
+        lualine_z = { tabs },
+      },
+      winbar = {
+        lualine_a = {
+          {
+            "filename",
+            path = 0,
+            symbols = {
+              modified = "", -- Text to show when the file is modified.
+              readonly = "[Read Only]", -- Text to show when the file is non-modifiable or readonly.
+              unnamed = "[No Name]", -- Text to show for unnamed buffers.
+              newfile = "[New]", -- Text to show for newly created file before first write
+            },
+          },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = { filename },
         lualine_y = {},
         lualine_z = {},
       },

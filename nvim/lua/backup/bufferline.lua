@@ -5,10 +5,11 @@ return {
   -- https://github.com/akinsho/bufferline.nvim
   "akinsho/bufferline.nvim",
   version = "*",
+  dependencies = { "echasnovski/mini.icons" },
   opts = {
     options = {
       mode = "tabs",
-      offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center", separator = true } },
+      offsets = { { filetype = "picker", text = "File Explorer", text_align = "center", separator = true } },
       max_name_length = 30,
       max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
       close_command = snacks_utils.bufdelete, -- can be a string | function, see "Mouse actions"
@@ -29,4 +30,7 @@ return {
       -- sort_by = "insert_at_end",
     },
   },
+  config = function()
+    require("mini.icons").mock_nvim_web_devicons()
+  end,
 }

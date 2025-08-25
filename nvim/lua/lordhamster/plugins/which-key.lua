@@ -18,7 +18,7 @@ return {
     { "<leader>cc", codecompanion.toggle, desc = "Toggle CodeCompanionChat" },
     { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
 
-    { "<leader>e", "<cmd>NvimTreeFindFile<CR>", desc = "File Explorer Find File" },
+    { "<leader>e", snacks_utils.explorer, desc = "File Explorer Find File" },
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },

@@ -4,6 +4,41 @@ function M.bufdelete()
   Snacks.bufdelete()
 end
 
+-- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+function M.explorer()
+  Snacks.explorer.open({
+    finder = "explorer",
+    sort = { fields = { "sort" } },
+    supports_live = true,
+    tree = true,
+    watch = true,
+    diagnostics = false,
+    diagnostics_open = false,
+    git_status = true,
+    git_status_open = false,
+    git_untracked = true,
+    follow_file = true,
+    focus = "list",
+    hidden = true,
+    ignored = true,
+    exclude = {
+      ".DS_Store",
+      "__pycache__",
+      ".venv",
+      "env",
+      "node_modules",
+      ".angular",
+      ".cache",
+      ".idea",
+      ".vscode",
+    },
+  })
+end
+
+function M.explorer_reveal()
+  Snacks.explorer.reveal()
+end
+
 function M.zen()
   Snacks.zen()
 end

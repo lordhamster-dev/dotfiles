@@ -150,16 +150,18 @@ function M.git_log()
 end
 
 function M.find_buffers()
-  Snacks.picker.buffers({ -- I always want my buffers picker to start in normal mode
+  Snacks.picker.buffers({
+    -- I always want my buffers picker to start in normal mode
     on_show = function()
       vim.cmd.stopinsert()
     end,
     finder = "buffers",
     format = "buffer",
+    layout = "select",
     hidden = false,
     unloaded = true,
     current = true,
-    sort_lastused = true,
+    sort_lastused = false,
     win = {
       input = {
         keys = {

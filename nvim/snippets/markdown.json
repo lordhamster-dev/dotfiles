@@ -2,11 +2,10 @@
 	"daily": {
 		"prefix": "daily",
 		"body": [
-			"# 📝 今日收集",
+			"# 📝 Notes",
 			"",
-			"# ✅ 今日待办 \\$query{status:pending scheduled.before:${date:%Y-%m-%d +1day}}",
-			"",
-			"# 🎉 今日完成 \\$query{status:completed end:${date:%Y-%m-%d}}"
+			"# 🎯 Tasks",
+			""
 		],
 		"description": "Create Daily"
 	}

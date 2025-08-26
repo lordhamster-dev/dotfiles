@@ -25,12 +25,13 @@ local skip_check = assert(vim.uv.new_check())
 -- 自定义折叠文本显示函数
 function M.foldtext()
   local foldstart = vim.v.foldstart
-  local foldend = vim.v.foldend
   local line = vim.fn.getline(foldstart)
-  local line_count = foldend - foldstart + 1
+  -- local foldend = vim.v.foldend
+  -- local line_count = foldend - foldstart + 1
 
   -- 返回带有行数信息的文本
-  return line .. " [" .. line_count .. " lines]"
+  -- return line .. " [" .. line_count .. " lines]"
+  return line .. " 󰁂 "
 end
 
 -- 主折叠表达式函数

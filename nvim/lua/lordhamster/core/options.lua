@@ -35,7 +35,9 @@ opt.swapfile = false
 -- opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 99
 opt.foldmethod = "expr"
+opt.fillchars = { fold = " " } -- 用空格替代点
 opt.foldexpr = "v:lua.require'lordhamster.util.foldmethod'.foldexpr()"
+vim.wo.foldtext = "v:lua.require('lordhamster.util.foldmethod').foldtext()"
 
 -- 补全增强
 -- vim.o.wildmenu = true

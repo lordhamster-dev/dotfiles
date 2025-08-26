@@ -22,6 +22,18 @@ M.skip_foldexpr = {} ---@type table<number,boolean>
 M.skip_buftype = { help = true, terminal = true } ---@type table<string,boolean>
 local skip_check = assert(vim.uv.new_check())
 
+-- 自定义折叠文本显示函数
+function M.foldtext()
+  local foldstart = vim.v.foldstart
+  local foldend = vim.v.foldend
+  local line = vim.fn.getline(foldstart)
+  local line_count = foldend - foldstart + 1
+
+  -- 返回带有行数信息的文本
+  return line .. " [" .. line_count .. " lines]"
+end
+
+-- 主折叠表达式函数
 function M.foldexpr()
   local buf = vim.api.nvim_get_current_buf()
 
@@ -44,6 +56,9 @@ function M.foldexpr()
   local ok = pcall(vim.treesitter.get_parser, buf)
 
   if ok then
+    -- if vim.bo[buf].filetype == "markdown" then
+    --   vim.api.nvim_set_hl(0, "Folded", { link = "Comment" })
+    -- end
     return vim.treesitter.foldexpr()
   end
 

@@ -2,7 +2,7 @@
 return {
   -- https://github.com/nvim-tree/nvim-tree.lua
   "nvim-tree/nvim-tree.lua",
-  dependencies = { "echasnovski/mini.icons" },
+  dependencies = { "nvim-mini/mini.icons" },
   config = function()
     require("mini.icons").mock_nvim_web_devicons()
 

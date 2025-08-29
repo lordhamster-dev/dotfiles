@@ -5,7 +5,7 @@ return {
   -- https://github.com/akinsho/bufferline.nvim
   "akinsho/bufferline.nvim",
   version = "*",
-  dependencies = { "echasnovski/mini.icons" },
+  dependencies = { "nvim-mini/mini.icons" },
   opts = {
     options = {
       mode = "tabs",

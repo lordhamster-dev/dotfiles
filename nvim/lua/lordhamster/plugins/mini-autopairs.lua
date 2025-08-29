@@ -1,7 +1,7 @@
 -- autopairs for neovim written in lua
 return {
-  -- https://github.com/echasnovski/mini.pairs
-  "echasnovski/mini.pairs",
+  -- https://github.com/nvim-mini/mini.pairs
+  "nvim-mini/mini.pairs",
   version = "*",
   event = { "InsertEnter" },
   config = true,

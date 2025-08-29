@@ -61,24 +61,26 @@ return {
         },
       },
       adapters = {
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
+        http = {
+          copilot = function()
+            return require("codecompanion.adapters").extend("copilot", {
+              schema = {
+                model = {
+                  default = "gpt-4.1",
+                },
               },
-            },
-          })
-        end,
-        tavily = function()
-          return require("codecompanion.adapters").extend("tavily", {
-            env = {
-              api_key = function()
-                return os.getenv("TAVILY_API_KEY")
-              end,
-            },
-          })
-        end,
+            })
+          end,
+          tavily = function()
+            return require("codecompanion.adapters").extend("tavily", {
+              env = {
+                api_key = function()
+                  return os.getenv("TAVILY_API_KEY")
+                end,
+              },
+            })
+          end,
+        },
       },
       prompt_library = {
         ["Generate a Commit Message"] = {

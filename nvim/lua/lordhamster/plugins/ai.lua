@@ -30,13 +30,21 @@ return {
         },
         filetypes = {
           ["*"] = false, -- 默认禁用所有文件类型
+          markdown = true,
           lua = true,
           python = true,
+          html = true,
+          css = true,
           typescript = true,
           javascript = true,
           rust = true,
           cpp = true,
           c = true,
+          go = true,
+          sh = true,
+          json = true,
+          yaml = true,
+          toml = true,
         },
         panel = {
           enabled = false, -- 禁用面板模式

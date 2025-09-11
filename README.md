@@ -61,7 +61,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S clash keyd neovim tmux yazi zsh fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator sshs nodejs npm nvm tk mpv obs-studio thunderbird obsidian
+   sudo pacman -S clash keyd neovim tmux yazi zsh fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator nodejs npm nvm tk mpv obs-studio thunderbird obsidian
    ```
 
    ```bash

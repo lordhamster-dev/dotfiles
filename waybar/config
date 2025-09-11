@@ -91,11 +91,13 @@
       "on-click": "blueberry"
     },
     "network": {
-        "interval": 5,
+        "interval": 3,
         "format-wifi": " {essid}",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰖪",
-        "tooltip-format": "{ifname}\n{ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
     },
     "custom/power": {
         "tooltip": false,

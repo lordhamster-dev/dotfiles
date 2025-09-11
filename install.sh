@@ -47,6 +47,7 @@ mac_links() {
 
 # Linux specific symlinks
 linux_links() {
+    create_symlink ~/dotfiles/zsh/.zprofile ~/.zprofile
     create_symlink ~/dotfiles/fontconfig ~/.config/fontconfig
     create_symlink ~/dotfiles/kitty ~/.config/kitty
     create_symlink ~/dotfiles/ghostty ~/.config/ghostty

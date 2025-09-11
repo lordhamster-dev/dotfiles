@@ -11,8 +11,8 @@ vim.g.loaded_netrwPlugin = 1
 opt.encoding = "UTF-8"
 opt.fileencoding = "utf-8"
 
--- jk移动时光标下上方保留8行
--- opt.scrolloff = 8
+-- jk移动时光标上下方保留8行
+opt.scrolloff = 8
 -- opt.sidescrolloff = 8
 
 -- Mouse stuf

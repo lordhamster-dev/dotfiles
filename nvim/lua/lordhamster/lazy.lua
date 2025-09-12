@@ -23,10 +23,10 @@ require("lazy").setup({
   { import = "lordhamster.plugins.ai" },
 }, {
   checker = {
-    enabled = false,
+    enabled = true,
     notify = false,
   },
   change_detection = {
-    notify = false,
+    notify = true,
   },
 })

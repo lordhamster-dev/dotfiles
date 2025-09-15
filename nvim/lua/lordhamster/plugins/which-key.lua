@@ -20,7 +20,7 @@ return {
     { "<leader>cc", codecompanion.toggle, desc = "Toggle CodeCompanionChat" },
     { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
 
-    { "<leader>e", snacks_utils.explorer, desc = "File Explorer Find File" },
+    { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
@@ -104,6 +104,7 @@ return {
     { "<leader>fT", snacks_utils.find_todo_comments, desc = "Find todos" },
     { "<leader>fb", snacks_utils.find_buffers, desc = "Buffers" },
     { "<leader>fc", snacks_utils.find_complete_tasks, desc = "Search complete tasks" },
+    { "<leader>fe", snacks_utils.explorer, desc = "File Explorer" },
     { "<leader>ff", snacks_utils.find_files, desc = "Find files" },
     { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },
     { "<leader>fh", snacks_utils.find_help, desc = "Help" },

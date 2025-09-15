@@ -17,7 +17,7 @@ function M.explorer()
     git_status = true,
     git_status_open = false,
     git_untracked = true,
-    follow_file = true,
+    follow_file = false,
     focus = "list",
     -- layout = { -- the layout config
     --   layout = { -- the layout itself

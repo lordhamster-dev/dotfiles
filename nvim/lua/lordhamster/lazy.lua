@@ -31,3 +31,23 @@ require("lazy").setup({
     notify = true,
   },
 })
+
+require("lordhamster.util.sql_query").setup({
+  default_db = "questdb",
+  questdb = {
+    host = os.getenv("QUESTDB_HOST") or "localhost",
+    port = os.getenv("QUESTDB_PORT") and tonumber(os.getenv("QUESTDB_PORT")) or 9000,
+    username = "",
+    password = "",
+  },
+  postgresql = {
+    host = "localhost",
+    port = 5432,
+    database = "",
+    username = "",
+    password = "",
+  },
+  result_window = {
+    height = 30,
+  },
+})

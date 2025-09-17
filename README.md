@@ -57,7 +57,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S fcitx5-im fcitx5-pinyin-zhwiki fcitx5-qt fcitx5-gtk fcitx5-chinese-addons
+   sudo pacman -S fcitx5-im fcitx5-qt fcitx5-gtk fcitx5-chinese-addons fcitx5-rime
    ```
 
    ```bash
@@ -65,7 +65,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   yay -S catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable
+   yay -S rime-ice catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable
    ```
 
    If have bluetooth enable it
@@ -84,6 +84,23 @@ This repository contains my personal dotfiles and configuration for various tool
 
    ```bash
    chsh -s $(which zsh)
+   ```
+
+5. **Input Method Setup**
+
+   ```bash
+   vim ~/.local/share/fcitx5/rime/default.custom.yaml
+   ```
+
+   Add the following lines to the file:
+
+   ```yaml
+   patch:
+     # 仅使用「雾凇拼音」的默认配置，配置此行即可
+     __include: rime_ice_suggestion:/
+     # 以下根据自己所需自行定义
+     __patch:
+       menu/page_size: 5 #候选词个数
    ```
 
 ## Archlinux kvm

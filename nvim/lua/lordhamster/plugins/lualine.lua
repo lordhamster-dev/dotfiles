@@ -23,7 +23,7 @@ return {
 
     local diagnostics = {
       "diagnostics",
-      sources = { "nvim_diagnostic" },
+      sources = { "nvim_lsp", "nvim_diagnostic" },
       sections = { "error", "warn" },
       symbols = { error = " ", warn = " " },
       colored = true,
@@ -37,12 +37,6 @@ return {
       colored = true,
       symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
       cond = hide_in_width,
-    }
-
-    local filetype = {
-      "filetype",
-      icons_enabled = false,
-      icon = nil,
     }
 
     local location = {
@@ -142,7 +136,7 @@ return {
     }
 
     local spaces = function()
-      return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+      return "spaces: " .. vim.bo.shiftwidth
     end
 
     -- configure lualine with modified theme
@@ -159,7 +153,7 @@ return {
         lualine_a = { mode },
         lualine_b = { branch, diagnostics },
         lualine_c = { diff },
-        lualine_x = { spaces, "encoding", filetype },
+        lualine_x = { spaces, "encoding", "filetype" },
         lualine_y = { location },
         lualine_z = { progress },
       },

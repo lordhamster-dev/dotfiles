@@ -4,12 +4,22 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   config = function()
-    -- import lualine plugin safely
     local lualine = require("lualine")
 
     local hide_in_width = function()
       return vim.fn.winwidth(0) > 80
     end
+
+    local mode = {
+      "mode",
+      separator = { left = "", right = "" },
+    }
+
+    local branch = {
+      "branch",
+      icons_enabled = true,
+      icon = "",
+    }
 
     local diagnostics = {
       "diagnostics",
@@ -24,29 +34,15 @@ return {
 
     local diff = {
       "diff",
-      colored = false,
+      colored = true,
       symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
       cond = hide_in_width,
-    }
-
-    local mode = {
-      "mode",
-      -- fmt = function(str)
-      -- 	return "-- " .. str .. " --"
-      -- end,
-      separator = { left = "", right = "" },
     }
 
     local filetype = {
       "filetype",
       icons_enabled = false,
       icon = nil,
-    }
-
-    local branch = {
-      "branch",
-      icons_enabled = true,
-      icon = "",
     }
 
     local location = {
@@ -162,19 +158,8 @@ return {
       sections = {
         lualine_a = { mode },
         lualine_b = { branch, diagnostics },
-        lualine_c = {
-          {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "#ff9e64" },
-          },
-          {
-            require("noice").api.status.mode.get,
-            cond = require("noice").api.status.mode.has,
-            color = { fg = "#ff9e64" },
-          },
-        },
-        lualine_x = { diff, spaces, "encoding", filetype },
+        lualine_c = { diff },
+        lualine_x = { spaces, "encoding", filetype },
         lualine_y = { location },
         lualine_z = { progress },
       },

@@ -74,7 +74,7 @@ return {
             return require("codecompanion.adapters").extend("copilot", {
               schema = {
                 model = {
-                  default = "gpt-4.1",
+                  default = "gpt-5-mini",
                 },
               },
             })
@@ -102,7 +102,7 @@ return {
             auto_submit = true,
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "gpt-5-mini",
             },
           },
           prompts = {
@@ -210,7 +210,7 @@ return {
             user_prompt = false,
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "gpt-5-mini",
             },
           },
           prompts = {
@@ -222,31 +222,6 @@ return {
 3. 返回值说明
 4. 使用示例（如果适用）]],
               opts = { contains_code = true },
-            },
-          },
-        },
-        ["Quick Question"] = {
-          strategy = "chat",
-          description = "快速编程问题咨询",
-          opts = {
-            index = 6,
-            short_name = "ask",
-            is_slash_cmd = true,
-            auto_submit = false,
-            adapter = {
-              name = "copilot",
-              model = "gpt-4.1",
-            },
-          },
-          prompts = {
-            {
-              role = constants.SYSTEM_ROLE,
-              content = "你是一个经验丰富的程序员助手。请用中文简洁明了地回答用户的编程问题，并在需要时提供代码示例。",
-              opts = { visible = false },
-            },
-            {
-              role = constants.USER_ROLE,
-              content = "请输入你的编程问题：",
             },
           },
         },

@@ -64,6 +64,24 @@ function M.find_grep()
   Snacks.picker.grep()
 end
 
+function M.find_links()
+  Snacks.picker.grep({
+    prompt = " ",
+    -- pass your desired search as a static pattern
+    search = "\\[\\[",
+    -- we enable regex so the pattern is interpreted as a regex
+    regex = true,
+    -- no “live grep” needed here since we have a fixed pattern
+    live = false,
+    -- restrict search to the current working directory
+    dirs = { vim.fn.getcwd() },
+    finder = "grep",
+    format = "file",
+    show_empty = true,
+    supports_live = false,
+  })
+end
+
 function M.find_todo()
   Snacks.picker.grep({
     prompt = " ",

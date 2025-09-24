@@ -109,6 +109,7 @@ return {
     { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },
     { "<leader>fh", snacks_utils.find_help, desc = "Help" },
     { "<leader>fk", snacks_utils.find_keymaps, desc = "Keymaps" },
+    { "<leader>fl", snacks_utils.find_links, desc = "Find Links" },
     { "<leader>fq", snacks_utils.find_qflist, desc = "Quickfix" },
     { "<leader>fr", snacks_utils.find_recent, desc = "Recently used files" },
     { "<leader>fs", snacks_utils.find_grep, desc = "Grep" },

@@ -11,7 +11,7 @@ return {
     filetypes = {
       markdown = {
         url_encode_path = true,
-        template = "![[$FILE_NAME]]",
+        template = "![[Attachments/$FILE_NAME]]",
         download_images = false,
       },
     },

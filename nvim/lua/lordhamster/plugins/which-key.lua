@@ -3,7 +3,6 @@ local codecompanion = require("codecompanion")
 local markdown = require("lordhamster.util.markdown")
 local obsidian = require("lordhamster.util.obsidian")
 local snacks_utils = require("lordhamster.util.snacks_utils")
-local terminal = require("lordhamster.util.terminal")
 local utils = require("lordhamster.util.utils")
 
 return {
@@ -35,7 +34,7 @@ return {
     { "<leader>z", snacks_utils.zen, desc = "ZenMode" },
 
     -- Run code
-    { "<leader>r", terminal.run_file, desc = "Run current Python file in terminal" },
+    { "<leader>r", snacks_utils.run_file, desc = "Run current Python file in terminal" },
     { "<leader>r", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
     { "<leader>R", "<cmd>source %<CR>", desc = "Excute whole file" },
 
@@ -68,8 +67,8 @@ return {
     ----------------------
     --     Terminal     --
     ----------------------
-    { "<leader>tt", terminal.toggle_terminal, desc = "Toggle floating terminal" },
-    { "<esc>", terminal.toggle_terminal, mode = "t", desc = "Toggle floating terminal" },
+    { "<leader>tt", snacks_utils.terminal, desc = "Terminal" },
+    { "<leader>to", snacks_utils.terminal_new, desc = "New Terminal" },
 
     ----------------------
     --       lsp       --

@@ -12,6 +12,19 @@ return {
         relative = "editor",
         col = -1,
       },
+      terminal = {
+        keys = {
+          term_normal = {
+            "<esc>",
+            function()
+              vim.cmd("stopinsert")
+            end,
+            mode = "t",
+            expr = true,
+            desc = "Double escape to normal mode",
+          },
+        },
+      },
     },
     animate = { enabled = true },
     bigfile = { enabled = true },

@@ -1,5 +1,11 @@
 local M = {}
 
+-- 支持的文件类型配置
+local SUPPORTED_LANGUAGES = {
+  python = "python",
+  lua = "lua",
+}
+
 function M.bufdelete()
   Snacks.bufdelete()
 end
@@ -42,6 +48,39 @@ function M.git_log()
     confirm = "git_checkout",
     layout = "vertical",
   })
+end
+
+function M.terminal()
+  Snacks.terminal()
+end
+
+function M.terminal_new()
+  Snacks.terminal.open()
+end
+
+function M.run_file()
+  -- 缓存文件类型
+  local filetype = vim.bo.filetype
+  local interpreter = SUPPORTED_LANGUAGES[filetype]
+
+  if not interpreter then
+    vim.notify(string.format("File type '%s' is not supported", filetype), vim.log.levels.WARN, { title = "Run File" })
+    return
+  end
+
+  -- 保存文件
+  vim.cmd("w")
+
+  -- 安全地获取文件路径
+  local file = vim.fn.shellescape(vim.fn.expand("%"))
+  if file == "''" or file == '""' then
+    vim.notify("No valid file to run", vim.log.levels.WARN, { title = "Run File" })
+    return
+  end
+
+  -- 执行命令
+  local command = interpreter .. " " .. file
+  Snacks.terminal.open(command)
 end
 
 function M.zen()

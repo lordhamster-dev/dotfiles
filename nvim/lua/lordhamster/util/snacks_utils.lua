@@ -30,12 +30,30 @@ function M.explorer()
   })
 end
 
+function M.lazygit()
+  Snacks.lazygit()
+end
+
+function M.git_log()
+  Snacks.picker.git_log({
+    finder = "git_log",
+    format = "git_log",
+    preview = "git_show",
+    confirm = "git_checkout",
+    layout = "vertical",
+  })
+end
+
 function M.zen()
   Snacks.zen()
 end
 
+function M.find_commands()
+  Snacks.picker.commands()
+end
+
 function M.find_files()
-  Snacks.picker.files({hidden = true, ignored = false})
+  Snacks.picker.files({ hidden = true, ignored = false })
 end
 
 function M.find_git_files()
@@ -62,6 +80,10 @@ end
 
 function M.find_grep()
   Snacks.picker.grep()
+end
+
+function M.find_word()
+  Snacks.picker.grep_word()
 end
 
 function M.find_links()
@@ -142,26 +164,12 @@ function M.find_document_diagnostics()
   Snacks.picker.diagnostics()
 end
 
-function M.lazygit()
-  Snacks.lazygit()
-end
-
-function M.git_log()
-  Snacks.picker.git_log({
-    finder = "git_log",
-    format = "git_log",
-    preview = "git_show",
-    confirm = "git_checkout",
-    layout = "vertical",
-  })
-end
-
 function M.find_buffers()
   Snacks.picker.buffers({
     -- I always want my buffers picker to start in normal mode
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
+    -- on_show = function()
+    --   vim.cmd.stopinsert()
+    -- end,
     finder = "buffers",
     format = "buffer",
     layout = "select",

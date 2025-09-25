@@ -101,9 +101,9 @@ return {
     --   File Manager   --
     ----------------------
     { "<leader>f", group = "File Manager" },
-    { "<leader>fT", snacks_utils.find_todo_comments, desc = "Find todos" },
+    { "<leader>fT", snacks_utils.find_todo, desc = "Search incomplete tasks" },
     { "<leader>fb", snacks_utils.find_buffers, desc = "Buffers" },
-    { "<leader>fc", snacks_utils.find_complete_tasks, desc = "Search complete tasks" },
+    { "<leader>fc", snacks_utils.find_commands, desc = "Find commands" },
     { "<leader>fe", snacks_utils.explorer, desc = "File Explorer" },
     { "<leader>ff", snacks_utils.find_files, desc = "Find files" },
     { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },
@@ -113,7 +113,8 @@ return {
     { "<leader>fq", snacks_utils.find_qflist, desc = "Quickfix" },
     { "<leader>fr", snacks_utils.find_recent, desc = "Recently used files" },
     { "<leader>fs", snacks_utils.find_grep, desc = "Grep" },
-    { "<leader>ft", snacks_utils.find_todo, desc = "Search incomplete tasks" },
+    { "<leader>ft", snacks_utils.find_todo_comments, desc = "Find todos" },
+    { "<leader>fw", snacks_utils.find_word, desc = "Find Word" },
 
     ----------------------
     --       Git       --

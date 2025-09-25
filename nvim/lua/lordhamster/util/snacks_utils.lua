@@ -167,9 +167,9 @@ end
 function M.find_buffers()
   Snacks.picker.buffers({
     -- I always want my buffers picker to start in normal mode
-    -- on_show = function()
-    --   vim.cmd.stopinsert()
-    -- end,
+    on_show = function()
+      vim.cmd.stopinsert()
+    end,
     finder = "buffers",
     format = "buffer",
     layout = "select",
@@ -180,7 +180,9 @@ function M.find_buffers()
     win = {
       input = {
         keys = {
-          ["d"] = "bufdelete",
+          ["<c-x>"] = { "bufdelete", mode = { "n", "i" } },
+          ["d"] = { "bufdelete", mode = { "n" } },
+          ["l"] = { "confirm", mode = { "n" } },
         },
       },
       list = { keys = { ["d"] = "bufdelete" } },

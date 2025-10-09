@@ -62,6 +62,7 @@ rules:
   - "DOMAIN-SUFFIX,chatgpt.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,claude.ai,💬 ChatGPT"
   - "DOMAIN-SUFFIX,aur.archlinux.org,🚀 节点选择"
+  - "DOMAIN-SUFFIX,proxy.golang.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,drive.massgrave.dev,🚀 节点选择"
   - "DOMAIN-SUFFIX,icekylin.online,🚀 节点选择"
   - "DOMAIN-SUFFIX,questdb.com,🚀 节点选择"

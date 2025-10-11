@@ -61,11 +61,11 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S clash keyd neovim tmux yazi zsh fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator nodejs npm nvm tk mpv obs-studio thunderbird obsidian
+   sudo pacman -S clash keyd neovim tmux yazi zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator nodejs npm nvm tk mpv obs-studio thunderbird obsidian
    ```
 
    ```bash
-   yay -S rime-ice catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable
+   yay -S rime-ice catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable zsh-theme-powerlevel10k
    ```
 
    If have bluetooth enable it

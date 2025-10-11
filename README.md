@@ -49,7 +49,7 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S git vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync jq
+   sudo pacman -S git vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync jq exa
    ```
 
    ```bash

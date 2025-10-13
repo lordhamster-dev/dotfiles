@@ -95,7 +95,7 @@ return {
           strategy = "chat",
           description = "生成提交信息",
           opts = {
-            index = 2,
+            index = 1,
             is_default = true,
             is_slash_cmd = true,
             short_name = "commit",
@@ -125,6 +125,44 @@ return {
             },
           },
         },
+        ["Translate"] = {
+          strategy = "chat",
+          description = "翻译选中的文本",
+          opts = {
+            index = 2,
+            is_default = true,
+            short_name = "translate",
+            is_slash_cmd = false,
+            modes = { "v" },
+            auto_submit = true,
+            user_prompt = false,
+            stop_context_insertion = false,
+            adapter = {
+              name = "copilot",
+              model = "gpt-5-mini",
+            },
+          },
+          prompts = {
+            {
+              role = constants.SYSTEM_ROLE,
+              content = [[ When asked to translate text, follow these steps:
+1. Identify the source language.
+2. Translate the text accurately while preserving the original meaning and tone.
+3. Ensure the translation is fluent and natural in the target language.
+4. If there are any idioms or cultural references, adapt them appropriately for the target audience. ]],
+              opts = {
+                visible = false,
+              },
+            },
+            {
+              role = constants.USER_ROLE,
+              content = [[请翻译以下文本：]],
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
         ["Explain"] = {
           strategy = "chat",
           description = "用中文解释选中的代码段",
@@ -139,14 +177,13 @@ return {
             stop_context_insertion = false,
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4",
+              model = "gpt-5-mini",
             },
           },
           prompts = {
             {
               role = constants.SYSTEM_ROLE,
               content = [[When asked to explain code, follow these steps:
-
 1. Identify the programming language.
 2. Describe the purpose of the code and reference core concepts from the programming language.
 3. Explain each function or significant block of code, including parameters and return values.
@@ -177,18 +214,18 @@ return {
             user_prompt = false,
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4",
+              model = "gpt-5-mini",
             },
           },
           prompts = {
             {
               role = constants.SYSTEM_ROLE,
-              content = [[你是一个资深的代码审查专家。请从以下方面审查代码：
-1. 代码质量和可读性
-2. 性能优化建议
-3. 潜在的 bug 和安全问题
-4. 最佳实践和设计模式
-5. 重构建议]],
+              content = [[You are a senior code review expert. Please review the code from the following aspects:
+1. Code quality and readability
+2. Performance optimization suggestions
+3. Potential bugs and security issues
+4. Best practices and design patterns
+5. Refactoring suggestions ]],
               opts = { visible = false },
             },
             {
@@ -242,12 +279,12 @@ return {
           prompts = {
             {
               role = constants.USER_ROLE,
-              content = [[请重构以下代码，使其更加：
-1. 模块化和可复用
-2. 符合设计模式
-3. 易于测试和维护
-4. 遵循 SOLID 原则
-请提供重构后的代码并解释改进思路。]],
+              content = [[Please refactor the following code to make it:
+1. More modular and reusable
+2. Aligned with design patterns
+3. Easier to test and maintain
+4. Compliant with the SOLID principles
+Please provide the refactored code and explain the rationale for the improvements.]],
               opts = { contains_code = true },
             },
           },

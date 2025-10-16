@@ -49,11 +49,11 @@ This repository contains my personal dotfiles and configuration for various tool
 2. **Install Packages**
 
    ```bash
-   sudo pacman -S git vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync jq exa
+   sudo pacman -S git vim inetutils iproute2 iputils procps-ng psmisc sysfsutils which wget unzip mtr traceroute dnsutils lsb-release ca-certificates bash-completion logrotate openssh less rsync
    ```
 
    ```bash
-   sudo pacman -S hyprpaper hypridle hyprlock hyprpicker hyprland-qtutils waybar flameshot blueberry brightnessctl pavucontrol xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie pipewire-pulse
+   sudo pacman -S hyprpaper hypridle hyprlock hyprpicker hyprland-qtutils waybar jq flameshot blueberry brightnessctl pavucontrol xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie pipewire-pulse
    ```
 
    ```bash
@@ -61,7 +61,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S clash keyd neovim tmux yazi zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf fd ripgrep zoxide btop imagemagick uv gnome-calculator nodejs npm nvm tk mpv obs-studio thunderbird obsidian
+   sudo pacman -S neovim tmux yazi zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf fd ripgrep zoxide exa btop imagemagick uv gnome-calculator nodejs npm nvm tk mpv obs-studio thunderbird obsidian
    ```
 
    ```bash

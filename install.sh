@@ -51,7 +51,6 @@ linux_links() {
     create_symlink ~/dotfiles/kitty ~/.config/kitty
     create_symlink ~/dotfiles/ghostty ~/.config/ghostty
     create_symlink ~/dotfiles/hypr ~/.config/hypr
-    create_symlink ~/dotfiles/rofi ~/.config/rofi
     create_symlink ~/dotfiles/waybar ~/.config/waybar
     create_symlink ~/dotfiles/dunst ~/.config/dunst
 }

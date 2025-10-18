@@ -45,10 +45,10 @@ return {
 
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "black", -- python formatter
+        -- "black", -- python formatter
         "clang-format", -- c,cpp formatter
         "prettier", -- prettier formatter
-        "reorder-python-imports", -- python formatter
+        -- "reorder-python-imports", -- python formatter
         "stylua", -- lua formatter
         -- "eslint_d", -- js linter
         "biome", -- js linter

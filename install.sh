@@ -52,7 +52,7 @@ linux_links() {
     create_symlink ~/dotfiles/ghostty ~/.config/ghostty
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/waybar ~/.config/waybar
-    create_symlink ~/dotfiles/dunst ~/.config/dunst
+    create_symlink ~/dotfiles/mako ~/.config/mako
 }
 
 # Main installation

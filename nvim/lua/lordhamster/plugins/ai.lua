@@ -20,7 +20,7 @@ return {
           hide_during_completion = false,
           debounce = 50, -- 降低debounce时间，提高响应速度
           keymap = {
-            accept = "<Tab>",
+            accept = "<C-l>",
             accept_word = false,
             accept_line = false,
             next = "<C-]>", -- 保持优化后的上下导航

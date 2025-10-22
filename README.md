@@ -65,7 +65,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   yay -S rime-ice catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable zsh-theme-powerlevel10k vicinae-bin
+   yay -S rime-ice catppuccin-cursors-mocha catppuccin-gtk-theme-mocha google-chrome-stable zsh-theme-powerlevel10k
    ```
 
    If have bluetooth enable it
@@ -102,34 +102,6 @@ This repository contains my personal dotfiles and configuration for various tool
      __patch:
        menu/page_size: 5 #候选词个数
    ```
-
-## Archlinux kvm
-
-```bash
-sudo pacman -S qemu-desktop libvirt virt-manager virt-viewer bridge-utils dmidecode dnsmasq swtpm
-```
-
-```bash
-sudo systemctl enable --now libvirtd virtlogd
-```
-
-```bash
-sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
-```
-
-```bash
-sudo virsh net-autostart default
-sudo virsh net-start default
-```
-
-```bash
-sudo usermod -aG libvirt $(whoami)
-sudo usermod -aG kvm $(whoami)
-```
-
-```bash
-virt-manager
-```
 
 ## Included Configurations
 

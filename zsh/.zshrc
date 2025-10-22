@@ -9,9 +9,6 @@ fi
 # Zsh configuration
 # -----------------
 export SHELL="/bin/zsh"
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshrc_private
 
 # History
@@ -42,6 +39,9 @@ bindkey -e
 case "$(uname -s)" in
     Darwin)
         # macOS specific configurations
+        source ~/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+        source ~/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+        source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
         # brew
         export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
@@ -63,6 +63,9 @@ case "$(uname -s)" in
         ;;
     Linux)
         # Linux specific configurations
+        source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+        source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # NVM
         source /usr/share/nvm/init-nvm.sh
         ;;

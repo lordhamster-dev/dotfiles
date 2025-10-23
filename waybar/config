@@ -98,6 +98,7 @@
         "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
+        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/wifimenu.sh",
     },
     "custom/power": {
         "tooltip": false,

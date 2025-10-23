@@ -53,6 +53,7 @@ linux_links() {
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/waybar ~/.config/waybar
     create_symlink ~/dotfiles/mako ~/.config/mako
+    create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
 }
 
 # Main installation

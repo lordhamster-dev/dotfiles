@@ -60,7 +60,7 @@ return {
           keys = {
             -- to close the picker on ESC instead of going to normal mode,
             -- add the following keymap to your config
-            -- ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
             -- ["l"] = { "confirm", mode = { "n" } },
             -- ["J"] = { "preview_scroll_down", mode = { "n" } },
             -- ["K"] = { "preview_scroll_up", mode = { "n" } },

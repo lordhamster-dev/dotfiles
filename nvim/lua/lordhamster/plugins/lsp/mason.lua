@@ -25,7 +25,7 @@ return {
       ensure_installed = {
         "clangd",
         "pyright",
-        "rust_analyzer",
+        -- "rust_analyzer",
         "lua_ls",
         "html",
         "emmet_ls",
@@ -38,7 +38,7 @@ return {
         "yamlls",
         "astro",
         -- "marksman",
-        "markdown_oxide"
+        "markdown_oxide",
       },
       automatic_installation = true,
     })

@@ -36,8 +36,8 @@ opt.swapfile = false
 opt.foldlevel = 99
 opt.foldmethod = "expr"
 opt.fillchars = { fold = " " } -- 用空格替代点
-opt.foldexpr = "v:lua.require'lordhamster.util.foldmethod'.foldexpr()"
-vim.wo.foldtext = "v:lua.require('lordhamster.util.foldmethod').foldtext()"
+opt.foldexpr = "v:lua.require('lordhamster.util.foldmethod').foldexpr()"
+vim.wo.foldtext = "v:lua.require('lordhamster.util.foldmethod').markdown_foldtext()"
 
 -- 补全增强
 -- vim.o.wildmenu = true

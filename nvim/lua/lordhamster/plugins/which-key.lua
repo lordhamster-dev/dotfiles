@@ -1,5 +1,6 @@
 -- 💥 Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
 local codecompanion = require("codecompanion")
+local foldmethod = require("lordhamster.util.foldmethod")
 local markdown = require("lordhamster.util.markdown")
 local obsidian = require("lordhamster.util.obsidian")
 local snacks_utils = require("lordhamster.util.snacks_utils")
@@ -89,6 +90,11 @@ return {
     ---    Markdown     --
     ----------------------
     { "<leader>m", group = "Markdown" },
+    { "<leader>m2", foldmethod.fold_markdown_headings_2, desc = "Fold all headings level 2-6" },
+    { "<leader>m3", foldmethod.fold_markdown_headings_3, desc = "Fold all headings level 3-6" },
+    { "<leader>m4", foldmethod.fold_markdown_headings_4, desc = "Fold all headings level 4-6" },
+    { "<leader>m5", foldmethod.fold_markdown_headings_5, desc = "Fold all headings level 5-6" },
+    { "<leader>m6", foldmethod.fold_markdown_headings_6, desc = "Fold all headings level 6" },
     { "<leader>mT", "<cmd>LspTomorrow<CR>", desc = "Daily Note Tomorrow" },
     { "<leader>md", markdown.complete_markdown_task, desc = "Mark task done" },
     { "<leader>ml", markdown.markdown_task_later, desc = "Mark task later" },

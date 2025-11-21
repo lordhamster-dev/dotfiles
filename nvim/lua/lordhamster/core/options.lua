@@ -82,6 +82,10 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 -- status line
 opt.winbar = "%=%t"
 
+-- floating windows border
+opt.winborder = "rounded"
+
+-- conceal level
 opt.conceallevel = 1
 
 -- local function get_os()

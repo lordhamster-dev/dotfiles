@@ -13,6 +13,7 @@ return {
         cpp = { "clang_format" },
         -- python = { "reorder-python-imports", "black" },
         python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+        rust = { "rustfmt", lsp_format = "fallback" },
         typescript = { "biome", "biome-organize-imports" },
         javascript = { "biome", "biome-organize-imports" },
         html = { "prettier" },

@@ -33,6 +33,7 @@ common_links() {
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
+    create_symlink ~/dotfiles/opencode/opencode.json ~/.config/opencode/opencode.json
 }
 
 # Mac specific symlinks

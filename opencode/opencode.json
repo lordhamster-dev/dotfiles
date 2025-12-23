@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "catppuccin",
+  "command": {
+    "commit": {
+      "template": "Analyze the staged changes (git diff --cached) and generate a concise, professional git commit message following Conventional Commits specification. Focus on the 'why' and 'what'.",
+      "description": "Generate git commit message",
+      "agent": "plan",
+      "model": "github-copilot/gpt-5-mini"
+    }
+  }
+}

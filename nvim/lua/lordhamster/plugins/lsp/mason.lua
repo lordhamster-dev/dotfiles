@@ -20,7 +20,7 @@ return {
       max_concurrent_installers = 4,
     })
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     require("mason-lspconfig").setup({
       ensure_installed = {
         "clangd",

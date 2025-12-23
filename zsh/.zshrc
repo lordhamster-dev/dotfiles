@@ -109,8 +109,28 @@ alias vim=nvimvenv
 # alias
 alias ll='exa --icons -l'
 alias pmr='python manage.py runserver'
-alias proxy="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890; export all_proxy=socks5://127.0.0.1:7890; echo 'HTTP Proxy on'"
-alias unproxy="unset https_proxy; unset http_proxy; unset all_proxy; echo 'HTTP Proxy off';"
+# proxy
+proxy_on() {
+    local port="${1:-7890}"
+    export http_proxy="http://127.0.0.1:${port}"
+    export https_proxy="http://127.0.0.1:${port}"
+    export all_proxy="socks5://127.0.0.1:${port}"
+    export no_proxy="localhost,127.0.0.1,127.0.0.10/8,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localaddress,.localdomain.com"
+    export HTTP_PROXY=$http_proxy
+    export HTTPS_PROXY=$https_proxy
+    export ALL_PROXY=$all_proxy
+    export NO_PROXY=$no_proxy
+    echo "Proxy ON (Port: $port)"
+}
+
+proxy_off() {
+    unset http_proxy https_proxy all_proxy no_proxy
+    unset HTTP_PROXY HTTPS_PROXY ALL_PROXY NO_PROXY
+    echo "Proxy OFF"
+}
+
+alias proxy=proxy_on
+alias unproxy=proxy_off
 alias ff="fastfetch"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

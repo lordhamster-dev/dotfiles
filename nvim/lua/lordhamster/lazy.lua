@@ -21,7 +21,6 @@ require("lazy").setup({
   "christoomey/vim-tmux-navigator", -- tmux & split window navigation
   { import = "lordhamster.plugins" },
   { import = "lordhamster.plugins.lsp" },
-  { import = "lordhamster.plugins.ai" },
 }, {
   checker = {
     enabled = true,

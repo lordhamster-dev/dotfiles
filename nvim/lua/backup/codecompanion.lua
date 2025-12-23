@@ -1,0 +1,252 @@
+local fmt = string.format
+
+local constants = {
+  LLM_ROLE = "llm",
+  USER_ROLE = "user",
+  SYSTEM_ROLE = "system",
+}
+
+return {
+  -- https://github.com/olimorris/codecompanion.nvim
+  "olimorris/codecompanion.nvim",
+  opts = {
+    language = "Chinese",
+    strategies = {
+      chat = {
+        adapter = "copilot",
+      },
+      inline = {
+        adapter = "copilot",
+      },
+      cmd = {
+        adapter = "copilot",
+      },
+    },
+    adapters = {
+      http = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "gpt-5-mini",
+              },
+            },
+          })
+        end,
+        tavily = function()
+          return require("codecompanion.adapters").extend("tavily", {
+            env = {
+              api_key = function()
+                return os.getenv("TAVILY_API_KEY")
+              end,
+            },
+          })
+        end,
+      },
+    },
+    prompt_library = {
+      ["Generate a Commit Message"] = {
+        strategy = "chat",
+        description = "生成提交信息",
+        opts = {
+          index = 1,
+          is_default = true,
+          is_slash_cmd = true,
+          short_name = "commit",
+          auto_submit = true,
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
+        },
+        prompts = {
+          {
+            role = constants.USER_ROLE,
+            content = function()
+              return fmt(
+                [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:
+
+```diff
+%s
+```
+]],
+                vim.fn.system("git diff --no-ext-diff --staged")
+              )
+            end,
+            opts = {
+              contains_code = true,
+            },
+          },
+        },
+      },
+      ["Translate"] = {
+        strategy = "chat",
+        description = "翻译选中的文本",
+        opts = {
+          index = 2,
+          is_default = true,
+          short_name = "translate",
+          is_slash_cmd = false,
+          modes = { "v" },
+          auto_submit = true,
+          user_prompt = false,
+          stop_context_insertion = false,
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
+        },
+        prompts = {
+          {
+            role = constants.SYSTEM_ROLE,
+            content = [[ When asked to translate text, follow these steps:
+1. Identify the source language.
+2. Translate the text accurately while preserving the original meaning and tone.
+3. Ensure the translation is fluent and natural in the target language.
+4. If there are any idioms or cultural references, adapt them appropriately for the target audience. ]],
+            opts = {
+              visible = false,
+            },
+          },
+          {
+            role = constants.USER_ROLE,
+            content = [[请翻译以下文本：]],
+            opts = {
+              contains_code = true,
+            },
+          },
+        },
+      },
+      ["Explain"] = {
+        strategy = "chat",
+        description = "用中文解释选中的代码段",
+        opts = {
+          index = 3,
+          is_default = true,
+          short_name = "explain",
+          is_slash_cmd = false,
+          modes = { "v" },
+          auto_submit = true,
+          user_prompt = false,
+          stop_context_insertion = false,
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
+        },
+        prompts = {
+          {
+            role = constants.SYSTEM_ROLE,
+            content = [[When asked to explain code, follow these steps:
+1. Identify the programming language.
+2. Describe the purpose of the code and reference core concepts from the programming language.
+3. Explain each function or significant block of code, including parameters and return values.
+4. Highlight any specific functions or methods used and their roles.
+5. Provide context on how the code fits into a larger application if applicable.]],
+            opts = {
+              visible = false,
+            },
+          },
+          {
+            role = constants.USER_ROLE,
+            content = [[请用中文解释以下代码段的功能和实现细节。]],
+            opts = {
+              contains_code = true,
+            },
+          },
+        },
+      },
+      ["Code Review"] = {
+        strategy = "chat",
+        description = "对选中的代码进行详细的代码审查",
+        opts = {
+          index = 4,
+          short_name = "review",
+          is_slash_cmd = false,
+          modes = { "v" },
+          auto_submit = true,
+          user_prompt = false,
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
+        },
+        prompts = {
+          {
+            role = constants.SYSTEM_ROLE,
+            content = [[You are a senior code review expert. Please review the code from the following aspects:
+1. Code quality and readability
+2. Performance optimization suggestions
+3. Potential bugs and security issues
+4. Best practices and design patterns
+5. Refactoring suggestions ]],
+            opts = { visible = false },
+          },
+          {
+            role = constants.USER_ROLE,
+            content = "请对以下代码进行详细的审查,并用中文回答：",
+            opts = { contains_code = true },
+          },
+        },
+      },
+      ["Add Documentation"] = {
+        strategy = "chat",
+        description = "为代码添加文档注释",
+        opts = {
+          index = 5,
+          short_name = "doc",
+          is_slash_cmd = true,
+          modes = { "v" },
+          auto_submit = true,
+          user_prompt = false,
+          adapter = {
+            name = "copilot",
+            model = "gpt-5-mini",
+          },
+        },
+        prompts = {
+          {
+            role = constants.USER_ROLE,
+            content = [[请为以下代码添加详细的文档注释，包括：
+1. 函数/类的用途说明
+2. 参数类型和含义
+3. 返回值说明
+4. 使用示例（如果适用）]],
+            opts = { contains_code = true },
+          },
+        },
+      },
+      ["Refactor"] = {
+        strategy = "chat",
+        description = "重构代码以提高代码质量",
+        opts = {
+          index = 10,
+          short_name = "refactor",
+          is_slash_cmd = true,
+          modes = { "v" },
+          auto_submit = true,
+          adapter = {
+            name = "copilot",
+            model = "claude-sonnet-4",
+          },
+        },
+        prompts = {
+          {
+            role = constants.USER_ROLE,
+            content = [[Please refactor the following code to make it:
+1. More modular and reusable
+2. Aligned with design patterns
+3. Easier to test and maintain
+4. Compliant with the SOLID principles
+Please provide the refactored code and explain the rationale for the improvements.]],
+            opts = { contains_code = true },
+          },
+        },
+      },
+    },
+  },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+}

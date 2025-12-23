@@ -1,5 +1,5 @@
 -- 💥 Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing.
-local codecompanion = require("codecompanion")
+-- local codecompanion = require("codecompanion")
 local foldmethod = require("lordhamster.util.foldmethod")
 local markdown = require("lordhamster.util.markdown")
 local obsidian = require("lordhamster.util.obsidian")
@@ -14,11 +14,11 @@ return {
   keys = {
     { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
 
-    { "<leader>c", group = "CodeCompanion" },
-    { "<leader>ca", "<cmd>CodeCompanionAction<CR>", desc = "CodeCompanionAction" },
-    { "<leader>ca", "<cmd>CodeCompanionAction<CR>", mode = "v", desc = "CodeCompanionAction" },
-    { "<leader>cc", codecompanion.toggle, desc = "Toggle CodeCompanionChat" },
-    { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
+    -- { "<leader>c", group = "CodeCompanion" },
+    -- { "<leader>ca", "<cmd>CodeCompanionAction<CR>", desc = "CodeCompanionAction" },
+    -- { "<leader>ca", "<cmd>CodeCompanionAction<CR>", mode = "v", desc = "CodeCompanionAction" },
+    -- { "<leader>cc", codecompanion.toggle, desc = "Toggle CodeCompanionChat" },
+    -- { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
 
     { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },

@@ -35,6 +35,8 @@ common_links() {
     create_symlink ~/dotfiles/yazi ~/.config/yazi
     create_symlink ~/dotfiles/task ~/.config/task
     create_symlink ~/dotfiles/opencode/opencode.json ~/.config/opencode/opencode.json
+    create_symlink ~/dotfiles/opencode/agent ~/.config/opencode/agent
+    create_symlink ~/dotfiles/opencode/skill ~/.opencode/skill
 }
 
 # Mac specific symlinks

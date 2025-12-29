@@ -12,9 +12,8 @@ description: 按照 Conventional Commits 规范执行高质量的 git 提交，�
    - `docs`: 文档变更
    - `refactor`: 重构
    - `chore`: 其他更改
-3. **自愈机制**:
-   - 若 `git commit` 因 pre-commit 失败且文件被修改（linting），必须自动执行 `git add .` 并重试提交。
-   - 最多重试 1 次，连续失败则报错。
+3. **需要用户检查**:
+   - 执行前询问用户确认变更。
 
 ## 使用场景
 

@@ -1,6 +1,6 @@
 ---
 description: Git 仓库管理专家，负责分支管理、冲突解决及高质量提交。
-mode: subagent
+mode: primary
 model: github-copilot/gpt-5-mini
 tools:
   bash: true
@@ -24,4 +24,5 @@ permission:
     - `docs`: 文档变更
     - `refactor`: 重构
     - `chore`: 其他更改
+  - **用户确认**: 提交前询问用户确认变更。
 - **清理**: 提交完成后，建议清理已合并的临时分支。

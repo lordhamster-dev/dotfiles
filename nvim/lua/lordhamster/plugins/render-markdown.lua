@@ -5,7 +5,12 @@ return {
   opts = {
     sign = { enabled = false },
     file_types = { "markdown", "codecompanion" },
-    checkbox = { checked = { icon = "󰸞 " } },
+    checkbox = {
+      checked = { icon = "󰸞 ", highlight = "RenderMarkdownChecked" },
+      custom = {
+        deleted = { raw = "[~]", rendered = " ", highlight = "RenderMarkdownDeleted", scope_highlight = nil },
+      },
+    },
     heading = {
       icons = { " 󰼏 ", " 󰎨 ", " 󰼑 ", " 󰎲 ", " 󰼓 ", " 󰎴 " },
       border = true,

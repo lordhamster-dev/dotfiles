@@ -50,13 +50,6 @@ return {
     { "<C-u>", "<C-u>zz", desc = "Scroll up and center" },
     { "G", "Gzz", desc = "Scroll to bottom and center" },
 
-    -- Buffers & Tabs
-    { "<leader>tc", "<cmd>tabclose<CR>", desc = "Close tab" },
-    { "<leader>tm", ":tabmove ", desc = "Move tab" },
-    { "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "H", "<cmd>tabprev<CR>", desc = "Tab previous" },
-    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
-
     -- Move stuff up and down in visual mode
     { "J", ":m '>+1<CR>gv=gv", mode = "v", desc = "Move stuff down" },
     { "K", ":m '<-2<CR>gv=gv", mode = "v", desc = "Move stuff up" },
@@ -71,11 +64,20 @@ return {
     { "<leader>tt", snacks_utils.terminal, desc = "Terminal" },
     { "<leader>to", snacks_utils.terminal_new, desc = "New Terminal" },
 
+    -- Buffers & Tabs
+    { "<leader>tc", "<cmd>tabnew<CR>", desc = "New tab" },
+    { "<leader>tm", ":tabmove ", desc = "Move tab" },
+    { "<leader>tx", "<cmd>tabclose<CR>", desc = "Close tab" },
+    { "H", "<cmd>tabprev<CR>", desc = "Tab previous" },
+    { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
+
     ----------------------
     ---  Taskwarrior    --
     ----------------------
-    { "<leader>td", "<cmd>TWToggle<cr>", desc = "Taskwarrior toggle task" },
+    { "<leader>td", markdown.markdown_task_toggle, desc = "Taskwarrior toggle task" },
     { "<leader>te", "<cmd>TWEditTask<cr>", desc = "Taskwarrior edit task" },
+    { "<leader>tl", markdown.markdown_task_later, desc = "Mark task later" },
+    { "<leader>tn", markdown.markdown_task_now, desc = "Mark task now" },
     -- { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
     { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
     { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
@@ -107,9 +109,6 @@ return {
     { "<leader>m5", foldmethod.fold_markdown_headings_5, desc = "Fold all headings level 5-6" },
     { "<leader>m6", foldmethod.fold_markdown_headings_6, desc = "Fold all headings level 6" },
     { "<leader>mT", "<cmd>LspTomorrow<CR>", desc = "Daily Note Tomorrow" },
-    { "<leader>md", markdown.complete_markdown_task, desc = "Mark task done" },
-    { "<leader>ml", markdown.markdown_task_later, desc = "Mark task later" },
-    { "<leader>mn", markdown.markdown_task_now, desc = "Mark task now" },
     { "<leader>mt", "<cmd>LspToday<CR>", desc = "Daily Note Today" },
     { "<leader>my", "<cmd>LspYesterday<CR>", desc = "Daily Note Yesterday" },
 

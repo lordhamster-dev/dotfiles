@@ -1,10 +1,10 @@
 local M = {}
 
 -- 配置常量
-local TASK_PATTERN = "^%s*-%s*%[[ xX]?%]"
-local TAG_PATTERNS = {
-  now = { "#now", "@now" },
-  later = { "#later", "@later" },
+local TASK_PATTERN = "^(%s*-%s*%[[ xX~]?%])(.*)" -- 捕获组1：前缀（含缩进），捕获组2：内容
+local TAGS = {
+  now = "@[[NOW]]",
+  later = "@[[LATER]]",
 }
 
 -- 工具函数
@@ -15,7 +15,7 @@ local function get_current_task_info()
 end
 
 local function is_markdown_task(line)
-  return line:match(TASK_PATTERN) ~= nil
+  return line:match("^%s*-%s*%[[ xX~]?%]") ~= nil
 end
 
 local function is_completed_task(line)
@@ -30,40 +30,30 @@ local function validate_task_line(line)
   return true
 end
 
-local function remove_tags(line, tag_type)
-  local patterns = TAG_PATTERNS[tag_type]
-  if not patterns then
+-- 转义 Lua 正则特殊字符
+local function escape_pattern(text)
+  return text:gsub("([%[%]%(%)%.%+%-%*%?%^%$%%])", "%%%1")
+end
+
+-- 移除所有预定义的标签并清理空格，同时保留行首缩进
+local function remove_all_tags(line)
+  local prefix, content = line:match(TASK_PATTERN)
+  if not prefix then
     return line
   end
 
-  for _, pattern in ipairs(patterns) do
-    line = line:gsub("%s*" .. pattern .. "%s*", " ")
-  end
-  return line:gsub("%s+", " "):gsub("%s+$", "")
-end
-
-local function has_tag(line, tag_type)
-  local patterns = TAG_PATTERNS[tag_type]
-  if not patterns then
-    return false
+  for _, tag in pairs(TAGS) do
+    content = content:gsub("%s*" .. escape_pattern(tag) .. "%s*", " ")
   end
 
-  for _, pattern in ipairs(patterns) do
-    if line:match(pattern) then
-      return true
-    end
+  -- 清理内容部分的空格
+  content = content:gsub("^%s+", ""):gsub("%s+$", ""):gsub("%s+", " ")
+
+  if content ~= "" then
+    return prefix .. " " .. content
+  else
+    return prefix
   end
-  return false
-end
-
-local function mark_as_incomplete(line)
-  -- 将已完成的任务标记为未完成
-  return line:gsub("^(%s*-)%s*%[[xX]%]", "%1 [ ]")
-end
-
-local function mark_as_complete(line)
-  -- 将未完成的任务标记为已完成
-  return line:gsub("^(%s*-)%s*%[[ ]?%]", "%1 [x]")
 end
 
 local function update_line_safely(line_num, new_line)
@@ -75,92 +65,50 @@ local function update_line_safely(line_num, new_line)
   return true
 end
 
--- 主要功能函数
-function M.complete_markdown_task()
+-- 通用任务更新处理逻辑
+local function handle_task_update(tag_key)
   local current_line, line_num = get_current_task_info()
-
   if not validate_task_line(current_line) then
     return
   end
 
-  -- 标记任务为完成
-  local completed_line = mark_as_complete(current_line)
-
-  -- 移除所有标签
-  completed_line = remove_tags(completed_line, "now")
-  completed_line = remove_tags(completed_line, "later")
-
-  if update_line_safely(line_num, completed_line) then
-    vim.notify("Task marked as completed and tags removed", vim.log.levels.INFO)
+  -- 如果已经有该标签且任务未完成，则无需重复操作
+  if tag_key and current_line:find(escape_pattern(TAGS[tag_key])) and not is_completed_task(current_line) then
+    vim.notify(string.format("'%s' tag already present", tag_key), vim.log.levels.INFO)
+    return
   end
+
+  -- 统一先移除所有旧标签
+  local updated_line = remove_all_tags(current_line)
+
+  -- 如果指定了新标签，则添加
+  if tag_key then
+    updated_line = updated_line .. " " .. TAGS[tag_key]
+  end
+
+  if update_line_safely(line_num, updated_line) then
+    local msg = tag_key and string.format("Added '%s' tag", tag_key) or "Task toggled and tags removed"
+    vim.notify(msg, vim.log.levels.INFO)
+  end
+
+  -- 同步 TaskWiki 状态
+  vim.cmd("TWUpdateCurrent")
+  if not tag_key then
+    vim.cmd("TWToggle")
+  end
+end
+
+-- 主要功能函数
+function M.markdown_task_toggle()
+  handle_task_update(nil) -- 传入 nil 表示只移除标签并 Toggle
 end
 
 function M.markdown_task_now()
-  local current_line, line_num = get_current_task_info()
-
-  if not validate_task_line(current_line) then
-    return
-  end
-
-  if has_tag(current_line, "now") and not is_completed_task(current_line) then
-    vim.notify("'now' tag already present", vim.log.levels.INFO)
-    return
-  end
-
-  local updated_line = current_line
-  local message = "Added 'now' tag to the task"
-
-  -- 如果任务已完成，先取消完成状态
-  if is_completed_task(updated_line) then
-    updated_line = mark_as_incomplete(updated_line)
-    message = "Uncompleted task and added 'now' tag"
-  end
-
-  -- 移除 later 标签并添加 now 标签
-  updated_line = remove_tags(updated_line, "later")
-
-  -- 只有在没有 now 标签时才添加
-  if not has_tag(updated_line, "now") then
-    updated_line = updated_line .. " #now"
-  end
-
-  if update_line_safely(line_num, updated_line) then
-    vim.notify(message, vim.log.levels.INFO)
-  end
+  handle_task_update("now")
 end
 
 function M.markdown_task_later()
-  local current_line, line_num = get_current_task_info()
-
-  if not validate_task_line(current_line) then
-    return
-  end
-
-  if has_tag(current_line, "later") and not is_completed_task(current_line) then
-    vim.notify("'later' tag already present", vim.log.levels.INFO)
-    return
-  end
-
-  local updated_line = current_line
-  local message = "Added 'later' tag to the task"
-
-  -- 如果任务已完成，先取消完成状态
-  if is_completed_task(updated_line) then
-    updated_line = mark_as_incomplete(updated_line)
-    message = "Uncompleted task and added 'later' tag"
-  end
-
-  -- 移除 now 标签并添加 later 标签
-  updated_line = remove_tags(updated_line, "now")
-
-  -- 只有在没有 later 标签时才添加
-  if not has_tag(updated_line, "later") then
-    updated_line = updated_line .. " #later"
-  end
-
-  if update_line_safely(line_num, updated_line) then
-    vim.notify(message, vim.log.levels.INFO)
-  end
+  handle_task_update("later")
 end
 
 return M

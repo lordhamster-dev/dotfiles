@@ -6,14 +6,31 @@ local SUPPORTED_LANGUAGES = {
   lua = "lua",
 }
 
+-------------------------------------------------------------------------------
+-- 基础组件
+-------------------------------------------------------------------------------
 function M.bufdelete()
   Snacks.bufdelete()
 end
+function M.lazygit()
+  Snacks.lazygit()
+end
+function M.terminal()
+  Snacks.terminal()
+end
+function M.terminal_new()
+  Snacks.terminal.open()
+end
+function M.zen()
+  Snacks.zen()
+end
 
+-------------------------------------------------------------------------------
+-- 文件浏览器 (Explorer)
+-------------------------------------------------------------------------------
 -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
 function M.explorer()
-  Snacks.explorer.open({
-    finder = "explorer",
+  Snacks.explorer({
     sort = { fields = { "sort" } },
     supports_live = true,
     tree = true,
@@ -36,59 +53,12 @@ function M.explorer()
   })
 end
 
-function M.lazygit()
-  Snacks.lazygit()
-end
-
-function M.git_log()
-  Snacks.picker.git_log({
-    finder = "git_log",
-    format = "git_log",
-    preview = "git_show",
-    confirm = "git_checkout",
-    layout = "vertical",
-  })
-end
-
-function M.terminal()
-  Snacks.terminal()
-end
-
-function M.terminal_new()
-  Snacks.terminal.open()
-end
-
-function M.run_file()
-  -- 缓存文件类型
-  local filetype = vim.bo.filetype
-  local interpreter = SUPPORTED_LANGUAGES[filetype]
-
-  if not interpreter then
-    vim.notify(string.format("File type '%s' is not supported", filetype), vim.log.levels.WARN, { title = "Run File" })
-    return
-  end
-
-  -- 保存文件
-  vim.cmd("w")
-
-  -- 安全地获取文件路径
-  local file = vim.fn.shellescape(vim.fn.expand("%"))
-  if file == "''" or file == '""' then
-    vim.notify("No valid file to run", vim.log.levels.WARN, { title = "Run File" })
-    return
-  end
-
-  -- 执行命令
-  local command = interpreter .. " " .. file
-  Snacks.terminal.open(command)
-end
-
-function M.zen()
-  Snacks.zen()
-end
-
-function M.find_commands()
-  Snacks.picker.commands()
+-------------------------------------------------------------------------------
+-- 智能搜索与项目管理
+-------------------------------------------------------------------------------
+-- 结合了 Buffers, Recent 和 Files 的超级搜索
+function M.smart()
+  Snacks.picker.smart({ hidden = true, ignored = false })
 end
 
 function M.find_files()
@@ -99,10 +69,6 @@ function M.find_git_files()
   Snacks.picker.git_files()
 end
 
-function M.find_help()
-  Snacks.picker.help()
-end
-
 function M.find_qflist()
   Snacks.picker.qflist()
 end
@@ -111,12 +77,51 @@ function M.find_recent()
   Snacks.picker.recent()
 end
 
-function M.find_keymaps()
-  Snacks.picker.keymaps({
-    layout = "vertical",
+function M.find_todo_comments()
+  Snacks.picker.todo_comments()
+end
+
+function M.find_diagnostics()
+  Snacks.picker.diagnostics_buffer()
+end
+
+function M.find_document_diagnostics()
+  Snacks.picker.diagnostics()
+end
+
+function M.find_buffers()
+  Snacks.picker.buffers({
+    -- I always want my buffers picker to start in normal mode
+    on_show = function()
+      vim.cmd.stopinsert()
+    end,
+    finder = "buffers",
+    format = "buffer",
+    layout = "select",
+    hidden = false,
+    unloaded = true,
+    current = true,
+    sort_lastused = false,
+    win = {
+      input = {
+        keys = {
+          ["<c-x>"] = { "bufdelete", mode = { "n", "i" } },
+          ["d"] = { "bufdelete", mode = { "n" } },
+          ["l"] = { "confirm", mode = { "n" } },
+        },
+      },
+      list = { keys = { ["d"] = "bufdelete" } },
+    },
   })
 end
 
+function M.find_commands()
+  Snacks.picker.commands()
+end
+
+-------------------------------------------------------------------------------
+-- 内容搜索 (Grep)
+-------------------------------------------------------------------------------
 function M.find_grep()
   Snacks.picker.grep()
 end
@@ -191,42 +196,42 @@ function M.find_complete_tasks()
   })
 end
 
-function M.find_todo_comments()
-  Snacks.picker.todo_comments()
+-------------------------------------------------------------------------------
+-- Git 增强
+-------------------------------------------------------------------------------
+function M.git_log()
+  Snacks.picker.git_log({ layout = "vertical" })
+end
+function M.git_status()
+  Snacks.picker.git_status()
 end
 
-function M.find_diagnostics()
-  Snacks.picker.diagnostics_buffer()
+-------------------------------------------------------------------------------
+-- 系统辅助
+-------------------------------------------------------------------------------
+function M.find_help()
+  Snacks.picker.help()
+end
+function M.find_keymaps()
+  Snacks.picker.keymaps({ layout = "vertical" })
+end
+function M.find_notifications()
+  Snacks.picker.notifications()
 end
 
-function M.find_document_diagnostics()
-  Snacks.picker.diagnostics()
-end
-
-function M.find_buffers()
-  Snacks.picker.buffers({
-    -- I always want my buffers picker to start in normal mode
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
-    finder = "buffers",
-    format = "buffer",
-    layout = "select",
-    hidden = false,
-    unloaded = true,
-    current = true,
-    sort_lastused = false,
-    win = {
-      input = {
-        keys = {
-          ["<c-x>"] = { "bufdelete", mode = { "n", "i" } },
-          ["d"] = { "bufdelete", mode = { "n" } },
-          ["l"] = { "confirm", mode = { "n" } },
-        },
-      },
-      list = { keys = { ["d"] = "bufdelete" } },
-    },
-  })
+-------------------------------------------------------------------------------
+-- 实用工具 (Utils)
+-------------------------------------------------------------------------------
+function M.run_file()
+  local filetype = vim.bo.filetype
+  local interpreter = SUPPORTED_LANGUAGES[filetype]
+  if not interpreter then
+    vim.notify("Filetype not supported", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("w")
+  local file = vim.fn.shellescape(vim.fn.expand("%"))
+  Snacks.terminal.open(interpreter .. " " .. file)
 end
 
 return M

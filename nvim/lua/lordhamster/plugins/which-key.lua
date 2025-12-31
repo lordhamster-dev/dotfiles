@@ -72,18 +72,6 @@ return {
     { "L", "<cmd>tabnext<CR>", desc = "Tab next" },
 
     ----------------------
-    ---  Taskwarrior    --
-    ----------------------
-    { "<leader>td", markdown.markdown_task_toggle, desc = "Taskwarrior toggle task" },
-    { "<leader>te", "<cmd>TWEditTask<cr>", desc = "Taskwarrior edit task" },
-    { "<leader>tl", markdown.markdown_task_later, desc = "Mark task later" },
-    { "<leader>tn", markdown.markdown_task_now, desc = "Mark task now" },
-    -- { "<leader>tq", "<cmd>TWQueryTasks<cr>", desc = "Taskwarrior query task" },
-    { "<leader>ts", "<cmd>TWSyncTasks<cr>", desc = "Taskwarrior sync" },
-    { "<leader>tu", "<cmd>TWUpdateCurrent<cr>", desc = "Taskwarrior update task" },
-    { "<leader>tv", "<cmd>TWView<cr>", desc = "Taskwarrior view" },
-
-    ----------------------
     --       lsp       --
     ----------------------
     { "<leader>l", group = "LSP" },
@@ -109,6 +97,7 @@ return {
     { "<leader>m5", foldmethod.fold_markdown_headings_5, desc = "Fold all headings level 5-6" },
     { "<leader>m6", foldmethod.fold_markdown_headings_6, desc = "Fold all headings level 6" },
     { "<leader>mT", "<cmd>LspTomorrow<CR>", desc = "Daily Note Tomorrow" },
+    { "<leader>md", markdown.md_task_toggle, desc = "Mark task toggle" },
     { "<leader>mt", "<cmd>LspToday<CR>", desc = "Daily Note Today" },
     { "<leader>my", "<cmd>LspYesterday<CR>", desc = "Daily Note Yesterday" },
 

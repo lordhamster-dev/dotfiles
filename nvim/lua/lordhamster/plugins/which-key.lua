@@ -118,7 +118,7 @@ return {
     { "<leader>fq", snacks_utils.find_qflist, desc = "Quickfix" },
     { "<leader>fr", snacks_utils.find_recent, desc = "Recently used files" },
     { "<leader>fs", snacks_utils.find_grep, desc = "Grep" },
-    { "<leader>ft", snacks_utils.find_todo, desc = "Find incomplete tasks" },
+    { "<leader>ft", snacks_utils.find_todo_tasks, desc = "Find todo tasks" },
     { "<leader>fw", snacks_utils.find_word, desc = "Find Word" },
 
     ----------------------

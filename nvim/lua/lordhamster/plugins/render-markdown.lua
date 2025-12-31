@@ -8,7 +8,7 @@ return {
     checkbox = {
       checked = { icon = "󰸞 ", highlight = "RenderMarkdownChecked" },
       custom = {
-        deleted = { raw = "[~]", rendered = " ", highlight = "RenderMarkdownDeleted", scope_highlight = nil },
+        todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo", scope_highlight = nil },
       },
     },
     heading = {

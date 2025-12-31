@@ -148,11 +148,11 @@ function M.find_links()
   })
 end
 
-function M.find_todo()
+function M.find_todo_tasks()
   Snacks.picker.grep({
     prompt = " ",
     -- pass your desired search as a static pattern
-    search = "^\\s*- \\[ \\]",
+    search = "^\\s*- \\[[ -]\\]",
     -- we enable regex so the pattern is interpreted as a regex
     regex = true,
     -- no “live grep” needed here since we have a fixed pattern
@@ -176,7 +176,7 @@ function M.find_complete_tasks()
   Snacks.picker.grep({
     prompt = " ",
     -- pass your desired search as a static pattern
-    search = "^\\s*- \\[x\\]",
+    search = "^\\s*- \\[[xX]\\]",
     -- we enable regex so the pattern is interpreted as a regex
     regex = true,
     -- no “live grep” needed here since we have a fixed pattern

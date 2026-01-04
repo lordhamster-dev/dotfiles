@@ -28,21 +28,21 @@ local function validate_task_line(line)
 end
 
 local function remove_start_tag(line)
-  return (line:gsub("%s*@start%[%[%d%d%d%d%-%d%d%-%d%d%]%]", ""))
+  return (line:gsub("%s*@start%(%[%[%d%d%d%d%-%d%d%-%d%d%]%]%)", ""))
 end
 
 local function add_start_tag(line)
   local date = os.date("%Y-%m-%d")
-  return remove_start_tag(line) .. " @start[[" .. date .. "]]"
+  return remove_start_tag(line) .. " @start([[" .. date .. "]])"
 end
 
 local function remove_end_tag(line)
-  return (line:gsub("%s*@end%[%[%d%d%d%d%-%d%d%-%d%d%]%]", ""))
+  return (line:gsub("%s*@end%(%[%[%d%d%d%d%-%d%d%-%d%d%]%]%)", ""))
 end
 
 local function add_end_tag(line)
   local date = os.date("%Y-%m-%d")
-  return remove_end_tag(line) .. " @end[[" .. date .. "]]"
+  return remove_end_tag(line) .. " @end([[" .. date .. "]])"
 end
 
 -- 主要功能函数

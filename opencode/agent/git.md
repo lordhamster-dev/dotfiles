@@ -1,6 +1,6 @@
 ---
 description: Git 仓库管理专家，负责分支管理、冲突解决及高质量提交。
-mode: primary
+mode: subagent
 model: github-copilot/gpt-5-mini
 tools:
   bash: true

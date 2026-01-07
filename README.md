@@ -53,7 +53,7 @@ This repository contains my personal dotfiles and configuration for various tool
    ```
 
    ```bash
-   sudo pacman -S hyprpaper hypridle hyprlock hyprpicker hyprland-qtutils waybar jq flameshot blueberry brightnessctl pavucontrol xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie pipewire-pulse
+   sudo pacman -S hyprpaper hypridle hyprlock hyprpicker hyprland-qtutils waybar jq blueberry brightnessctl pavucontrol xorg xorg-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk polkit-kde-agent qt5-wayland qt6-wayland qt5ct qt6ct nwg-look udiskie pipewire-pulse
    ```
 
    ```bash

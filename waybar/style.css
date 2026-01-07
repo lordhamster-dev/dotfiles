@@ -74,6 +74,7 @@
 #bluetooth,
 #network,
 #custom-updates,
+#custom-recording,
 #custom-power {
   background-color: @base;
   margin: 5px 0;
@@ -91,10 +92,18 @@
   margin-right: 0.5rem;
 }
 
+#custom-recording {
+  padding: 0.5rem 1rem;
+}
+
+#custom-recording.recording {
+  color: @red;
+}
+
 #custom-updates {
   color: @teal;
-  margin-right: 0.5rem;
   padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
 }
 
 #pulseaudio {

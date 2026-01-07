@@ -4,7 +4,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/logo", "cpu", "memory", "hyprland/workspaces", "custom/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/updates", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
+    "modules-right": ["tray", "custom/recording", "custom/updates", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
         "tooltip": false,
         "format": "󰣇"
@@ -57,6 +57,12 @@
         "tooltip-format": "有 {} 个包需要更新",
         "on-click": "kitty --title yay -e yay -Syu",
         "signal": 8
+    },
+    "custom/recording": {
+        "exec": "if [ -f /tmp/wf-recorder.pid ] && kill -0 $(cat /tmp/wf-recorder.pid) 2>/dev/null; then echo '{\"text\": \"● REC\", \"class\": \"recording\"}'; else echo '{\"text\": \"\", \"class\": \"\"}'; fi",
+        "return-type": "json",
+        "interval": 1,
+        "tooltip": false
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",

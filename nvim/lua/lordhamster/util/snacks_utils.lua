@@ -42,12 +42,12 @@ function M.explorer()
     git_untracked = true,
     follow_file = false,
     focus = "list",
-    -- layout = { -- the layout config
-    --   layout = { -- the layout itself
-    --     width = 40,
-    --     height = 0,
-    --   },
-    -- },
+    layout = {
+      layout = {
+        width = 30,
+        height = 0,
+      },
+    },
     hidden = true,
     ignored = true,
   })

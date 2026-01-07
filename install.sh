@@ -58,7 +58,6 @@ linux_links() {
     create_symlink ~/dotfiles/waybar ~/.config/waybar
     create_symlink ~/dotfiles/mako ~/.config/mako
     create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
-    create_symlink ~/dotfiles/gromit/gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 }
 
 # Main installation

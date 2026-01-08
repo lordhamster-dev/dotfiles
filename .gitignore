@@ -18,3 +18,5 @@ Thumbs.db
 .zshrc_private
 tmux/plugins
 .aider*
+
+*.log

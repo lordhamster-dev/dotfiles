@@ -57,6 +57,8 @@ linux_links() {
     create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/waybar ~/.config/waybar
     create_symlink ~/dotfiles/mako ~/.config/mako
+    create_symlink ~/dotfiles/mpd ~/.config/mpd
+    create_symlink ~/dotfiles/ncmpcpp ~/.config/ncmpcpp
     create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
 }
 

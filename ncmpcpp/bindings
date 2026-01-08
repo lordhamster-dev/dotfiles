@@ -1,0 +1,203 @@
+# vim:ft=conf
+# bindings (ncmpcpp)
+# @author nate zhou
+# @since 2023,2024,2025
+# my vim-like keybindings for ncursers music player client plus plus
+
+# playback
+def_key "space"
+  pause
+
+def_key "p"
+  pause
+
+def_key "Y"
+  toggle_replay_gain_mode
+
+def_key "f"
+  seek_forward
+
+def_key "b"
+  seek_backward
+
+def_key "ctrl-n"
+    next
+
+def_key "ctrl-p"
+    previous
+
+def_key "z"
+  toggle_random
+
+def_key "Z"
+  shuffle
+
+def_key "r"
+  toggle_repeat
+
+def_key "s"
+  toggle_single
+
+def_key "+"
+    volume_up
+
+def_key "="
+    volume_up
+
+def_key "i"
+  show_song_info
+
+def_key "I"
+  show_artist_info
+
+def_key "L"
+  show_lyrics
+
+def_key ";"
+  toggle_screen_lock
+  show_lyrics
+
+# playlist
+def_key "D"
+  delete_stored_playlist
+
+def_key "c"
+  clear_playlist
+
+def_key "c"
+  clear_main_playlist
+
+def_key "D"
+  delete_playlist_items
+
+def_key "a"
+  add_selected_items
+
+def_key "S"
+  save_playlist
+
+# navigation
+def_key "0"
+  jump_to_playing_song
+
+def_key "~"
+  jump_to_media_library
+
+def_key "j"
+    scroll_down
+
+def_key "k"
+    scroll_up
+
+def_key "h"
+    previous_column
+
+def_key "l"
+    next_column
+
+def_key "h"
+  jump_to_parent_directory
+
+def_key "l"
+  enter_directory
+
+def_key "l"
+  run_action
+
+def_key "l"
+  play_item
+
+def_key "ctrl-p"
+    page_up
+def_key "ctrl-u"
+    page_up
+
+def_key "ctrl-n"
+    page_down
+def_key "ctrl-d"
+    page_down
+
+def_key "G"
+  move_end
+
+def_key "g"
+  move_home
+
+def_key "n"
+    next_found_item
+
+def_key "N"
+    previous_found_item
+
+def_key "M"
+  show_media_library
+
+def_key "m"
+  toggle_media_library_columns_mode
+
+def_key "e"
+  edit_song
+
+def_key "E"
+  edit_lyrics
+
+def_key "U"
+  update_database
+
+def_key "S"
+  reset_search_engine
+
+def_key "S"
+  show_search_engine
+
+def_key "P"
+  show_playlist_editor
+
+def_key "H"
+  show_playlist
+
+# master/slave screen
+def_key "o"
+  toggle_screen_lock
+
+def_key "ctrl-h"
+  master_screen
+
+def_key "ctrl-l"
+  slave_screen
+
+# select
+def_key "v"
+  reverse_selection
+
+def_key "u"
+  remove_selection
+
+def_key "B"
+  select_album
+
+def_key "t"
+  select_item
+  scroll_down
+
+def_key "T"
+  scroll_up
+  select_item
+
+def_key "J"
+  select_item
+  scroll_down
+
+def_key "K"
+  scroll_up
+  select_item
+
+def_key "ctrl-j"
+  move_selected_items_down
+
+def_key "ctrl-k"
+  move_selected_items_up
+
+# visualizer
+def_key "v"
+  toggle_visualization_type

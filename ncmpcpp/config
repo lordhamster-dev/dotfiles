@@ -1,0 +1,32 @@
+# fixed window title
+song_window_title_format = ncmpcpp
+
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory = ~/Sync/Music/.lyrics
+mpd_host = localhost
+mpd_port = 6600
+mpd_connection_timeout = 5
+mpd_music_dir = ~/Sync/Music
+mpd_crossfade_time = 5
+startup_screen = playlist
+startup_slave_screen = ""
+startup_slave_screen_focus = yes
+locked_screen_width_part = 60
+ask_for_locked_screen_width_part = no
+jump_to_now_playing_song_at_start = yes
+ask_before_clearing_playlists = yes
+clock_display_seconds = no
+display_volume_level = yes
+display_bitrate = yes
+external_editor = nvim
+use_console_editor = yes
+regular_expressions = extended
+
+media_library_column_width_ratio_two = 1:2
+media_library_column_width_ratio_three = 3:3:2
+media_library_primary_tag = album_artist
+media_library_albums_split_by_date = yes
+
+# lyrics
+follow_now_playing_lyrics = yes
+fetch_lyrics_for_current_song_in_background = no

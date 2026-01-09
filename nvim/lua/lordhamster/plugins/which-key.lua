@@ -97,6 +97,8 @@ return {
     { "<leader>m5", foldmethod.fold_markdown_headings_5, desc = "Fold all headings level 5-6" },
     { "<leader>m6", foldmethod.fold_markdown_headings_6, desc = "Fold all headings level 6" },
     { "<leader>mT", "<cmd>LspTomorrow<CR>", desc = "Daily Note Tomorrow" },
+    { "<leader>mb", markdown.md_text_bold, mode = "v", desc = "Toggle Bold" },
+    { "<leader>mc", markdown.md_text_code, mode = "v", desc = "Toggle Inline Code" },
     { "<leader>md", markdown.md_task_toggle, desc = "Mark task toggle" },
     { "<leader>mt", "<cmd>LspToday<CR>", desc = "Daily Note Today" },
     { "<leader>my", "<cmd>LspYesterday<CR>", desc = "Daily Note Yesterday" },

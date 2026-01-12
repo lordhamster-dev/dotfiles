@@ -59,29 +59,41 @@ local function format_questdb_result(json_str)
     return json_str
   end
 
+  local MAX_COL_WIDTH = 50
+
   local columns = {}
   for _, col in ipairs(data.columns) do
     table.insert(columns, col.name)
   end
 
-  -- Calculate max width for each column
+  -- Calculate max width for each column (capped at MAX_COL_WIDTH)
   local col_widths = {}
   for i, name in ipairs(columns) do
-    col_widths[i] = #name
+    col_widths[i] = math.min(#name, MAX_COL_WIDTH)
   end
   for _, row in ipairs(data.dataset) do
     for i, cell in ipairs(row) do
       local cell_str = tostring(cell or "")
-      if #cell_str > col_widths[i] then
-        col_widths[i] = #cell_str
+      local width = math.min(#cell_str, MAX_COL_WIDTH)
+      if width > col_widths[i] then
+        col_widths[i] = width
       end
     end
+  end
+
+  -- Helper to truncate string if needed
+  local function truncate(str, max_len)
+    if #str > max_len then
+      return string.sub(str, 1, max_len - 3) .. "..."
+    end
+    return str
   end
 
   -- Build header
   local header = {}
   for i, name in ipairs(columns) do
-    table.insert(header, string.format("%-" .. col_widths[i] .. "s", name))
+    local display_name = truncate(name, col_widths[i])
+    table.insert(header, string.format("%-" .. col_widths[i] .. "s", display_name))
   end
   local header_line = table.concat(header, " | ")
 
@@ -97,7 +109,8 @@ local function format_questdb_result(json_str)
   for _, row in ipairs(data.dataset) do
     local line = {}
     for i, cell in ipairs(row) do
-      table.insert(line, string.format("%-" .. col_widths[i] .. "s", tostring(cell or "")))
+      local cell_str = truncate(tostring(cell or ""), col_widths[i])
+      table.insert(line, string.format("%-" .. col_widths[i] .. "s", cell_str))
     end
     table.insert(rows, table.concat(line, " | "))
   end
@@ -111,7 +124,14 @@ end
 -- 执行QuestDB查询
 local function execute_questdb_query(sql)
   local config = M.config.questdb
-  local curl_cmd = string.format('curl -s -G "%s:%d/exec" --data-urlencode "query=%s"', config.host, config.port, sql)
+  local curl_cmd = string.format(
+    'curl -s -u "%s:%s" -G "%s:%d/exec" --data-urlencode "query=%s"',
+    config.username,
+    config.password,
+    config.host,
+    config.port,
+    sql
+  )
 
   local handle = io.popen(curl_cmd)
   if not handle then

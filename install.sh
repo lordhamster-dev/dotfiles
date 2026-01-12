@@ -26,6 +26,7 @@ create_symlink() {
 }
 
 common_links() {
+    create_symlink ~/Sync/.zshrc_private ~/.zshrc_private
     create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
     create_symlink ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
     create_symlink ~/dotfiles/clash/config.yaml ~/.config/clash/config.yaml

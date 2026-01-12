@@ -36,8 +36,8 @@ require("lordhamster.util.sql_query").setup({
   questdb = {
     host = os.getenv("QUESTDB_HOST") or "localhost",
     port = os.getenv("QUESTDB_PORT") and tonumber(os.getenv("QUESTDB_PORT")) or 9000,
-    username = "",
-    password = "",
+    username = os.getenv("QUESTDB_USER") or "admin",
+    password = os.getenv("QUESTDB_PASS") or "quest",
   },
   postgresql = {
     host = "localhost",

@@ -4,7 +4,6 @@
   font-family: CaskaydiaCove Nerd Font Propo;
   font-size: 12px;
   font-weight: bold;
-  min-height: 0;
 }
 
 #waybar {
@@ -12,12 +11,18 @@
   background: transparent;
 }
 
+#custom-logo {
+  background-color: @base;
+  color: @sky;
+  margin: 5px 0 5px 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 1rem 0 0 1rem;
+}
+
 #workspaces {
   background-color: @base;
-  margin: 5px 0;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  border-radius: 1rem;
+  margin: 5px 0.5rem 5px 0;
+  border-radius: 0 1rem 1rem 0;
 }
 
 #workspaces button {
@@ -35,46 +40,21 @@
   color: @sapphire;
 }
 
-#custom-logo,
-#cpu,
-#memory {
-  background-color: @base;
-  margin: 5px 0;
-  padding: 0.5rem;
-  border-radius: 1rem;
-}
-
-#custom-logo {
-  color: @sky;
-  margin-left: 1rem;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  border-radius: 1rem 0px 0px 1rem;
-}
-
-#cpu {
-  color: @peach;
-  border-radius: 0;
-}
-
-#memory {
-  color: @mauve;
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
-  border-radius: 0px 1rem 1rem 0px;
-}
-
 #custom-window {
   font-size: 11px;
 }
 
 #clock,
+#custom-recording,
+#custom-updates,
 #tray,
+#cpu,
+#memory,
 #pulseaudio,
 #backlight,
 #battery,
 #bluetooth,
 #network,
-#custom-updates,
-#custom-recording,
 #custom-power {
   background-color: @base;
   margin: 5px 0;
@@ -85,11 +65,6 @@
 #clock {
   color: @sky;
   padding: 0.5rem 1rem;
-}
-
-#tray {
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
 }
 
 #custom-recording {
@@ -106,10 +81,25 @@
   margin-right: 0.5rem;
 }
 
-#pulseaudio {
-  color: @maroon;
+#tray {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+#cpu {
+  color: @peach;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
   border-radius: 1rem 0px 0px 1rem;
+}
+
+#memory {
+  color: @mauve;
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-radius: 0;
 }
 
 #backlight {

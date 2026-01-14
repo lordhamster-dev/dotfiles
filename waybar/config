@@ -2,22 +2,12 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["custom/logo", "cpu", "memory", "hyprland/workspaces", "custom/window"],
+    "modules-left": ["custom/logo", "hyprland/workspaces", "custom/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/recording", "custom/updates", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
+    "modules-right": ["custom/recording", "custom/updates", "tray", "cpu", "memory", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
         "tooltip": false,
         "format": "󰣇"
-    },
-    "cpu": {
-        "interval": 10,
-        "format": "󰍛 {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 30,
-        "format": "󰾆 {used}G",
-        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
     },
     "hyprland/workspaces": {
          "disable-scroll": true,
@@ -34,7 +24,7 @@
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",
         "interval": 1,
-        "format": "{}",
+        "format": "👉 {}",
         "tooltip" : true,
         "max-length": 50,
         "ellipsis": true,
@@ -46,23 +36,32 @@
         "format-alt": " {:%Y-%m-%d  %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
-    "tray": {
-        "spacing": 8
-    },
-    "custom/updates": {
-        "exec": "yay -Qu | wc -l",
-        "interval": 1800,
-        "format": "󰏕 {}",
-        "tooltip": true,
-        "tooltip-format": "有 {} 个包需要更新",
-        "on-click": "kitty --title yay -e yay -Syu",
-        "signal": 8
-    },
     "custom/recording": {
         "exec": "if [ -f /tmp/wf-recorder.pid ] && kill -0 $(cat /tmp/wf-recorder.pid) 2>/dev/null; then echo '{\"text\": \"● REC\", \"class\": \"recording\"}'; else echo '{\"text\": \"\", \"class\": \"\"}'; fi",
         "return-type": "json",
         "interval": 1,
         "tooltip": false
+    },
+    "custom/updates": {
+        "exec": "count=$(sudo pacman -Qu | wc -l); if [ \"$count\" -gt 0 ]; then echo \"{\\\"text\\\": \\\"$count\\\", \\\"tooltip\\\": \\\"有 $count 个包需要更新\\\"}\"; fi",
+        "return-type": "json",
+        "interval": 1800,
+        "format": "󰏕 {}",
+        "on-click": "kitty --title yay -e yay -Syu --noconfirm",
+        "signal": 8
+    },
+    "tray": {
+        "spacing": 8
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "󰍛 {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {used}G",
+        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",

@@ -14,24 +14,24 @@
         "sort-by-name": true,
         "on-click": "activate",
         "format": "{name} {windows}",
-        "format-window-separator": " | ",
+        "format-window-separator": " ",
         "window-rewrite-default": "󰘔",
         "window-format": "<span color='#e0e0e0'>{name}</span>",
         "window-rewrite": {
+          "class<google-chrome>": "",
           "class<vivaldi-stable>": "",
+          "class<chromium-browser>": "",
           "class<kitty>": "",
           "class<wechat>": "",
+          "class<qq>": "",
+          "class<steam>": "",
+          "class<org.gnome.Calculator>": "",
         }
     },
     "sway/window": {
         "format": "👉 {title}",
         "max-length": 50,
         "ellipsis": true,
-        "rewrite": {
-           "(.*) - Mozilla Firefox": "🌎 $1",
-           "(.*) - kitty": " $1",
-           "(.*) - zsh": " [$1]"
-        }
     },
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",

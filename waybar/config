@@ -2,24 +2,36 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["custom/logo", "hyprland/workspaces", "custom/window"],
+    "modules-left": ["custom/logo", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
     "modules-right": ["custom/recording", "custom/updates", "tray", "cpu", "memory", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
         "tooltip": false,
         "format": "󰣇"
     },
-    "hyprland/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "on-click": "activate",
-         "persistent-workspaces": {
-           "1": [],
-           "2": [],
-           "3": [],
-           "4": [],
-           "5": []
-         }
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "sort-by-name": true,
+        "on-click": "activate",
+        "format": "{name} {windows}",
+        "format-window-separator": " | ",
+        "window-rewrite-default": "󰘔",
+        "window-format": "<span color='#e0e0e0'>{name}</span>",
+        "window-rewrite": {
+          "class<vivaldi-stable>": "",
+          "class<kitty>": "",
+          "class<wechat>": "",
+        }
+    },
+    "sway/window": {
+        "format": "👉 {title}",
+        "max-length": 50,
+        "ellipsis": true,
+        "rewrite": {
+           "(.*) - Mozilla Firefox": "🌎 $1",
+           "(.*) - kitty": " $1",
+           "(.*) - zsh": " [$1]"
+        }
     },
     "custom/window": {
         "exec": "~/.config/waybar/scripts/window.sh",

@@ -22,7 +22,7 @@ return {
 
     { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
-    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+    { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
     { "<leader>i", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     { "<leader>o", obsidian.open_in_obsidian, mode = "n", desc = "Open in Obsidian" },
     { "<leader>p", '"ap', desc = "Paste from 'a' register" },

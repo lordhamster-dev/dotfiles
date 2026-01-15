@@ -1,5 +1,12 @@
 @import "mocha.css";
 
+@keyframes blink {
+  to {
+    background-color: @red;
+    color: @base;
+  }
+}
+
 * {
   font-family: CaskaydiaCove Nerd Font Propo;
   font-size: 12px;
@@ -31,17 +38,13 @@
   border-radius: 1rem;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
   color: @sky;
   background-color: @surface2;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-}
-
-#custom-window {
-  font-size: 11px;
 }
 
 #clock,
@@ -69,10 +72,16 @@
 
 #custom-recording {
   padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
 }
 
 #custom-recording.recording {
   color: @red;
+  /* animation-name: blink; */
+  /* animation-duration: 1s; */
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 
 #custom-updates {

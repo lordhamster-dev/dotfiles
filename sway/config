@@ -10,6 +10,7 @@ set $up k
 set $right l
 set $wallpaper ~/dotfiles/wallpapers/fulilian.jpg
 set $proxy all_proxy=socks5://127.0.0.1:7890
+set $menu wmenu-run -f "CaskaydiaCove Nerd Font 12" -N 1e1e2e -n cdd6f4 -M 89b4fa -m 1e1e2e -S cba6f7 -s 1e1e2e -p "󱓞 Launch:" -i
 
 set $lock swaylock \
     -f \
@@ -122,8 +123,8 @@ bindsym $mod+t exec kitty
 bindsym $mod+v exec copyq toggle
 bindsym $mod+w kill
 
-bindsym $mod+space exec fuzzel --launch-prefix='env $proxy'
-bindsym $mod+Shift+space exec fuzzel
+bindsym $mod+space exec $proxy $menu
+bindsym $mod+Shift+space exec $menu
 bindsym $mod+Return fullscreen
 
 # Drag floating windows by holding down $mod and left mouse button.

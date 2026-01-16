@@ -10,6 +10,6 @@ export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
 export all_proxy=socks5://127.0.0.1:7890
 
-text=$(echo "" | fuzzel --dmenu --prompt="Text: " --lines=1)
+text=$(echo "" | fuzzel --dmenu --prompt="English: " --lines=0)
 if [ -z "$text" ]; then exit; fi
 trans -b :zh "$text" | fuzzel --dmenu --lines=10

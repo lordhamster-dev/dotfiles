@@ -115,11 +115,11 @@
         "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/wifimenu.sh",
+        "on-click": "sleep 0.15 && ~/.config/fuzzel/scripts/fuzzel-wifimenu.sh",
     },
     "custom/power": {
         "tooltip": false,
-        "on-click": "sleep 0.15 && ~/.config/waybar/scripts/powermenu.sh",
+        "on-click": "sleep 0.15 && ~/.config/fuzzel/scripts/fuzzel-powermenu.sh",
         "format": ""
     }
 }

@@ -85,9 +85,7 @@ eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"
 
 # PATH
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH:$HOME/.config/bin"
+export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin:/usr/local/sbin"
 
 # UV
 export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple

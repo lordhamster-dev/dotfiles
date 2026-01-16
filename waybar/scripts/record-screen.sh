@@ -6,7 +6,7 @@ mkdir -p "$RECORD_DIR"
 
 start_recording() {
     FILENAME="$RECORD_DIR/recording_$(date +%Y%m%d_%H%M%S).mp4"
-    wf-recorder -g "$(slurp)" -f "$FILENAME" &
+    wf-recorder -a -g "$(slurp)" -f "$FILENAME" &
     echo $!  > "$PIDFILE"
     notify-send "🔴 开始录屏" "$FILENAME"
 }

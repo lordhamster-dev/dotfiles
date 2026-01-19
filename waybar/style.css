@@ -70,6 +70,10 @@
   padding: 0.5rem 1rem;
 }
 
+#mpd {
+  margin-right: 0.5rem;
+}
+
 #custom-recording {
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;

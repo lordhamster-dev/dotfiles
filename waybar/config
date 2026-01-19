@@ -4,7 +4,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/logo", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recording", "custom/updates", "tray", "cpu", "memory", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
+    "modules-right": ["mpd", "custom/recording", "custom/updates", "tray", "cpu", "memory", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
         "tooltip": false,
         "format": "󰣇"
@@ -47,6 +47,20 @@
         "format": " {:%m-%d  %H:%M %a}",
         "format-alt": " {:%Y-%m-%d  %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "mpd": {
+        "format": " {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {stateIcon}",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "",
+        "interval": 10,
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle",
+        "on-click-right": "mpc next"
     },
     "custom/recording": {
         "exec": "if [ -f /tmp/wf-recorder.pid ] && kill -0 $(cat /tmp/wf-recorder.pid) 2>/dev/null; then echo '{\"text\": \"● REC\", \"class\": \"recording\"}'; else echo '{\"text\": \"\", \"class\": \"\"}'; fi",

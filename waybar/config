@@ -68,12 +68,14 @@
     "cpu": {
         "interval": 5,
         "format": "󰍛 {usage}%",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "kitty --class btop-float -e btop"
     },
     "memory": {
         "interval": 5,
         "format": " {used}G",
-        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)"
+        "tooltip-format": "Memory: {used}GiB used of {total}GiB ({percentage}%)",
+        "on-click": "kitty --class htop-float -e htop"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -85,7 +87,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon}",
+        "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {

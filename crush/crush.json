@@ -1,0 +1,28 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "bailian": {
+      "type": "openai-compat",
+      "api_key": "$DASHSCOPE_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "models": [
+        {
+          "id": "qwen-plus-2025-07-28",
+          "name": "Qwen Plus 20250728",
+          "context_window": 65536,
+          "default_max_tokens": 2048,
+          "can_reason": true,
+          "supports_attachments": true
+        },
+        {
+          "id": "qwen-flash-2025-07-28",
+          "name": "Qwen Flash 20250728",
+          "context_window": 65536,
+          "default_max_tokens": 2048,
+          "can_reason": true,
+          "supports_attachments": true
+        }
+      ]
+    }
+  }
+}

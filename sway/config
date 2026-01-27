@@ -107,7 +107,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 bindsym $mod+backslash splith
 bindsym $mod+minus splitv
 bindsym $mod+grave exec kitten quick-access-terminal
-bindsym $mod+a exec grimshot save area - | satty -f -
+bindsym $mod+a exec grimshot save area - | swappy -f -
 bindsym $mod+b exec $bookmarks
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+d exec dolphin

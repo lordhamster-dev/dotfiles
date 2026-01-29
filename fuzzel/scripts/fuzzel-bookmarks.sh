@@ -2,7 +2,7 @@
 
 # --- 配置区 ---
 # 书签文件的路径
-BOOKMARKS_FILE="$HOME/Sync/Obsidian/3-Permanent/Bookmarks.md"
+BOOKMARKS_FILE="$HOME/Sync/Bookmarks.md"
 # 默认浏览器 (或者使用 xdg-open)
 BROWSER="xdg-open"
 

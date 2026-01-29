@@ -115,7 +115,7 @@ bindsym $mod+e exec kitty --class yazi-float -e yazi
 bindsym $mod+f floating toggle
 bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
-bindsym $mod+n exec kitty --class ncmpcpp-float -e ncmpcpp
+bindsym $mod+m exec kitty --class ncmpcpp-float -e ncmpcpp
 bindsym $mod+q exec ~/.config/waybar/scripts/record-screen.sh toggle
 bindsym $mod+s scratchpad show
 bindsym $mod+Shift+s move scratchpad

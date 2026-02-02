@@ -110,18 +110,19 @@ bindsym $mod+grave exec kitten quick-access-terminal
 bindsym $mod+a exec grimshot save area - | satty -f - && copyq select 0
 bindsym $mod+b exec $bookmarks
 bindsym $mod+c exec gnome-calculator
-bindsym $mod+d exec dolphin
-bindsym $mod+e exec kitty --class yazi-float -e yazi
+bindsym $mod+e exec dolphin
 bindsym $mod+f floating toggle
 bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
 bindsym $mod+m exec kitty --class ncmpcpp-float -e ncmpcpp
 bindsym $mod+q exec ~/.config/waybar/scripts/record-screen.sh toggle
-bindsym $mod+s scratchpad show
-bindsym $mod+Shift+s move scratchpad
+bindsym $mod+Shift+s mark "generic-sp", move scratchpad
+bindsym $mod+s [con_mark="generic-sp"] scratchpad show
+bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty -T ObsidianScratchpad -d ~/Sync/Obsidian -e nvim
 bindsym $mod+t exec kitty
 bindsym $mod+v exec copyq toggle
 bindsym $mod+w kill
+bindsym $mod+y exec kitty --class yazi-float -e yazi
 
 bindsym $mod+space exec $proxy $menu
 bindsym $mod+Shift+space exec $menu
@@ -261,6 +262,13 @@ for_window [app_id="htop-float"] {
     floating enable
     resize set width 60 ppt height 60 ppt
     move position center
+}
+for_window [title="ObsidianScratchpad"] {
+    floating enable
+    resize set width 60 ppt height 60 ppt
+    move position center
+    mark "obsidian-sp"
+    move scratchpad
 }
 
 # ============================================================================

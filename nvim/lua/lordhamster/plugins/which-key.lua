@@ -13,13 +13,6 @@ return {
   opts = { preset = "modern" },
   keys = {
     { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
-
-    -- { "<leader>c", group = "CodeCompanion" },
-    -- { "<leader>ca", "<cmd>CodeCompanionAction<CR>", desc = "CodeCompanionAction" },
-    -- { "<leader>ca", "<cmd>CodeCompanionAction<CR>", mode = "v", desc = "CodeCompanionAction" },
-    -- { "<leader>cc", codecompanion.toggle, desc = "Toggle CodeCompanionChat" },
-    -- { "<leader>cp", ":CodeCompanion ", mode = "v", desc = "CodeCompanion" },
-
     { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },
     { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
     { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
@@ -134,11 +127,11 @@ return {
     { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
     { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
 
-    ----------------------
-    ---     LÖVE        --
-    ----------------------
-    { "<leader>v", ft = "lua", desc = "LÖVE", group = "Telescope" },
-    { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
-    { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
+    -- ----------------------
+    -- ---     LÖVE        --
+    -- ----------------------
+    -- { "<leader>v", ft = "lua", desc = "LÖVE", group = "Telescope" },
+    -- { "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
+    -- { "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
   },
 }

@@ -63,6 +63,7 @@ rules:
   - "DOMAIN-SUFFIX,claude.ai,💬 ChatGPT"
   - "DOMAIN-SUFFIX,longportapp.com,💬 ChatGPT"
   - "DOMAIN-SUFFIX,gemini.google.com,💬 ChatGPT"
+  - "DOMAIN-SUFFIX,openrouter.ai,💬 ChatGPT"
   - "DOMAIN-SUFFIX,opencode.ai,🚀 节点选择"
   - "DOMAIN-SUFFIX,rust-lang.org,🚀 节点选择"
   - "DOMAIN-SUFFIX,vivaldi.com,🚀 节点选择"

@@ -114,11 +114,11 @@ bindsym $mod+e exec dolphin
 bindsym $mod+f floating toggle
 bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
-bindsym $mod+m exec kitty --class ncmpcpp-float -e ncmpcpp
+bindsym $mod+m exec swaymsg '[con_mark="ncmpcpp-sp"]' scratchpad show || exec kitty --class ncmpcpp-float -e ncmpcpp
 bindsym $mod+q exec ~/.config/waybar/scripts/record-screen.sh toggle
 bindsym $mod+Shift+s mark "generic-sp", move scratchpad
 bindsym $mod+s [con_mark="generic-sp"] scratchpad show
-bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty -T ObsidianScratchpad -d ~/Sync/Obsidian -e nvim
+bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty --class obsidian-float -d ~/Sync/Obsidian -e nvim
 bindsym $mod+t exec kitty
 bindsym $mod+v exec copyq toggle
 bindsym $mod+w kill
@@ -234,6 +234,20 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="org.kde.gwenview"] floating enable
 for_window [app_id="mpv"] floating enable
+for_window [app_id="ncmpcpp-float"] {
+    floating enable
+    resize set width 50 ppt height 50 ppt
+    move position center
+    mark "ncmpcpp-sp"
+    move scratchpad
+}
+for_window [app_id="obsidian-float"] {
+    floating enable
+    resize set width 60 ppt height 60 ppt
+    move position center
+    mark "obsidian-sp"
+    move scratchpad
+}
 for_window [app_id="yazi-float"] {
     floating enable
     resize set width 60 ppt height 60 ppt
@@ -241,11 +255,6 @@ for_window [app_id="yazi-float"] {
 }
 for_window [app_id="com.github.hluk.copyq"] {
     floating enable
-    move position center
-}
-for_window [app_id="ncmpcpp-float"] {
-    floating enable
-    resize set width 50 ppt height 50 ppt
     move position center
 }
 for_window [app_id="org.kde.dolphin"] {
@@ -262,13 +271,6 @@ for_window [app_id="htop-float"] {
     floating enable
     resize set width 60 ppt height 60 ppt
     move position center
-}
-for_window [title="ObsidianScratchpad"] {
-    floating enable
-    resize set width 60 ppt height 60 ppt
-    move position center
-    mark "obsidian-sp"
-    move scratchpad
 }
 
 # ============================================================================

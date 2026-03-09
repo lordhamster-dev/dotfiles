@@ -106,17 +106,9 @@ function M.md_task_toggle()
   if is_completed_task(line) then
     -- [x] -> [ ]
     updated_line = line:gsub("^(%s*-)%s*%[[xX]%]", "%1 [ ]")
-    updated_line = remove_start_tag(updated_line)
-    updated_line = remove_end_tag(updated_line)
-  elseif is_todo_task(line) then
-    -- [-] -> [x]
-    updated_line = line:gsub("^(%s*-)%s*%[[-]%]", "%1 [x]")
-    updated_line = add_end_tag(updated_line)
   else
-    -- [ ] (或其他) -> [-]
-    -- 使用更通用的匹配来确保状态被切换
-    updated_line = line:gsub("^(%s*-)%s*%[[^%]]*%]", "%1 [-]")
-    updated_line = add_start_tag(updated_line)
+    -- [ ] -> [x]
+    updated_line = line:gsub("^(%s*-)%s*%[[ ]%]", "%1 [x]")
   end
 
   vim.api.nvim_set_current_line(updated_line)

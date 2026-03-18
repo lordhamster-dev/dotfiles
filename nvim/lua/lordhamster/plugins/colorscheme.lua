@@ -63,7 +63,7 @@ return {
       },
     })
 
-    vim.cmd("colorscheme catppuccin")
+    vim.cmd("colorscheme catppuccin-nvim")
     -- vim.cmd("hi LineNr guifg=#fff")
   end,
 }

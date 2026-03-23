@@ -78,6 +78,9 @@ if command -v ng &> /dev/null; then
     source <(ng completion script)
 fi
 
+# televison
+eval "$(tv init zsh)"
+
 # zoxide
 eval "$(zoxide init zsh)"
 

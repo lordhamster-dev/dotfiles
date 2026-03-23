@@ -81,8 +81,8 @@ fi
 # zoxide
 eval "$(zoxide init zsh)"
 
-# fzf
-eval "$(fzf --zsh)"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin:/usr/local/sbin"

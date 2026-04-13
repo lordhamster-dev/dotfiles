@@ -784,6 +784,7 @@ local markdown = require("util.markdown")
 local obsidian = require("util.obsidian")
 local snacks_utils = require("util.snacks_utils")
 local utils = require("util.utils")
+require("which-key").setup({ preset = "modern" })
 require("which-key").add({
   { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
   { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },

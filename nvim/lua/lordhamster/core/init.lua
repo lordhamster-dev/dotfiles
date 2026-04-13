@@ -1,1 +1,0 @@
-require("lordhamster.core.options")

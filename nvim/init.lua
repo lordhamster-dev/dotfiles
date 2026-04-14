@@ -325,7 +325,7 @@ require("catppuccin").setup({
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
-local treesitters = {
+local parsers = {
   "lua",
   "python",
   "javascript",
@@ -343,9 +343,9 @@ local treesitters = {
   "sql",
   "astro",
 }
-require("nvim-treesitter").install(treesitters)
+require("nvim-treesitter").install(parsers)
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = treesitters,
+  pattern = parsers,
   callback = function()
     vim.treesitter.start()
   end,

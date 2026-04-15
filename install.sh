@@ -50,7 +50,6 @@ linux_links() {
     create_symlink ~/dotfiles/zsh/.zprofile ~/.zprofile
     create_symlink ~/dotfiles/fontconfig ~/.config/fontconfig
     create_symlink ~/dotfiles/kitty ~/.config/kitty
-    create_symlink ~/dotfiles/hypr ~/.config/hypr
     create_symlink ~/dotfiles/sway ~/.config/sway
     create_symlink ~/dotfiles/waybar ~/.config/waybar
     create_symlink ~/dotfiles/mako ~/.config/mako

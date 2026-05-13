@@ -26,7 +26,6 @@ create_symlink() {
 }
 
 common_links() {
-    create_symlink ~/Sync/.zshrc_private ~/.zshrc_private
     create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
     create_symlink ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
     create_symlink ~/dotfiles/clash/config.yaml ~/.config/clash/config.yaml
@@ -35,6 +34,10 @@ common_links() {
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
     create_symlink ~/dotfiles/task ~/.config/task
+}
+
+sync_links() {
+    create_symlink ~/Sync/.zshrc_private ~/.zshrc_private
 }
 
 # Mac specific symlinks
@@ -56,7 +59,6 @@ linux_links() {
     create_symlink ~/dotfiles/mpd ~/.config/mpd
     create_symlink ~/dotfiles/ncmpcpp ~/.config/ncmpcpp
     create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
-    create_symlink ~/dotfiles/copilot/skills ~/.copilot/skills
 }
 
 # Main installation
@@ -65,6 +67,9 @@ echo "Creating symlinks..."
 
 # Create common links
 common_links
+
+# Create sync links
+sync_links
 
 # OS-specific links
 case "$OS" in

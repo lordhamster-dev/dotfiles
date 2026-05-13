@@ -41,10 +41,10 @@ require("snacks").setup({
     exclude = {
       ".DS_Store",
       "__pycache__",
-      ".venv",
-      "env",
-      ".env",
       "node_modules",
+      "env",
+      ".venv",
+      ".git",
       ".angular",
       ".cache",
       ".idea",

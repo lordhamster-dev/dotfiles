@@ -6,7 +6,6 @@ local foldmethod = require("util.foldmethod")
 local markdown = require("util.markdown")
 local snacks_utils = require("util.snacks_utils")
 local utils = require("util.utils")
-local opencode = require("plugins.opencode")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
   { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
@@ -46,11 +45,8 @@ require("which-key").add({
   { "<", "<gv", mode = "v", desc = "Indent left and reselect" },
 
   ----------------------
-  --     opencode     --
+  --       AI         --
   ----------------------
-  { "<leader>oa", mode = "v", opencode.ask_this, desc = "OpenCode Ask" },
-  { "<leader>oa", opencode.ask_buffer, desc = "OpenCode Ask" },
-  { "<leader>oo", opencode.ask, desc = "OpenCode Ask" },
 
   ----------------------
   --     Terminal     --

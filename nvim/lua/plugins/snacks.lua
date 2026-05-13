@@ -65,18 +65,12 @@ require("snacks").setup({
     matcher = {
       frecency = true,
     },
-    actions = {
-      opencode_send = function(...)
-        return require("plugins.opencode").snacks_picker_send(...)
-      end,
-    },
     win = {
       input = {
         keys = {
           -- to close the picker on ESC instead of going to normal mode,
           -- add the following keymap to your config
           ["<Esc>"] = { "close", mode = { "n", "i" } },
-          ["<C-l>"] = { "opencode_send", mode = { "n", "i" } },
           -- ["l"] = { "confirm", mode = { "n" } },
           -- ["J"] = { "preview_scroll_down", mode = { "n" } },
           -- ["K"] = { "preview_scroll_up", mode = { "n" } },

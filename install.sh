@@ -26,14 +26,12 @@ create_symlink() {
 }
 
 common_links() {
+    create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
     create_symlink ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-    create_symlink ~/dotfiles/clash/config.yaml ~/.config/clash/config.yaml
     create_symlink ~/dotfiles/tmux ~/.config/tmux
-    create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
-    create_symlink ~/dotfiles/task ~/.config/task
 }
 
 sync_links() {

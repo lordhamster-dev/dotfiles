@@ -122,6 +122,7 @@ bindsym $mod+q exec ~/dotfiles/scripts/record-screen.sh toggle
 bindsym $mod+Shift+s mark "generic-sp", move scratchpad
 bindsym $mod+s [con_mark="generic-sp"] scratchpad show
 bindsym $mod+t exec kitty
+bindsym $mod+Shift+t exec ~/dotfiles/scripts/fuzzel-translate.sh
 bindsym $mod+v exec copyq toggle
 bindsym $mod+w kill
 

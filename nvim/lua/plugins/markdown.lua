@@ -160,6 +160,60 @@ function M.md_text_code()
   wrap_selection("`")
 end
 
+-- 将选中文本与剪贴板链接组合成 markdown 链接：[选中文本](剪贴板链接)
+function M.md_text_link()
+  -- 强制退出视觉模式以更新 '< 和 '> 标记
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "x", true)
+
+  local s_pos = vim.fn.getpos("'<")
+  local e_pos = vim.fn.getpos("'>")
+  local line_num = s_pos[2]
+  local start_col = s_pos[3]
+  local end_col = e_pos[3]
+
+  if line_num ~= e_pos[2] then
+    vim.notify("仅支持单行文本操作", vim.log.levels.WARN)
+    return
+  end
+
+  local line = vim.api.nvim_buf_get_lines(0, line_num - 1, line_num, false)[1]
+  if not line then
+    return
+  end
+
+  -- 获取剪贴板链接
+  local url = vim.fn.getreg("+")
+  if url == "" then
+    url = vim.fn.getreg("*")
+  end
+  if url == "" then
+    vim.notify("剪贴板中没有链接", vim.log.levels.WARN)
+    return
+  end
+
+  -- 计算最后一个字符的字节长度以确保完整提取（处理多字节字符）
+  local last_char_byte = line:sub(end_col, end_col):byte()
+  local char_len = 1
+  if last_char_byte then
+    if last_char_byte >= 240 then
+      char_len = 4
+    elseif last_char_byte >= 224 then
+      char_len = 3
+    elseif last_char_byte >= 192 then
+      char_len = 2
+    end
+  end
+  local actual_end_col = end_col + char_len - 1
+
+  local prefix = line:sub(1, start_col - 1)
+  local selection = line:sub(start_col, actual_end_col)
+  local suffix = line:sub(actual_end_col + 1)
+
+  local new_line = prefix .. "[" .. selection .. "](" .. url .. ")" .. suffix
+
+  vim.api.nvim_buf_set_lines(0, line_num - 1, line_num, false, { new_line })
+end
+
 -- 切换任务状态
 function M.md_task_toggle()
   local line = vim.api.nvim_get_current_line()

@@ -91,6 +91,7 @@ require("which-key").add({
   { "<leader>mb", markdown.md_text_bold, mode = "v", desc = "Toggle Bold" },
   { "<leader>mc", markdown.md_text_code, mode = "v", desc = "Toggle Inline Code" },
   { "<leader>md", markdown.md_task_toggle, desc = "Mark task toggle" },
+  { "<leader>ml", markdown.md_text_link, mode = "v", desc = "Mark text link" },
   { "<leader>mt", "<cmd>LspToday<CR>", desc = "Daily Note Today" },
   { "<leader>my", "<cmd>LspYesterday<CR>", desc = "Daily Note Yesterday" },
 

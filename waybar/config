@@ -26,19 +26,19 @@
           "class<qq>": "",
           "class<obsidian>": "󱞁",
           "class<steam>": "",
-          "class<org.gnome.Calculator>": "",
+          "class<org.gnome.Calculator>": ""
         }
     },
     "sway/window": {
         "format": "👉 {title}",
         "max-length": 50,
-        "ellipsis": true,
+        "ellipsis": true
     },
     "clock": {
         "timezone": "Asia/Shanghai",
         "format": " {:%m-%d  %H:%M %a}",
         "format-alt": " {:%Y-%m-%d  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "custom/recording": {
         "exec": "if [ -f /tmp/wf-recorder.pid ] && kill -0 $(cat /tmp/wf-recorder.pid) 2>/dev/null; then echo '{\"text\": \"● REC\", \"class\": \"recording\"}'; else echo '{\"text\": \"\", \"class\": \"\"}'; fi",
@@ -109,11 +109,11 @@
         "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "sleep 0.15 && ~/.config/fuzzel/scripts/fuzzel-wifimenu.sh",
+        "on-click": "sleep 0.15 && ~/dotfiles/scripts/fuzzel-wifimenu.sh"
     },
     "custom/power": {
         "tooltip": false,
-        "on-click": "sleep 0.15 && ~/.config/fuzzel/scripts/fuzzel-powermenu.sh",
-        "format": ""
+        "format": "",
+        "on-click": "sleep 0.15 && ~/dotfiles/scripts/fuzzel-powermenu.sh"
     }
 }

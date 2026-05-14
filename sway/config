@@ -12,7 +12,7 @@ set $wallpaper ~/dotfiles/wallpapers/fulilian.jpg
 set $proxy all_proxy=socks5://127.0.0.1:7890
 # set $menu wmenu-run -f "CaskaydiaCove Nerd Font 12" -N 1e1e2e -n cdd6f4 -M 89b4fa -m 1e1e2e -S cba6f7 -s 1e1e2e -p "󱓞 Launch:" -i
 set $menu fuzzel
-set $bookmarks ~/dotfiles/fuzzel/scripts/fuzzel-bookmarks.sh
+set $bookmarks ~/dotfiles/scripts/fuzzel-bookmarks.sh
 
 set $lock swaylock \
     -f \
@@ -118,7 +118,7 @@ bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
 bindsym $mod+n exec kitty --class ncmpcpp-float -e ncmpcpp
 bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty --class obsidian-float -d ~/Sync/Obsidian -e nvim
-bindsym $mod+q exec ~/dotfiles/waybar/scripts/record-screen.sh toggle
+bindsym $mod+q exec ~/dotfiles/scripts/record-screen.sh toggle
 bindsym $mod+Shift+s mark "generic-sp", move scratchpad
 bindsym $mod+s [con_mark="generic-sp"] scratchpad show
 bindsym $mod+t exec kitty

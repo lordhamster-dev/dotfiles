@@ -43,7 +43,7 @@ mac_links() {
     mkdir -p ~/.config/kitty
     create_symlink ~/dotfiles/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
     create_symlink ~/dotfiles/kitty/macos-kitty.conf ~/.config/kitty/kitty.conf
-    create_symlink ~/dotfiles/karabiner/complex_modifications ~/.config/karabiner/assets/complex_modifications
+    create_symlink ~/dotfiles/mac/karabiner/complex_modifications ~/.config/karabiner/assets/complex_modifications
 }
 
 # Linux specific symlinks

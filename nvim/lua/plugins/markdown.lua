@@ -1,7 +1,6 @@
 local configured = false
-local M = {}
 
-function M.load()
+local function load()
   if configured then
     return require("render-markdown")
   end
@@ -14,4 +13,9 @@ function M.load()
   return require("render-markdown")
 end
 
-return M
+-- 打开 markdown 文件时自动加载 render-markdown
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  once = true,
+  callback = load,
+})

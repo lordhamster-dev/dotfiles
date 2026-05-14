@@ -3,16 +3,18 @@ vim.pack.add({
 })
 
 local foldmethod = require("util.foldmethod")
-local markdown = require("util.markdown")
+local obsidian = require("util.obsidian")
 local snacks_utils = require("util.snacks_utils")
 local utils = require("util.utils")
 local oil = require("plugins.oil")
+local markdown = require("plugins.markdown")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
   { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
   { "<leader>e", oil.open, desc = "File Explorer" },
   { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
   { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
+  { "<leader>o", obsidian.open_in_obsidian, mode = "n", desc = "Open in Obsidian" },
   { "<leader>p", '"ap', desc = "Paste from 'a' register" },
   { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
   { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },

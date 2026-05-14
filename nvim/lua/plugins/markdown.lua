@@ -1,15 +1,17 @@
+local M = {}
+
 local configured = false
 
-local function load()
+function M.load()
   if configured then
     return require("render-markdown")
   end
 
-  configured = true
   vim.pack.add({
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
   })
 
+  configured = true
   return require("render-markdown")
 end
 
@@ -17,5 +19,7 @@ end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   once = true,
-  callback = load,
+  callback = M.load,
 })
+
+return M

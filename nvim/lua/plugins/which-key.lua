@@ -6,10 +6,11 @@ local foldmethod = require("util.foldmethod")
 local markdown = require("util.markdown")
 local snacks_utils = require("util.snacks_utils")
 local utils = require("util.utils")
+local oil = require("plugins.oil")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
   { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
-  { "<leader>e", "<cmd>Oil<CR>", desc = "File Explorer" },
+  { "<leader>e", oil.open, desc = "File Explorer" },
   { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
   { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
   { "<leader>p", '"ap', desc = "Paste from 'a' register" },

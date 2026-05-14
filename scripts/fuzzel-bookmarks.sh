@@ -2,7 +2,7 @@
 
 # --- 配置区 ---
 # 书签文件的路径
-BOOKMARKS_FILE="$HOME/Sync/Bookmarks.md"
+BOOKMARKS_FILE="$HOME/Sync/Obsidian/3-Resources/Bookmarks.md"
 # 默认浏览器 (或者使用 xdg-open)
 BROWSER="xdg-open"
 
@@ -12,18 +12,38 @@ if [ ! -f "$BOOKMARKS_FILE" ]; then
     exit 1
 fi
 
-# 1. 解析 Markdown 文件中的链接
-# 正则说明: 匹配 [标题](链接)，提取出 "标题 | 链接"
-# 我们排除掉没有 http 的链接（比如本地锚点）
-list=$(grep -oP '\[.*?\]\(http.*?\)' "$BOOKMARKS_FILE" | sed -E 's/\[(.*)\]\((.*)\)/\1 | \2/' | sort -t'|' -k1,1f)
+declare -A urls
 
-# 2. 调用 fuzzel 让用户选择
-# -i: 忽略大小写
-choice=$(echo "$list" | fuzzel -d -i -p " ")
+# 预定义正则（Bash =~ 中括号需转义）
+link_re='\[([^]]+)\]\((http[^)]+)\)'
+tag_re='\[\[([^]]+)\]\]'
 
-# 3. 如果用户做出了选择，提取链接并打开
+# 解析 Markdown 文件，提取标题、标签和链接
+while IFS= read -r line; do
+    # 匹配 [标题](http链接)
+    if [[ $line =~ $link_re ]]; then
+        title="${BASH_REMATCH[1]}"
+        url="${BASH_REMATCH[2]}"
+
+        # 提取所有 [[标签]]
+        tag_str=""
+        remaining="$line"
+        while [[ $remaining =~ $tag_re ]]; do
+            tag_str="$tag_str [[${BASH_REMATCH[1]}]]"
+            remaining="${remaining#*\]\]}"
+        done
+
+        # 组装显示字符串（标题 + 标签，不含链接）
+        display="${title}${tag_str}"
+        urls["$display"]="$url"
+    fi
+done < "$BOOKMARKS_FILE"
+
+# 调用 fuzzel 让用户选择（仅显示标题和标签，隐藏链接）
+choice=$(printf '%s\n' "${!urls[@]}" | sort -f | fuzzel -d -i -p " ")
+
+# 如果用户做出了选择，提取链接并打开
 if [ -n "$choice" ]; then
-    # 获取最后一个 '|' 符号之后的内容（即 URL）并去除空格
-    url=$(echo "$choice" | awk -F ' | ' '{print $NF}' | tr -d ' ')
+    url="${urls[$choice]}"
     $BROWSER "$url"
 fi

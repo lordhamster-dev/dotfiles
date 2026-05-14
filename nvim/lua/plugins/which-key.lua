@@ -98,9 +98,9 @@ require("which-key").add({
   --   File Manager   --
   ----------------------
   { "<leader>f", group = "File Manager" },
-  { "<leader>fC", snacks_utils.find_commands, desc = "Find commands" },
   { "<leader>fb", snacks_utils.find_buffers, desc = "Buffers" },
-  { "<leader>fc", snacks_utils.find_complete_tasks, desc = "Find completed tasks" },
+  { "<leader>fc", snacks_utils.find_commands, desc = "Find commands" },
+  { "<leader>fd", snacks_utils.find_complete_tasks, desc = "Find completed tasks" },
   { "<leader>fe", snacks_utils.explorer, desc = "File Explorer" },
   { "<leader>ff", snacks_utils.find_files, desc = "Find files" },
   { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },

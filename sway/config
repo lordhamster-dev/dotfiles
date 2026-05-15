@@ -32,8 +32,6 @@ set $lock swaylock \
 # ============================================================================
 
 # Configure displays (Wayland native resolution with scaling)
-# DP-1: 3840x2160@60Hz, scale 2.4, position 0,0 (primary)
-# HDMI-A-1: 2560x1440@60Hz, scale 1.6, rotated 270°, position 1600,0
 output eDP-1 mode 3072x1920@120Hz pos 0 0 scale 2
 output HDMI-A-1 mode 1920x1080@60Hz pos 1536 0
 

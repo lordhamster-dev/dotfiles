@@ -1,0 +1,23 @@
+{
+  "skill_name": "code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review my current branch before I merge it.",
+      "expected_output": "The agent resolves the default branch, reviews the branch diff with context, cites evidence for findings, verifies claims, and reports severity-grouped actionable findings without editing code.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Can you do a PR review for #42? I have gh logged in.",
+      "expected_output": "The agent uses gh pr view for metadata, inspects the PR diff against its base, reports findings in chat, and does not post comments unless explicitly asked and confirmed.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review staged changes only and save a markdown artifact.",
+      "expected_output": "The agent reviews only git diff --cached, writes a timestamped review under thoughts/shared/reviews/ using templates/review.md, and includes verification counts.",
+      "files": []
+    }
+  ]
+}

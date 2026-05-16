@@ -1,0 +1,18 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "low",
+  "theme": "dark",
+  "packages": [
+    "npm:@haispeed/pi-obsidian",
+    "npm:pi-codex-image-gen"
+  ],
+  "enabledModels": [
+    "deepseek/deepseek-v4-flash",
+    "deepseek/deepseek-v4-pro",
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-5.4-mini"
+  ],
+  "hideThinkingBlock": false
+}

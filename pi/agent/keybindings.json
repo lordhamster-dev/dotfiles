@@ -1,0 +1,13 @@
+{
+  "app.model.cycleForward": ["ctrl+f"],
+  "app.model.cycleBackward": ["ctrl+b"],
+  "tui.editor.cursorUp": ["up", "ctrl+p"],
+  "tui.editor.cursorDown": ["down", "ctrl+n"],
+  "tui.editor.cursorLeft": ["left", "alt+h"],
+  "tui.editor.cursorRight": ["right", "alt+l"],
+  "tui.editor.cursorWordLeft": ["alt+left", "alt+b"],
+  "tui.editor.cursorWordRight": ["alt+right", "alt+w"],
+  "tui.editor.deleteToLineEnd": [],
+  "tui.select.up": ["up", "alt+k"],
+  "tui.select.down": ["down", "alt+j"]
+}

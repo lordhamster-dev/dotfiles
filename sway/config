@@ -12,7 +12,6 @@ set $wallpaper ~/dotfiles/wallpapers/fulilian.jpg
 set $proxy all_proxy=socks5://127.0.0.1:7890
 # set $menu wmenu-run -f "CaskaydiaCove Nerd Font 12" -N 1e1e2e -n cdd6f4 -M 89b4fa -m 1e1e2e -S cba6f7 -s 1e1e2e -p "󱓞 Launch:" -i
 set $menu fuzzel
-set $bookmarks ~/dotfiles/scripts/fuzzel-bookmarks.sh
 
 set $lock swaylock \
     -f \
@@ -107,7 +106,6 @@ bindsym $mod+backslash splith
 bindsym $mod+minus splitv
 bindsym $mod+grave exec kitten quick-access-terminal
 bindsym $mod+a exec grimshot save area - | satty -f - && copyq select 0
-bindsym $mod+b exec $bookmarks
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+e exec kitty --class yazi-float -e yazi
 bindsym $mod+Shift+e exec dolphin

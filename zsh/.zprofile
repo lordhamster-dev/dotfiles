@@ -11,5 +11,4 @@ if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   export XDG_SESSION_TYPE=wayland;
   export XDG_CURRENT_DESKTOP=sway;                                                                                                                                                                                                                                                                                   ─╯
   export XDG_SESSION_DESKTOP=sway;
-  exec sway
 fi

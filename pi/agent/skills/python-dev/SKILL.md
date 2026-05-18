@@ -1,6 +1,6 @@
 ---
 name: python-dev
-description: Guide Python development using the user's preferred stack and conventions. Use this skill whenever writing, reviewing, refactoring, testing, or designing Python code, especially when choosing libraries for logging, terminal output, environment config, notifications, dates/times, HTTP clients, dataframes, CLIs, validation, or tests. Prefer loguru, rich, python-dotenv, notifiers, arrow, httpx, polars, typer, pydantic, and pytest when appropriate.
+description: Guide Python development using the user's preferred stack and conventions. Use this skill whenever writing, reviewing, refactoring, testing, or designing Python code, especially when choosing libraries for logging, terminal output, environment config, notifications, dates/times, HTTP clients, dataframes, CLIs, validation, or tests.
 ---
 
 # Python Development Guidelines

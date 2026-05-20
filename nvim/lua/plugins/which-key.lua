@@ -6,6 +6,7 @@ local foldmethod = require("util.foldmethod")
 local obsidian = require("util.obsidian")
 local utils = require("util.utils")
 local explorer = require("plugins.explorer")
+local format = require("plugins.format")
 local markdown = require("plugins.markdown")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
@@ -72,7 +73,7 @@ require("which-key").add({
   { "<leader>lR", "<cmd>lsp restart<CR>", desc = "Restart LSP" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
   { "<leader>ld", utils.find_diagnostics, desc = "Buffer Diagnostics" },
-  { "<leader>lf", utils.format_and_save, desc = "Format and save" },
+  { "<leader>lf", format.format_and_save, desc = "Format and save" },
   { "<leader>lg", utils.lazygit, desc = "LazyGit" },
   { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
   { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },

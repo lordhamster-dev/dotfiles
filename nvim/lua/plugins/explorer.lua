@@ -4,7 +4,7 @@ local configured = false
 
 local function load()
   if configured then
-    return
+    return require("mini.files")
   end
 
   vim.pack.add({ "https://github.com/nvim-mini/mini.files" })
@@ -44,27 +44,26 @@ local function load()
       width_preview = 60,
     },
   })
+  return require("mini.files")
 end
 
 function M.open()
-  load()
   local buf_name = vim.api.nvim_buf_get_name(0)
   local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
   if vim.fn.filereadable(buf_name) == 1 then
     -- Pass the full file path to highlight the file
-    require("mini.files").open(buf_name, true)
+    load().open(buf_name, true)
   elseif vim.fn.isdirectory(dir_name) == 1 then
     -- If the directory exists but the file doesn't, open the directory
-    require("mini.files").open(dir_name, true)
+    load().open(dir_name, true)
   else
     -- If neither exists, fallback to the current working directory
-    require("mini.files").open(vim.uv.cwd(), true)
+    load().open(vim.uv.cwd(), true)
   end
 end
 
 function M.open_cwd()
-  load()
-  require("mini.files").open(vim.uv.cwd(), true)
+  load().open(vim.uv.cwd(), true)
 end
 
 return M

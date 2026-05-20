@@ -4,14 +4,14 @@ vim.pack.add({
 
 local foldmethod = require("util.foldmethod")
 local obsidian = require("util.obsidian")
-local snacks_utils = require("util.snacks_utils")
 local utils = require("util.utils")
-local oil = require("plugins.oil")
+local explorer = require("plugins.explorer")
 local markdown = require("plugins.markdown")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
-  { "<leader>b", snacks_utils.find_buffers, desc = "Buffers" },
-  { "<leader>e", oil.open, desc = "File Explorer" },
+  { "<leader>b", utils.find_buffers, desc = "Buffers" },
+  { "<leader>e", explorer.open, desc = "File Explorer" },
+  { "<leader>E", explorer.open_cwd, desc = "File Explorer CWD" },
   { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
   { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
   { "<leader>o", obsidian.open_in_obsidian, mode = "n", desc = "Open in Obsidian" },
@@ -19,12 +19,12 @@ require("which-key").add({
   { "<leader>p", '"ap', mode = "v", desc = "Paste from 'a' register" },
   { "<leader>q", "<cmd>:qa<CR>", desc = "Quit Nvim" },
   { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
-  { "<leader>x", snacks_utils.bufdelete, desc = "Close buffer" },
+  { "<leader>x", utils.bufdelete, desc = "Close buffer" },
   { "<leader>y", "<cmd>let @a = @+<CR>", desc = "Let 'a' register copy from '+' register" },
   { "<leader>y", '"ay', mode = "v", desc = "Copy to 'a' register" },
 
   -- Run code
-  { "<leader>r", snacks_utils.run_file, desc = "Run current Python file in terminal" },
+  { "<leader>r", utils.run_file, desc = "Run current Python file in terminal" },
   { "<leader>r", ":lua<CR>", mode = "v", desc = "Excute lua on select" },
   { "<leader>R", "<cmd>source %<CR>", desc = "Excute whole file" },
 
@@ -54,8 +54,8 @@ require("which-key").add({
   ----------------------
   --     Terminal     --
   ----------------------
-  { "<leader>tt", snacks_utils.terminal, desc = "Terminal" },
-  { "<leader>to", snacks_utils.terminal_new, desc = "New Terminal" },
+  { "<leader>tt", utils.terminal, desc = "Terminal" },
+  { "<leader>to", utils.terminal_new, desc = "New Terminal" },
 
   -- Buffers & Tabs
   { "<leader>tc", "<cmd>tabnew<CR>", desc = "New tab" },
@@ -68,12 +68,12 @@ require("which-key").add({
   --       lsp       --
   ----------------------
   { "<leader>l", group = "LSP" },
-  { "<leader>lD", snacks_utils.find_document_diagnostics, desc = "Document Diagnostics" },
+  { "<leader>lD", utils.find_document_diagnostics, desc = "Document Diagnostics" },
   { "<leader>lR", "<cmd>lsp restart<CR>", desc = "Restart LSP" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
-  { "<leader>ld", snacks_utils.find_diagnostics, desc = "Buffer Diagnostics" },
+  { "<leader>ld", utils.find_diagnostics, desc = "Buffer Diagnostics" },
   { "<leader>lf", utils.format_and_save, desc = "Format and save" },
-  { "<leader>lg", snacks_utils.lazygit, desc = "LazyGit" },
+  { "<leader>lg", utils.lazygit, desc = "LazyGit" },
   { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
   { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
 
@@ -99,20 +99,20 @@ require("which-key").add({
   --   File Manager   --
   ----------------------
   { "<leader>f", group = "File Manager" },
-  { "<leader>fb", snacks_utils.find_buffers, desc = "Buffers" },
-  { "<leader>fc", snacks_utils.find_commands, desc = "Find commands" },
-  { "<leader>fd", snacks_utils.find_complete_tasks, desc = "Find completed tasks" },
-  { "<leader>fe", snacks_utils.explorer, desc = "File Explorer" },
-  { "<leader>ff", snacks_utils.find_files, desc = "Find files" },
-  { "<leader>fg", snacks_utils.find_git_files, desc = "Find Git Files" },
-  { "<leader>fh", snacks_utils.find_help, desc = "Help" },
-  { "<leader>fk", snacks_utils.find_keymaps, desc = "Keymaps" },
-  { "<leader>fl", snacks_utils.find_links, desc = "Find Links" },
-  { "<leader>fq", snacks_utils.find_qflist, desc = "Quickfix" },
-  { "<leader>fr", snacks_utils.find_recent, desc = "Recently used files" },
-  { "<leader>fs", snacks_utils.find_grep, desc = "Grep" },
-  { "<leader>ft", snacks_utils.find_todo_tasks, desc = "Find todo tasks" },
-  { "<leader>fw", snacks_utils.find_word, desc = "Find Word" },
+  { "<leader>fb", utils.find_buffers, desc = "Buffers" },
+  { "<leader>fc", utils.find_commands, desc = "Find commands" },
+  { "<leader>fd", utils.find_complete_tasks, desc = "Find completed tasks" },
+  { "<leader>fe", utils.explorer, desc = "File Explorer" },
+  { "<leader>ff", utils.find_files, desc = "Find files" },
+  { "<leader>fg", utils.find_git_files, desc = "Find Git Files" },
+  { "<leader>fh", utils.find_help, desc = "Help" },
+  { "<leader>fk", utils.find_keymaps, desc = "Keymaps" },
+  { "<leader>fl", utils.find_links, desc = "Find Links" },
+  { "<leader>fq", utils.find_qflist, desc = "Quickfix" },
+  { "<leader>fr", utils.find_recent, desc = "Recently used files" },
+  { "<leader>fs", utils.find_grep, desc = "Grep" },
+  { "<leader>ft", utils.find_todo_tasks, desc = "Find todo tasks" },
+  { "<leader>fw", utils.find_word, desc = "Find Word" },
 
   ----------------------
   --       Git       --
@@ -120,7 +120,7 @@ require("which-key").add({
   { "<leader>g", group = "Git" },
   { "<leader>gP", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
   { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
-  { "<leader>gl", snacks_utils.git_log, desc = "Git Log" },
+  { "<leader>gl", utils.git_log, desc = "Git Log" },
   { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
   { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
   { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },

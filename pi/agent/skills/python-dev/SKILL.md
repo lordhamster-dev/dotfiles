@@ -46,17 +46,21 @@ Guidelines:
 - Avoid excessive colors or decorative output in scripts that are likely to be piped or parsed.
 - For Typer apps, use Rich for formatted output when it improves clarity.
 
-### Environment variables: `python-dotenv`
+### Configuration and environment variables: `pydantic-settings`
 
-Prefer `python-dotenv` for loading local development configuration from `.env` files.
+Prefer `pydantic-settings` for structured application configuration: reading environment variables, loading local `.env` files, parsing types, applying defaults, and validating required settings.
+
+Use `python-dotenv` only for lightweight scripts or projects that simply need to load local `.env` values into `os.environ` without a structured settings model.
 
 Guidelines:
 
-- Import with `from dotenv import load_dotenv`.
-- Call `load_dotenv()` near application startup or test setup, not deep inside business logic.
+- Import with `from pydantic_settings import BaseSettings, SettingsConfigDict` for Pydantic v2 projects.
+- Define a dedicated `Settings` model near application startup or configuration boundaries, not deep inside business logic.
+- Use `SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")` when local `.env` loading is desired.
+- Read, validate, and document configuration explicitly; do not rely on scattered `os.getenv()` calls for application settings.
 - Do not commit real `.env` files or secrets.
 - Provide `.env.example` when adding new required environment variables.
-- Environment variables should still be read explicitly, validated, and documented; `.env` loading is not a substitute for config validation.
+- Keep `python-dotenv` as the lighter fallback for small scripts, test setup, or projects that do not otherwise use Pydantic.
 
 ### Notifications: `notifiers`
 
@@ -181,7 +185,7 @@ Before finishing Python work, check:
 - No `print()` left in application code unless intentionally part of CLI output.
 - HTTP calls have explicit timeouts.
 - Secrets are not hardcoded in code, tests, or examples.
-- `.env` usage is local/dev-oriented, documented, and backed by explicit config validation.
+- Configuration uses `pydantic-settings` when structured validation is useful; lightweight `.env` loading remains local/dev-oriented and documented.
 - Terminal output uses `rich` only where it helps human readability.
 - Datetime timezone behavior is explicit where relevant.
 - Pydantic models match the installed version style.

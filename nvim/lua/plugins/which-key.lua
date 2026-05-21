@@ -8,9 +8,10 @@ local utils = require("util.utils")
 local explorer = require("plugins.explorer")
 local format = require("plugins.format")
 local markdown = require("plugins.markdown")
+local picker = require("plugins.picker")
 require("which-key").setup({ preset = "modern" })
 require("which-key").add({
-  { "<leader>b", utils.find_buffers, desc = "Buffers" },
+  { "<leader>b", picker.find_buffers, desc = "Buffers" },
   { "<leader>e", explorer.open, desc = "File Explorer" },
   { "<leader>E", explorer.open_cwd, desc = "File Explorer CWD" },
   { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
@@ -69,10 +70,10 @@ require("which-key").add({
   --       lsp       --
   ----------------------
   { "<leader>l", group = "LSP" },
-  { "<leader>lD", utils.find_document_diagnostics, desc = "Document Diagnostics" },
+  { "<leader>lD", picker.find_document_diagnostics, desc = "Document Diagnostics" },
   { "<leader>lR", "<cmd>lsp restart<CR>", desc = "Restart LSP" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
-  { "<leader>ld", utils.find_diagnostics, desc = "Buffer Diagnostics" },
+  { "<leader>ld", picker.find_diagnostics, desc = "Buffer Diagnostics" },
   { "<leader>lf", format.format_and_save, desc = "Format and save" },
   { "<leader>lg", utils.lazygit, desc = "LazyGit" },
   { "<leader>lo", "<cmd>Outline<CR>", desc = "Outline" },
@@ -100,20 +101,20 @@ require("which-key").add({
   --   File Manager   --
   ----------------------
   { "<leader>f", group = "File Manager" },
-  { "<leader>fb", utils.find_buffers, desc = "Buffers" },
-  { "<leader>fc", utils.find_commands, desc = "Find commands" },
-  { "<leader>fd", utils.find_complete_tasks, desc = "Find completed tasks" },
+  { "<leader>fb", picker.find_buffers, desc = "Buffers" },
+  { "<leader>fc", picker.find_commands, desc = "Find commands" },
+  { "<leader>fd", picker.find_complete_tasks, desc = "Find completed tasks" },
   { "<leader>fe", utils.explorer, desc = "File Explorer" },
-  { "<leader>ff", utils.find_files, desc = "Find files" },
-  { "<leader>fg", utils.find_git_files, desc = "Find Git Files" },
-  { "<leader>fh", utils.find_help, desc = "Help" },
-  { "<leader>fk", utils.find_keymaps, desc = "Keymaps" },
-  { "<leader>fl", utils.find_links, desc = "Find Links" },
-  { "<leader>fq", utils.find_qflist, desc = "Quickfix" },
-  { "<leader>fr", utils.find_recent, desc = "Recently used files" },
-  { "<leader>fs", utils.find_grep, desc = "Grep" },
-  { "<leader>ft", utils.find_todo_tasks, desc = "Find todo tasks" },
-  { "<leader>fw", utils.find_word, desc = "Find Word" },
+  { "<leader>ff", picker.find_files, desc = "Find files" },
+  { "<leader>fg", picker.find_git_files, desc = "Find Git Files" },
+  { "<leader>fh", picker.find_help, desc = "Help" },
+  { "<leader>fk", picker.find_keymaps, desc = "Keymaps" },
+  { "<leader>fl", picker.find_links, desc = "Find Links" },
+  { "<leader>fq", picker.find_qflist, desc = "Quickfix" },
+  { "<leader>fr", picker.find_recent, desc = "Recently used files" },
+  { "<leader>fs", picker.find_grep, desc = "Grep" },
+  { "<leader>ft", picker.find_todo_tasks, desc = "Find todo tasks" },
+  { "<leader>fw", picker.find_word, desc = "Find Word" },
 
   ----------------------
   --       Git       --
@@ -121,7 +122,6 @@ require("which-key").add({
   { "<leader>g", group = "Git" },
   { "<leader>gP", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
   { "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
-  { "<leader>gl", utils.git_log, desc = "Git Log" },
   { "<leader>gn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
   { "<leader>gp", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
   { "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },

@@ -3,7 +3,6 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
   { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-  { src = "https://github.com/stevearc/conform.nvim" },
 })
 
 local signs = {
@@ -94,6 +93,25 @@ vim.lsp.config("pyright", {
   },
 })
 
+vim.lsp.enable({
+  "lua_ls",
+  "pyright",
+  "biome",
+  "ruff",
+  "clangd",
+  "html",
+  "emmet_ls",
+  "cssls",
+  "tailwindcss",
+  "ts_ls",
+  "angularls",
+  "bashls",
+  "jsonls",
+  "yamlls",
+  "astro",
+  "markdown_oxide",
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
@@ -123,43 +141,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Float Diagnostic"
     vim.keymap.set("n", "go", vim.diagnostic.open_float, opts)
   end,
-})
-
-vim.lsp.enable({
-  "lua_ls",
-  "pyright",
-  "biome",
-  "ruff",
-  "clangd",
-  "html",
-  "emmet_ls",
-  "cssls",
-  "tailwindcss",
-  "ts_ls",
-  "angularls",
-  "bashls",
-  "jsonls",
-  "yamlls",
-  "astro",
-  "markdown_oxide",
-})
-
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
-    javascript = { "biome", "biome-organize-imports" },
-    typescript = { "biome", "biome-organize-imports" },
-    typescriptreact = { "biome", "biome-organize-imports" },
-    html = { "prettier" },
-    css = { "prettier" },
-    scss = { "prettier" },
-    json = { "prettier" },
-    markdown = { "prettier" },
-    yaml = { "prettier" },
-    c = { "clang_format" },
-    cpp = { "clang_format" },
-    rust = { "rustfmt", lsp_format = "fallback" },
-    ["_"] = { "trim_whitespace" },
-  },
 })

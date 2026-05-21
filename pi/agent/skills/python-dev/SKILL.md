@@ -13,6 +13,8 @@ Use this skill when helping with Python code. It captures the user's preferred p
 - Preserve the project's existing style when it conflicts with these preferences.
 - Use type hints for public functions, data models, CLI entrypoints, and non-trivial logic.
 - Prefer `uv` for dependency management and Python tooling when the environment allows it.
+- Prefer `pathlib.Path` for filesystem paths in new code.
+- Prefer `ruff` for linting/formatting and `pyright` for type checking when the project has not already chosen alternatives.
 - Do not introduce a preferred package if the task can be solved cleanly with existing project dependencies.
 
 ## Preferred package choices
@@ -57,6 +59,8 @@ Guidelines:
 - Import with `from pydantic_settings import BaseSettings, SettingsConfigDict` for Pydantic v2 projects.
 - Define a dedicated `Settings` model near application startup or configuration boundaries, not deep inside business logic.
 - Use `SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")` when local `.env` loading is desired.
+- Use `env_prefix` and `env_nested_delimiter` when settings need namespacing or nested models.
+- Use `SecretStr` / `SecretBytes` for sensitive settings that may appear in logs or repr output.
 - Read, validate, and document configuration explicitly; do not rely on scattered `os.getenv()` calls for application settings.
 - Do not commit real `.env` files or secrets.
 - Provide `.env.example` when adding new required environment variables.
@@ -131,7 +135,7 @@ Guidelines:
 
 ### Validation and models: `pydantic`
 
-Prefer `pydantic` for structured inputs, configuration, API payloads, parsed records, and validation boundaries.
+Prefer `pydantic` for structured inputs, API payloads, parsed records, and validation boundaries. Prefer `pydantic-settings` for application configuration.
 
 Guidelines:
 
@@ -140,6 +144,16 @@ Guidelines:
 - Prefer field validators for normalization and validation that belongs to the model.
 - Avoid swallowing validation errors; report them with enough context.
 - Follow the project's installed Pydantic major version conventions (`BaseModel`, `field_validator` for v2; `validator` for v1 if required by the project).
+
+### Filesystem paths: `pathlib`
+
+Prefer `pathlib.Path` for new filesystem code.
+
+Guidelines:
+
+- Accept `str | Path` at public boundaries when useful, then normalize with `Path(...)` internally.
+- Use `Path.read_text()`, `Path.write_text()`, `Path.open()`, `Path.iterdir()`, and `/` path joining instead of `os.path` for straightforward path work.
+- Keep `os`, `shutil`, or lower-level APIs when they are clearer or required for permissions, environment variables, process management, or platform-specific behavior.
 
 ### Testing: `pytest`
 
@@ -153,6 +167,29 @@ Guidelines:
 - Use `pytest.mark.parametrize` for input/output matrices.
 - Mock network, filesystem, time, and external services unless the test is explicitly an integration test.
 - Test CLI behavior with the project's existing runner style; for Typer projects, use `typer.testing.CliRunner` when appropriate.
+
+### Linting, formatting, and type checking: `ruff` + `pyright`
+
+Prefer `ruff` for linting and formatting, and `pyright` for static type checking, when the project has not standardized on another toolchain.
+
+Guidelines:
+
+- Run existing project commands first; otherwise prefer `uv run ruff check .`, `uv run ruff format .`, and `uv run pyright`.
+- Use `ruff check --fix` only for targeted, safe fixes; inspect non-trivial rewrites.
+- Do not reformat unrelated files during small bug fixes.
+- Treat type checker suppressions as last resorts; prefer narrowing types, small helper functions, or clearer data models.
+
+### Security-sensitive Python code
+
+Be extra cautious around subprocesses, file paths, deserialization, secrets, and network calls.
+
+Guidelines:
+
+- Prefer `subprocess.run([...], shell=False, check=True, timeout=...)` over shell strings.
+- Never pass untrusted input to `shell=True`; avoid `shell=True` unless there is a documented reason.
+- Avoid unsafe deserialization such as `pickle` or unsafe YAML loading for untrusted data.
+- Redact secrets from logs, exceptions, CLI output, test snapshots, and `.env.example` placeholders.
+- Validate user-controlled paths before reading, writing, deleting, or extracting archives.
 
 ## Implementation workflow
 
@@ -176,6 +213,8 @@ For dev-only tools:
 uv add --dev package-name
 ```
 
+Use `uv add --group <name> package-name` for named dependency groups such as `lint`, `test`, or `docs` when the project separates development tooling. Keep runtime dependencies in `[project.dependencies]`, optional public features in `[project.optional-dependencies]`, and internal development tools in `[dependency-groups]`.
+
 Do not manually edit lockfiles unless that is already the project convention.
 
 ## Review checklist
@@ -186,8 +225,12 @@ Before finishing Python work, check:
 - HTTP calls have explicit timeouts.
 - Secrets are not hardcoded in code, tests, or examples.
 - Configuration uses `pydantic-settings` when structured validation is useful; lightweight `.env` loading remains local/dev-oriented and documented.
+- Sensitive settings use secret-aware types or explicit redaction where practical.
 - Terminal output uses `rich` only where it helps human readability.
 - Datetime timezone behavior is explicit where relevant.
 - Pydantic models match the installed version style.
+- Filesystem code uses `pathlib` where it improves clarity.
+- Subprocess and deserialization code avoids unsafe defaults.
+- Ruff/pyright or the project's equivalent checks are run when practical.
 - Tests cover changed behavior or the absence of tests is explained.
 - New dependencies are justified and documented.

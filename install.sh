@@ -32,6 +32,8 @@ common_links() {
     create_symlink ~/dotfiles/tmux ~/.config/tmux
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
+    create_symlink ~/dotfiles/task ~/.config/task
+    create_symlink ~/dotfiles/pi ~/.pi
 }
 
 sync_links() {
@@ -57,7 +59,6 @@ linux_links() {
     create_symlink ~/dotfiles/mpd ~/.config/mpd
     create_symlink ~/dotfiles/ncmpcpp ~/.config/ncmpcpp
     create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
-    create_symlink ~/dotfiles/pi ~/.pi
 }
 
 # Main installation

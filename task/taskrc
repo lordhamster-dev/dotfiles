@@ -35,6 +35,5 @@ urgency.uda.priority.L.coefficient=-2
 alias.@=context
 context.work.read=+work
 context.work.write=+work
-context=work
 
 news.version=3.4.2

@@ -12,6 +12,26 @@ local function load()
   configured = true
 
   require("mini.files").setup({
+    content = {
+      filter = function(fs_entry)
+        local ignored = {
+          __pycache__ = true,
+          env = true,
+          node_modules = true,
+          [".DS_Store"] = true,
+          [".angular"] = true,
+          [".cache"] = true,
+          [".git"] = true,
+          [".idea"] = true,
+          [".mypy_cache"] = true,
+          [".pytest_cache"] = true,
+          [".ruff_cache"] = true,
+          [".venv"] = true,
+          [".vscode"] = true,
+        }
+        return not ignored[fs_entry.name]
+      end,
+    },
     -- Module mappings created only inside explorer.
     -- Use `''` (empty string) to not create one.
     mappings = {

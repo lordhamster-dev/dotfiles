@@ -113,7 +113,7 @@ bindsym $mod+f floating toggle
 bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
 bindsym $mod+n exec kitty --class ncmpcpp-float -e ncmpcpp
-bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty --class obsidian-float -d ~/Sync/Obsidian -e nvim
+bindsym $mod+o exec swaymsg '[con_mark="obsidian-sp"]' scratchpad show || exec kitty --class obsidian-float -d ~/Sync/Obsidian
 bindsym $mod+q exec ~/dotfiles/scripts/record-screen.sh toggle
 bindsym $mod+Shift+s mark "generic-sp", move scratchpad
 bindsym $mod+s [con_mark="generic-sp"] scratchpad show

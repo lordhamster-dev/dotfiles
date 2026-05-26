@@ -24,3 +24,4 @@ tmux/plugins
 
 pi/agent/sessions
 pi/agent/auth.json
+pi/agent/npm

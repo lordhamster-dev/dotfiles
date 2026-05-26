@@ -1,11 +1,11 @@
 ---
 name: obsidian-project-planning
-description: Plan and track software development work through an Obsidian project note instead of local planning files. Use this skill when the user asks to plan a development task with Obsidian notes, maintain project progress in Obsidian, sync completed/unfinished features, or when AGENTS.md mentions an Obsidian project note and tells the agent to load this skill.
+description: Plan and track software development work through an Obsidian project note instead of local planning files. Use this skill when the user asks to plan a development task with Obsidian notes, maintain project progress in Obsidian, sync planning tasks, or when AGENTS.md mentions an Obsidian project note and tells the agent to load this skill.
 ---
 
 # Obsidian Project Planning
 
-Use an Obsidian note as the persistent development plan for the current project. This is a simpler alternative to multi-file planning: one project note stores goals, completed features, unfinished work, decisions, discoveries, and session progress.
+Use an Obsidian note as the persistent development plan for the current project. This is a simpler alternative to multi-file planning: one project note stores goals, planning tasks, and decisions.
 
 ## When to use
 
@@ -13,7 +13,7 @@ Use this skill for development tasks that need persistent planning or progress t
 
 - Obsidian project notes
 - project planning in Obsidian
-- completed and unfinished features
+- planning tasks, including unfinished and completed work
 - keeping a project note updated
 - recording the note path in `AGENTS.md`
 - `AGENTS.md` already contains an Obsidian project note path or says to load this skill
@@ -59,7 +59,6 @@ If no matching note exists:
 
 ```markdown
 ---
-title: <project-name>
 status: active
 ---
 
@@ -67,28 +66,15 @@ status: active
 
 - <brief project purpose or user goal>
 
-## Completed Features
-
-- [x] <completed item> ✅ <YYYY-MM-DD>
-
-## Unfinished Features
+## Planning
 
 - [ ] <planned or in-progress item>
+- [x] <completed item> ✅ <YYYY-MM-DD>
 
 ## Decisions
 
 | Date | Decision | Rationale |
 | ---- | -------- | --------- |
-
-## Discoveries
-
-- <important findings, constraints, bugs, commands, or file locations>
-
-## Session Log
-
-### <YYYY-MM-DD>
-
-- Started project planning note.
 ```
 
 Keep the template compact. Fill unknown sections with useful placeholders rather than inventing facts.
@@ -104,7 +90,7 @@ If `AGENTS.md` does not exist, create it with a minimal entry:
 
 - Project note: `<vault-relative-or-known-path>`
 - When working on planning, feature development, task continuation, or progress tracking, load and follow the `obsidian-project-planning` skill.
-- Use this note to track completed features, unfinished features in priority order, decisions, discoveries, and session progress.
+- Use this note to track planning tasks and decisions. In `Planning`, keep unfinished tasks first in priority order and completed tasks below them.
 ```
 
 If `AGENTS.md` exists, add or update only the `## Obsidian Project Note` section. Ensure that section explicitly tells future agents to load and follow the `obsidian-project-planning` skill when planning, continuing development tasks, or updating progress, and to load the `obsidian-cli` skill whenever they use the Obsidian CLI. Do not rewrite unrelated project instructions.
@@ -117,19 +103,18 @@ Before making a development plan or resuming work:
 
 1. Read the project note.
 2. Read `AGENTS.md` for project instructions.
-3. Summarize the current goal, completed features, and unfinished features in their planned order.
+3. Summarize the `Planning` section: unfinished tasks first in their planned order, then completed tasks.
 4. Only then propose or execute a task plan.
 
 ### 6. Keep the note updated in real time
 
 Update the project note whenever any of these occur:
 
-- A feature is completed: move/check it under `Completed Features` using Obsidian Tasks completion format: `- [x] Feature text ✅ YYYY-MM-DD`.
-- A new requirement appears: add it under `Unfinished Features` in the intended execution order.
-- Priorities change: reorder `Unfinished Features` so the next work appears first.
+- A task is completed: mark it in `Planning` using Obsidian Tasks completion format `- [x] Task text ✅ YYYY-MM-DD`, then place it below all unfinished tasks.
+- A new requirement appears: add it to `Planning` as an unfinished task in the intended execution order.
+- Priorities change: reorder unfinished tasks in `Planning` so the next work appears first.
 - A decision is made: add a row under `Decisions` with date, decision, and rationale.
-- A meaningful discovery is made: add it under `Discoveries`.
-- A phase finishes, tests run, or an error occurs: add a short `Session Log` entry.
+- A phase finishes, tests run, or an error occurs: update the relevant `Planning` task or add a concise decision when appropriate.
 
 For long-running tasks, update at least after each phase and before ending the response.
 
@@ -140,23 +125,23 @@ When starting, report:
 - Project name
 - Obsidian note found/created
 - Whether `AGENTS.md` was updated
-- Current completed/unfinished summary
-- Ordered unfinished features
+- Current `Planning` summary
+- Ordered unfinished tasks
 
 When finishing a task, report:
 
 - Code/files changed
 - Tests or checks run
 - Project note updates made
-- Remaining unfinished features in order
+- Remaining unfinished tasks in order
 
 ## Editing rules
 
 - Make surgical updates; preserve user-written note content.
-- Do not delete completed history unless the user asks.
-- Prefer checklist items for features. Treat `Unfinished Features` as the ordered queue of next work; reorder it when priorities change.
-- Do not create a separate `Next Actions` section; put actionable future work under `Unfinished Features`.
-- When marking features complete, use Obsidian Tasks completion format with date: `- [x] Feature text ✅ YYYY-MM-DD`.
+- Prefer checklist items in a single `Planning` section.
+- Keep unfinished tasks at the top of `Planning`, ordered by intended execution priority.
+- Keep completed tasks below unfinished tasks in the same `Planning` section.
+- When marking tasks complete, use Obsidian Tasks completion format with date: `- [x] Task text ✅ YYYY-MM-DD`.
 - Use Obsidian wikilinks for related notes when useful.
 - Do not create or modify a note in the wrong vault. Ask if vault identity is unclear.
 - Do not store secrets, tokens, private credentials, or sensitive logs in the project note.

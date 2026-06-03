@@ -45,7 +45,7 @@ local function load()
       reset = "<BS>",
       reveal_cwd = "@",
       show_help = "g?",
-      synchronize = "=",
+      synchronize = "<space>w",
       trim_left = "<",
       trim_right = ">",
     },
@@ -67,18 +67,24 @@ local function load()
   return require("mini.files")
 end
 
+local function open_with_cwd(path)
+  local files = load()
+  files.open(path, true)
+  files.reveal_cwd()
+end
+
 function M.open()
   local buf_name = vim.api.nvim_buf_get_name(0)
   local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
   if vim.fn.filereadable(buf_name) == 1 then
     -- Pass the full file path to highlight the file
-    load().open(buf_name, true)
+    open_with_cwd(buf_name)
   elseif vim.fn.isdirectory(dir_name) == 1 then
     -- If the directory exists but the file doesn't, open the directory
-    load().open(dir_name, true)
+    open_with_cwd(dir_name)
   else
     -- If neither exists, fallback to the current working directory
-    load().open(vim.uv.cwd(), true)
+    open_with_cwd(vim.uv.cwd())
   end
 end
 

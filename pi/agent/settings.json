@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.78.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "high",
@@ -10,7 +10,6 @@
     "npm:@ff-labs/pi-fff"
   ],
   "enabledModels": [
-    "deepseek/deepseek-v4-flash",
     "deepseek/deepseek-v4-pro",
     "openai-codex/gpt-5.5"
   ],

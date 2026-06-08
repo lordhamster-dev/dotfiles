@@ -4,7 +4,6 @@
 
 - **Operating system**: ArchLinux
 - **User terminal**: Kitty
-- **Environment constraint**: Python is managed through uv
 
 ## Permissions
 
@@ -44,7 +43,6 @@ Turn tasks into verifiable goals:
 - **File operations**: use dedicated tools (`read`, `write`, `edit`, `bash`)
 - **Git read-only operations**: `git status/log/diff/branch/show/blame`
 - **GitHub operations**: `gh pr/issue/repo/search`, etc.
-- **Type checks**: `npx tsc --noEmit`, `npx vue-tsc --noEmit`
 
 ### Commands to Provide for the User to Run
 
@@ -55,16 +53,6 @@ Commands that require administrator privileges, interactive operation, or long-r
 - Interactive commands, such as text editors or interactive installers
 - System administration commands that require administrator privileges
 - Dangerous commands, such as `rm`, `kill`, etc.
-
-## Core Workflow
-
-### Normal Features
-
-Plan → Code → `/code-review` → `/security-review` when sensitive data is involved
-
-### Complex Features / Architectural Changes
-
-Use `/planning-with-files` to generate a plan → user confirmation → phased implementation → comprehensive review
 
 ## Working Principles
 

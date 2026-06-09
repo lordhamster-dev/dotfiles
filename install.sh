@@ -25,6 +25,34 @@ create_symlink() {
     ln -sf "$src" "$dest"
 }
 
+create_child_symlinks() {
+    local src_dir=$1
+    local dest_dir=$2
+
+    mkdir -p "$dest_dir"
+
+    for dest in "$dest_dir"/*; do
+        [ -L "$dest" ] || continue
+
+        local target
+        target=$(readlink "$dest")
+
+        case "$target" in
+            "$src_dir"/*)
+                if [ ! -e "$target" ]; then
+                    echo "Removing stale symlink: $dest -> $target"
+                    rm "$dest"
+                fi
+                ;;
+        esac
+    done
+
+    for src in "$src_dir"/*; do
+        [ -e "$src" ] || continue
+        create_symlink "$src" "$dest_dir/$(basename "$src")"
+    done
+}
+
 common_links() {
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
@@ -33,7 +61,10 @@ common_links() {
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
     create_symlink ~/dotfiles/task ~/.config/task
-    create_symlink ~/dotfiles/pi ~/.pi
+    create_symlink ~/dotfiles/agent/skills ~/.pi/agent/skills
+    create_child_symlinks ~/dotfiles/agent/skills ~/.codex/skills
+    create_symlink ~/dotfiles/agent/pi/extensions ~/.pi/agent/extensions
+    create_symlink ~/dotfiles/agent/pi/keybindings.json ~/.pi/agent/keybindings.json
 }
 
 sync_links() {

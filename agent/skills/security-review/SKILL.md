@@ -47,7 +47,6 @@ Determine what to scan:
 - If no path given, scan the **entire project** starting from the root
 - Identify the language(s) and framework(s) in use (check package.json, requirements.txt,
   go.mod, Cargo.toml, pom.xml, Gemfile, composer.json, etc.)
-- Read `references/language-patterns.md` to load language-specific vulnerability patterns
 
 ### Step 2 — Dependency Audit
 
@@ -60,7 +59,6 @@ Before scanning source code, audit dependencies first (fast wins):
 - **Rust**: Check `Cargo.toml`
 - **Go**: Check `go.sum`
 - Flag packages with known CVEs, deprecated crypto libs, or suspiciously old pinned versions
-- Read `references/vulnerable-packages.md` for a curated watchlist
 
 ### Step 3 — Secrets & Exposure Scan
 
@@ -71,12 +69,10 @@ Scan ALL files (including config, env, CI/CD, Dockerfiles, IaC) for:
 - Secrets in comments or debug logs
 - Cloud credentials (AWS, GCP, Azure, Stripe, Twilio, etc.)
 - Database connection strings with credentials embedded
-- Read `references/secret-patterns.md` for regex patterns and entropy heuristics to apply
 
 ### Step 4 — Vulnerability Deep Scan
 
 This is the core scan. Reason about the code — don't just pattern-match.
-Read `references/vuln-categories.md` for full details on each category.
 
 **Injection Flaws**
 
@@ -138,7 +134,14 @@ For EACH finding:
 
 ### Step 7 — Generate Security Report
 
-Output the full report in the format defined in `references/report-format.md`.
+Output a concise report with:
+
+- Findings summary table with counts by severity
+- Scope scanned and files reviewed
+- Findings grouped by category
+- Evidence for each finding: file path, line number, and exact vulnerable code snippet
+- Impact, exploitability, confidence, and concrete fix direction
+- A short note when no vulnerabilities are found
 
 ### Step 8 — Propose Patches
 
@@ -171,18 +174,3 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 - **Be specific** — include file path, line number, and the exact vulnerable code snippet
 - **Explain the risk** in plain English — what could an attacker do with this?
 - If the codebase is clean, say so clearly: "No vulnerabilities found" with what was scanned
-
-## Reference Files
-
-For detailed detection guidance, load the following reference files as needed:
-
-- `references/vuln-categories.md` — Deep reference for every vulnerability category with detection signals, safe patterns, and escalation checkers
-  - Search patterns: `SQL injection`, `XSS`, `command injection`, `SSRF`, `BOLA`, `IDOR`, `JWT`, `CSRF`, `secrets`, `cryptography`, `race condition`, `path traversal`
-- `references/secret-patterns.md` — Regex patterns, entropy-based detection, and CI/CD secret risks
-  - Search patterns: `API key`, `token`, `private key`, `connection string`, `entropy`, `.env`, `GitHub Actions`, `Docker`, `Terraform`
-- `references/language-patterns.md` — Framework-specific vulnerability patterns for JavaScript, Python, Java, PHP, Go, Ruby, and Rust
-  - Search patterns: `Express`, `React`, `Next.js`, `Django`, `Flask`, `FastAPI`, `Spring Boot`, `PHP`, `Go`, `Rails`, `Rust`
-- `references/vulnerable-packages.md` — Curated CVE watchlist for npm, pip, Maven, Rubygems, Cargo, and Go modules
-  - Search patterns: `lodash`, `axios`, `jsonwebtoken`, `Pillow`, `log4j`, `nokogiri`, `CVE`
-- `references/report-format.md` — Structured output template for security reports with finding cards, dependency audit, secrets scan, and patch proposal formatting
-  - Search patterns: `report`, `format`, `template`, `finding`, `patch`, `summary`, `confidence`

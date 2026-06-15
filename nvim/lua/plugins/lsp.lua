@@ -56,6 +56,7 @@ require("mason-lspconfig").setup({
     "jsonls",
     "yamlls",
     "astro",
+    "svelte",
     "markdown_oxide",
   },
   automatic_installation = true,

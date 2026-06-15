@@ -20,6 +20,7 @@ local ensure_installed = {
   "gitignore",
   "sql",
   "astro",
+  "svelte",
 }
 require("nvim-treesitter").install(ensure_installed)
 

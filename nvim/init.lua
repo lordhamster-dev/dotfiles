@@ -9,7 +9,7 @@ require("options")
 -- 插件配置
 -- ==============================================================
 require("plugins.common")
-require("plugins.catppuccin")
+require("plugins.theme")
 require("plugins.lsp")
 require("plugins.treesitter")
 require("plugins.mini")

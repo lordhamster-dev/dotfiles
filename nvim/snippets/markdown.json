@@ -1,7 +1,7 @@
 {
   "daily": {
     "prefix": "daily",
-    "body": ["## ✨ Fleeting", "", "## 🎯Tasks", ""],
+    "body": ["## ✨ Fleeting", "", "## 🎯 Tasks", ""],
     "description": "Create Daily"
   }
 }

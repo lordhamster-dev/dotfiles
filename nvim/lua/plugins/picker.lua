@@ -43,7 +43,7 @@ local function load()
       focus_list = "<leader>l",
       focus_preview = "<leader>p",
     },
-    debug = { enabled = true, show_scores = true },
+    debug = { enabled = false, show_scores = true },
   }
   return require("fff")
 end

@@ -107,8 +107,8 @@ bindsym $mod+minus splitv
 bindsym $mod+grave exec kitten quick-access-terminal
 bindsym $mod+a exec grimshot save area - | satty -f - && copyq select 0
 bindsym $mod+c exec gnome-calculator
-bindsym $mod+e exec kitty --class yazi-float -e yazi
-bindsym $mod+Shift+e exec dolphin
+bindsym $mod+e exec dolphin
+bindsym $mod+Shift+e exec kitty --class yazi-float -e yazi
 bindsym $mod+f floating toggle
 bindsym $mod+g layout tabbed
 bindsym $mod+Shift+g layout toggle split
@@ -121,6 +121,8 @@ bindsym $mod+t exec kitty
 bindsym $mod+Shift+t exec ~/dotfiles/scripts/fuzzel-translate.sh
 bindsym $mod+v exec copyq toggle
 bindsym $mod+w kill
+bindsym $mod+Shift+z mark "zen-sp", move scratchpad
+bindsym $mod+z [con_mark="zen-sp"] scratchpad show
 
 bindsym $mod+space exec $proxy $menu
 bindsym $mod+Shift+space exec $menu
@@ -225,6 +227,8 @@ no_focus [class="wechat"]
 for_window [class="wechat" title="图片和视频"] floating enable
 for_window [class="steam" title="Steam 设置"] floating enable
 for_window [class="steam" title="好友列表"] floating enable
+for_window [class="Godot"] floating enable
+for_window [app_id="clash-verge"] floating enable
 for_window [app_id="chromium-browser"] floating enable
 for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable

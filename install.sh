@@ -90,6 +90,7 @@ linux_links() {
     create_symlink ~/dotfiles/mpd ~/.config/mpd
     create_symlink ~/dotfiles/ncmpcpp ~/.config/ncmpcpp
     create_symlink ~/dotfiles/fuzzel ~/.config/fuzzel
+    create_symlink ~/dotfiles/satty ~/.config/satty
 }
 
 # Main installation

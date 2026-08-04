@@ -60,7 +60,6 @@ common_links() {
     create_symlink ~/dotfiles/tmux ~/.config/tmux
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
-    create_symlink ~/dotfiles/task ~/.config/task
     create_symlink ~/dotfiles/agent/skills ~/.pi/agent/skills
     create_child_symlinks ~/dotfiles/agent/skills ~/.codex/skills
     create_symlink ~/dotfiles/agent/pi/extensions ~/.pi/agent/extensions

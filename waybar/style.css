@@ -26,6 +26,10 @@
   border-radius: 1rem 0 0 1rem;
 }
 
+#custom-logo.off {
+  color: @red;
+}
+
 #workspaces {
   background-color: @base;
   margin: 5px 0.5rem 5px 0;

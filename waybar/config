@@ -6,8 +6,11 @@
     "modules-center": ["clock"],
     "modules-right": ["custom/recording", "custom/updates", "tray", "cpu", "memory", "pulseaudio", "backlight", "battery", "bluetooth", "network", "custom/power"],
     "custom/logo": {
-        "tooltip": false,
-        "format": "󰣇"
+        "exec": "if ~/dotfiles/scripts/idle-toggle.sh status | grep -q idle-on; then echo '{\"text\": \"󰣇\", \"class\": \"on\", \"tooltip\": \"空闲锁定已启用\\n点击禁用\"}'; else echo '{\"text\": \"󰣇\", \"class\": \"off\", \"tooltip\": \"空闲锁定已禁用\\n点击启用\"}'; fi",
+        "return-type": "json",
+        "interval": 5,
+        "signal": 9,
+        "on-click": "~/dotfiles/scripts/idle-toggle.sh toggle"
     },
     "sway/workspaces": {
         "disable-scroll": true,

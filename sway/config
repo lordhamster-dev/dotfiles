@@ -55,7 +55,9 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec systemctl --user restart xdg-desktop-portal
 
 exec fcitx5 -d  --replace
-exec copyq
+### Clipboard history (cliphist)
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 ### Idle configuration
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -89,7 +91,7 @@ bindsym $mod+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you
 bindsym $mod+backslash splith
 bindsym $mod+minus splitv
 bindsym $mod+grave exec kitten quick-access-terminal
-bindsym $mod+a exec grimshot save area - | satty -f - && copyq select 0
+bindsym $mod+a exec grimshot save area - | satty -f -
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+e exec dolphin
 bindsym $mod+Shift+e exec kitty --class yazi-float -e yazi
@@ -103,7 +105,7 @@ bindsym $mod+Shift+s mark "generic-sp", move scratchpad
 bindsym $mod+s [con_mark="generic-sp"] scratchpad show
 bindsym $mod+t exec kitty
 bindsym $mod+Shift+t exec ~/dotfiles/scripts/fuzzel-translate.sh
-bindsym $mod+v exec copyq toggle
+bindsym $mod+v exec cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy
 bindsym $mod+w kill
 bindsym $mod+Shift+z mark "zen-sp", move scratchpad
 bindsym $mod+z [con_mark="zen-sp"] scratchpad show
@@ -237,10 +239,6 @@ for_window [app_id="obsidian-float"] {
     move position center
     mark "obsidian-sp"
     move scratchpad
-}
-for_window [app_id="com.github.hluk.copyq"] {
-    floating enable
-    move position center
 }
 for_window [app_id="org.kde.dolphin"] {
     floating enable

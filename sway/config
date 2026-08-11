@@ -10,7 +10,6 @@ set $up k
 set $right l
 set $wallpaper ~/dotfiles/wallpapers/fulilian.jpg
 set $proxy all_proxy=socks5://127.0.0.1:7890
-# set $menu wmenu-run -f "CaskaydiaCove Nerd Font 12" -N 1e1e2e -n cdd6f4 -M 89b4fa -m 1e1e2e -S cba6f7 -s 1e1e2e -p "󱓞 Launch:" -i
 set $menu fuzzel
 
 # ============================================================================
@@ -52,7 +51,6 @@ output * bg $wallpaper fill
 # XDG portal setup for proper desktop integration
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec systemctl --user restart xdg-desktop-portal
 
 exec fcitx5 -d  --replace
 ### Clipboard history (cliphist)

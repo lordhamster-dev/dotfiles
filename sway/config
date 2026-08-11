@@ -61,7 +61,7 @@ exec wl-paste --type image --watch cliphist store
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec ~/dotfiles/scripts/idle-toggle.sh start
-exec clash-verge
+exec flclash  # yay -S flclash-bin
 
 # ============================================================================
 # INPUT CONFIGURATION
@@ -213,6 +213,7 @@ for_window [class="steam" title="Steam 设置"] floating enable
 for_window [class="steam" title="好友列表"] floating enable
 for_window [class="Godot"] floating enable
 for_window [app_id="clash-verge"] floating enable
+for_window [app_id="com.follow.clash"] floating enable
 for_window [app_id="com.gabm.satty"] floating enable
 for_window [app_id="chromium-browser"] floating enable
 for_window [app_id="blueberry.py"] floating enable

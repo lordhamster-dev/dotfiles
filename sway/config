@@ -56,6 +56,10 @@ exec fcitx5 -d  --replace
 ### Clipboard history (cliphist)
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
+### Clipboard persistence: keep data after source app (e.g. satty) closes
+# Requires: sudo pacman -S wl-clip-persist
+# Regular-only avoids breaking primary selection in GTK apps
+exec wl-clip-persist --clipboard regular
 ### Idle configuration
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -90,6 +94,8 @@ bindsym $mod+backslash splith
 bindsym $mod+minus splitv
 bindsym $mod+grave exec kitten quick-access-terminal
 bindsym $mod+a exec grimshot save area - | satty -f -
+# Full screen screenshot of active monitor (follows mouse), piped to satty
+bindsym $mod+Shift+a exec grim -o "$(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused) | .name')" - | satty -f -
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+e exec dolphin
 bindsym $mod+Shift+e exec kitty --class yazi-float -e yazi

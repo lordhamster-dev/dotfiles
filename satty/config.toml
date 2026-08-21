@@ -1,3 +1,7 @@
+[font]
+family = "Noto Sans CJK SC"
+style = "Regular"
+
 [color-palette]
 palette = [
     "#ff0000",  # 红色（默认选中）

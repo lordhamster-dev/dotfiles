@@ -28,6 +28,8 @@ local function load()
           [".ruff_cache"] = true,
           [".venv"] = true,
           [".vscode"] = true,
+          [".playwright-cli"] = true,
+          [".hypothesis"] = true,
         }
         return not ignored[fs_entry.name]
       end,

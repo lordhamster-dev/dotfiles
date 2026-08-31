@@ -1,32 +1,140 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
-command_timeout = 500
+# ============================================================
+# Starship 配置 —— 优化版
+# 设计基调：左侧 蓝/紫/品牌色 的紧凑信息流，右侧 耗时+时钟
+# ============================================================
 
+add_newline = false        # 提示符顶部不输出空行
+command_timeout = 500      # 模块检测超时 (ms)
+
+# ---- 提示符布局（\ 续行 = 连接渲染，$line_break = 换行）----
+# 第一行: 系统图标 → 目录 → git → k8s → 语言 → 状态，右侧右对齐（命令耗时 + 时钟）
+# 第二行: 以提示符 character 开头
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_commit\
+$git_metrics\
+$kubernetes\
+$python\
+$nodejs\
+$rust\
+$golang\
+$status\
+$fill\
+$cmd_duration\
+$time\
+$line_break\
+$character\
+"""
+
+# ---- 主机 / 用户：本机隐藏，SSH 登录时自动显示 ----
 [username]
-disabled = true
+# 无 ssh_only 键；默认仅在检测到 SSH_CONNECTION 等环境变量时显示
+detect_env_vars = ["SSH_CONNECTION", "SSH_CLIENT"]
+
 [hostname]
-disabled = true
+ssh_only = true
+
 [container]
 disabled = true
 
+# ---- 目录 ----
 [directory]
-truncation_length = 8       # 最长显示路径级别
-truncate_to_repo = true
+style = "bold cyan"
+truncation_length = 4      # 最多显示的路径层级（原来 8，配合 fish 风格缩写足够）
+truncate_to_repo = true    # 在 git 仓库内只显示相对仓库根的部分
+fish_style_pwd_dir_length = 2   # 深层路径中间层级缩写为 2 字符
+read_only = " 󰌾"          # 只读目录锁图标
+home_symbol = "~"
 
-[kubernetes]
-format = "[$context:$namespace](blue) "
-disabled = false
-
-[character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
-
-[cmd_duration]
-disabled = false
-min_time = 4
-show_milliseconds = false
-style = "yellow"
-
-# git
+# ---- Git 分支 ----
 [git_branch]
 symbol = " "
+style = "bold purple"
+
+# ---- Git 进行中状态（merge/rebase 等）----
+[git_state]
+style = "bold yellow"
+format = "[$state( $progress_current/$progress_total)]($style) "
+
+# ---- Git 变更状态（默认符号即 Unicode，保持默认）----
+
+# ---- Git 提交哈希（detached HEAD 时显示）----
+[git_commit]
+style = "bold purple"
+format = "[$hash$tag]($style) "
+tag_symbol = "  "
+
+# ---- Git 提交增减统计（仅非零时显示）----
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+only_nonzero_diffs = true
+
+# ---- Kubernetes 上下文 ----
+[kubernetes]
+symbol = "󱃾 "
+style = "bold blue"
+format = '[$symbol$context( \($namespace\))]($style) '
+
+# ---- 操作系统 ----
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold blue"
+
+[os.symbols]
+Arch = " "   # Arch Linux 图标
+Linux = " "   # 通用 Linux 图标
+Macos = " "   # macOS 苹果图标 (nf-fa-apple)
+
+# ---- 语言环境（均去掉 "via" 前缀，更干净）----
+[python]
+symbol = " "
+style = "bold yellow"
+format = '[$symbol$version( \($virtualenv\))]($style) '
+
+[nodejs]
+symbol = " "
+style = "bold green"
+format = "[$symbol$version]($style) "
+
+[rust]
+symbol = "󱘗 "
+style = "bold red"
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = " "
+style = "bold cyan"
+format = "[$symbol$version]($style) "
+
+# ---- 退出码非 0 时显示 ----
+[status]
+symbol = " "
+style = "bold red"
+format = "[$symbol$status]($style) "
+
+# ---- 提示符 ----
+[character]
+success_symbol = "[ ](bold green)"
+error_symbol = "[ ](bold red)"
+vimcmd_symbol = "[ ](bold cyan)"
+
+# ---- 右对齐区域 ----
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+style = "bold yellow"
+format = "took [$duration]($style) "
+
+[time]
+disabled = false
+time_format = "%T"         # 24 小时制 HH:MM:SS
+style = "bold bright-black"
+format = "at [$time]($style) "

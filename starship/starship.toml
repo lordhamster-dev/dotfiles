@@ -46,9 +46,8 @@ disabled = true
 # ---- 目录 ----
 [directory]
 style = "bold cyan"
-truncation_length = 4      # 最多显示的路径层级（原来 8，配合 fish 风格缩写足够）
+truncation_length = 4      # 最多显示的路径层级
 truncate_to_repo = true    # 在 git 仓库内只显示相对仓库根的部分
-fish_style_pwd_dir_length = 2   # 深层路径中间层级缩写为 2 字符
 read_only = " 󰌾"          # 只读目录锁图标
 home_symbol = "~"
 

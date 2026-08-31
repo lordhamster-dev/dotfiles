@@ -56,7 +56,7 @@ create_child_symlinks() {
 common_links() {
     create_symlink ~/dotfiles/.gitconfig ~/.gitconfig
     create_symlink ~/dotfiles/zsh/.zshrc ~/.zshrc
-    create_symlink ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
+    create_symlink ~/dotfiles/starship/starship.toml ~/.config/starship.toml
     create_symlink ~/dotfiles/tmux ~/.config/tmux
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi

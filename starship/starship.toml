@@ -9,9 +9,6 @@ disabled = true
 [container]
 disabled = true
 
-[line_break]
-disabled = false
-
 [directory]
 truncation_length = 8       # 最长显示路径级别
 truncate_to_repo = true

@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # -----------------
 # Zsh configuration
 # -----------------
@@ -39,7 +32,6 @@ bindkey -e
 case "$(uname -s)" in
     Darwin)
         # macOS specific configurations
-        source ~/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
         source ~/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
         source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
         # brew
@@ -63,7 +55,6 @@ case "$(uname -s)" in
         ;;
     Linux)
         # Linux specific configurations
-        source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
         source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
         source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         # NVM
@@ -73,10 +64,8 @@ esac
 
 # Common configurations for all systems
 
-# Load Angular CLI autocompletion.
-if command -v ng &> /dev/null; then
-    source <(ng completion script)
-fi
+# starship
+eval "$(starship init zsh)"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -101,12 +90,7 @@ function nvimvenv {
     command nvim $@
   fi
 }
-alias nvim=nvimvenv
-alias vim=nvimvenv
 
-# alias
-alias ll='exa --icons -l'
-alias pmr='python manage.py runserver'
 # proxy
 proxy_on() {
     local port="${1:-7890}"
@@ -131,9 +115,15 @@ proxy_off() {
     echo "Proxy OFF"
 }
 
+# alias
+alias ll='exa --icons -l'
+alias nvim=nvimvenv
+alias vim=nvimvenv
 alias proxy=proxy_on
 alias unproxy=proxy_off
 alias ff="fastfetch"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Load Angular CLI autocompletion.
+if command -v ng &> /dev/null; then
+    source <(ng completion script)
+fi

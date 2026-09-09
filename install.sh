@@ -3,6 +3,19 @@
 # Detect operating system
 OS="$(uname -s)"
 
+# Existing files are moved here instead of being deleted.
+BACKUP_DIR="${DOTFILES_BACKUP_DIR:-$HOME/.local/state/dotfiles/backups/$(date +%Y%m%d-%H%M%S)-$$}"
+
+backup_existing() {
+    local dest=$1
+    local relative_path=${dest#"$HOME"/}
+    local backup_path="$BACKUP_DIR/$relative_path"
+
+    mkdir -p "$(dirname "$backup_path")"
+    echo "Backing up existing path: $dest -> $backup_path"
+    mv "$dest" "$backup_path"
+}
+
 # Common symlinks for both systems
 create_symlink() {
     local src=$1
@@ -14,15 +27,15 @@ create_symlink() {
         return 0
     fi
 
-    # 如果目标存在但不是符号链接，或者指向不同的位置
-    if [ -e "$dest" ]; then
-        echo "Removing existing file/directory: $dest"
-        rm -rf "$dest"
+    # 如果目标存在，先备份，再创建符号链接
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        backup_existing "$dest"
     fi
 
     # 创建新的符号链接
+    mkdir -p "$(dirname "$dest")"
     echo "Creating symlink: $dest -> $src"
-    ln -sf "$src" "$dest"
+    ln -s "$src" "$dest"
 }
 
 create_child_symlinks() {
@@ -40,8 +53,7 @@ create_child_symlinks() {
         case "$target" in
             "$src_dir"/*)
                 if [ ! -e "$target" ]; then
-                    echo "Removing stale symlink: $dest -> $target"
-                    rm "$dest"
+                    backup_existing "$dest"
                 fi
                 ;;
         esac
@@ -117,5 +129,9 @@ case "$OS" in
         exit 1
         ;;
 esac
+
+if [ -d "$BACKUP_DIR" ]; then
+    echo "Existing files were backed up to: $BACKUP_DIR"
+fi
 
 echo "Installation complete!"

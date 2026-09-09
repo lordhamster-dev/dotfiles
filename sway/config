@@ -51,8 +51,10 @@ output * bg $wallpaper fill
 # XDG portal setup for proper desktop integration
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# Graphical authentication prompts for privileged desktop actions
+exec /usr/lib/polkit-kde-authentication-agent-1
 
-exec fcitx5 -d  --replace
+exec fcitx5 -d --replace
 ### Clipboard history (cliphist)
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store

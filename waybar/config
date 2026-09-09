@@ -50,11 +50,11 @@
         "tooltip": false
     },
     "custom/updates": {
-        "exec": "count=$(sudo pacman -Qu | wc -l); if [ \"$count\" -gt 0 ]; then echo \"{\\\"text\\\": \\\"$count\\\", \\\"tooltip\\\": \\\"有 $count 个包需要更新\\\"}\"; fi",
+        "exec": "count=$(checkupdates 2>/dev/null | wc -l); if [ \"$count\" -gt 0 ]; then printf '{\"text\":\"%s\",\"tooltip\":\"有 %s 个包需要更新\"}\\n' \"$count\" \"$count\"; fi",
         "return-type": "json",
         "interval": 1800,
         "format": "󰏕 {}",
-        "on-click": "kitty --title yay -e yay -Syu --noconfirm",
+        "on-click": "kitty --title system-update -e yay -Syu",
         "signal": 8
     },
     "tray": {

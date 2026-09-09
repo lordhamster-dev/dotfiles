@@ -116,7 +116,7 @@ proxy_off() {
 }
 
 # alias
-alias ll='exa --icons -l'
+alias ll='eza --icons -l'
 alias nvim=nvimvenv
 alias vim=nvimvenv
 alias proxy=proxy_on

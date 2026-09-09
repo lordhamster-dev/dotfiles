@@ -21,7 +21,7 @@ This repository contains my personal dotfiles and configuration for various tool
 - Shell: Zsh with custom prompt and aliases
 - Editor: Neovim with plugins and custom settings
 - Terminal: Kitty with themes and keybindings
-- Window Manager: Hyprland (Linux) / Aerospace (macOS)
+- Window Manager: Sway (Linux) / Aerospace (macOS)
 - System Utilities: Various productivity tools
 
 ## Contributing

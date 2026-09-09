@@ -7,7 +7,7 @@ local function load()
     return require("fff")
   end
 
-  vim.pack.add({ "https://github.com/dmtrKovalenko/fff.nvim" })
+  vim.pack.add({ "https://github.com/dmtrKovalenko/fff" })
 
   configured = true
 

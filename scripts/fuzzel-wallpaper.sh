@@ -5,7 +5,7 @@ set -eu
 WALLPAPER_DIR=${WALLPAPER_DIR:-"$HOME/dotfiles/wallpapers"}
 STATE_DIR=${XDG_STATE_HOME:-"$HOME/.local/state"}/dotfiles
 STATE_FILE="$STATE_DIR/current-wallpaper"
-DEFAULT_WALLPAPER="$WALLPAPER_DIR/FrierenMagicalMemory.png"
+DEFAULT_WALLPAPER="$WALLPAPER_DIR/Frieren1.png"
 
 current_wallpaper() {
     saved=

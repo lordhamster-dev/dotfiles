@@ -8,7 +8,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $wallpaper ~/dotfiles/wallpapers/FrierenMagicalMemory.png
+set $wallpaper ~/dotfiles/wallpapers/Frieren1.png
 set $proxy all_proxy=socks5://127.0.0.1:7890
 set $menu fuzzel
 

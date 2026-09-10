@@ -79,6 +79,10 @@ export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin:/usr/local/sbin"
 # UV
 export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple
 
+# playwright-cli: default to bundled Chromium instead of system Google Chrome
+# (Arch/yay installs do not provide /opt/google/chrome/chrome.)
+export PLAYWRIGHT_MCP_BROWSER=chromium
+
 # neovim
 export EDITOR=nvim
 # neovim with python, auto activate env

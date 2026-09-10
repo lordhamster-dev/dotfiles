@@ -16,7 +16,7 @@ lock_screen() {
         --inside-wrong-color 1e1e2e
 }
 
-CHOSEN=$(printf '%s\n' " Lock" "󰤄 Suspend" "󰜉 Reboot" "󰐥 Shutdown" | fuzzel -d --width 30 --lines=4)
+CHOSEN=$(printf '%s\n' " Lock" "󰤄 Suspend" "󰜉 Reboot" "󰐥 Shutdown" | fuzzel -d --width 30 --lines=5)
 
 case "$CHOSEN" in
     " Lock") lock_screen ;;

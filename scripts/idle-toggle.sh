@@ -4,8 +4,7 @@
 # Useful during live recordings, presentations, or watching long videos
 # when you don't want the screen to lock or displays to turn off.
 
-WALLPAPER="$HOME/dotfiles/wallpapers/fulilian.jpg"
-LOCK="swaylock -f -i $WALLPAPER --ring-color cba6f7 --inside-color 1e1e2e --text-color cdd6f4 --key-hl-color cba6f7 --line-color 00000000 --ring-ver-color cba6f7 --inside-ver-color 1e1e2e --ring-wrong-color f38ba8 --inside-wrong-color 1e1e2e"
+LOCK="$HOME/dotfiles/scripts/lock-screen.sh"
 
 swayidle_running() {
     pgrep -x swayidle >/dev/null

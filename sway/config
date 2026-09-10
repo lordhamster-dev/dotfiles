@@ -8,7 +8,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $wallpaper ~/dotfiles/wallpapers/fulilian.jpg
+set $wallpaper ~/dotfiles/wallpapers/FrierenMagicalMemory.png
 set $proxy all_proxy=socks5://127.0.0.1:7890
 set $menu fuzzel
 
@@ -43,6 +43,8 @@ default_floating_border pixel 2
 
 # Background color
 output * bg $wallpaper fill
+# Restore the wallpaper selected through fuzzel.
+exec ~/dotfiles/scripts/fuzzel-wallpaper.sh restore
 
 # ============================================================================
 # AUTOSTART SERVICES
@@ -98,6 +100,7 @@ bindsym $mod+grave exec kitten quick-access-terminal
 bindsym $mod+a exec grimshot save area - | satty -f -
 # Full screen screenshot of active monitor (follows mouse), piped to satty
 bindsym $mod+Shift+a exec grim -o "$(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused) | .name')" - | satty -f -
+bindsym $mod+b exec ~/dotfiles/scripts/fuzzel-wallpaper.sh choose
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+e exec dolphin
 bindsym $mod+Shift+e exec kitty --class yazi-float -e yazi

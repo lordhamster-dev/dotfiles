@@ -67,8 +67,8 @@ function M.find_files()
   load().find_files()
 end
 
-function M.find_git_files()
-  Snacks.picker.git_files()
+function M.git_status()
+  Snacks.picker.git_status()
 end
 
 function M.find_qflist()

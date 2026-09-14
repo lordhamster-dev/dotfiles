@@ -106,7 +106,7 @@ require("which-key").add({
   { "<leader>fd", picker.find_complete_tasks, desc = "Find completed tasks" },
   { "<leader>fe", utils.explorer, desc = "File Explorer" },
   { "<leader>ff", picker.find_files, desc = "Find files" },
-  { "<leader>fg", picker.find_git_files, desc = "Find Git Files" },
+  { "<leader>fg", picker.git_status, desc = "Git status" },
   { "<leader>fh", picker.find_help, desc = "Help" },
   { "<leader>fk", picker.find_keymaps, desc = "Keymaps" },
   { "<leader>fl", picker.find_links, desc = "Find Links" },

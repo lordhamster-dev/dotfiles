@@ -21,6 +21,7 @@ local ensure_installed = {
   "sql",
   "astro",
   "svelte",
+  "gdscript",
 }
 require("nvim-treesitter").install(ensure_installed)
 

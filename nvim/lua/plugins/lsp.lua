@@ -69,6 +69,7 @@ require("mason-tool-installer").setup({
     "stylua", -- lua formatter
     "biome", -- js linter
     "ruff", -- python linter
+    "gdscript-formatter",
   },
 })
 
@@ -94,6 +95,12 @@ vim.lsp.config("pyright", {
   },
 })
 
+vim.lsp.config("gdscript", {
+  cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+  filetypes = { "gdscript" },
+  root_markers = { "project.godot" },
+})
+
 vim.lsp.enable({
   "lua_ls",
   "pyright",
@@ -111,6 +118,7 @@ vim.lsp.enable({
   "yamlls",
   "astro",
   "markdown_oxide",
+  "gdscript",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

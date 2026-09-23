@@ -15,6 +15,7 @@ local function load()
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+      gdscript = { "gdscript-formatter" },
       javascript = { "biome", "biome-organize-imports" },
       typescript = { "biome", "biome-organize-imports" },
       typescriptreact = { "biome", "biome-organize-imports" },

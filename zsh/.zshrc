@@ -76,6 +76,9 @@ source <(fzf --zsh)
 # PATH
 export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin:/usr/local/sbin"
 
+# Pi
+export PATH="$HOME/.pi/agent/bin:$PATH"
+
 # UV
 export UV_DEFAULT_INDEX=https://pypi.tuna.tsinghua.edu.cn/simple
 

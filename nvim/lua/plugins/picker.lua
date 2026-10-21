@@ -117,6 +117,31 @@ function M.find_commands()
   Snacks.picker.commands()
 end
 
+-- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+function M.explorer()
+  Snacks.explorer({
+    sort = { fields = { "sort" } },
+    supports_live = true,
+    tree = true,
+    watch = true,
+    diagnostics = false,
+    diagnostics_open = false,
+    git_status = true,
+    git_status_open = false,
+    git_untracked = true,
+    follow_file = false,
+    focus = "list",
+    layout = {
+      layout = {
+        width = 30,
+        height = 0,
+      },
+    },
+    hidden = true,
+    ignored = true,
+  })
+end
+
 -------------------------------------------------------------------------------
 -- 内容搜索 (Grep)
 -------------------------------------------------------------------------------

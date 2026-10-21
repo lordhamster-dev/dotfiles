@@ -13,7 +13,6 @@ require("which-key").setup({ preset = "modern" })
 require("which-key").add({
   { "<leader>b", picker.find_buffers, desc = "Buffers" },
   { "<leader>e", explorer.open, desc = "File Explorer" },
-  { "<leader>E", explorer.open_cwd, desc = "File Explorer CWD" },
   { "<leader><leader>", "<cmd>e #<CR>", desc = "Switch to Other Buffer" },
   { "<esc>", "<cmd>nohlsearch<CR>", desc = "No Highlight" },
   { "<leader>o", obsidian.open_in_obsidian, mode = "n", desc = "Open in Obsidian" },
@@ -104,7 +103,7 @@ require("which-key").add({
   { "<leader>fb", picker.find_buffers, desc = "Buffers" },
   { "<leader>fc", picker.find_commands, desc = "Find commands" },
   { "<leader>fd", picker.find_complete_tasks, desc = "Find completed tasks" },
-  { "<leader>fe", utils.explorer, desc = "File Explorer" },
+  { "<leader>fe", picker.explorer, desc = "File Explorer" },
   { "<leader>ff", picker.find_files, desc = "Find files" },
   { "<leader>fg", picker.git_status, desc = "Git status" },
   { "<leader>fh", picker.find_help, desc = "Help" },

@@ -39,16 +39,22 @@ require("snacks").setup({
   picker = {
     enabled = true,
     exclude = {
-      ".DS_Store",
       "__pycache__",
       "node_modules",
       "env",
       ".venv",
       ".git",
-      ".angular",
+      ".DS_Store",
+      ".vscode",
       ".cache",
       ".idea",
-      ".vscode",
+      ".ipynb_checkpoints",
+      ".mypy_cache",
+      ".pytest_cache",
+      ".ruff_cache",
+      ".hypothesis",
+      ".playwright-cli",
+      ".angular",
     },
     debug = {
       scores = false, -- show scores in the list

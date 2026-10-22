@@ -73,7 +73,6 @@ common_links() {
     create_symlink ~/dotfiles/nvim ~/.config/nvim
     create_symlink ~/dotfiles/yazi ~/.config/yazi
     create_symlink ~/dotfiles/agent/skills ~/.pi/agent/skills
-    create_child_symlinks ~/dotfiles/agent/skills ~/.codex/skills
     create_symlink ~/dotfiles/agent/pi/extensions ~/.pi/agent/extensions
     create_symlink ~/dotfiles/agent/pi/keybindings.json ~/.pi/agent/keybindings.json
 }

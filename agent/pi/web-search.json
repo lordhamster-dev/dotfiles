@@ -1,0 +1,6 @@
+{
+  "searchRouting": {
+    "providers": ["tavily", "deepseek"],
+    "fallbackOn": ["transient", "quota", "network", "invalid-response", "empty"]
+  }
+}

@@ -75,6 +75,7 @@ common_links() {
     create_symlink ~/dotfiles/agent/skills ~/.pi/agent/skills
     create_symlink ~/dotfiles/agent/pi/extensions ~/.pi/agent/extensions
     create_symlink ~/dotfiles/agent/pi/keybindings.json ~/.pi/agent/keybindings.json
+    create_symlink ~/dotfiles/agent/pi/web-search.json ~/.pi/agent/web-search.json
 }
 
 sync_links() {

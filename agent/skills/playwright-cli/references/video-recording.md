@@ -18,6 +18,23 @@ playwright-cli fill e2 "test input"
 playwright-cli video-stop demo.webm
 ```
 
+## Chapters and action annotations
+
+```bash
+playwright-cli video-start
+
+# Mark a section of the recording
+playwright-cli video-chapter "Login" --description="credential entry" --duration=1500
+
+# Overlay each action with its name and a highlighted target
+playwright-cli video-show-actions --duration=500 --position=top-right --cursor=pointer
+
+playwright-cli video-hide-actions
+playwright-cli video-stop demo.webm
+```
+
+`--position` accepts `top-left`, `top`, `top-right`, `bottom-left`, `bottom`, `bottom-right`; `--cursor` accepts `pointer` or `none`.
+
 ## Best Practices
 
 ### 1. Use Descriptive Filenames

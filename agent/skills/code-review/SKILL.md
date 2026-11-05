@@ -16,7 +16,7 @@ This is a Pi-compatible single-agent workflow inspired by a public multi-agent c
 - If the user gives no scope, review the current branch against the default branch.
 - If there are uncommitted changes and no explicit scope, mention them and ask whether to review branch diff, working tree, staged changes, or all pending changes.
 - Prefer a chat report unless the user asks for an artifact; if writing an artifact, use `thoughts/shared/reviews/YYYY-MM-DD_HH-MM-SS_<scope>.md` and [templates/review.md](templates/review.md).
-- Security-only audits should use the `security-review` skill instead; this skill still checks security-relevant regressions in the reviewed diff.
+- For security-only audits, apply the security lens below to the whole target, not just the diff, and state that scope explicitly in the report; this skill also checks security-relevant regressions in every reviewed diff.
 
 ## Scope Resolution
 
@@ -29,7 +29,7 @@ Supported scopes:
 - `commit` or no argument with a clean tree on a detached/single-commit request: `git show --stat --patch -U30 HEAD`
 - `<hash>`: `git show --stat --patch -U30 <hash>`
 - `<base>..<tip>`: `git diff --stat <base>..<tip>` and `git diff -U30 <base>..<tip>`
-- PR number or URL: use `gh pr view` for metadata, then diff against the PR base branch
+- PR number or URL: use `gh pr view` for metadata, then diff against the PR base branch. If `gh` is unavailable, fetch the ref instead: `git fetch origin pull/<n>/head:pr-<n>` and diff `pr-<n>` against the base branch; if the remote is not GitHub or the base is unknown, ask the user instead of guessing
 - default branch review: detect default branch with `git symbolic-ref --quiet --short refs/remotes/origin/HEAD | sed 's@^origin/@@'`; fallback to `main`, then `master`
 
 Create a temporary review patch when useful:
@@ -69,6 +69,16 @@ For PRs, if `gh` is authenticated:
 ```bash
 gh pr view <pr> --json number,title,body,baseRefName,headRefName,author,commits,files,reviews
 ```
+
+If `gh` is missing or unauthenticated, do not stop the review. Fetch the PR head and review it against the base branch:
+
+```bash
+git fetch origin pull/<pr>/head:pr-<pr>
+git diff --stat origin/<base>...pr-<pr>
+git diff -U30 origin/<base>...pr-<pr>
+```
+
+State in the report that PR title, description, and review history were unavailable, and ask the user for the base branch if it cannot be inferred from the PR page or `git log`.
 
 ### 2. Build a mental map
 
@@ -204,6 +214,8 @@ When reviewing a PR and `gh` is available:
 1. Read PR metadata and changed files with `gh pr view`.
 2. Do not post PR comments unless the user explicitly asks.
 3. If asked to post, summarize findings first and ask for confirmation before `gh pr review` or `gh pr comment`.
+
+When `gh` is unavailable, review the fetched ref locally, report that metadata was unavailable, and tell the user that posting requires an authenticated `gh`. Never infer PR title, description, or review state from the diff alone.
 
 ## Quality Bar
 

@@ -49,6 +49,29 @@ playwright-cli delete-data                # delete default browser data
 playwright-cli -s=mysession delete-data   # delete named browser data
 ```
 
+## Attaching to a running browser
+
+Instead of launching a new browser, attach to one that is already running — useful for debugging a real session with its existing cookies, or for driving a browser started outside the CLI.
+
+```bash
+# Connect over the Chrome DevTools Protocol
+playwright-cli attach --cdp=http://localhost:9222
+
+# Connect to a Playwright browser server
+playwright-cli attach --endpoint=ws://localhost:3000
+
+# Connect through the browser extension
+playwright-cli attach --extension=chrome
+
+# Bind the attached browser to a session name
+playwright-cli attach --cdp=http://localhost:9222 --session=debug
+
+# Disconnect without closing the browser
+playwright-cli detach
+```
+
+`detach` leaves the browser running; `close` shuts down a browser the CLI launched itself.
+
 ## Environment Variable
 
 Set a default browser session name via environment variable:

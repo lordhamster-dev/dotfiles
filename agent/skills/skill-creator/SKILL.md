@@ -50,9 +50,13 @@ Ask where to install when unclear:
 
 Default to `~/.pi/agent/skills/` when the user says “for me”, “globally”, or asks to install a reusable personal skill. Default to `.pi/skills/` when the workflow is clearly project-specific.
 
-Pi also discovers skills from package skill directories and paths configured in settings. If Pi-specific behavior is uncertain, read:
+Pi also discovers skills from package skill directories and paths configured in settings. Pi's own docs ship inside the installed package, and the version changes on upgrade, so resolve the newest release at runtime instead of hardcoding a path:
 
-`/home/lordhamster/.nvm/versions/node/v22.22.0/lib/node_modules/@earendil-works/pi-coding-agent/docs/skills.md`
+```bash
+ls -d ~/.pi/agent/install/releases/*/ | sort -V | tail -1
+```
+
+Read `node_modules/@earendil-works/pi-coding-agent/docs/skills.md` under that directory when Pi-specific behavior is uncertain.
 
 ## Required structure
 
@@ -82,7 +86,7 @@ description: What this skill does and when to use it. Be specific.
 Rules:
 
 - `name` is required.
-- `name` must match the parent directory.
+- `name` should match the parent directory. Pi itself does not enforce this, but other Agent Skills implementations do, so matching keeps the skill portable.
 - `name` uses lowercase letters, digits, and hyphens only.
 - `name` must not start/end with a hyphen or contain consecutive hyphens.
 - `description` is required, non-empty, and under 1024 characters.

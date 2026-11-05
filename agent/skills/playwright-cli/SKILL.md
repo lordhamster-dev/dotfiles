@@ -40,10 +40,15 @@ playwright-cli drag e2 e8
 playwright-cli hover e4
 playwright-cli select e9 "option-value"
 playwright-cli upload ./document.pdf
+playwright-cli drop e9 --path=/tmp/report.pdf
+playwright-cli drop e9 --data="text/plain=hello"
 playwright-cli check e12
 playwright-cli uncheck e12
 playwright-cli snapshot
 playwright-cli snapshot --filename=after-click.yaml
+playwright-cli snapshot e5 --boxes
+playwright-cli find "Sign in"
+playwright-cli find --regex "Total: \\d+"
 playwright-cli eval "document.title"
 playwright-cli eval "el => el.textContent" e5
 playwright-cli dialog-accept
@@ -134,6 +139,29 @@ playwright-cli sessionstorage-clear
 
 ### Network
 
+Inspect traffic (numbered, so `request`/`response-*` can refer to one entry):
+
+```bash
+playwright-cli requests
+playwright-cli requests --filter="/api/.*user"
+playwright-cli requests --static --clear
+playwright-cli request 3
+playwright-cli request 3 --filename=request-3.json
+playwright-cli request-headers 3
+playwright-cli request-body 3
+playwright-cli response-headers 3
+playwright-cli response-body 3
+```
+
+Simulate connectivity loss:
+
+```bash
+playwright-cli network-state-set offline
+playwright-cli network-state-set online
+```
+
+Mock or block requests:
+
 ```bash
 playwright-cli route "**/*.jpg" --status=404
 playwright-cli route "https://api.example.com/**" --body='{"mock": true}'
@@ -147,12 +175,34 @@ playwright-cli unroute
 ```bash
 playwright-cli console
 playwright-cli console warning
-playwright-cli network
 playwright-cli run-code "async page => await page.context().grantPermissions(['geolocation'])"
+playwright-cli recording-start
+playwright-cli recording-stop
 playwright-cli tracing-start
 playwright-cli tracing-stop
 playwright-cli video-start
+playwright-cli video-chapter "Login" --description="credential entry" --duration=1500
+playwright-cli video-show-actions --duration=500 --position=top-right
+playwright-cli video-hide-actions
 playwright-cli video-stop video.webm
+playwright-cli show
+```
+
+### Locators and highlights
+
+```bash
+playwright-cli generate-locator e5
+playwright-cli highlight e5
+playwright-cli highlight --hide e5
+playwright-cli highlight --hide
+```
+
+### Test execution control
+
+```bash
+playwright-cli pause-at example.spec.ts:42
+playwright-cli resume
+playwright-cli step-over
 ```
 
 ## Open parameters
@@ -162,8 +212,11 @@ playwright-cli open --browser=chrome
 playwright-cli open --browser=firefox
 playwright-cli open --browser=webkit
 playwright-cli open --browser=msedge
-# Connect to browser via extension
-playwright-cli open --extension
+# Connect to a browser that is already running (CDP, Playwright server, or extension)
+playwright-cli attach --cdp=http://localhost:9222
+playwright-cli attach --endpoint=ws://localhost:3000
+playwright-cli attach --extension=chrome
+playwright-cli detach
 
 # Use persistent profile (by default profile is in-memory)
 playwright-cli open --persistent
@@ -208,10 +261,26 @@ playwright-cli -s=mysession close  # stop a named browser
 playwright-cli -s=mysession delete-data  # delete user data for persistent session
 
 playwright-cli list
+# Attach to a browser that is already running instead of launching one
+playwright-cli attach --cdp=http://localhost:9222
+playwright-cli detach
 # Close all browsers
 playwright-cli close-all
 # Forcefully kill all browser processes
 playwright-cli kill-all
+```
+
+## Installation
+
+```bash
+# Initialize the workspace and install the bundled agent skills
+playwright-cli install
+playwright-cli install --skills=agents --global
+
+# See which browsers are already installed, then install one
+playwright-cli install-browser --list
+playwright-cli install-browser chromium
+playwright-cli install-browser chromium --with-deps
 ```
 
 ## Local installation
@@ -254,7 +323,7 @@ playwright-cli open https://example.com
 playwright-cli click e4
 playwright-cli fill e7 "test"
 playwright-cli console
-playwright-cli network
+playwright-cli requests
 playwright-cli close
 ```
 
@@ -270,6 +339,7 @@ playwright-cli close
 ## Specific tasks
 
 * **Request mocking** [references/request-mocking.md](references/request-mocking.md)
+* **Network inspection** [references/network-inspection.md](references/network-inspection.md)
 * **Running Playwright code** [references/running-code.md](references/running-code.md)
 * **Browser session management** [references/session-management.md](references/session-management.md)
 * **Storage state (cookies, localStorage)** [references/storage-state.md](references/storage-state.md)

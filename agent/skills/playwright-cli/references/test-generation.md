@@ -86,3 +86,33 @@ await page.getByRole('button', { name: 'Submit' }).click();
 // Manual assertion
 await expect(page.getByText('Success')).toBeVisible();
 ```
+
+## Debugging a generated test
+
+When the generated test fails partway through, stop where it breaks and step through the rest:
+
+```bash
+# Run the test up to a location and pause there
+playwright-cli pause-at example.spec.ts:42
+
+# Step over the next call, or resume to the end
+playwright-cli step-over
+playwright-cli resume
+```
+
+Use `generate-locator` instead of hand-writing brittle selectors:
+
+```bash
+playwright-cli snapshot
+playwright-cli generate-locator e5
+# => page.getByRole('button', { name: 'Submit' })
+```
+
+Use `recording-start` / `recording-stop` to capture an ad-hoc interaction as Playwright code when you are not working from a test file:
+
+```bash
+playwright-cli recording-start
+playwright-cli click e5
+playwright-cli fill e7 "test"
+playwright-cli recording-stop
+```

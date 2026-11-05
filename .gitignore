@@ -25,3 +25,6 @@ tmux/plugins
 pi/agent/sessions
 pi/agent/auth.json
 pi/agent/npm
+
+# pi-unipi extension project state (migration ledger, per-project overrides)
+.unipi/

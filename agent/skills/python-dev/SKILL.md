@@ -1,236 +1,70 @@
 ---
 name: python-dev
-description: Guide Python development using the user's preferred stack and conventions. Use this skill whenever writing, reviewing, refactoring, testing, or designing Python code, especially when choosing libraries for logging, terminal output, environment config, notifications, dates/times, HTTP clients, dataframes, CLIs, validation, or tests.
+description: 按用户偏好的技术栈与项目约定编写、审查、重构、测试和设计 Python 代码。涉及 Python 开发、库选型、日志、终端输出、配置、通知、日期与时区、HTTP、表格处理、CLI、数据校验或质量检查时使用此技能。优先遵守项目 AGENTS.md 和现有实现，不为使用偏好库而无故引入依赖。
 ---
 
-# Python Development Guidelines
-
-Use this skill when helping with Python code. It captures the user's preferred package choices and practical conventions. Apply it as guidance, not as a reason to add dependencies unnecessarily.
-
-## Default assumptions
-
-- Prefer simple, explicit Python over over-engineered abstractions.
-- Preserve the project's existing style when it conflicts with these preferences.
-- Use type hints for public functions, data models, CLI entrypoints, and non-trivial logic.
-- Prefer `uv` for dependency management and Python tooling when the environment allows it.
-- Prefer `pathlib.Path` for filesystem paths in new code.
-- Prefer `ruff` for linting/formatting and `pyright` for type checking when the project has not already chosen alternatives.
-- Do not introduce a preferred package if the task can be solved cleanly with existing project dependencies.
-
-## Preferred package choices
-
-### Logging: `loguru`
-
-Use `loguru` for application logging when the project does not already standardize on `logging`.
-
-Guidelines:
-
-- Import with `from loguru import logger`.
-- Use structured, contextual messages rather than `print()`.
-- Prefer exception-aware logging:
-  ```python
-  try:
-      ...
-  except Exception:
-      logger.exception("Failed to process item")
-      raise
-  ```
-- For libraries, avoid surprising global logger configuration unless the project already does it.
-
-### Terminal output: `rich`
-
-Prefer `rich` for human-friendly terminal output, tables, progress bars, tracebacks, panels, and colored CLI messages.
-
-Guidelines:
-
-- Use `rich.print`, `Console`, `Table`, `Progress`, or `Panel` when output readability matters.
-- Keep `loguru` for logs and `rich` for user-facing terminal presentation.
-- Avoid excessive colors or decorative output in scripts that are likely to be piped or parsed.
-- For Typer apps, use Rich for formatted output when it improves clarity.
-
-### Configuration and environment variables: `pydantic-settings`
-
-Prefer `pydantic-settings` for structured application configuration: reading environment variables, loading local `.env` files, parsing types, applying defaults, and validating required settings.
-
-Use `python-dotenv` only for lightweight scripts or projects that simply need to load local `.env` values into `os.environ` without a structured settings model.
-
-Guidelines:
-
-- Import with `from pydantic_settings import BaseSettings, SettingsConfigDict` for Pydantic v2 projects.
-- Define a dedicated `Settings` model near application startup or configuration boundaries, not deep inside business logic.
-- Use `SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")` when local `.env` loading is desired.
-- Use `env_prefix` and `env_nested_delimiter` when settings need namespacing or nested models.
-- Use `SecretStr` / `SecretBytes` for sensitive settings that may appear in logs or repr output.
-- Read, validate, and document configuration explicitly; do not rely on scattered `os.getenv()` calls for application settings.
-- Do not commit real `.env` files or secrets.
-- Provide `.env.example` when adding new required environment variables.
-- Keep `python-dotenv` as the lighter fallback for small scripts, test setup, or projects that do not otherwise use Pydantic.
-
-### Notifications: `notifiers`
-
-Use `notifiers` for explicit user-facing notifications such as completion alerts, failure alerts, or operational signals.
-
-Guidelines:
-
-- Keep notification configuration outside source code when it contains credentials or endpoints.
-- Do not hardcode tokens, webhook URLs, or secrets.
-- Treat notification failures as non-critical unless the task is specifically about alerting reliability.
-
-### Dates and times: `arrow`
-
-Prefer `arrow` for user-facing datetime parsing, formatting, timezone handling, and relative date logic.
-
-Guidelines:
-
-- Be explicit about timezone assumptions.
-- Avoid naive datetimes for data interchange or persisted records.
-- For financial or China-local workflows, prefer `Asia/Shanghai` when the project context indicates it.
-- Convert to standard `datetime` only when required by APIs, databases, or libraries.
-
-### HTTP: `httpx`
-
-Prefer `httpx` for HTTP clients.
-
-Guidelines:
-
-- Use `httpx.Client` or `httpx.AsyncClient` for repeated requests.
-- Set timeouts explicitly.
-- Use `response.raise_for_status()` unless handling status codes intentionally.
-- Keep retry/backoff logic explicit or use the project's existing retry helper.
-- Do not disable TLS verification except for a clearly documented local/dev-only reason.
-
-Example:
-
-```python
-import httpx
-
-with httpx.Client(timeout=10.0) as client:
-    response = client.get(url)
-    response.raise_for_status()
-    data = response.json()
-```
-
-### Dataframes / tabular data: `polars`
-
-Prefer `polars` for dataframe-style transformations, CSV/Parquet IO, and larger tabular workloads.
-
-Guidelines:
-
-- Use lazy execution (`scan_*`, `.lazy()`) for large datasets or pipelines.
-- Use eager dataframes for small, simple transformations.
-- Prefer expression APIs over Python loops.
-- Be explicit about schemas and null handling when data quality matters.
-- Avoid converting to pandas unless an external API requires it.
-
-### CLI apps: `typer`
-
-Prefer `typer` for command-line interfaces.
-
-Guidelines:
-
-- Use typed function parameters as the CLI contract.
-- Keep command functions thin; delegate business logic to testable functions.
-- Use `typer.Option` and `typer.Argument` for clarity when defaults or help text matter.
-- Return clear exit behavior; raise `typer.Exit(code=...)` for intentional non-zero exits.
-
-### Validation and models: `pydantic`
-
-Prefer `pydantic` for structured inputs, API payloads, parsed records, and validation boundaries. Prefer `pydantic-settings` for application configuration.
-
-Guidelines:
-
-- Use models at system boundaries: config, API input/output, scraped records, messages, and persisted data.
-- Keep internal transformations simple; not every dict needs a model.
-- Prefer field validators for normalization and validation that belongs to the model.
-- Avoid swallowing validation errors; report them with enough context.
-- Follow the project's installed Pydantic major version conventions (`BaseModel`, `field_validator` for v2; `validator` for v1 if required by the project).
-
-### Filesystem paths: `pathlib`
-
-Prefer `pathlib.Path` for new filesystem code.
-
-Guidelines:
-
-- Accept `str | Path` at public boundaries when useful, then normalize with `Path(...)` internally.
-- Use `Path.read_text()`, `Path.write_text()`, `Path.open()`, `Path.iterdir()`, and `/` path joining instead of `os.path` for straightforward path work.
-- Keep `os`, `shutil`, or lower-level APIs when they are clearer or required for permissions, environment variables, process management, or platform-specific behavior.
-
-### Testing: `pytest`
-
-Prefer `pytest` for tests.
-
-Guidelines:
-
-- Add or update tests when fixing bugs or changing behavior.
-- Use small, focused tests with clear arrange/act/assert structure.
-- Use fixtures for reusable setup, not for hidden control flow.
-- Use `pytest.mark.parametrize` for input/output matrices.
-- Mock network, filesystem, time, and external services unless the test is explicitly an integration test.
-- Test CLI behavior with the project's existing runner style; for Typer projects, use `typer.testing.CliRunner` when appropriate.
-
-### Linting, formatting, and type checking: `ruff` + `pyright`
-
-Prefer `ruff` for linting and formatting, and `pyright` for static type checking, when the project has not standardized on another toolchain.
-
-Guidelines:
-
-- Run existing project commands first; otherwise prefer `uv run ruff check .`, `uv run ruff format .`, and `uv run pyright`.
-- Use `ruff check --fix` only for targeted, safe fixes; inspect non-trivial rewrites.
-- Do not reformat unrelated files during small bug fixes.
-- Treat type checker suppressions as last resorts; prefer narrowing types, small helper functions, or clearer data models.
-
-### Security-sensitive Python code
-
-Be extra cautious around subprocesses, file paths, deserialization, secrets, and network calls.
-
-Guidelines:
-
-- Prefer `subprocess.run([...], shell=False, check=True, timeout=...)` over shell strings.
-- Never pass untrusted input to `shell=True`; avoid `shell=True` unless there is a documented reason.
-- Avoid unsafe deserialization such as `pickle` or unsafe YAML loading for untrusted data.
-- Redact secrets from logs, exceptions, CLI output, test snapshots, and `.env.example` placeholders.
-- Validate user-controlled paths before reading, writing, deleting, or extracting archives.
-
-## Implementation workflow
-
-1. Inspect project conventions first: dependencies, `pyproject.toml`, existing imports, test layout, and style.
-2. Prefer the project's existing toolchain over adding new dependencies.
-3. If a preferred package is absent but clearly useful, mention the dependency addition before using it.
-4. Make surgical changes and preserve surrounding style.
-5. Verify with targeted tests or type/lint commands where practical.
-
-## Dependency management
-
-When adding packages in a `uv` project, prefer telling the user or using the project-approved command, typically:
-
-```bash
-uv add package-name
-```
-
-For dev-only tools:
-
-```bash
-uv add --dev package-name
-```
-
-Use `uv add --group <name> package-name` for named dependency groups such as `lint`, `test`, or `docs` when the project separates development tooling. Keep runtime dependencies in `[project.dependencies]`, optional public features in `[project.optional-dependencies]`, and internal development tools in `[dependency-groups]`.
-
-Do not manually edit lockfiles unless that is already the project convention.
-
-## Review checklist
-
-Before finishing Python work, check:
-
-- No `print()` left in application code unless intentionally part of CLI output.
-- HTTP calls have explicit timeouts.
-- Secrets are not hardcoded in code, tests, or examples.
-- Configuration uses `pydantic-settings` when structured validation is useful; lightweight `.env` loading remains local/dev-oriented and documented.
-- Sensitive settings use secret-aware types or explicit redaction where practical.
-- Terminal output uses `rich` only where it helps human readability.
-- Datetime timezone behavior is explicit where relevant.
-- Pydantic models match the installed version style.
-- Filesystem code uses `pathlib` where it improves clarity.
-- Subprocess and deserialization code avoids unsafe defaults.
-- Ruff/pyright or the project's equivalent checks are run when practical.
-- Tests cover changed behavior or the absence of tests is explained.
-- New dependencies are justified and documented.
+# Python 开发指南
+
+## 一、适用原则与执行顺序
+
+1. 先读项目及目标目录适用的 `AGENTS.md`，再检查 `pyproject.toml`、锁文件、相关实现、测试和文档。
+2. 在不违反上层指令的前提下，项目明确约定优先于本技能的默认偏好；沿用现有依赖、封装与工具链，不以个人偏好推动全局迁移。
+3. 优先简单、显式的实现。公共函数、数据模型、CLI 入口与复杂逻辑补全类型注解；语法与 API 必须兼容项目声明的 Python 和依赖版本。
+4. 修改前追踪调用方、数据流及故障边界；修复行为时同步测试，避免只修局部而破坏契约。
+5. 保持改动范围明确，不顺手重构、全库格式化或修改生成物、运行数据、虚拟环境。
+6. 新增依赖前说明用途并确认现有依赖或标准库不能清晰解决；不为了使用偏好库而引入依赖。
+7. 按下面的读取条件加载参考文档，只读任务需要的文件或章节，不默认加载全部参考文档。
+8. 完成前按改动范围执行必要的测试与质量检查，同步受影响的文档和配置；报告改动与实际验证结果，明确未运行的检查、原因及残余风险，不将未验证描述为通过。
+
+## 二、默认风格与工具链
+
+- 类名使用 PascalCase；函数、方法、变量与文件使用 snake_case；常量使用 UPPER_CASE。
+- 使用 4 空格缩进；行宽、导入规则与检查范围以项目配置为准。无既定配置时可采用行宽 100。
+- 默认使用绝对导入，按标准库、第三方、本地包分组；已有项目结构另有要求时遵循项目约定。
+- 优先使用 `uv` 管理依赖和运行工具，`ruff` 检查与格式化，`pyright` 做静态类型检查，`pytest` 做测试。
+- 不随意增加类型抑制；先通过类型收窄、明确的数据模型或小型辅助函数解决问题，不引入新的类型检查错误。
+
+### 注释与可读性
+
+- 在有助于理解的位置添加注释，让读者容易理解代码的意图、约束与关键决策；代码本身含义明确时不必添加注释。
+- 优先解释“为什么这样做”，例如业务规则、非显然的边界条件、算法取舍、外部系统限制或兼容性处理，不逐行复述代码“做了什么”。
+- 先用清晰的命名、合理的函数拆分和直接的控制流提升可读性，不用大量注释弥补难以理解的实现。
+- 公共接口或复杂函数在名称与类型注解不足以说明契约时，补充 docstring，说明必要的参数语义、返回值、异常或副作用；不机械重复签名。
+- 注释与 docstring 默认使用中文，专业名词可使用英文；项目有既定语言约定时遵循项目约定。
+- 修改逻辑时同步更新相关注释，删除过时、误导或冗余的说明。
+
+## 三、个人选型偏好
+
+仅在项目没有既定方案且确有需要时采用以下默认选型，详细约定按需读取。
+
+| 场景             | 默认偏好                                                  |
+| ---------------- | --------------------------------------------------------- |
+| 应用日志         | `loguru`；复用项目 logger，日志与 CLI 输出分离            |
+| 面向人的终端输出 | `rich`；机器可读输出保持稳定                              |
+| 结构化配置       | `pydantic-settings`；轻量 `.env` 加载可用 `python-dotenv` |
+| 显式用户通知     | `notifiers`；普通通知失败不覆盖任务结果                   |
+| HTTP 客户端      | `httpx`；显式超时、复用连接并释放资源                     |
+| 表格数据         | `polars`；不为偏好迁移现有 pandas 工作流                  |
+| 命令行应用       | `typer`；入口轻量、业务逻辑可测试                         |
+| 边界校验与模型   | `pydantic`；遵循已安装主版本，不滥建模型                  |
+| 文件系统路径     | 标准库 `pathlib.Path`；文本读写显式指定编码               |
+| 日期处理         | `arrow` 用于输入输出边界；领域模型优先使用标准库日期类型  |
+
+## 四、参考文档读取条件
+
+以下路径均相对于本技能目录。满足条件时在相关实现或验证前读取；同一任务已读且内容未变时不必重复读取。
+
+| 读取条件                                                                          | 文档与内容                                                                                      |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 选择依赖，或编写、审查涉及偏好库的代码                                            | [常用库使用细则](references/libraries.md)：按涉及的库读取对应章节                               |
+| 处理日期解析、时间计算、时区转换、时间戳、查询日期范围或时间存储                  | [日期与时区细则](references/datetime.md)：类型、时区、精度、区间与边界测试                      |
+| 添加或更新依赖、编写测试、处理子进程/不可信路径/反序列化/密钥，或进行代码交付验证 | [依赖、测试与安全细则](references/quality.md)：按任务读取依赖管理、测试与质量检查或安全检查章节 |
+
+## 五、资源管理与异常处理
+
+- 文件、连接、客户端等优先通过 `with` / `async with` 管理；没有上下文管理器时使用 `try/finally`，确保异常路径也释放资源。
+- 区分输入校验失败、业务失败和外部服务故障，分别选择提示、重试、回滚或向上抛出，不用宽泛的异常捕获掩盖问题。
+- 重试要有次数或时间上限；先确认操作可安全重试，避免重复执行有副作用的操作。
+- 涉及事务、批处理或后台任务时，明确成功确认、部分失败、取消和清理的行为；不能在清理阶段把未完成操作标记为成功。
+- 使用队列或并发处理时，按需设置并发上限、队列容量和超时，避免无界资源增长；不为简单脚本强加异步或消息架构。
+- 日志、通知与监控失败不能掩盖原始异常；保留可靠的错误传播与退出状态。

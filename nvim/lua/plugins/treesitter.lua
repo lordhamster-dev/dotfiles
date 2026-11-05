@@ -1,6 +1,22 @@
+-- Register before vim.pack.add() so the first installation is covered too.
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = vim.api.nvim_create_augroup("UserTreesitterUpdate", { clear = true }),
+  callback = function(ev)
+    local data = ev.data
+    if data.spec.name ~= "nvim-treesitter" or (data.kind ~= "install" and data.kind ~= "update") then
+      return
+    end
+
+    if not data.active then
+      vim.cmd.packadd("nvim-treesitter")
+    end
+    -- Equivalent to :TSUpdate: refresh all installed parsers, not just missing ones.
+    require("nvim-treesitter").update(nil, { summary = true })
+  end,
+})
+
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/norcalli/nvim-colorizer.lua" },
 })
 
 local ensure_installed = {
@@ -23,6 +39,7 @@ local ensure_installed = {
   "svelte",
   "gdscript",
 }
+-- Normal startup only installs missing parsers; updates run via PackChanged.
 require("nvim-treesitter").install(ensure_installed)
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -43,22 +60,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
     pcall(vim.treesitter.start, buf, lang)
   end,
-})
-
-require("colorizer").setup({
-  filetypes = { "css", "scss", "html", "astro" },
-  user_default_options = {
-    RGB = true, -- #RGB hex codes
-    RRGGBB = true, -- #RRGGBB hex codes
-    names = true, -- "Name" codes like Blue or blue
-    RRGGBBAA = false, -- #RRGGBBAA hex codes
-    AARRGGBB = false, -- 0xAARRGGBB hex codes
-    rgb_fn = false, -- CSS rgb() and rgba() functions
-    hsl_fn = false, -- CSS hsl() and hsla() functions
-    css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-    css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-    mode = "background", -- Set the display mode.Available modes for `mode`: foreground,background,virtualtext
-    virtualtext = "■",
-    tailwind = true,
-  },
 })

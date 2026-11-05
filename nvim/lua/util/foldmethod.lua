@@ -54,9 +54,9 @@ function M.foldexpr()
 		return "0"
 	end
 
-	local ok = pcall(vim.treesitter.get_parser, buf)
+	local ok, parser = pcall(vim.treesitter.get_parser, buf)
 
-	if ok then
+	if ok and parser then
 		-- if vim.bo[buf].filetype == "markdown" then
 		--   vim.api.nvim_set_hl(0, "Folded", { link = "Comment" })
 		-- end
@@ -85,36 +85,43 @@ local function pad_to_eol(str)
 	end
 end
 
-local function fold_virt_text(result, start_text, lnum)
-	-- extmarks highlight
+local function fold_virt_text(start_text, lnum)
 	local ns_id = vim.api.nvim_get_namespaces()["render-markdown.nvim"]
-	local extmarks = vim.api.nvim_buf_get_extmarks(0, ns_id, { lnum, 0 }, { lnum, 0 }, { details = true })
-	local details = extmarks[#extmarks][4] or {}
-	local ext_hl_str
-	if details then
-		ext_hl_str = details.hl_group
+	if not ns_id then
+		return start_text
 	end
 
-	-- ts highlight
-	local captured_highlights = vim.treesitter.get_captures_at_pos(0, lnum, 0)
-	local ts_hl_str = "@" .. captured_highlights[#captured_highlights].capture .. ".markdown"
-	ts_hl_str = vim.api.nvim_get_hl(0, { name = ts_hl_str, link = true }).link
+	local extmarks = vim.api.nvim_buf_get_extmarks(0, ns_id, { lnum, 0 }, { lnum, -1 }, { details = true })
+	local mark = extmarks[#extmarks]
+	local ext_hl_str = mark and mark[4] and mark[4].hl_group
+	if not ext_hl_str then
+		return start_text
+	end
 
-	-- merge highlight
-	local ext_hl = vim.api.nvim_get_hl(0, { name = ext_hl_str })
-	local ts_hl = vim.api.nvim_get_hl(0, { name = ts_hl_str })
+	local ok, captures = pcall(vim.treesitter.get_captures_at_pos, 0, lnum, 0)
+	local capture = ok and captures and captures[#captures]
+	if not capture then
+		return start_text
+	end
 
-	-- Create a combined group
+	-- Resolve links to the actual colors, including non-linked highlight groups.
+	local ts_hl_str = "@" .. capture.capture .. "." .. (capture.lang or "markdown")
+	local ext_hl = vim.api.nvim_get_hl(0, { name = ext_hl_str, link = false, create = false })
+	local ts_hl = vim.api.nvim_get_hl(0, { name = ts_hl_str, link = false, create = false })
+	if not ext_hl.bg or not ts_hl.fg then
+		return start_text
+	end
+
 	vim.api.nvim_set_hl(0, "MyMergedHL", { fg = ts_hl.fg, bg = ext_hl.bg })
-	vim.api.nvim_set_hl(0, "MyInvertMergeHL", { fg = ext_hl.bg, bg = nil })
-	table.insert(result, { pad_to_eol(start_text), "MyMergedHL" })
+	return { { pad_to_eol(start_text), "MyMergedHL" } }
 end
 
 function M.markdown_foldtext()
 	local start_text = vim.fn.getline(vim.v.foldstart):gsub("\t", string.rep(" ", vim.o.tabstop))
-	local result = {}
-	fold_virt_text(result, start_text, vim.v.foldstart - 1)
-	return result
+	if vim.bo.filetype ~= "markdown" then
+		return start_text
+	end
+	return fold_virt_text(start_text, vim.v.foldstart - 1)
 end
 
 -- Function to fold all headings of a specific level

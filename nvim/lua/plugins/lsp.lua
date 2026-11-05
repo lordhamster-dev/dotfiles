@@ -41,25 +41,30 @@ require("mason").setup({
   max_concurrent_installers = 4,
 })
 
+-- Mason installs these servers; vim.lsp.enable() below controls activation.
+local mason_servers = {
+  "lua_ls",
+  "pyright",
+  "biome",
+  "ruff",
+  "clangd",
+  "html",
+  "emmet_ls",
+  "cssls",
+  "tailwindcss",
+  "ts_ls",
+  "angularls",
+  "bashls",
+  "jsonls",
+  "yamlls",
+  "astro",
+  "svelte",
+  "markdown_oxide",
+}
+
 require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls",
-    "pyright",
-    "clangd",
-    "html",
-    "emmet_ls",
-    "cssls",
-    "tailwindcss",
-    "ts_ls",
-    "angularls",
-    "bashls",
-    "jsonls",
-    "yamlls",
-    "astro",
-    "svelte",
-    "markdown_oxide",
-  },
-  automatic_installation = true,
+  ensure_installed = mason_servers,
+  automatic_enable = false,
 })
 
 require("mason-tool-installer").setup({
@@ -67,8 +72,7 @@ require("mason-tool-installer").setup({
     "clang-format", -- c,cpp formatter
     "prettier", -- prettier formatter
     "stylua", -- lua formatter
-    "biome", -- js linter
-    "ruff", -- python linter
+    -- biome and ruff are installed as LSP servers above (also used by Conform).
     "gdscript-formatter",
   },
 })
@@ -101,25 +105,9 @@ vim.lsp.config("gdscript", {
   root_markers = { "project.godot" },
 })
 
-vim.lsp.enable({
-  "lua_ls",
-  "pyright",
-  "biome",
-  "ruff",
-  "clangd",
-  "html",
-  "emmet_ls",
-  "cssls",
-  "tailwindcss",
-  "ts_ls",
-  "angularls",
-  "bashls",
-  "jsonls",
-  "yamlls",
-  "astro",
-  "markdown_oxide",
-  "gdscript",
-})
+-- Godot supplies its own LSP endpoint; Mason does not install it.
+local enabled_servers = vim.list_extend(vim.deepcopy(mason_servers), { "gdscript" })
+vim.lsp.enable(enabled_servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),

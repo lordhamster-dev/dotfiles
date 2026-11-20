@@ -105,7 +105,7 @@ proxy_on() {
     export https_proxy="http://127.0.0.1:${port}"
     export ws_proxy="http://127.0.0.1:${port}"
     export wss_proxy="http://127.0.0.1:${port}"
-    export all_proxy="socks5://127.0.0.1:${port}"
+    export all_proxy="http://127.0.0.1:${port}"
     export no_proxy="localhost,127.0.0.1,127.0.0.10/8,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localaddress,.localdomain.com"
     export HTTP_PROXY=$http_proxy
     export HTTPS_PROXY=$https_proxy
